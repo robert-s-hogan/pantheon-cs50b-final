@@ -1,14 +1,36 @@
-/*
- Theme Name:   Understrap Child
- Theme URI:    https://understrap.com
- Description:  Understrap Child Theme
- Author:       the Understrap Contributors
- Author URI:   https://github.com/understrap/understrap-child/graphs/contributors
- Template:     understrap
- Version:      1.2.0
- License: GNU General Public License v2 or later
- License URI: http://www.gnu.org/licenses/gpl-2.0.html
- Text Domain:  understrap-child
- Tags: one-column, custom-menu, featured-images, theme-options, translation-ready
- GitHub Theme URI: understrap/understrap-child
-*/
+.card {
+  background-color: #ffffff;
+  border: 2px solid #0047ab;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+  background-color: #0047ab;
+  border: none;
+  border-radius: 30px;
+  padding: 0.75rem 1.5rem;
+  color: #ffffff;
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s;
+}
+.btn-primary:hover {
+  background-color: #003278;
+}
+
+.btn-warning {
+  background-color: #ffcc00;
+  border: none;
+  color: #000000;
+  font-weight: bold;
+}
+.btn-warning:hover {
+  background-color: #cca300;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,45 @@
+// Import variables
+@import "child_theme_variables";
+
+// Custom Card Styles
+.card {
+  background-color: $light;
+  border: 2px solid $primary;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Custom Button Primary
+.btn-primary {
+  background-color: $primary;
+  border: none;
+  border-radius: 30px;
+  padding: 0.75rem 1.5rem;
+  color: $light;
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s;
+
+  &:hover {
+    background-color: darken($primary, 10%);
+  }
+}
+
+// Custom Button Warning (Yellow)
+.btn-warning {
+  background-color: $warning;
+  border: none;
+  color: $dark;
+  font-weight: bold;
+
+  &:hover {
+    background-color: darken($warning, 10%);
+  }
+}
