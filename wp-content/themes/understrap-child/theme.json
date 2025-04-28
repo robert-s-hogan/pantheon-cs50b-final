@@ -10,5 +10,15 @@
         { "slug": "dark", "color": "#000000", "name": "Black" }
       ]
     }
+  },
+  "patternCategories": {
+    "hero": { "label": "Hero Sections" }
+  },
+  "patterns": {
+    "understrap-child/hero-full": {
+      "title": "Full-width Hero",
+      "categories": ["hero"],
+      "content": "<!-- wp:group {\"align\":\"full\",\"style\":{\"spacing\":{\"padding\":{\"top\":\"5rem\",\"bottom\":\"5rem\"}}},\"backgroundImage\":{\"url\":\"{{ stylesheet_directory_uri }}/images/hero.jpg\"}} --><div class=\"wp-block-group alignfull\" style=\"padding-top:5rem;padding-bottom:5rem;background-image:url({{ stylesheet_directory_uri }}/images/hero.jpg)\"><!-- wp:heading {\"textAlign\":\"center\"} --><h2 class=\"has-text-align-center\">Your Hero Title</h2><!-- /wp:heading --><!-- wp:paragraph {\"align\":\"center\"} --><p class=\"has-text-align-center\">Subheading or call-to-action copy.</p><!-- /wp:paragraph --></div><!-- /wp:group -->"
+    }
   }
 }

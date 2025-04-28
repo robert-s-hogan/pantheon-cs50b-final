@@ -7,82 +7,85 @@
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
+require get_stylesheet_directory() . '/inc/block-patterns.php';
 
 
-
-/**
- * Removes the parent themes stylesheet and scripts from inc/enqueue.php
- */
-function understrap_remove_scripts() {
-	wp_dequeue_style( 'understrap-styles' );
-	wp_deregister_style( 'understrap-styles' );
-
-	wp_dequeue_script( 'understrap-scripts' );
-	wp_deregister_script( 'understrap-scripts' );
-}
 add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
-
-
-
-/**
- * Enqueue our stylesheet and javascript file
- */
-function theme_enqueue_styles() {
-
-	// Get the theme data.
-	$the_theme = wp_get_theme();
-
-	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-	// Grab asset urls.
-	$theme_styles  = "/css/child-theme{$suffix}.css";
-	$theme_scripts = "/js/child-theme{$suffix}.js";
-
-	wp_enqueue_style( 'child-understrap-styles', get_stylesheet_directory_uri() . $theme_styles, array(), $the_theme->get( 'Version' ) );
-	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'child-understrap-scripts', get_stylesheet_directory_uri() . $theme_scripts, array(), $the_theme->get( 'Version' ), true );
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+function understrap_remove_scripts() {
+  wp_dequeue_style(  'understrap-styles' );
+  wp_deregister_style( 'understrap-styles' );
+  wp_dequeue_script( 'understrap-scripts' );
+  wp_deregister_script( 'understrap-scripts' );
 }
+
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+function theme_enqueue_styles() {
+  $the_theme     = wp_get_theme();
+  $suffix        = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+  $style_path    = "/css/child-theme{$suffix}.css";
+  $script_path   = "/js/child-theme{$suffix}.js";
 
+  wp_enqueue_style( 'child-understrap-styles',
+    get_stylesheet_directory_uri() . $style_path,
+    [], // no dependencies
+    $the_theme->get( 'Version' )
+  );
 
+  wp_enqueue_script( 'jquery' );
+  wp_enqueue_script( 'child-understrap-scripts',
+    get_stylesheet_directory_uri() . $script_path,
+    [], // no deps beyond jquery
+    $the_theme->get( 'Version' ),
+    true
+  );
 
-/**
- * Load the child theme's text domain
- */
-function add_child_theme_textdomain() {
-	load_child_theme_textdomain( 'understrap-child', get_stylesheet_directory() . '/languages' );
+  if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+    wp_enqueue_script( 'comment-reply' );
+  }
 }
+
 add_action( 'after_setup_theme', 'add_child_theme_textdomain' );
+function add_child_theme_textdomain() {
+  load_child_theme_textdomain( 'understrap-child',
+    get_stylesheet_directory() . '/languages' );
+}
 
-
-
-/**
- * Overrides the theme_mod to default to Bootstrap 5
- *
- * This function uses the `theme_mod_{$name}` hook and
- * can be duplicated to override other theme settings.
- *
- * @return string
- */
+add_filter( 'theme_mod_understrap_bootstrap_version',
+  'understrap_default_bootstrap_version', 20 );
 function understrap_default_bootstrap_version() {
-	return 'bootstrap5';
+  return 'bootstrap5';
 }
-add_filter( 'theme_mod_understrap_bootstrap_version', 'understrap_default_bootstrap_version', 20 );
 
-
-
-/**
- * Loads javascript for showing customizer warning dialog.
- */
+add_action( 'customize_controls_enqueue_scripts',
+  'understrap_child_customize_controls_js' );
 function understrap_child_customize_controls_js() {
-	wp_enqueue_script(
-		'understrap_child_customizer',
-		get_stylesheet_directory_uri() . '/js/customizer-controls.js',
-		array( 'customize-preview' ),
-		'20130508',
-		true
-	);
+  wp_enqueue_script(
+    'understrap_child_customizer',
+    get_stylesheet_directory_uri() . '/js/customizer-controls.js',
+    [ 'customize-preview' ],
+    '20130508',
+    true
+  );
 }
-add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_controls_js' );
+
+add_action( 'customize_register', 'understrap_child_customize_register' );
+function understrap_child_customize_register( $wp_customize ) {
+  $wp_customize->add_section( 'hero_section', [
+    'title'    => __( 'Hero Settings', 'understrap-child' ),
+    'priority' => 30,
+  ] );
+
+  $wp_customize->add_setting( 'understrap_child_hero_image' );
+  $wp_customize->add_control( new WP_Customize_Image_Control(
+    $wp_customize, 'understrap_child_hero_image', [
+      'label'   => __( 'Hero Background', 'understrap-child' ),
+      'section' => 'hero_section',
+  ] ) );
+
+  $wp_customize->add_setting( 'understrap_child_hero_title',
+    [ 'default' => 'Welcome!' ] );
+  $wp_customize->add_control( 'understrap_child_hero_title', [
+    'label'   => __( 'Hero Title', 'understrap-child' ),
+    'section' => 'hero_section',
+  ] );
+}
