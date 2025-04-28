@@ -50,3 +50,9 @@ phpcs.xml
 dist/
 dist-product/
 **/img
+
+# Ignore generated Sass files
+src/sass/assets/
+*.css.map
+understrap-child/src/sass/*.css
+understrap-child/src/sass/**/*.css
