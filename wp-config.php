@@ -73,7 +73,6 @@ if ( ! defined( 'WP_DEBUG' ) ) {
 	define('WP_DEBUG', false);
 }
 
-define( 'WP_DEBUG', true );
 define( 'WP_DEBUG_DISPLAY', true );
 
 /* That's all, stop editing! Happy Pressing. */
