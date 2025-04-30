@@ -15400,4 +15400,18 @@ section.section--tight {
   padding: 3rem 0;
 }
 
+section.section--narrow {
+  padding: 0;
+}
+
+/* Hide entry title on front page */
+.home .entry-header {
+  display: none;
+}
+
+.wp-block-group.section-pad {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
 /*# sourceMappingURL=child-theme.css.map */
