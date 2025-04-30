@@ -43,24 +43,24 @@ if ( ! function_exists( 'understrap_child_register_block_patterns' ) ) :
               'content'    => sprintf(
                 '<!-- wp:cover {"url":"%1$s","dimRatio":50,"isDark":false,"align":"full"} -->' .
                   '<div class="wp-block-cover alignfull has-background-dim" style="background-image:url(%1$s)">' .
-                    '<div class="wp-block-cover__inner-container">' .
-                      '<!-- wp:heading {"textAlign":"center"} -->' .
-                      '<h1 class="has-text-align-center">Welcome to Whited PTO</h1>' .
+                    '<div class="wp-block-cover__inner-container text-white">' .
+                      '<!-- wp:heading {"textAlign":"center","className":"text-white"} -->' .
+                      '<h1 class="has-text-align-center text-white">Welcome to Whited PTO</h1>' .
                       '<!-- /wp:heading -->' .
-                      '<!-- wp:paragraph {"align":"center"} -->' .
-                      '<p class="has-text-align-center">Supporting Our Students, Empowering Our Community</p>' .
+                      '<!-- wp:paragraph {"align":"center","className":"text-white"} -->' .
+                      '<p class="has-text-align-center text-white">Supporting Our Students, Empowering Our Community</p>' .
                       '<!-- /wp:paragraph -->' .
                       '<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->' .
                         '<div class="wp-block-buttons">' .
-                          '<!-- wp:button {"backgroundColor":"primary"} -->' .
-                            '<div class="wp-block-button"><a class="wp-block-button__link has-primary-background-color has-background">Get Involved</a></div>' .
+                          '<!-- wp:button {"className":"btn btn-primary text-white"} -->' .
+                            '<div class="wp-block-button"><a class="wp-block-button__link btn btn-primary text-white">Get Involved</a></div>' .
                           '<!-- /wp:button -->' .
                         '</div>' .
                       '<!-- /wp:buttons -->' .
                     '</div>' .
                   '</div>' .
                 '<!-- /wp:cover -->',
-                esc_url( get_stylesheet_directory_uri() . '/images/hero-default.jpeg' )
+                esc_url( get_stylesheet_directory_uri() . '/images/hero-default.jpg' )
               ),
             ]
           );
