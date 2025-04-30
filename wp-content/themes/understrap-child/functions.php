@@ -89,3 +89,43 @@ function understrap_child_customize_register( $wp_customize ) {
     'section' => 'hero_section',
   ] );
 }
+
+/**
+ * 1) Register “Heading” dynamic block so Gutenberg uses our atom.
+ */
+function understrap_child_register_heading_block() {
+  // Bail if the WP block API isn’t available yet.
+  if ( ! function_exists( 'register_block_type' ) ) {
+    return;
+  }
+
+  register_block_type( 'understrap-child/heading', [
+    // 2) Define the attributes your block will accept in the editor:
+    'attributes'      => [
+      'level'     => [
+        'type'    => 'number',
+        'default' => 2,            // <h2> by default
+      ],
+      'text'      => [
+        'type'    => 'string',
+        'default' => '',           // empty until the user types
+      ],
+      'className' => [
+        'type'    => 'string',
+        'default' => '',           // extra CSS classes
+      ],
+    ],
+    // 3) Every time this block is rendered on the frontend, call our PHP partial:
+    'render_callback' => function( $attrs ) {
+      // Map block attributes → partial arguments:
+      $args = [
+        'level' => $attrs['level'],
+        'text'  => $attrs['text'],
+        'class' => $attrs['className'],
+      ];
+      // This will run template-parts/atoms/heading.php with $args
+      get_template_part( 'template-parts/atoms/heading', null, $args );
+    },
+  ] );
+}
+add_action( 'init', 'understrap_child_register_heading_block' );
