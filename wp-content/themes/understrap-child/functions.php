@@ -100,32 +100,27 @@ function understrap_child_register_heading_block() {
   }
 
   register_block_type( 'understrap-child/heading', [
-    // 2) Define the attributes your block will accept in the editor:
-    'attributes'      => [
-      'level'     => [
-        'type'    => 'number',
-        'default' => 2,            // <h2> by default
-      ],
-      'text'      => [
-        'type'    => 'string',
-        'default' => '',           // empty until the user types
-      ],
-      'className' => [
-        'type'    => 'string',
-        'default' => '',           // extra CSS classes
-      ],
+    // ← make it show up in the inserter:
+    'title'          => __( 'Bootstrap Heading', 'understrap-child' ),
+    'category'       => 'text',           // puts it alongside other text blocks
+    'icon'           => 'editor-heading', // the H-icon you’re used to
+    'attributes'     => [
+      'level'     => [ 'type' => 'number', 'default' => 2 ],
+      'text'      => [ 'type' => 'string', 'default' => '' ],
+      'className' => [ 'type' => 'string', 'default' => '' ],
     ],
-    // 3) Every time this block is rendered on the frontend, call our PHP partial:
-    'render_callback' => function( $attrs ) {
-      // Map block attributes → partial arguments:
-      $args = [
-        'level' => $attrs['level'],
-        'text'  => $attrs['text'],
-        'class' => $attrs['className'],
-      ];
-      // This will run template-parts/atoms/heading.php with $args
-      get_template_part( 'template-parts/atoms/heading', null, $args );
+    'render_callback'=> function( $attrs ) {
+      get_template_part(
+        'template-parts/atoms/heading',
+        null,
+        [
+          'level' => $attrs['level'],
+          'text'  => $attrs['text'],
+          'class' => $attrs['className'],
+        ]
+      );
     },
   ] );
+  
 }
 add_action( 'init', 'understrap_child_register_heading_block' );
