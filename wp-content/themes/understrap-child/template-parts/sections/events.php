@@ -1,6 +1,8 @@
 <?php
 /*  template-parts/sections/events.php  */
 ?>
+<?php /* EVENTS PARTIAL LOADED */ ?>
+
 
 <section id="featured-events" class="section section--tight">
   <div class="container">

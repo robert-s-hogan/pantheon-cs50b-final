@@ -1,6 +1,8 @@
 <?php
 /*  template-parts/sections/why.php  */
 ?>
+<?php /* WHY PARTIAL LOADED */ ?>
+
 
 <section id="why-get-involved" class="section section--tight text-center">
   <div class="container">
