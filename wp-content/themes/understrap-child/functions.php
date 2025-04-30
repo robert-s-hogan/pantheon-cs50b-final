@@ -16,40 +16,6 @@ add_action( 'init', function() {
     remove_theme_support( 'core-block-patterns' );
 }, 5 );
 
-/**
- * 2) Register our “Bootstrap Heading” atom as a dynamic block.
- */
-add_action( 'init', 'understrap_child_register_heading_block' );
-function understrap_child_register_heading_block() {
-    if ( ! function_exists( 'register_block_type' ) ) {
-        return;
-    }
-
-    register_block_type( 'understrap-child/heading', [
-        'title'       => __( 'Bootstrap Heading', 'understrap-child' ),
-        'description' => __( 'A Bootstrap-styled H1–H6 heading', 'understrap-child' ),
-        'category'    => 'text',
-        'icon'        => 'editor-heading',
-        'keywords'    => [ 'bootstrap', 'heading', 'title', 'h1', 'h2' ],
-        'attributes'  => [
-            'level'     => [ 'type' => 'number', 'default' => 2 ],
-            'text'      => [ 'type' => 'string', 'default' => '' ],
-            'className' => [ 'type' => 'string', 'default' => '' ],
-        ],
-        'render_callback' => function( $attrs ) {
-            get_template_part(
-                'template-parts/atoms/heading',
-                null,
-                [
-                    'level' => $attrs['level'],
-                    'text'  => $attrs['text'],
-                    'class' => $attrs['className'],
-                ]
-            );
-        },
-    ] );
-}
-
 
 /**
  * 3) Load your custom block patterns.

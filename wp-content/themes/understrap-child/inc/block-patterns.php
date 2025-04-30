@@ -41,15 +41,21 @@ if ( ! function_exists( 'understrap_child_register_block_patterns' ) ) :
               'title'      => __( 'Full-width Hero', 'understrap-child' ),
               'categories' => [ 'hero' ],
               'content'    => sprintf(
-                '<!-- wp:cover {"url":"%1$s","dimRatio":50,"isDark":false,"align":"full"} -->' .
+                '<!-- wp:cover {"url":"%1$s","dimRatio":50,"align":"full"} -->' .
                   '<div class="wp-block-cover alignfull has-background-dim" style="background-image:url(%1$s)">' .
                     '<div class="wp-block-cover__inner-container text-white">' .
-                      '<!-- wp:heading {"textAlign":"center","className":"text-white"} -->' .
-                      '<h1 class="has-text-align-center text-white">Welcome to Whited PTO</h1>' .
+                      
+                      // Core Heading block with Bootstrap H1 styling
+                      '<!-- wp:heading {"level":1,"align":"center","className":"h1 text-white"} -->' .
+                        '<h1 class="h1 text-white has-text-align-center">%2$s</h1>' .
                       '<!-- /wp:heading -->' .
+          
+                      // Core Paragraph block
                       '<!-- wp:paragraph {"align":"center","className":"text-white"} -->' .
-                      '<p class="has-text-align-center text-white">Supporting Our Students, Empowering Our Community</p>' .
+                        '<p class="has-text-align-center text-white">%3$s</p>' .
                       '<!-- /wp:paragraph -->' .
+          
+                      // Core Buttons + Button block
                       '<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->' .
                         '<div class="wp-block-buttons">' .
                           '<!-- wp:button {"className":"btn btn-primary text-white"} -->' .
@@ -57,16 +63,17 @@ if ( ! function_exists( 'understrap_child_register_block_patterns' ) ) :
                           '<!-- /wp:button -->' .
                         '</div>' .
                       '<!-- /wp:buttons -->' .
+          
                     '</div>' .
                   '</div>' .
                 '<!-- /wp:cover -->',
-                esc_url( get_stylesheet_directory_uri() . '/images/hero-default.jpeg' )
+                esc_url( get_stylesheet_directory_uri() . '/images/hero-default.jpeg' ),
+                esc_html( get_theme_mod( 'understrap_child_hero_title', 'Welcome to Whited PTO' ) ),
+                esc_html( 'Supporting Our Students, Empowering Our Community' )
               ),
             ]
           );
-          
-
-		/* -------------------------------------------------------------
+                  /* -------------------------------------------------------------
 		 * 2.  Featured events list  (existing)
 		 * ----------------------------------------------------------- */
         register_block_pattern(
