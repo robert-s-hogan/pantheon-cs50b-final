@@ -35,28 +35,36 @@ if ( ! function_exists( 'understrap_child_register_block_patterns' ) ) :
 		/* -------------------------------------------------------------
 		 * 1.  Full-width hero  (existing)
 		 * ----------------------------------------------------------- */
-		register_block_pattern(
-			'understrap-child/hero-full',
-			[
-				'title'      => __( 'Full-width Hero', 'understrap-child' ),
-				'categories' => [ 'hero' ],
-				'content'    => <<<'HTML'
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"4rem","bottom":"4rem"}}},"backgroundColor":"light"} -->
-<div class="wp-block-group alignfull has-light-background-color has-background" style="padding-top:4rem;padding-bottom:4rem">
-	<!-- wp:heading {"textAlign":"center","level":1} -->
-	<h1 class="has-text-align-center">Welcome to Whited PTO</h1><!-- /wp:heading -->
-
-	<!-- wp:paragraph {"align":"center"} -->
-	<p class="has-text-align-center">Supporting Our Students, Empowering Our Community</p><!-- /wp:paragraph -->
-
-	<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
-	<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"primary"} -->
-		<div class="wp-block-button"><a class="wp-block-button__link has-primary-background-color has-background">Get Involved</a></div>
-		<!-- /wp:button --></div><!-- /wp:buttons -->
-</div><!-- /wp:group -->
-HTML
-			]
-		);
+        register_block_pattern(
+            'understrap-child/hero-full',
+            [
+              'title'      => __( 'Full-width Hero', 'understrap-child' ),
+              'categories' => [ 'hero' ],
+              'content'    => sprintf(
+                '<!-- wp:cover {"url":"%1$s","dimRatio":50,"isDark":false,"align":"full"} -->' .
+                  '<div class="wp-block-cover alignfull has-background-dim" style="background-image:url(%1$s)">' .
+                    '<div class="wp-block-cover__inner-container">' .
+                      '<!-- wp:heading {"textAlign":"center"} -->' .
+                      '<h1 class="has-text-align-center">Welcome to Whited PTO</h1>' .
+                      '<!-- /wp:heading -->' .
+                      '<!-- wp:paragraph {"align":"center"} -->' .
+                      '<p class="has-text-align-center">Supporting Our Students, Empowering Our Community</p>' .
+                      '<!-- /wp:paragraph -->' .
+                      '<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->' .
+                        '<div class="wp-block-buttons">' .
+                          '<!-- wp:button {"backgroundColor":"primary"} -->' .
+                            '<div class="wp-block-button"><a class="wp-block-button__link has-primary-background-color has-background">Get Involved</a></div>' .
+                          '<!-- /wp:button -->' .
+                        '</div>' .
+                      '<!-- /wp:buttons -->' .
+                    '</div>' .
+                  '</div>' .
+                '<!-- /wp:cover -->',
+                esc_url( get_stylesheet_directory_uri() . '/images/hero-default.jpeg' )
+              ),
+            ]
+          );
+          
 
 		/* -------------------------------------------------------------
 		 * 2.  Featured events list  (existing)
