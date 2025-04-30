@@ -21,10 +21,10 @@ add_action( 'init', function() {
  * 3) Load your custom block patterns.
  *    This file should contain all your register_block_pattern() calls.
  */
-require get_stylesheet_directory() . '/inc/block-patterns.php';
-
 require get_stylesheet_directory() . '/inc/atomic.php';
 require get_stylesheet_directory() . '/inc/block-types.php';
+require get_stylesheet_directory() . '/inc/block-patterns.php';
+
 
 
 /**
