@@ -254,29 +254,47 @@ HTML
 		/* -------------------------------------------------------------
 		 * 9.  Contact – details panel
 		 * ----------------------------------------------------------- */
-		register_block_pattern(
-			'understrap-child/contact-details',
-			[
-				'title'      => __( 'Contact Details', 'understrap-child' ),
-				'categories' => [ 'contact' ],
-				'content'    => <<<'HTML'
-<!-- wp:columns {"align":"wide","style":{"spacing":{"padding":{"top":"2rem","bottom":"2rem"}}}} -->
-<div class="wp-block-columns alignwide" style="padding-top:2rem;padding-bottom:2rem"><!-- wp:column -->
-<div class="wp-block-column"><!-- wp:heading {"level":3} -->
-<h3>Get in touch</h3><!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Email: <a href="mailto:pto@example.org">pto@example.org</a><br/>Phone: (707) XXX-XXXX<br/>Address: 4955 Sonoma Hwy, Santa Rosa CA</p><!-- /wp:paragraph --></div><!-- /wp:column -->
-
-<!-- wp:column -->
-<div class="wp-block-column"><!-- wp:heading {"level":3} -->
-<h3>Follow us</h3><!-- /wp:heading -->
-
-<!-- wp:social-links {"layout":{"type":"flex","justifyContent":"left"},"style":{"spacing":{"blockGap":"0.5rem"}}} -->
-<ul class="wp-block-social-links"><li class="wp-social-link wp-social-link-facebook"><a href="#">Facebook</a></li><li class="wp-social-link wp-social-link-instagram"><a href="#">Instagram</a></li></ul><!-- /wp:social-links --></div><!-- /wp:column --></div><!-- /wp:columns -->
-HTML
-			]
-		);
+        register_block_pattern(
+            'understrap-child/contact-details',
+            [
+              'title'      => __( 'Contact Details', 'understrap-child' ),
+              'categories' => [ 'contact' ],
+              'content'    => <<<'HTML'
+          <!-- wp:columns {"align":"wide","style":{"spacing":{"padding":{"top":"2rem","bottom":"2rem"}}}} -->
+          <div class="wp-block-columns alignwide" style="padding-top:2rem;padding-bottom:2rem">
+            <!-- wp:column -->
+            <div class="wp-block-column">
+              <!-- wp:heading {"level":3} -->
+              <h3>Get in touch</h3>
+              <!-- /wp:heading -->
+              <!-- wp:paragraph -->
+              <p>Email: <a href="mailto:pto@example.org">pto@example.org</a></p>
+              <!-- /wp:paragraph -->
+              <!-- wp:paragraph -->
+              <p>Phone: (707) XXX-XXXX</p>
+              <!-- /wp:paragraph -->
+              <!-- wp:paragraph -->
+              <p>Address: 4955 Sonoma Hwy, Santa Rosa CA</p>
+              <!-- /wp:paragraph -->
+            </div>
+            <!-- /wp:column -->
+            <!-- wp:column -->
+            <div class="wp-block-column">
+              <!-- wp:heading {"level":3} -->
+              <h3>Follow us</h3>
+              <!-- /wp:heading -->
+              <!-- wp:social-links {"layout":{"type":"flex","justifyContent":"left"},"style":{"spacing":{"blockGap":"0.5rem"}}} -->
+              <!-- wp:social-link {"url":"https://facebook.com/YourPage","service":"facebook"} /-->
+              <!-- wp:social-link {"url":"https://instagram.com/YourHandle","service":"instagram"} /-->
+              <!-- /wp:social-links -->
+            </div>
+            <!-- /wp:column -->
+          </div>
+          <!-- /wp:columns -->
+          HTML
+            ]
+          );
+          
 
 		/* -------------------------------------------------------------
 		 * 10. Contact – FAQ accordion

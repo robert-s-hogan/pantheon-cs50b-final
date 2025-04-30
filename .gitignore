@@ -65,3 +65,7 @@ wp-content/themes/understrap-child/src/sass/*.map
 
 # if your build spits out a src/sass/child-theme.css etc
 wp-content/themes/understrap-child/src/sass/
+
+/wp-content/plugins/
+/wp-content/uploads/
+/wp-content/cache/
