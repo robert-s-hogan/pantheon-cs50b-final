@@ -60,7 +60,7 @@ if ( ! function_exists( 'understrap_child_register_block_patterns' ) ) :
                     '</div>' .
                   '</div>' .
                 '<!-- /wp:cover -->',
-                esc_url( get_stylesheet_directory_uri() . '/images/hero-default.jpg' )
+                esc_url( get_stylesheet_directory_uri() . '/images/hero-default.jpeg' )
               ),
             ]
           );
