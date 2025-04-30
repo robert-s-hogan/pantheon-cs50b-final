@@ -1,24 +1,19 @@
 <?php
 /**
- * Organism: Hero Section
+ * template-parts/organisms/hero.php
  *
- * Expects these variables from the block render:
- *   $background (URL string)
- *   $title      (heading text)
- *   $buttonText (string)
+ * Expects $background, $title, $buttonText.
  */
 
-// Fallbacks just in case:
+// Defaults:
 $background = $background ?? '';
 $title      = $title      ?? '';
 $buttonText = $buttonText ?? '';
-
 ?>
 <div class="wp-block-cover alignfull has-background-dim"
      style="background-image:url(<?php echo esc_url( $background ); ?>)">
   <div class="wp-block-cover__inner-container text-white text-center">
     <?php
-    // Use your heading atom:
     echo \UnderstrapChild\Atomic\render_template( 'atoms/heading', [
       'level' => 1,
       'text'  => $title,
