@@ -23,6 +23,9 @@ add_action( 'init', function() {
  */
 require get_stylesheet_directory() . '/inc/block-patterns.php';
 
+require get_stylesheet_directory() . '/inc/atomic.php';
+require get_stylesheet_directory() . '/inc/block-types.php';
+
 
 /**
  * 4) Your existing enqueue / customizer code below…
@@ -110,3 +113,4 @@ function understrap_child_customize_register( $wp_customize ) {
         'section' => 'hero_section',
     ] );
 }
+
