@@ -32,31 +32,16 @@ function understrap_child_register_block_patterns() {
     register_block_pattern( 'understrap-child/hero-home', [
         'title'      => __( 'Home Hero', 'understrap-child' ),
         'categories' => [ 'hero' ],
-        'content'    => sprintf(
-            '<!-- wp:cover {"url":"%1$s","dimRatio":50,"align":"full"} -->'.
-              '<div class="wp-block-cover alignfull has-background-dim" style="background-image:url(%1$s)">'.
-                '<div class="wp-block-cover__inner-container text-white">'.
-                  '<!-- wp:heading {"level":1,"align":"center","className":"h1 text-white"} -->'.
-                    '<h1 class="h1 text-white has-text-align-center">%2$s</h1>'.
-                  '<!-- /wp:heading -->'.
-                  '<!-- wp:paragraph {"align":"center","className":"text-white"} -->'.
-                    '<p class="has-text-align-center text-white">%3$s</p>'.
-                  '<!-- /wp:paragraph -->'.
-                  '<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->'.
-                    '<div class="wp-block-buttons">'.
-                      '<!-- wp:button {"className":"btn btn-primary text-white"} -->'.
-                        '<div class="wp-block-button"><a class="wp-block-button__link btn btn-primary text-white">Get Involved</a></div>'.
-                      '<!-- /wp:button -->'.
-                    '</div>'.
-                  '<!-- /wp:buttons -->'.
-                '</div>'.
-              '</div>'.
-            '<!-- /wp:cover -->',
-            esc_url( get_stylesheet_directory_uri() . '/images/hero-default.jpeg' ),
-            esc_html( get_theme_mod( 'understrap_child_hero_title', 'Welcome to Whited PTO' ) ),
-            esc_html( 'Supporting Our Students, Empowering Our Community' )
-        ),
-    ] );
+        'content'    => 
+          '<!-- wp:understrap-child/hero-section ' .
+            wp_json_encode( [
+              'background' => get_stylesheet_directory_uri() . '/images/hero-default.jpeg',
+              'title'      => get_theme_mod( 'understrap_child_hero_title', 'Welcome to Whited PTO' ),
+              'buttonText' => 'Get Involved',
+            ] ) .
+          ' /-->',
+      ] );
+      
 
     register_block_pattern(
         'understrap-child/hero-full',
