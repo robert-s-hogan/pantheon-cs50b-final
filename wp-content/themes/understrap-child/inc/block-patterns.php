@@ -58,6 +58,43 @@ function understrap_child_register_block_patterns() {
         ),
     ] );
 
+register_block_pattern(
+    'understrap-child/hero-full',
+    [
+        'title'      => __( 'Full-width Hero', 'understrap-child' ),
+        'categories' => [ 'hero' ],
+        'content'    => sprintf(
+            '<!-- wp:cover {"url":"%1$s","dimRatio":50,"align":"full","style":{"spacing":{"padding":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}}} -->' .
+              '<div class="wp-block-cover alignfull has-background-dim" style="background-image:url(%1$s);padding:0;margin:0;">' .
+                '<div class="wp-block-cover__inner-container text-center">' .
+
+                  '<!-- wp:heading {"level":1,"textColor":"white","className":"display-1"} -->' .
+                    '<h1 class="display-1 has-white-color has-text-align-center">%2$s</h1>' .
+                  '<!-- /wp:heading -->' .
+
+                  '<!-- wp:paragraph {"align":"center","textColor":"white","fontSize":"large"} -->' .
+                    '<p class="has-text-align-center has-white-color has-large-font-size">%3$s</p>' .
+                  '<!-- /wp:paragraph -->' .
+
+                  '<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->' .
+                    '<div class="wp-block-buttons">' .
+                      '<!-- wp:button {"className":"btn btn-warning btn-lg"} -->' .
+                        '<div class="wp-block-button"><a class="wp-block-button__link btn btn-warning btn-lg">Get Involved</a></div>' .
+                      '<!-- /wp:button -->' .
+                    '</div>' .
+                  '<!-- /wp:buttons -->' .
+
+                '</div>' .
+              '</div>' .
+            '<!-- /wp:cover -->',
+            esc_url( get_stylesheet_directory_uri() . '/images/hero-default.jpeg' ),
+            esc_html( get_theme_mod( 'understrap_child_hero_title', 'Welcome to Whited PTO' ) ),
+            esc_html( 'Supporting Our Students, Empowering Our Community' )
+        ),
+    ]
+);
+
+
     register_block_pattern( 'understrap-child/hero-involved', [
         'title'      => __( 'Get Involved Hero', 'understrap-child' ),
         'categories' => [ 'hero' ],
