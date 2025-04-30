@@ -21,33 +21,22 @@ add_action( 'init', function() {
  */
 add_action( 'init', 'understrap_child_register_heading_block' );
 function understrap_child_register_heading_block() {
-
-    // Bail if block API isn’t available yet.
     if ( ! function_exists( 'register_block_type' ) ) {
         return;
     }
 
     register_block_type( 'understrap-child/heading', [
-        'title'          => __( 'Bootstrap Heading', 'understrap-child' ),
-        'category'       => 'text',            // appears under “Text”
-        'icon'           => 'editor-heading',  // the “H” icon
-        'keywords'       => [ 'heading', 'title', 'bootstrap' ],
-        'attributes'     => [
-            'level'     => [
-                'type'    => 'number',
-                'default' => 2,   // renders <h2> by default
-            ],
-            'text'      => [
-                'type'    => 'string',
-                'default' => '',
-            ],
-            'className' => [
-                'type'    => 'string',
-                'default' => '',
-            ],
+        'title'       => __( 'Bootstrap Heading', 'understrap-child' ),
+        'description' => __( 'A Bootstrap-styled H1–H6 heading', 'understrap-child' ),
+        'category'    => 'text',
+        'icon'        => 'editor-heading',
+        'keywords'    => [ 'bootstrap', 'heading', 'title', 'h1', 'h2' ],
+        'attributes'  => [
+            'level'     => [ 'type' => 'number', 'default' => 2 ],
+            'text'      => [ 'type' => 'string', 'default' => '' ],
+            'className' => [ 'type' => 'string', 'default' => '' ],
         ],
-        'render_callback'=> function( $attrs ) {
-            // Proxy the block attributes into your PHP partial
+        'render_callback' => function( $attrs ) {
             get_template_part(
                 'template-parts/atoms/heading',
                 null,
@@ -60,6 +49,7 @@ function understrap_child_register_heading_block() {
         },
     ] );
 }
+
 
 /**
  * 3) Load your custom block patterns.
