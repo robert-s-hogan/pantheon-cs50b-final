@@ -73,8 +73,10 @@ if ( ! defined( 'WP_DEBUG' ) ) {
 	define('WP_DEBUG', false);
 }
 
-define('WP_DEBUG_LOG', true);
-define('WP_DEBUG_DISPLAY', false);
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', true );
+define( 'WP_DEBUG_DISPLAY', false ); // Usually set to false on production to avoid showing errors to visitors
+@ini_set( 'display_errors', 0 ); // Also keep display_errors off on production
 
 /* That's all, stop editing! Happy Pressing. */
 

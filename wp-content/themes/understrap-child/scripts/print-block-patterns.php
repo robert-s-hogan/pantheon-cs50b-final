@@ -8,6 +8,7 @@
  *   (The script also attempts to work if run directly from the theme root)
  *
  * This script will print its own code first, followed by:
+ *   • functions.php (How the theme loads block code)
  *   • inc/atomic.php (Your render helper)
  *   • inc/block-patterns.php (Pattern/Category registration)
  *   • inc/block-types.php (Block type registration)
@@ -47,13 +48,19 @@ $inc_dir            = $theme_root . '/inc';
 $template_parts_dir = $theme_root . '/template-parts';
 $atom_dir           = $template_parts_dir . '/atoms';
 $organism_dir       = $template_parts_dir . '/organisms';
+$functions_file     = $theme_root . '/functions.php'; // Define the path to functions.php
 
 $files = [];
+
+// --- Add functions.php ---
+if (file_exists($functions_file)) {
+    $files[] = $functions_file;
+}
 
 // --- 1) Core Pattern/Block Registration Files ---
 // These files define the patterns, categories, and register the block types.
 $core_inc_files = [
-    $inc_dir . '/atomic.php',       // Added here to be included in the main loop as well
+    $inc_dir . '/atomic.php',
     $inc_dir . '/block-patterns.php',
     $inc_dir . '/block-types.php',
 ];
@@ -114,6 +121,9 @@ if (is_dir($atom_dir)) {
          }
      }
 }
+
+// --- 4) Helper Files (inc/atomic.php is already in core_inc_files) ---
+// Add any other necessary helper files if they aren't in the above categories
 
 
 // Remove duplicates and ensure order (optional, but makes output predictable)
