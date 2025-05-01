@@ -1,5 +1,3 @@
-<?php error_log('DEBUG: Loading child theme functions.php START'); ?>
-
 <?php
 /**
  * Understrap Child Theme functions and definitions
@@ -23,30 +21,29 @@ add_action( 'after_setup_theme', function(){
 
 /**
  * 3) Load your custom block patterns.
- *    This file should contain all your register_block_pattern() calls.
+ *    Require files in logical dependency order.
  */
-error_log('DEBUG: Attempting to load inc/atomic.php...'); // Add log *before* require
-// require get_stylesheet_directory() . '/inc/atomic.php'; // Temporarily comment out
-error_log('DEBUG: Finished attempting to load inc/atomic.php'); // Add log *after* where require would be
+// error_log('DEBUG: Attempting to load inc/atomic.php...'); // Remove temporary log
+require get_stylesheet_directory() . '/inc/atomic.php'; // <--- UNCOMMENT THIS!
+// error_log('DEBUG: Finished attempting to load inc/atomic.php'); // Remove temporary log
 
 
-error_log('DEBUG: Attempting to load inc/block-types.php...'); // Add log *before* require
-// require get_stylesheet_directory() . '/inc/block-types.php'; // Temporarily comment out
-error_log('DEBUG: Finished attempting to load inc/block-types.php'); // Add log *after* where require would be
+// error_log('DEBUG: Attempting to load inc/block-types.php...'); // Remove temporary log
+require get_stylesheet_directory() . '/inc/block-types.php'; // <--- UNCOMMENT THIS! Requires atomic.php
+// error_log('DEBUG: Finished attempting to load inc/block-types.php'); // Remove temporary log
 
 
-error_log('DEBUG: Attempting to load inc/block-patterns.php...'); // Add log *before* require
-// require get_stylesheet_directory() . '/inc/block-patterns.php'; // Temporarily comment out
-error_log('DEBUG: Finished attempting to load inc/block-patterns.php'); // Add log *after* where require would be
+// error_log('DEBUG: Attempting to load inc/block-patterns.php...'); // Remove temporary log
+require get_stylesheet_directory() . '/inc/block-patterns.php'; // <--- UNCOMMENT THIS! Requires block-types.php etc.
+// error_log('DEBUG: Finished attempting to load inc/block-patterns.php'); // Remove temporary log
 
 
-// Register yours slightly later than the default init()
-// Keep this hook registered
-add_action( 'init', 'understrap_child_register_block_patterns', 20 );
+// Register block patterns - this hook is defined *within* inc/block-patterns.php
+// REMOVE this redundant action hook call from functions.php
+// add_action( 'init', 'understrap_child_register_block_patterns', 20 );
 
 
-error_log('DEBUG: Loading child theme functions.php END'); // Add log at the end of the file
-
+// error_log('DEBUG: Loading child theme functions.php END'); // Remove temporary log
 
 
 /**
@@ -135,4 +132,3 @@ function understrap_child_customize_register( $wp_customize ) {
         'section' => 'hero_section',
     ] );
 }
-
