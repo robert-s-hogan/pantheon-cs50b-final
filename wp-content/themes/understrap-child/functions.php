@@ -12,9 +12,9 @@ defined( 'ABSPATH' ) || exit;
  * 1) Hide all of WordPress’s built-in block patterns.
  *    (so the Patterns panel only shows the ones you register)
  */
-add_action( 'init', function() {
+add_action( 'after_setup_theme', function(){
     remove_theme_support( 'core-block-patterns' );
-}, 5 );
+  }, 11 );
 
 
 /**
@@ -25,6 +25,10 @@ require get_stylesheet_directory() . '/inc/atomic.php';
 require get_stylesheet_directory() . '/inc/block-types.php';
 require get_stylesheet_directory() . '/inc/block-patterns.php';
 
+
+// Register yours slightly later than the default init()
+
+add_action( 'init', 'understrap_child_register_block_patterns', 20 );
 
 
 /**
