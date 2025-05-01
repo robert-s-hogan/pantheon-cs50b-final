@@ -1,3 +1,5 @@
+<?php error_log('DEBUG: Loading child theme functions.php'); ?>
+
 <?php
 /**
  * Understrap Child Theme functions and definitions
@@ -16,14 +18,23 @@ add_action( 'after_setup_theme', function(){
     remove_theme_support( 'core-block-patterns' );
   }, 11 );
 
+  error_log('DEBUG: Successfully loaded inc/atomic.php');
+
 
 /**
  * 3) Load your custom block patterns.
  *    This file should contain all your register_block_pattern() calls.
  */
 require get_stylesheet_directory() . '/inc/atomic.php';
+error_log('DEBUG: Attempting to load inc/atomic.php');
+
+error_log('DEBUG: Attempting to load inc/block-types.php'); // Add this
 require get_stylesheet_directory() . '/inc/block-types.php';
+error_log('DEBUG: Successfully loaded inc/block-types.php'); // Add this
+
+error_log('DEBUG: Attempting to load inc/block-patterns.php'); // Add this
 require get_stylesheet_directory() . '/inc/block-patterns.php';
+error_log('DEBUG: Successfully loaded inc/block-patterns.php');
 
 
 // Register yours slightly later than the default init()
