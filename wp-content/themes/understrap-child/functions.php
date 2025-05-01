@@ -16,38 +16,54 @@ add_action( 'after_setup_theme', function(){
     remove_theme_support( 'core-block-patterns' );
   }, 11 );
 
-// error_log('DEBUG: Successfully loaded inc/atomic.php'); // Remove or comment out this line - it's in the wrong place
-
 
 /**
- * 3) Load your custom block patterns.
- *    Require files in logical dependency order.
+ * 3) Load your custom block patterns and types.
+ *    Require files in logical dependency order if necessary (atomic -> block-types -> block-patterns).
+ *    Using get_stylesheet_directory() is correct for a child theme loading its own files.
  */
-// error_log('DEBUG: Attempting to load inc/atomic.php...'); // Remove temporary log
-require get_stylesheet_directory() . '/inc/atomic.php'; // <--- UNCOMMENT THIS!
-// error_log('DEBUG: Finished attempting to load inc/atomic.php'); // Remove temporary log
+
+// Path to your inc directory within the child theme.
+$inc_dir = get_stylesheet_directory() . '/inc';
+
+// Include atomic design helper file first, as it might contain functions used by render callbacks or templates.
+$atomic_path = $inc_dir . '/atomic.php';
+if (file_exists($atomic_path)) { // Check if file exists before requiring
+    require_once $atomic_path;
+} else {
+     // Optional: Log an error if the file is missing for debugging
+     // error_log("ERROR: Missing required theme file: " . $atomic_path);
+}
+
+// Include custom block types registration. This registers the block using block.json.
+$block_types_path = $inc_dir . '/block-types.php';
+if (file_exists($block_types_path)) { // Check if file exists before requiring
+    require_once $block_types_path;
+} else {
+     // error_log("ERROR: Missing required theme file: " . $block_types_path);
+}
 
 
-// error_log('DEBUG: Attempting to load inc/block-types.php...'); // Remove temporary log
-require get_stylesheet_directory() . '/inc/block-types.php'; // <--- UNCOMMENT THIS! Requires atomic.php
-// error_log('DEBUG: Finished attempting to load inc/block-types.php'); // Remove temporary log
-
-
-// error_log('DEBUG: Attempting to load inc/block-patterns.php...'); // Remove temporary log
-require get_stylesheet_directory() . '/inc/block-patterns.php'; // <--- UNCOMMENT THIS! Requires block-types.php etc.
-// error_log('DEBUG: Finished attempting to load inc/block-patterns.php'); // Remove temporary log
+// Include custom block patterns registration. This defines the patterns using the registered block types.
+$block_patterns_path = $inc_dir . '/block-patterns.php';
+if (file_exists($block_patterns_path)) { // Check if file exists before requiring
+    require_once $block_patterns_path;
+} else {
+     // error_log("ERROR: Missing required theme file: " . $block_patterns_path);
+}
 
 
 // Register block patterns - this hook is defined *within* inc/block-patterns.php
-// REMOVE this redundant action hook call from functions.php
+// REMOVE this redundant action hook call from functions.php - it's already handled in inc/block-patterns.php
 // add_action( 'init', 'understrap_child_register_block_patterns', 20 );
-
-
-// error_log('DEBUG: Loading child theme functions.php END'); // Remove temporary log
 
 
 /**
  * 4) Your existing enqueue / customizer code below…
+ *    Keeping customizer settings that affect block patterns.
+ *    Keeping standard enqueue code as it's needed for the theme to function.
+ *    These parts are necessary for the block *pattern* to fetch data (like hero title from customizer)
+ *    and for the theme to style the resulting HTML.
  */
 add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
 function understrap_remove_scripts() {
@@ -132,3 +148,8 @@ function understrap_child_customize_register( $wp_customize ) {
         'section' => 'hero_section',
     ] );
 }
+
+// Note: The customizer and enqueue code here is standard theme setup.
+// It doesn't directly affect the block *rendering logic* itself (which is in renderCallback/templates),
+// but the customizer settings do provide attribute values for the pattern.
+// Keeping this code is reasonable for a functional theme.

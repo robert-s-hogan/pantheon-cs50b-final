@@ -4,7 +4,7 @@ add_action( 'init', function() {
     register_block_type( __DIR__ . '/block-types/hero-section/block.json' );
   } );
 
-function understrap_child_render_hero_section( $attrs, $content, $block ) { // Added $content, $block as good practice
+  function understrap_child_render_hero_section( $attrs, $content, $block ) {
     // Ensure attributes are an array (should be, but safety first)
     $attrs = (array) $attrs;
 
