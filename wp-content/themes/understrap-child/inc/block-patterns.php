@@ -30,18 +30,22 @@ function understrap_child_register_block_patterns() {
     // 2) Hero Variations
     //
     register_block_pattern( 'understrap-child/hero-home', [
-        'title'      => __( 'Home Hero', 'understrap-child' ),
-        'categories' => [ 'hero' ],
-        'content'    => 
-          '<!-- wp:understrap-child/hero-section ' .
+        'title'       => __( 'Home Hero', 'understrap-child' ),
+        'categories'  => [ 'hero' ],
+        'description' => __( 'Your dynamic home hero with background, title & button', 'understrap-child' ),
+        'content'     => sprintf(
+            '<!-- wp:group {"align":"full","className":"pattern-hero-home"} -->
+              <div class="wp-block-group alignfull pattern-hero-home">
+                <!-- wp:understrap-child/hero-section %s /-->
+              </div>
+            <!-- /wp:group -->',
             wp_json_encode( [
-              'background' => get_stylesheet_directory_uri() . '/images/hero-default.jpeg',
-              'title'      => get_theme_mod( 'understrap_child_hero_title', 'Welcome to Whited PTO' ),
-              'buttonText' => 'Get Involved',
-            ] ) .
-          ' /-->',
-      ] );
-      
+                'background' => get_stylesheet_directory_uri() . '/images/hero-default.jpeg',
+                'title'      => get_theme_mod( 'understrap_child_hero_title', 'Welcome to Whited PTO' ),
+                'buttonText' => 'Get Involved',
+            ] )
+        ),
+    ] );
 
     register_block_pattern(
         'understrap-child/hero-full',
