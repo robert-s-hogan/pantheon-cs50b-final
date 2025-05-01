@@ -1,3 +1,5 @@
+<?php error_log('DEBUG: Loading inc/block-patterns.php'); ?>
+
 <?php
 /**
  * Register custom block-pattern categories & patterns.

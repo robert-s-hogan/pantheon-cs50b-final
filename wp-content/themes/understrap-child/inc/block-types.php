@@ -1,3 +1,4 @@
+<?php error_log('DEBUG: Loading inc/block-types.php'); ?>
 <?php
 // inc/block-types.php
 add_action( 'init', function() {
