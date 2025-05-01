@@ -5,6 +5,8 @@ add_action( 'init', function() {
   } );
   
 
-function understrap_child_render_hero_section( $attrs ) {
-  return \UnderstrapChild\Atomic\render_template( 'organisms/hero', $attrs );
+  function understrap_child_render_hero_section( $attrs ) {
+    // Temporarily return simple HTML to see if the callback is hit
+    // var_dump($attrs); // You can also dump attributes here to debug
+    return '<div style="border: 2px dashed red; padding: 20px;">Custom Hero Section Block Rendered! Title: ' . esc_html($attrs['title']) . '</div>';
 }
