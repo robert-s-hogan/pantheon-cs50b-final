@@ -8,6 +8,7 @@
  *   (The script also attempts to work if run directly from the theme root)
  *
  * This script will print its own code first, followed by:
+ *   • wp-config.php (WordPress configuration, includes debug settings)
  *   • functions.php (How the theme loads block code)
  *   • inc/atomic.php (Your render helper)
  *   • inc/block-patterns.php (Pattern/Category registration)
@@ -43,14 +44,24 @@ if ($base_dir_name === 'scripts') {
     $theme_root = $script_dir;
 }
 
-// Define common directories based on the determined theme root
+// --- Determine WordPress root ---
+// Assuming WordPress root is the parent of the theme root
+$wordpress_root = realpath($theme_root . '/..');
+
+// Define common directories/files based on paths
 $inc_dir            = $theme_root . '/inc';
 $template_parts_dir = $theme_root . '/template-parts';
 $atom_dir           = $template_parts_dir . '/atoms';
 $organism_dir       = $template_parts_dir . '/organisms';
-$functions_file     = $theme_root . '/functions.php'; // Define the path to functions.php
+$functions_file     = $theme_root . '/functions.php';
+$wp_config_file     = $wordpress_root . '/wp-config.php'; // Path to wp-config.php
 
 $files = [];
+
+// --- Add wp-config.php ---
+if (file_exists($wp_config_file)) {
+    $files[] = $wp_config_file;
+}
 
 // --- Add functions.php ---
 if (file_exists($functions_file)) {
@@ -147,8 +158,13 @@ foreach ($files as $path) {
 
     // print a header for the file
     echo "/***\n";
-    // Make path relative to theme root for cleaner output
-    echo "Name of file: " . str_replace($theme_root . '/', '', $path) . "\n";
+    // Make path relative to theme root for cleaner output (or WP root for wp-config)
+    // Use $wordpress_root for wp-config.php to show its location clearly
+    if ($path === $wp_config_file) {
+         echo "Name of file: " . str_replace($wordpress_root . '/', '', $path) . "\n";
+    } else {
+         echo "Name of file: " . str_replace($theme_root . '/', '', $path) . "\n";
+    }
     echo "***/\n\n";
 
     // dump contents
