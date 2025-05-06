@@ -16,7 +16,7 @@ require_once get_stylesheet_directory() . '/inc/block-patterns/init.php';
  */
 add_action( 'wp_enqueue_scripts', 'understrap_child_enqueue_assets', 20 );
 function understrap_child_enqueue_assets() {
-    // 1) kill whatever parent might auto-load (style.min.css)
+
     wp_dequeue_style(  'understrap-styles' );
     wp_deregister_style( 'understrap-styles' );
 
