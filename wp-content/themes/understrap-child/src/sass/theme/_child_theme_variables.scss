@@ -1,14 +1,44 @@
-// Use this file to overwrite the basic Bootstrap variables and add your own variables
-// To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder.
-// Just copy a variable from src/sass/assets/bootstrap5/_variables.scss, paste it here and edit the value.
+// src/sass/theme/_child_theme_variables.scss
+@forward "theme/mixins/fluid-type";
 
-/// Color overrides
-$primary: #004f86 !default; // Whited “blue”
-$secondary: #f5c841 !default; // Whited “yellow”
-$success: #8a5a2d !default; // Whited “brown”
-$light: #ffffff !default; // white
-$dark: #000000 !default; // black
-$font-family-sans-serif: "Inter", system-ui, sans-serif; //fonts
-$headings-font-weight: 700;
+// — Bootstrap overrides —
+/// Brand colors
+$primary: #3055c3 !default; // Douglas‑Whited blue
+$secondary: #ffcb2a !default; // Golden yellow
 
-/* --- SASS-WATCH-TEST --- */
+/// Utility palette
+$black: #000 !default;
+$white: #ffffff !default;
+$gray-100: #f6f6f6 !default; // off‑white
+
+/// Optional additions
+$dark: #1a2e69 !default; // navy for text/outlines
+$info: $primary !default;
+$warning: $secondary !default;
+
+// — Custom theme variables — (your existing hero settings, etc.)
+$hero-min-height: 75vh !default;
+$hero-overlay: rgba(0, 0, 0, 0.4) !default;
+$hero-bg-position: center !default;
+$hero-bg-size: cover !default;
+$fs-hero-subtitle: 1.75rem !default; // whatever static size you want
+$fs-hero-lead: 1.125rem !default;
+
+$hero-title-color: $white !default;
+$hero-lead-color: rgba(255, 255, 255, 0.85) !default;
+
+// Example min/max pairs you might want
+$fs-section-h1-min: 2.5rem !default;
+$fs-section-h1-max: 3.25rem !default;
+$fs-section-h2-min: 2rem !default;
+$fs-section-h2-max: 2.5rem !default;
+$fs-subheading-min: 1rem !default;
+$fs-subheading-max: 1.25rem !default;
+
+$spacer-xl: 3rem !default;
+
+// BUTTONS
+$btn-padding-y: 0.625rem !default; // 10px
+$btn-padding-x: 1.25rem !default; // 20px
+$btn-border-radius: 0.25rem !default;
+$btn-focus-shadow: 0 0 0 3px rgba($secondary, 0.5) !default;
