@@ -31,7 +31,7 @@ function understrap_child_enqueue_assets() {
     );
 
     // 3) Load your compiled child CSS
-    $child_rel  = '/css/child-theme.css';
+    $child_rel  = '/build/assets/css/app.css';
     $child_path = get_stylesheet_directory() . $child_rel;
     $child_ver  = file_exists( $child_path )
                   ? filemtime( $child_path )
