@@ -16,51 +16,48 @@ require_once get_stylesheet_directory() . '/inc/block-patterns/init.php';
  */
 add_action( 'wp_enqueue_scripts', 'understrap_child_enqueue_assets', 20 );
 function understrap_child_enqueue_assets() {
-    $theme_version = wp_get_theme()->get( 'Version' );
+    // 1) kill whatever parent might auto-load (style.min.css)
+    wp_dequeue_style(  'understrap-styles' );
+    wp_deregister_style( 'understrap-styles' );
 
-    // 1) Google Fonts
-    wp_enqueue_style(
-        'understrap-google-fonts',
-        'https://fonts.googleapis.com/css2?family=Russo+One&family=Open+Sans:wght@400;600&display=swap',
-        [],
-        null
-    );
+    $parent_version = wp_get_theme()->get( 'Version' );
 
-    // 2) Parent UnderStrap CSS — note: css/theme.min.css, not build/css/style.min.css
+    // 2) Load the parent theme’s own CSS (Bootstrap + theme)
     wp_enqueue_style(
-        'understrap-parent-styles',
+        'understrap-parent-css',
         get_template_directory_uri() . '/css/theme.min.css',
         [],
-        $theme_version
+        $parent_version
     );
 
-    // 3) Your child theme CSS
-    $child_css_rel  = '/css/child-theme.css';
-    $child_css_path = get_stylesheet_directory() . $child_css_rel;
-    $child_version  = file_exists( $child_css_path )
-                      ? filemtime( $child_css_path )
-                      : $theme_version;
+    // 3) Load your compiled child CSS
+    $child_rel  = '/css/child-theme.css';
+    $child_path = get_stylesheet_directory() . $child_rel;
+    $child_ver  = file_exists( $child_path )
+                  ? filemtime( $child_path )
+                  : $parent_version;
 
     wp_enqueue_style(
-        'understrap-child-styles',
-        get_stylesheet_directory_uri() . $child_css_rel,
-        [ 'understrap-parent-styles', 'understrap-google-fonts' ],
-        $child_version
+        'understrap-child-css',
+        get_stylesheet_directory_uri() . $child_rel,
+        [ 'understrap-parent-css' ],
+        $child_ver
     );
 
-    // 4) (Optional) child Bootstrap bundle JS
-    $bootstrap_js_rel  = '/js/vendor/bootstrap.bundle.min.js';
-    $bootstrap_js_path = get_stylesheet_directory() . $bootstrap_js_rel;
-    if ( file_exists( $bootstrap_js_path ) ) {
+    // 4) (Optional) Bootstrap JS bundle if you have it
+    $js_rel  = '/js/vendor/bootstrap.bundle.min.js';
+    $js_path = get_stylesheet_directory() . $js_rel;
+    if ( file_exists( $js_path ) ) {
         wp_enqueue_script(
             'understrap-child-bootstrap-bundle',
-            get_stylesheet_directory_uri() . $bootstrap_js_rel,
+            get_stylesheet_directory_uri() . $js_rel,
             [ 'jquery' ],
-            filemtime( $bootstrap_js_path ),
+            filemtime( $js_path ),
             true
         );
     }
 }
+
 
 
 /**
