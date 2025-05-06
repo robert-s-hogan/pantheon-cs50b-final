@@ -23,7 +23,8 @@ function understrap_child_enqueue_assets() {
 
     // Enqueue your compiled Sass CSS
     // (adjusted to your build path)
-    $css_rel  = '/build/assets/css/app.css';
+    $css_rel = '/css/child-theme.css';
+
     $css_full = get_stylesheet_directory() . $css_rel;
     $version  = file_exists( $css_full ) 
                  ? filemtime( $css_full ) 
