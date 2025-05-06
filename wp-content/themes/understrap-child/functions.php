@@ -18,7 +18,7 @@ add_action( 'wp_enqueue_scripts', 'understrap_child_enqueue_assets', 20 );
 function understrap_child_enqueue_assets() {
     $theme_version = wp_get_theme()->get( 'Version' );
 
-    // 1) Google Fonts (you can adjust families as needed)
+    // 1) Google Fonts
     wp_enqueue_style(
         'understrap-google-fonts',
         'https://fonts.googleapis.com/css2?family=Russo+One&family=Open+Sans:wght@400;600&display=swap',
@@ -26,42 +26,42 @@ function understrap_child_enqueue_assets() {
         null
     );
 
-    // 2) Parent UnderStrap CSS (Bootstrap + base theme styles)
+    // 2) Parent UnderStrap CSS — note: css/theme.min.css, not build/css/style.min.css
     wp_enqueue_style(
         'understrap-parent-styles',
         get_template_directory_uri() . '/css/theme.min.css',
-        [],            // no dependencies
-        $theme_version // syncs with parent theme version
+        [],
+        $theme_version
     );
 
-    // 3) Child theme compiled CSS (your overrides & component styles)
+    // 3) Your child theme CSS
     $child_css_rel  = '/css/child-theme.css';
     $child_css_path = get_stylesheet_directory() . $child_css_rel;
-    $child_css_url  = get_stylesheet_directory_uri() . $child_css_rel;
-    $child_version  = file_exists( $child_css_path ) 
-                      ? filemtime( $child_css_path ) 
+    $child_version  = file_exists( $child_css_path )
+                      ? filemtime( $child_css_path )
                       : $theme_version;
 
     wp_enqueue_style(
         'understrap-child-styles',
-        $child_css_url,
-        [ 'understrap-parent-styles', 'understrap-google-fonts' ], // load after parent + fonts
+        get_stylesheet_directory_uri() . $child_css_rel,
+        [ 'understrap-parent-styles', 'understrap-google-fonts' ],
         $child_version
     );
 
-    // 4) (Optional) Your Bootstrap bundle JS, if you built one in the child theme
+    // 4) (Optional) child Bootstrap bundle JS
     $bootstrap_js_rel  = '/js/vendor/bootstrap.bundle.min.js';
     $bootstrap_js_path = get_stylesheet_directory() . $bootstrap_js_rel;
     if ( file_exists( $bootstrap_js_path ) ) {
         wp_enqueue_script(
             'understrap-child-bootstrap-bundle',
             get_stylesheet_directory_uri() . $bootstrap_js_rel,
-            [ 'jquery' ],                // or [] if you don't need jQuery
+            [ 'jquery' ],
             filemtime( $bootstrap_js_path ),
-            true                        // in footer
+            true
         );
     }
 }
+
 
 /**
  * Load the child theme's text domain.
