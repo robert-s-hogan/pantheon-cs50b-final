@@ -29,7 +29,7 @@ function understrap_child_enqueue_assets() {
     // 2) Parent UnderStrap CSS (Bootstrap + base theme styles)
     wp_enqueue_style(
         'understrap-parent-styles',
-        get_template_directory_uri() . '/build/css/style.min.css',
+        get_template_directory_uri() . '/css/theme.min.css',
         [],            // no dependencies
         $theme_version // syncs with parent theme version
     );
