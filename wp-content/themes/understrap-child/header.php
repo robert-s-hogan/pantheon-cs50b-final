@@ -51,7 +51,6 @@ $bootstrap_version = get_theme_mod( 'understrap_bootstrap_version', 'bootstrap5'
               aria-controls="siteNav"
               aria-expanded="false"
               aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap-child' ); ?>">
-              test
         <span class="navbar-toggler-icon"></span>
       </button>
 

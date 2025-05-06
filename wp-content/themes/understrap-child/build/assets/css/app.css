@@ -12539,14 +12539,6 @@ textarea.form-control-lg {
   }
 }
 
-body::before {
-  content: "✅ site-header styles loaded!";
-  display: block;
-  background: red;
-  color: white;
-  padding: 1rem;
-}
-
 .site-header {
   background-color: #3055c3;
   /* Logo + title */
