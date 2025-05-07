@@ -36,14 +36,31 @@ $bootstrap_version = get_theme_mod( 'understrap_bootstrap_version', 'bootstrap5'
     <span class="site-title"><?php bloginfo( 'name' ); ?></span>
   </div>
 
-  <nav class="navbar__links">
-    <?php
-      // Loop through your menu items (or output with wp_nav_menu and a custom walker)
-      foreach ( wp_get_nav_menu_items( 'primary' ) as $item ) : ?>
-        <a href="<?php echo esc_url( $item->url ); ?>">
-          <?php echo esc_html( $item->title ); ?>
-        </a>
-    <?php endforeach; ?>
+  <!-- Bootstrap 5 navbar with wp_nav_menu pulling in your “Primary Menu” -->
+  <nav class="navbar navbar-expand-lg flex-grow-1">
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#siteNav"
+            aria-controls="siteNav"
+            aria-expanded="false"
+            aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap-child' ); ?>">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="siteNav">
+      <?php
+      wp_nav_menu([
+        'theme_location' => 'primary',
+        'container'      => false,
+        'menu_class'     => 'navbar-nav d-flex gap-4',
+        'fallback_cb'    => false,
+        'depth'          => 2,
+        'walker'         => class_exists( 'Understrap\Bootstrap_5_Navwalker' )
+                           ? new Understrap\Bootstrap_5_Navwalker()
+                           : null,
+      ]);
+      ?>
+    </div>
   </nav>
 
   <div class="navbar__actions">
@@ -51,6 +68,7 @@ $bootstrap_version = get_theme_mod( 'understrap_bootstrap_version', 'bootstrap5'
     <button class="btn btn-outline-light btn-sm">Translate</button>
   </div>
 </header>
+
 
 
 
