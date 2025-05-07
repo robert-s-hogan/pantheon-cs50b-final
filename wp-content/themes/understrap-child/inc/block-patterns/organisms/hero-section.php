@@ -25,17 +25,10 @@ add_action( 'init', function() {
     <!-- /wp:paragraph -->
 
 
-<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
-<div class="wp-block-buttons">
-  <!-- wp:button {"backgroundColor":"secondary","className":"btn-primary"} -->
-  <div class="wp-block-button">
-    <a class="wp-block-button__link has-secondary-background-color has-background btn btn-primary">
-      Call to Action
-    </a>
-  </div>
-  <!-- /wp:button -->
-</div>
-<!-- /wp:buttons -->
+<!-- wp:button {\"backgroundColor\":\"secondary\"} -->\n" .
+<div class=\"wp-block-button\"><a class=\"wp-block-button__link has-secondary-background-color has-background\">Call to Action</a></div>\n" .
+<!-- /wp:button -->\n
+
 
 
 
