@@ -19,53 +19,36 @@ add_filter( 'render_block', function( $content, $block ) {
 }, 100, 2 );
 
 /**
- * Dequeue parent assets & enqueue combined parent + child CSS/JS
+ * Enqueue parent + child CSS/JS
  */
 add_action( 'wp_enqueue_scripts', 'understrap_child_enqueue_assets', 20 );
 function understrap_child_enqueue_assets() {
 
-    wp_dequeue_style(  'understrap-styles' );
-    wp_deregister_style( 'understrap-styles' );
-    wp_dequeue_script( 'understrap-scripts' );
-    wp_deregister_script( 'understrap-scripts' );
-    $parent_version = wp_get_theme()->get( 'Version' );
-
-   // 3) Load your compiled child CSS
-   $css_rel  = '/build/assets/css/app.css';
-   $css_full = get_stylesheet_directory() . $css_rel;
-   $version  = file_exists( $css_full ) 
-                ? filemtime( $css_full ) 
-                : wp_get_theme()->get('Version');
-
+    // 1) Google Fonts (optional)
     wp_enqueue_style(
-    'google-font-russo',
-    'https://fonts.googleapis.com/css2?family=Russo+One&family=Open+Sans:wght@400;600&display=swap',
-    [],
-    null
+        'google-font-russo',
+        'https://fonts.googleapis.com/css2?family=Russo+One&family=Open+Sans:wght@400;600&display=swap',
+        [],
+        null
     );
+
+    // 2) Child CSS (your build/app.css), *after* the parent understrap-styles
+    $css_rel  = '/build/assets/css/app.css';
+    $css_full = get_stylesheet_directory() . $css_rel;
+    $version  = file_exists( $css_full )
+                ? filemtime( $css_full )
+                : wp_get_theme()->get( 'Version' );
 
     wp_enqueue_style(
         'understrap-child-css',
         get_stylesheet_directory_uri() . $css_rel,
-        [ 'google-font-russo' ], // Make Google Font a dependency (optional)
+        [ 'understrap-styles', 'google-font-russo' ],  // parent + fonts must come first
         $version
-      );
+    );
 
-    // 4) (Optional) Bootstrap JS bundle if you have it
-    $js_rel  = '/js/vendor/bootstrap.bundle.min.js';
-    $js_path = get_stylesheet_directory() . $js_rel;
-    if ( file_exists( $js_path ) ) {
-        wp_enqueue_script(
-            'understrap-child-bootstrap-bundle',
-            get_stylesheet_directory_uri() . $js_rel,
-            [ 'jquery' ],
-            filemtime( $js_path ),
-            true
-        );
-    }
+    // 3) (Leave Bootstrap JS to the parent understrap-scripts)
+    //    If you *do* need to add custom scripts, enqueue them here with `true` for in_footer.
 }
-
-
 
 /**
  * Load the child theme's text domain.
@@ -85,10 +68,7 @@ function understrap_child_editor_support() {
     add_theme_support( 'responsive-embeds' );
     add_theme_support( 'editor-styles' );
     add_editor_style( 'css/child-theme.css' );
-    // Remove the core layout classes on inner containers (Cover, Group, etc.)
-add_theme_support( 'disable-layout-styles' );
-
-
+    add_theme_support( 'disable-layout-styles' );
 }
 
 /**
@@ -121,6 +101,7 @@ function understrap_child_customize_controls_js() {
         true
     );
 }
+
 
 /**
  * Strip `is-layout-*` and `wp-block-cover-is-layout-*` classes
