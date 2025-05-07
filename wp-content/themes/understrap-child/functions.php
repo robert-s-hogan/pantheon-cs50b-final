@@ -1,10 +1,14 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 
-// 1) Patterns loader
+/**
+ * 1) Load all block patterns
+ */
 require_once get_stylesheet_directory() . '/inc/block-patterns/init.php';
 
-// 2) Strip core layout‑style flags globally
+/**
+ * 2) Strip Gutenberg layout flags from core/cover
+ */
 remove_filter( 'render_block', 'wp_render_layout_support_flag',       10 );
 remove_filter( 'render_block', 'gutenberg_render_layout_support_flag', 10 );
 add_filter( 'render_block', function( $content, $block ) {
@@ -19,12 +23,16 @@ add_filter( 'render_block', function( $content, $block ) {
 }, 100, 2 );
 
 /**
- * Enqueue parent + child CSS/JS
+ * 3) Enqueue Styles & Scripts
  */
 add_action( 'wp_enqueue_scripts', 'understrap_child_enqueue_assets', 20 );
 function understrap_child_enqueue_assets() {
 
-    // 1) Google Fonts (optional)
+    // **a) Remove the parent UnderStrap CSS entirely**
+    wp_dequeue_style(  'understrap-styles' );
+    wp_deregister_style( 'understrap-styles' );
+
+    // **b) Google Fonts**
     wp_enqueue_style(
         'google-font-russo',
         'https://fonts.googleapis.com/css2?family=Russo+One&family=Open+Sans:wght@400;600&display=swap',
@@ -32,26 +40,26 @@ function understrap_child_enqueue_assets() {
         null
     );
 
-    // 2) Child CSS (your build/app.css), *after* the parent understrap-styles
+    // **c) Your compiled child CSS** (which should import/bootstrap and your .wrapper rule)
     $css_rel  = '/build/assets/css/app.css';
     $css_full = get_stylesheet_directory() . $css_rel;
-    $version  = file_exists( $css_full )
-                ? filemtime( $css_full )
+    $version  = file_exists( $css_full ) 
+                ? filemtime( $css_full ) 
                 : wp_get_theme()->get( 'Version' );
 
     wp_enqueue_style(
         'understrap-child-css',
         get_stylesheet_directory_uri() . $css_rel,
-        [ 'understrap-styles', 'google-font-russo' ],  // parent + fonts must come first
+        [ 'google-font-russo' ],  // fonts first, then your CSS
         $version
     );
 
-    // 3) (Leave Bootstrap JS to the parent understrap-scripts)
-    //    If you *do* need to add custom scripts, enqueue them here with `true` for in_footer.
+    // **d) Leave the parent UnderStrap JS** registered so you still get Bootstrap’s bundle
+    //    (i.e. we do NOT dequeue 'understrap-scripts' here).
 }
 
 /**
- * Load the child theme's text domain.
+ * 4) Load text domain for translations
  */
 add_action( 'after_setup_theme', 'understrap_child_load_textdomain' );
 function understrap_child_load_textdomain() {
@@ -59,7 +67,7 @@ function understrap_child_load_textdomain() {
 }
 
 /**
- * Editor support for block styles, wide alignments, etc.
+ * 5) Editor support (wide alignments, block styles, etc.)
  */
 add_action( 'after_setup_theme', 'understrap_child_editor_support' );
 function understrap_child_editor_support() {
@@ -72,7 +80,7 @@ function understrap_child_editor_support() {
 }
 
 /**
- * Register Primary Menu location.
+ * 6) Register Primary Menu location
  */
 add_action( 'after_setup_theme', function() {
     register_nav_menus( [
@@ -81,7 +89,7 @@ add_action( 'after_setup_theme', function() {
 } );
 
 /**
- * Default to Bootstrap 5 (override parent default).
+ * 7) Force Bootstrap 5
  */
 add_filter( 'theme_mod_understrap_bootstrap_version', 'understrap_child_default_bootstrap_version', 20 );
 function understrap_child_default_bootstrap_version() {
@@ -89,7 +97,7 @@ function understrap_child_default_bootstrap_version() {
 }
 
 /**
- * Enqueue customizer scripts for live preview, if needed.
+ * 8) Customizer controls (live preview)
  */
 add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_controls_js' );
 function understrap_child_customize_controls_js() {
