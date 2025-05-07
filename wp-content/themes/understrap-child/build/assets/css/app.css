@@ -12539,10 +12539,6 @@ textarea.form-control-lg {
   }
 }
 
-.hero-section::before {
-  display: none !important;
-}
-
 .site-header {
   background-color: #3055c3;
   /* Logo + title */

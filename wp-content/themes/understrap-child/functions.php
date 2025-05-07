@@ -21,7 +21,6 @@ function understrap_child_enqueue_assets() {
     wp_deregister_style( 'understrap-styles' );
     wp_dequeue_script( 'understrap-scripts' );
     wp_deregister_script( 'understrap-scripts' );
-
     $parent_version = wp_get_theme()->get( 'Version' );
 
     // 2) Load the parent theme’s own CSS (Bootstrap + theme)
