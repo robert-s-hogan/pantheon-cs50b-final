@@ -38,9 +38,6 @@ add_action( 'init', function() {
     <p class="has-text-align-center subheading">Your subheading here.</p>
     <!-- /wp:paragraph -->
 
-    <!-- wp:paragraph {"align":"center","className":"paragraph-text"} -->
-    <p class="has-text-align-center paragraph-text">Intro or lead paragraph here.</p>
-    <!-- /wp:paragraph -->
 
 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons">
