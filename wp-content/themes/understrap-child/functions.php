@@ -1,57 +1,96 @@
 <?php
+/**
+ * UnderStrap Child Theme functions.php
+ *
+ * Note: Many core WordPress setups (like post types, taxonomies, etc.)
+ * should ideally live in a plugin. This functions.php focuses on theme-specific
+ * setup and asset loading.
+ *
+ * @package UnderstrapChild
+ */
 defined( 'ABSPATH' ) || exit;
 
-// 1) Patterns loader
-require_once get_stylesheet_directory() . '/inc/block-patterns/init.php';
+// 1) Block Patterns loader
+// Requires /inc/block-patterns/init.php to exist.
+// This file recursively loads all other pattern files in /inc/block-patterns/
+if ( file_exists( get_stylesheet_directory() . '/inc/block-patterns/init.php' ) ) {
+    require_once get_stylesheet_directory() . '/inc/block-patterns/init.php';
+}
 
-// 2) Strip core layout‑style flags globally
-remove_filter( 'render_block', 'wp_render_layout_support_flag',       10 );
-remove_filter( 'render_block', 'gutenberg_render_layout_support_flag', 10 );
-add_filter( 'render_block', function( $content, $block ) {
+
+// 2) Strip core layout‑style flags globally from core/cover block
+// This helps prevent conflicts if you are defining your own grid/flex styles for Cover blocks.
+// Note: This filter is applied relatively late (priority 20) to ensure it runs after other potential filters.
+add_filter( 'render_block', function( $block_content, $block ) {
+    // Check if it's the core/cover block
     if ( isset( $block['blockName'] ) && $block['blockName'] === 'core/cover' ) {
-        $content = preg_replace(
+        // Use regex to remove the 'is-layout-*' and 'wp-block-cover-is-layout-*' classes
+        $block_content = preg_replace(
             '/(wp-block-cover__inner-container)(?:\s+is-layout-\w+|\s+wp-block-cover-is-layout-\w+)/',
-            '$1',
-            $content
+            '$1', // Replace with just the base class 'wp-block-cover__inner-container'
+            $block_content
         );
     }
-    return $content;
-}, 100, 2 );
+    return $block_content;
+}, 20, 2 ); // Increased priority to 20, added block content/block args
+
+
+// 3) Disable layout support settings for core/cover block
+// This prevents Gutenberg from adding layout controls (like 'justify content')
+// in the editor sidebar for the Cover block, relying on your theme's styles.
+add_filter( 'block_type_metadata_settings', function( $settings, $metadata ) {
+    if ( isset( $metadata['name'] ) && $metadata['name'] === 'core/cover' ) {
+        // Turn off all layout support by setting the 'layout' setting to false
+        $settings['supports']['layout'] = false;
+    }
+    return $settings;
+}, 10, 2 );
+
 
 /**
- * Enqueue parent + child CSS/JS
+ * 4) Enqueue Child CSS/JS
  */
 add_action( 'wp_enqueue_scripts', 'understrap_child_enqueue_assets', 20 );
 function understrap_child_enqueue_assets() {
 
-    // 1) Google Fonts (optional)
+    // a) Dequeue and deregister the parent UnderStrap CSS entirely
+    // We assume your child theme's CSS bundle replaces the parent's main stylesheet.
+    wp_dequeue_style(  'understrap-styles' );
+    wp_deregister_style( 'understrap-styles' );
+
+    // b) Google Fonts (optional)
+    // Enqueue Google Fonts early so they are available before your CSS
     wp_enqueue_style(
         'google-font-russo',
         'https://fonts.googleapis.com/css2?family=Russo+One&family=Open+Sans:wght@400;600&display=swap',
-        [],
-        null
+        [], // No dependencies for the font itself
+        null // Use null for version if it's a static external URL
     );
 
-    // 2) Child CSS (your build/app.css), *after* the parent understrap-styles
-    $css_rel  = '/build/assets/css/app.css';
-    $css_full = get_stylesheet_directory() . $css_rel;
+    // c) Your compiled child CSS (from your build process, e.g., build/assets/css/app.css)
+    $css_rel  = '/build/assets/css/app.css'; // Path relative to theme root
+    $css_full = get_stylesheet_directory() . $css_rel; // Full server path
+
+    // Determine version based on file modified time for cache busting
+    // Fallback to theme version if file doesn't exist (though it should!)
     $version  = file_exists( $css_full )
                 ? filemtime( $css_full )
                 : wp_get_theme()->get( 'Version' );
 
     wp_enqueue_style(
-        'understrap-child-css',
-        get_stylesheet_directory_uri() . $css_rel,
-        [ 'google-font-russo' ],  // parent + fonts must come first
-        $version
+        'understrap-child-css', // Unique handle for your stylesheet
+        get_stylesheet_directory_uri() . $css_rel, // Public URL
+        [ 'google-font-russo' ],  // Dependency: load after Google Fonts
+        $version // Version for cache busting
     );
 
-    // 3) (Leave Bootstrap JS to the parent understrap-scripts)
-    //    If you *do* need to add custom scripts, enqueue them here with `true` for in_footer.
+    // d) You might want to keep the parent's Bootstrap JS bundle.
+    //    If so, do NOT dequeue 'understrap-scripts' here.
+    //    If you have custom JS, enqueue it here with `true` for in_footer.
 }
 
 /**
- * Load the child theme's text domain.
+ * 5) Load the child theme's text domain for translations.
  */
 add_action( 'after_setup_theme', 'understrap_child_load_textdomain' );
 function understrap_child_load_textdomain() {
@@ -59,20 +98,21 @@ function understrap_child_load_textdomain() {
 }
 
 /**
- * Editor support for block styles, wide alignments, etc.
+ * 6) Editor support for block styles, wide alignments, etc.
  */
 add_action( 'after_setup_theme', 'understrap_child_editor_support' );
 function understrap_child_editor_support() {
-    add_theme_support( 'align-wide' );
-    add_theme_support( 'wp-block-styles' );
-    add_theme_support( 'responsive-embeds' );
-    add_theme_support( 'editor-styles' );
+    add_theme_support( 'align-wide' ); // Enables wide and full alignments for blocks
+    add_theme_support( 'wp-block-styles' ); // Adds default WordPress block styles
+    add_theme_support( 'responsive-embeds' ); // Makes embeds responsive
+    add_theme_support( 'editor-styles' ); // Enables the editor stylesheet feature
+    // Enqueue your editor styles. Make sure this CSS file also exists (compiled from SASS usually).
     add_editor_style( 'css/child-theme.css' );
-    add_theme_support( 'disable-layout-styles' );
+    add_theme_support( 'disable-layout-styles' ); // Disable core layout styles if you're providing your own
 }
 
 /**
- * Register Primary Menu location.
+ * 7) Register Primary Menu location.
  */
 add_action( 'after_setup_theme', function() {
     register_nav_menus( [
@@ -81,7 +121,7 @@ add_action( 'after_setup_theme', function() {
 } );
 
 /**
- * Default to Bootstrap 5 (override parent default).
+ * 8) Default to Bootstrap 5 (override parent default).
  */
 add_filter( 'theme_mod_understrap_bootstrap_version', 'understrap_child_default_bootstrap_version', 20 );
 function understrap_child_default_bootstrap_version() {
@@ -89,45 +129,19 @@ function understrap_child_default_bootstrap_version() {
 }
 
 /**
- * Enqueue customizer scripts for live preview, if needed.
+ * 9) Enqueue customizer scripts for live preview, if needed.
  */
-add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_controls_js' );
-function understrap_child_customize_controls_js() {
-    wp_enqueue_script(
-        'understrap-child-customizer',
-        get_stylesheet_directory_uri() . '/js/customizer-controls.js',
-        [ 'customize-preview' ],
-        '1.0.0',
-        true
-    );
-}
-
-
-/**
- * Strip `is-layout-*` and `wp-block-cover-is-layout-*` classes
- * from the inner container of every Cover block on the front end.
- */
-add_filter( 'render_block', function( $block_content, $block ) {
-    if ( isset( $block['blockName'] ) && $block['blockName'] === 'core/cover' ) {
-        $block_content = preg_replace(
-            // Match the base class plus any layout classes
-            '/(wp-block-cover__inner-container)(?:\s+is-layout-\w+|\s+wp-block-cover-is-layout-\w+)/',
-            '$1',
-            $block_content
+// This is usually for adding custom controls, preview updates, etc.
+// Only necessary if you have customizer-controls.js
+if ( file_exists( get_stylesheet_directory() . '/js/customizer-controls.js' ) ) {
+    add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_controls_js' );
+    function understrap_child_customize_controls_js() {
+        wp_enqueue_script(
+            'understrap-child-customizer',
+            get_stylesheet_directory_uri() . '/js/customizer-controls.js',
+            [ 'customize-preview' ], // Depends on the customizer preview script
+            '1.0.0', // Script version
+            true // Load in footer
         );
     }
-    return $block_content;
-}, 20, 2 );
-
-
-/**
- * Disable layout support on core/cover so
- * Gutenberg never injects is-layout-* classes.
- */
-add_filter( 'block_type_metadata_settings', function( $settings, $metadata ) {
-    if ( isset( $metadata['name'] ) && $metadata['name'] === 'core/cover' ) {
-        // Turn off all layout support
-        $settings['supports']['layout'] = false;
-    }
-    return $settings;
-}, 10, 2 );
+}
