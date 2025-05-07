@@ -20,7 +20,7 @@ $bootstrap_version = get_theme_mod( 'understrap_bootstrap_version', 'bootstrap5'
 <body <?php body_class(); ?> <?php understrap_body_attributes(); ?>>
 <?php do_action( 'wp_body_open' ); ?>
 
-<div class="site" id="page"><!-- ← Opened here -->
+<div class="site" id="page">
 
   <!-- Skip link for screen readers -->
   <a class="skip-link <?php echo esc_attr( understrap_get_screen_reader_class( true ) ); ?>"
