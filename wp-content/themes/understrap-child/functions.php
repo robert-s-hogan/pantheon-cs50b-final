@@ -1,15 +1,22 @@
 <?php
-/**
- * UnderStrap Child Theme functions and definitions
- *
- * @package UnderstrapChild
- */
-
-// Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-// Load your block patterns.
+// 1) Patterns loader
 require_once get_stylesheet_directory() . '/inc/block-patterns/init.php';
+
+// 2) Strip core layout‑style flags globally
+remove_filter( 'render_block', 'wp_render_layout_support_flag',       10 );
+remove_filter( 'render_block', 'gutenberg_render_layout_support_flag', 10 );
+add_filter( 'render_block', function( $content, $block ) {
+    if ( isset( $block['blockName'] ) && $block['blockName'] === 'core/cover' ) {
+        $content = preg_replace(
+            '/(wp-block-cover__inner-container)(?:\s+is-layout-\w+|\s+wp-block-cover-is-layout-\w+)/',
+            '$1',
+            $content
+        );
+    }
+    return $content;
+}, 100, 2 );
 
 /**
  * Dequeue parent assets & enqueue combined parent + child CSS/JS
@@ -80,8 +87,7 @@ function understrap_child_editor_support() {
     add_editor_style( 'css/child-theme.css' );
     // Remove the core layout classes on inner containers (Cover, Group, etc.)
 add_theme_support( 'disable-layout-styles' );
-remove_filter( 'render_block', 'wp_render_layout_support_flag', 10 );
-remove_filter( 'render_block', 'gutenberg_render_layout_support_flag', 10 );
+
 
 }
 
