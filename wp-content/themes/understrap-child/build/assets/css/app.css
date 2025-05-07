@@ -12618,73 +12618,62 @@ textarea.form-control-lg {
 .site-header {
   background-color: #3055c3;
   /* — Left: Logo + Title — */
-  /* — Center: Navbar — */
-  /* — Hide toggler on desktop — */
-  /* — Collapse panel (mobile slide‑down) — */
-  /* — The menu items themselves — */
-  /* — Right: Donate & Translate — */
-  /* target your existing .d-none.d-lg-flex wrapper */
+  /* — Toggler (mobile only) — */
+  /* — Collapse panel (mobile & desktop) — */
+  /* — Menu items — */
+  /* — Mobile actions (inside collapse) — */
+  /* — Desktop actions (always visible ≥lg) — */
 }
 .site-header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 .site-header .site-branding {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
-.site-header .site-branding .eagle-logo {
+.site-header .site-branding img {
   width: 48px;
   height: 48px;
+  display: block;
 }
-.site-header .site-branding .eagle-logo img {
-  width: 100%;
-  height: auto;
-}
-.site-header .site-branding .site-title p {
+.site-header .site-branding .site-title {
   color: #ffffff;
   font-family: "Russo One", sans-serif;
   font-size: 1.25rem;
   margin: 0;
 }
-.site-header nav.navbar {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
+.site-header .navbar-toggler {
+  border: 1px solid #ffffff;
+  color: #ffffff;
 }
 @media (min-width: 992px) {
   .site-header .navbar-toggler {
     display: none !important;
   }
 }
-.site-header .collapse.navbar-collapse {
-  overflow: hidden;
+.site-header .navbar-toggler .navbar-toggler-icon {
+  filter: invert(1);
+}
+.site-header .navbar-collapse {
+  width: 100%;
   display: none;
 }
-.site-header .collapse.navbar-collapse.collapsing {
-  display: block !important;
-  height: 0;
-  transition: height 300ms ease;
-}
-.site-header .collapse.navbar-collapse.show {
+.site-header .navbar-collapse.show {
   display: flex !important;
-  height: auto !important;
-  transition: height 300ms ease;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 1rem 0;
-  width: 100%;
   background-color: #3055c3;
+  padding: 1rem 0;
 }
 @media (min-width: 992px) {
-  .site-header .collapse.navbar-collapse.show {
+  .site-header .navbar-collapse {
+    display: flex !important;
     flex-direction: row;
-    justify-content: center;
+    align-items: center;
     background: none;
     padding: 0;
   }
@@ -12694,18 +12683,16 @@ textarea.form-control-lg {
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
   width: 100%;
+  text-align: center;
 }
 @media (min-width: 992px) {
   .site-header .navbar-nav {
+    flex-direction: row;
+    gap: 1.5rem;
     width: auto;
-    justify-content: center;
-  }
-}
-@media (max-width: 991.98px) {
-  .site-header .navbar-nav {
-    flex-direction: column;
   }
 }
 .site-header .navbar-nav a {
@@ -12718,20 +12705,36 @@ textarea.form-control-lg {
 .site-header .navbar-nav a:hover, .site-header .navbar-nav a:focus {
   color: #ffcb2a;
 }
-.site-header .container > .d-none.d-lg-flex {
-  display: none;
+.site-header .actions-mobile {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 @media (min-width: 992px) {
-  .site-header .container > .d-none.d-lg-flex {
-    display: flex !important;
-    align-items: center;
-    gap: 0.75rem;
+  .site-header .actions-mobile {
+    display: none;
   }
 }
-.site-header .container > .d-none.d-lg-flex a,
-.site-header .container > .d-none.d-lg-flex button {
+.site-header .actions-mobile a,
+.site-header .actions-mobile button {
   font-size: 0.875rem;
-  padding: 0.375rem 0.75rem;
+  padding: 0.5rem 1rem;
+}
+.site-header .actions-desktop {
+  display: none;
+  gap: 0.75rem;
+  align-items: center;
+}
+@media (min-width: 992px) {
+  .site-header .actions-desktop {
+    display: flex;
+  }
+}
+.site-header .actions-desktop a,
+.site-header .actions-desktop button {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
 }
 
 body {
