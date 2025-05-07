@@ -1,5 +1,7 @@
 // src/sass/theme/_child_theme_variables.scss
 @forward "theme/mixins/fluid-type";
+@forward "theme/mixins/breakpoints";
+@forward "theme/mixins/container";
 
 // — Bootstrap overrides —
 /// Brand colors

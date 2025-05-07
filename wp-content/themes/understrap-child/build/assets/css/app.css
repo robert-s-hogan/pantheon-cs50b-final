@@ -12527,16 +12527,11 @@ textarea.form-control-lg {
   z-index: 2;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  width: 100%;
-}
-@media (min-width: 992px) {
-  .hero-section .wp-block-cover__inner-container {
-    max-width: 960px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .site-header {
