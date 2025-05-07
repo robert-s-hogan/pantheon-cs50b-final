@@ -42,7 +42,7 @@ function understrap_child_enqueue_assets() {
     wp_enqueue_style(
         'understrap-child-css',
         get_stylesheet_directory_uri() . $css_rel,
-        [ 'understrap-styles', 'google-font-russo' ],  // parent + fonts must come first
+        [ 'google-font-russo' ],  // parent + fonts must come first
         $version
     );
 
