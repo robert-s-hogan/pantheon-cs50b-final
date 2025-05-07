@@ -30,6 +30,7 @@ $bootstrap_version = get_theme_mod( 'understrap_bootstrap_version', 'bootstrap5'
 
   <!-- ******************* The Navbar Area / Custom Header ******************* -->
   <header id="wrapper-navbar" class="wp-block-group alignfull site-header py-3">
+  <nav class="navbar navbar-expand-lg">
 
     <div class="container d-flex align-items-center justify-content-between">
 
@@ -71,7 +72,7 @@ $bootstrap_version = get_theme_mod( 'understrap_bootstrap_version', 'bootstrap5'
       </div>
 
     </div><!-- .container -->
-
+        </nav>
   </header><!-- #wrapper-navbar -->
 
 <!-- NOTE: we do NOT close #page here — that lives in footer.php -->
