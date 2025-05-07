@@ -19,6 +19,9 @@ function understrap_child_enqueue_assets() {
 
     wp_dequeue_style(  'understrap-styles' );
     wp_deregister_style( 'understrap-styles' );
+    wp_dequeue_script( 'understrap-scripts' );
+    wp_deregister_script( 'understrap-scripts' );
+
 
     $parent_version = wp_get_theme()->get( 'Version' );
 
@@ -36,6 +39,13 @@ function understrap_child_enqueue_assets() {
     $child_ver  = file_exists( $child_path )
                   ? filemtime( $child_path )
                   : $parent_version;
+
+    wp_enqueue_style(
+    'google-font-russo',
+    'https://fonts.googleapis.com/css2?family=Russo+One&family=Open+Sans:wght@400;600&display=swap',
+    [],
+    null
+    );
 
     wp_enqueue_style(
         'understrap-child-css',
