@@ -10,19 +10,20 @@ add_action( 'init', function() {
     }
 
     register_block_pattern(
-        // slug matching your other atoms
         'understrap/atom-button',
         [
             'title'      => __( 'Atom: Button', 'understrap-child' ),
             'categories' => [ 'understrap-atom', 'buttons' ],
             'content'    => '
+<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons">
+  <!-- wp:button {"className":"btn-primary"} -->
   <div class="wp-block-button">
-    <a href="#" class="wp-block-button__link btn btn-primary">
-      ' . esc_html__( 'Click Me', 'understrap-child' ) . '
-    </a>
+    <a class="wp-block-button__link btn btn-primary">' . esc_html__( 'Click Me', 'understrap-child' ) . '</a>
   </div>
-</div>',
+  <!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->',
         ]
     );
 } );
