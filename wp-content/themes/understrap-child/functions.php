@@ -115,3 +115,19 @@ function understrap_child_customize_controls_js() {
         true
     );
 }
+
+/**
+ * Strip `is-layout-*` and `wp-block-cover-is-layout-*` classes
+ * from the inner container of every Cover block on the front end.
+ */
+add_filter( 'render_block', function( $block_content, $block ) {
+    if ( isset( $block['blockName'] ) && $block['blockName'] === 'core/cover' ) {
+        $block_content = preg_replace(
+            // Match the base class plus any layout classes
+            '/(wp-block-cover__inner-container)(?:\s+is-layout-\w+|\s+wp-block-cover-is-layout-\w+)/',
+            '$1',
+            $block_content
+        );
+    }
+    return $block_content;
+}, 20, 2 );
