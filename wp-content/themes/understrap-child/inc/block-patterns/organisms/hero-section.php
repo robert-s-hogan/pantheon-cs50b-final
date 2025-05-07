@@ -28,15 +28,18 @@ add_action( 'init', function() {
     <p class="has-text-align-center paragraph-text">Intro or lead paragraph here.</p>
     <!-- /wp:paragraph -->
 
-    <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
-    <div class="wp-block-buttons">
-      <!-- wp:button {"backgroundColor":"secondary","className":"btn-primary"} -->
-      <div class="wp-block-button">
-        <a class="wp-block-button__link has-secondary-background-color has-background btn-primary">Call to Action</a>
-      </div>
-      <!-- /wp:button -->
-    </div>
-    <!-- /wp:buttons -->
+<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+<div class="wp-block-buttons">
+  <!-- wp:button {"backgroundColor":"secondary","className":"btn-primary"} -->
+  <div class="wp-block-button">
+    <a class="wp-block-button__link has-secondary-background-color has-background btn-primary">
+      Call to Action
+    </a>
+  </div>
+  <!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+
 
   </div>
 </div>
