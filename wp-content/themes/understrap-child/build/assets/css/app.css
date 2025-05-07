@@ -12536,12 +12536,14 @@ textarea.form-control-lg {
 
 .site-header {
   background-color: #3055c3;
-  /* Logo + title */
+  /* — Left: Logo + Title — */
+  /* — Center: Navbar container grows to fill space and centers its items — */
   /* Toggler button */
   /* Hamburger icon (collapsed) */
   /* Switch to “X” when expanded */
-  /* Collapse container: hidden by default, smooth slide */
-  /* Nav items */
+  /* Collapse container: slide down on mobile, inline on desktop */
+  /* — The actual list of links — */
+  /* — Right: Donate & Translate buttons — */
 }
 .site-header .container {
   display: flex;
@@ -12568,6 +12570,13 @@ textarea.form-control-lg {
   font-size: 1.25rem;
   margin: 0;
 }
+.site-header nav.navbar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
 .site-header .navbar-toggler {
   border-color: #ffffff;
   color: #ffffff;
@@ -12584,10 +12593,10 @@ textarea.form-control-lg {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 1.5em 1.5em;
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg ...%3E");
 }
 .site-header .navbar-toggler[aria-expanded=true] .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.7)' stroke-width='2' stroke-linecap='round' d='M2 2L14 14M14 2L2 14'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg ...%3E");
 }
 .site-header .collapse.navbar-collapse {
   overflow: hidden;
@@ -12603,7 +12612,7 @@ textarea.form-control-lg {
   height: auto !important;
   transition: height 300ms ease;
   flex-direction: column;
-  align-items: flex-start; /* left‑aligned */
+  align-items: flex-start; /* left‑aligned links on mobile */
   padding: 1rem 0;
   width: 100%;
   background-color: #3055c3;
@@ -12611,7 +12620,7 @@ textarea.form-control-lg {
 @media (min-width: 992px) {
   .site-header .collapse.navbar-collapse.show {
     flex-direction: row;
-    justify-content: flex-end; /* right on desktop */
+    justify-content: center; /* centers the collapse wrapper on desktop */
     background: none;
     padding: 0;
   }
@@ -12624,7 +12633,13 @@ textarea.form-control-lg {
   gap: 1rem;
   width: 100%;
 }
-@media (max-width: 991px) {
+@media (min-width: 992px) {
+  .site-header .navbar-nav {
+    width: auto;
+    justify-content: center;
+  }
+}
+@media (max-width: 991.98px) {
   .site-header .navbar-nav {
     flex-direction: column;
   }
@@ -12638,6 +12653,21 @@ textarea.form-control-lg {
 }
 .site-header .navbar-nav a:hover, .site-header .navbar-nav a:focus {
   color: #ffcb2a;
+}
+.site-header .header-actions {
+  display: none;
+}
+@media (min-width: 992px) {
+  .site-header .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+}
+.site-header .header-actions a,
+.site-header .header-actions button {
+  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem;
 }
 
 body {
