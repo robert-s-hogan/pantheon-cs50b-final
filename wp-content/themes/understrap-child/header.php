@@ -1,3 +1,13 @@
+<?php
+/**
+ * Child Theme Header (UnderStrap + custom block)
+ *
+ * @package UnderstrapChild
+ */
+defined( 'ABSPATH' ) || exit;
+
+$bootstrap_version = get_theme_mod( 'understrap_bootstrap_version', 'bootstrap5' );
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
