@@ -137,3 +137,16 @@ add_filter( 'render_block', function( $block_content, $block ) {
     }
     return $block_content;
 }, 20, 2 );
+
+
+/**
+ * Disable layout support on core/cover so
+ * Gutenberg never injects is-layout-* classes.
+ */
+add_filter( 'block_type_metadata_settings', function( $settings, $metadata ) {
+    if ( isset( $metadata['name'] ) && $metadata['name'] === 'core/cover' ) {
+        // Turn off all layout support
+        $settings['supports']['layout'] = false;
+    }
+    return $settings;
+}, 10, 2 );
