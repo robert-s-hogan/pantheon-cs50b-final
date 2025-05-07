@@ -23,12 +23,12 @@ function understrap_child_enqueue_assets() {
     $parent_version = wp_get_theme()->get( 'Version' );
 
     // 2) Load the parent theme’s own CSS (Bootstrap + theme)
-    wp_enqueue_style(
-        'understrap-parent-css',
-        get_template_directory_uri() . '/css/theme.min.css',
-        [],
-        $parent_version
-    );
+    // wp_enqueue_style(
+    //     'understrap-parent-css',
+    //     get_template_directory_uri() . '/css/theme.min.css',
+    //     [],
+    //     $parent_version
+    // );
 
     // 3) Load your compiled child CSS
     $child_rel  = '/build/assets/css/app.css';
