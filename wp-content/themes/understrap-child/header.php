@@ -29,45 +29,30 @@ $bootstrap_version = get_theme_mod( 'understrap_bootstrap_version', 'bootstrap5'
   </a>
 
   <!-- ******************* The Navbar Area / Custom Header ******************* -->
-  <header class="navbar px-4 py-3">
-  <div class="navbar__brand">
-    <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/brand-logo.jpg' ); ?>"
-         alt="<?php bloginfo( 'name' ); ?>">
-    <span class="site-title"><?php bloginfo( 'name' ); ?></span>
-  </div>
 
-  <!-- Bootstrap 5 navbar with wp_nav_menu pulling in your “Primary Menu” -->
-  <nav class="navbar navbar-expand-lg flex-grow-1">
-    <button class="navbar-toggler" type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#siteNav"
-            aria-controls="siteNav"
-            aria-expanded="false"
-            aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap-child' ); ?>">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <header class="navbar">
+    <div class="navbar__brand">
+      <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/brand-logo.jpg' ); ?>"
+           alt="<?php bloginfo( 'name' ); ?>">
+      <span class="site-title"><?php bloginfo( 'name' ); ?></span>
+    </div>
 
-    <div class="collapse navbar-collapse justify-content-end" id="siteNav">
+    <nav class="navbar__links" role="navigation">
       <?php
-      wp_nav_menu([
+      wp_nav_menu( [
         'theme_location' => 'primary',
         'container'      => false,
-        'menu_class'     => 'navbar-nav d-flex gap-4',
+        'menu_class'     => '',      // no extra wrapper classes
         'fallback_cb'    => false,
-        'depth'          => 2,
-        'walker'         => class_exists( 'Understrap\Bootstrap_5_Navwalker' )
-                           ? new Understrap\Bootstrap_5_Navwalker()
-                           : null,
-      ]);
+      ] );
       ?>
-    </div>
-  </nav>
+    </nav>
 
-  <div class="navbar__actions">
-    <a href="/donate" class="btn btn-primary btn-sm">Donate</a>
-    <button class="btn btn-outline-light btn-sm">Translate</button>
-  </div>
-</header>
+    <div class="navbar__actions">
+      <a href="/donate" class="btn btn-primary btn-sm">Donate</a>
+      <button class="btn btn-outline-light btn-sm">Translate</button>
+    </div>
+  </header>
 
 
 
