@@ -24,29 +24,38 @@ add_action( 'init', function() {
         [
             'title'      => __( 'Organism: Hero Section', 'understrap-child' ),
             'categories' => [ 'understrap-organism', 'hero', 'featured' ],
-            'content'    => '
-<!-- wp:cover {"url":"' . esc_url( get_stylesheet_directory_uri() . '/assets/hero-bg.jpg' ) . '","dimRatio":60,"overlayColor":"black","align":"full","className":"hero-section text-white","minHeight":75,"minHeightUnit":"vh"} -->
-<div class="wp-block-cover alignfull hero-section text-white">
+          'content'    => '
+<!-- wp:cover {"url":"' . esc_url( get_stylesheet_directory_uri() . '/assets/hero-bg.jpg' ) . '","dimRatio":60,"overlayColor":"black","align":"full","className":"hero-section"} -->
+<div class="wp-block-cover alignfull hero-section">
   <span aria-hidden="true" class="wp-block-cover__background has-black-background-color has-background-dim"></span>
   <div class="wp-block-cover__inner-container">
-    <div class="container-lg">
 
-      <!-- pull in your Section Title atom as an H1 -->
-      <!-- wp:pattern {"slug":"understrap/atom-section-title"} /-->
+    <!-- wp:heading {"level":1,"textAlign":"center","className":"section-title"} -->
+    <h1 class="has-text-align-center section-title">Your Hero Title</h1>
+    <!-- /wp:heading -->
 
-      <!-- pull in your Subheading atom -->
-      <!-- wp:pattern {"slug":"understrap/atom-subheading"} /-->
+    <!-- wp:paragraph {"align":"center","className":"subheading"} -->
+    <p class="has-text-align-center subheading">Your subheading here.</p>
+    <!-- /wp:paragraph -->
 
-      <!-- pull in your Paragraph Text atom -->
-      <!-- wp:pattern {"slug":"understrap/atom-paragraph-text"} /-->
+    <!-- wp:paragraph {"align":"center","className":"paragraph-text"} -->
+    <p class="has-text-align-center paragraph-text">Intro or lead paragraph here.</p>
+    <!-- /wp:paragraph -->
 
-      <!-- pull in your Button atom -->
-      <!-- wp:pattern {"slug":"understrap/atom-button"} /-->
-
+    <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+    <div class="wp-block-buttons">
+      <!-- wp:button {"backgroundColor":"secondary","className":"btn-primary"} -->
+      <div class="wp-block-button">
+        <a class="wp-block-button__link has-secondary-background-color has-background btn-primary">Call to Action</a>
+      </div>
+      <!-- /wp:button -->
     </div>
+    <!-- /wp:buttons -->
+
   </div>
 </div>
-<!-- /wp:cover -->',
+<!-- /wp:cover -->'
+
         ]
     );
 } );
