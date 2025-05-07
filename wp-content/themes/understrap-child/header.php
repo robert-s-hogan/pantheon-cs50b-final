@@ -30,38 +30,33 @@ $bootstrap_version = get_theme_mod( 'understrap_bootstrap_version', 'bootstrap5'
 
   <!-- ******************* The Navbar Area / Custom Header ******************* -->
   <header id="wrapper-navbar" class="wp-block-group alignfull site-header py-3">
-  <nav class="navbar navbar-expand-lg">
+  <div class="container d-flex align-items-center">
 
-    <div class="container d-flex align-items-center justify-content-between">
+    <!-- Left: Logo + Site Title -->
+    <div class="site-branding me-3">
+      <figure class="eagle-logo mb-0">
+        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/brand-logo.jpg' ); ?>"
+             alt="<?php bloginfo( 'name' ); ?>">
+      </figure>
+      <span class="ms-2 fw-bold"><?php bloginfo( 'name' ); ?></span>
+    </div>
 
-      <!-- Logo + Site Title -->
-      <div class="d-flex align-items-center gap-3 site-branding">
-        <figure class="eagle-logo mb-0">
-          <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/brand-logo.jpg' ); ?>"
-               alt="<?php bloginfo( 'name' ); ?>">
-        </figure>
-        <div class="site-title">
-          <p class="mb-0 fw-bold"><?php bloginfo( 'name' ); ?></p>
-        </div>
-      </div>
-
-      <!-- Mobile Toggle -->
-      <button class="navbar-toggler collapsed" type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#siteNav"
-              aria-controls="siteNav"
-              aria-expanded="false"
+    <!-- Center: Navbar -->
+    <nav class="navbar navbar-expand-lg flex-grow-1">
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#siteNav"
+              aria-controls="siteNav" aria-expanded="false"
               aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap-child' ); ?>">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Primary Menu -->
-      <div class="collapse navbar-collapse" id="siteNav">
+      <div class="collapse navbar-collapse justify-content-center" id="siteNav">
         <?php
         wp_nav_menu( [
           'theme_location' => 'primary',
           'container'      => false,
-          'menu_class'     => 'navbar-nav',
+          // Add mx-auto to center the <ul> on desktop
+          'menu_class'     => 'navbar-nav mx-auto',
           'fallback_cb'    => false,
           'depth'          => 2,
           'walker'         => class_exists( 'Understrap\Bootstrap_5_Navwalker' )
@@ -70,9 +65,16 @@ $bootstrap_version = get_theme_mod( 'understrap_bootstrap_version', 'bootstrap5'
         ] );
         ?>
       </div>
+    </nav>
 
-    </div><!-- .container -->
-        </nav>
-  </header><!-- #wrapper-navbar -->
+    <!-- Right: Action Buttons -->
+    <div class="d-none d-lg-flex align-items-center ms-3 gap-2">
+      <a href="/donate"   class="btn btn-primary btn-sm">Donate</a>
+      <button class="btn btn-outline-light btn-sm">Translate</button>
+    </div>
+
+  </div><!-- .container -->
+</header>
+
 
 <!-- NOTE: we do NOT close #page here — that lives in footer.php -->
