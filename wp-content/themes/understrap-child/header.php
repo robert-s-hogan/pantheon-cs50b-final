@@ -1,60 +1,52 @@
 <?php
-/**
- * Child Theme Header (UnderStrap + custom block)
- *
- * @package UnderstrapChild
- */
+/** Header with collapse menu & bottom actions */
 defined( 'ABSPATH' ) || exit;
-
-$bootstrap_version = get_theme_mod( 'understrap_bootstrap_version', 'bootstrap5' );
 ?>
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-  <meta charset="<?php bloginfo( 'charset' ); ?>">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="profile" href="http://gmpg.org/xfn/11">
-  <?php wp_head(); ?>
-</head>
+<header class="navbar navbar-expand-lg px-4 py-3">
+  <div class="container d-flex align-items-center justify-content-between">
 
-<body <?php body_class(); ?> <?php understrap_body_attributes(); ?>>
-<?php do_action( 'wp_body_open' ); ?>
-
-<div class="site" id="page">
-
-  <!-- Skip link for screen readers -->
-  <a class="skip-link <?php echo esc_attr( understrap_get_screen_reader_class( true ) ); ?>"
-     href="#content">
-    <?php esc_html_e( 'Skip to content', 'understrap-child' ); ?>
-  </a>
-
-  <!-- ******************* The Navbar Area / Custom Header ******************* -->
-
-  <header class="navbar">
-    <div class="navbar__brand">
+    <!-- Left: Brand -->
+    <div class="navbar__brand d-flex align-items-center gap-2">
       <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/brand-logo.jpg' ); ?>"
-           alt="<?php bloginfo( 'name' ); ?>">
+           alt="<?php bloginfo( 'name' ); ?>" width="48" height="48">
       <span class="site-title"><?php bloginfo( 'name' ); ?></span>
     </div>
 
-    <nav class="navbar__links" role="navigation">
-      <?php
-      wp_nav_menu( [
-        'theme_location' => 'primary',
-        'container'      => false,
-        'menu_class'     => '',      // no extra wrapper classes
-        'fallback_cb'    => false,
-      ] );
-      ?>
-    </nav>
+    <!-- Toggler (visible only <lg) -->
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#primaryMenuCollapse"
+            aria-controls="primaryMenuCollapse"
+            aria-expanded="false"
+            aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap-child' ); ?>">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <div class="navbar__actions">
+    <!-- Collapse: links + actions -->
+    <div class="collapse navbar-collapse flex-column" id="primaryMenuCollapse">
+      <!-- Menu -->
+      <nav class="navbar__links w-100 text-center">
+        <?php
+        wp_nav_menu( [
+          'theme_location' => 'primary',
+          'container'      => false,
+          'menu_class'     => 'navbar-nav flex-column', // vertical list
+          'fallback_cb'    => false,
+        ] );
+        ?>
+      </nav>
+
+      <!-- Mobile-only actions -->
+      <div class="navbar__actions w-100 d-flex justify-content-center gap-2 mt-3">
+        <a href="/donate" class="btn btn-primary btn-sm">Donate</a>
+        <button class="btn btn-outline-light btn-sm">Translate</button>
+      </div>
+    </div>
+
+    <!-- Desktop-only actions (pull to right) -->
+    <div class="desktop-actions d-none d-lg-flex align-items-center gap-2">
       <a href="/donate" class="btn btn-primary btn-sm">Donate</a>
       <button class="btn btn-outline-light btn-sm">Translate</button>
     </div>
-  </header>
-
-
-
-
-<!-- NOTE: we do NOT close #page here — that lives in footer.php -->
+  </div>
+</header>

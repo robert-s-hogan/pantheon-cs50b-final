@@ -12535,65 +12535,84 @@ textarea.form-control-lg {
 }
 
 .navbar {
+  background-color: #3055c3;
+}
+.navbar .container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #3055c3;
-  padding: 1rem 1.5rem;
 }
 .navbar__brand {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: stretch;
-  gap: 0.75rem;
-}
-.navbar__brand img {
-  width: 48px;
-  height: auto;
-  display: block;
-}
-.navbar__brand .site-title {
   color: #ffffff;
   font-family: "Russo One", sans-serif;
   font-size: 1.25rem;
 }
-.navbar__links {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  flex: 1;
-  gap: 1.5rem;
-  margin: 0 2rem;
-}
-.navbar__links a {
+.navbar .navbar-toggler {
+  border-color: #ffffff;
   color: #ffffff;
-  font-weight: 600;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  padding: 0.5rem 0;
-}
-.navbar__links a:hover {
-  color: #ffcb2a;
-}
-.navbar__actions {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: stretch;
-  gap: 1rem;
-}
-.navbar__actions a,
-.navbar__actions button {
-  font-size: 0.875rem;
-  padding: 0.4rem 0.8rem;
 }
 @media (min-width: 992px) {
   .navbar .navbar-toggler {
-    display: none !important;
+    display: none;
   }
+}
+.navbar .navbar-toggler-icon {
+  filter: invert(1);
+}
+.navbar .collapse.navbar-collapse {
+  display: none;
+  width: 100%;
+}
+.navbar .collapse.navbar-collapse.show {
+  display: flex !important;
+  flex-direction: column;
+  background-color: #3055c3;
+  padding: 1rem 0;
+}
+.navbar .navbar__links .navbar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+@media (min-width: 992px) {
+  .navbar .navbar__links .navbar-nav {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}
+.navbar .navbar__links .navbar-nav li {
+  list-style: none;
+}
+.navbar .navbar__links .navbar-nav a {
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.5rem;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: block;
+}
+.navbar .navbar__links .navbar-nav a:hover {
+  color: #ffcb2a;
+}
+.navbar .navbar__actions {
+  display: none;
+}
+@media (max-width: 991.98px) {
+  .navbar .navbar__actions {
+    display: flex;
+  }
+}
+.navbar .navbar__actions a,
+.navbar .navbar__actions button {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
+.navbar .desktop-actions a,
+.navbar .desktop-actions button {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
 }
 
 .site-header {
