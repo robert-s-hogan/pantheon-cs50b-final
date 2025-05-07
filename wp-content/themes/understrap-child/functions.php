@@ -87,7 +87,6 @@ if (file_exists($css_full)) {
 error_log("--- End Debug ---");
 // --- END TEMPORARY DEBUG ---
 
-
     // Determine version based on file modified time for cache busting
     // Fallback to theme version if file doesn't exist (though it should!)
     $version  = file_exists( $css_full )
