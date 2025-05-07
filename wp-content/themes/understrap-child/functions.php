@@ -23,20 +23,12 @@ function understrap_child_enqueue_assets() {
     wp_deregister_script( 'understrap-scripts' );
     $parent_version = wp_get_theme()->get( 'Version' );
 
-    // 2) Load the parent theme’s own CSS (Bootstrap + theme)
-    wp_enqueue_style(
-        'understrap-parent-css',
-        get_template_directory_uri() . '/css/theme.min.css',
-        [],
-        $parent_version
-    );
-
-    // 3) Load your compiled child CSS
-    $child_rel  = '/build/assets/css/app.css';
-    $child_path = get_stylesheet_directory() . $child_rel;
-    $child_ver  = file_exists( $child_path )
-                  ? filemtime( $child_path )
-                  : $parent_version;
+   // 3) Load your compiled child CSS
+   $css_rel  = '/build/assets/css/app.css';
+   $css_full = get_stylesheet_directory() . $css_rel;
+   $version  = file_exists( $css_full ) 
+                ? filemtime( $css_full ) 
+                : wp_get_theme()->get('Version');
 
     wp_enqueue_style(
     'google-font-russo',
@@ -47,10 +39,10 @@ function understrap_child_enqueue_assets() {
 
     wp_enqueue_style(
         'understrap-child-css',
-        get_stylesheet_directory_uri() . $child_rel,
-        [ 'understrap-parent-css' ],
-        $child_ver
-    );
+        get_stylesheet_directory_uri() . $css_rel,
+        [ 'google-font-russo' ], // Make Google Font a dependency (optional)
+        $version
+      );
 
     // 4) (Optional) Bootstrap JS bundle if you have it
     $js_rel  = '/js/vendor/bootstrap.bundle.min.js';
