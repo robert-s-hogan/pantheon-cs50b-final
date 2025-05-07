@@ -12534,6 +12534,60 @@ textarea.form-control-lg {
   padding-right: 1rem;
 }
 
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar__brand {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.75rem;
+}
+.navbar__brand img {
+  width: 48px;
+  height: auto;
+}
+.navbar__brand .site-title {
+  color: #ffffff;
+  font-family: "Russo One", sans-serif;
+  font-size: 1.25rem;
+  margin: 0;
+}
+.navbar__links {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: auto;
+  gap: 1.5rem;
+}
+.navbar__links a {
+  color: #ffffff;
+  font-weight: 600;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+.navbar__links a:hover {
+  color: #ffcb2a;
+}
+.navbar__actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+}
+.navbar__actions a,
+.navbar__actions button {
+  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem;
+}
+
 .site-header {
   background-color: #3055c3;
   /* — Left: Logo + Title — */

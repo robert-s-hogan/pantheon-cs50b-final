@@ -29,52 +29,29 @@ $bootstrap_version = get_theme_mod( 'understrap_bootstrap_version', 'bootstrap5'
   </a>
 
   <!-- ******************* The Navbar Area / Custom Header ******************* -->
-  <header id="wrapper-navbar" class="wp-block-group alignfull site-header py-3">
-  <div class="container d-flex align-items-center">
+  <header class="navbar px-4 py-3">
+  <div class="navbar__brand">
+    <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/brand-logo.jpg' ); ?>"
+         alt="<?php bloginfo( 'name' ); ?>">
+    <span class="site-title"><?php bloginfo( 'name' ); ?></span>
+  </div>
 
-    <!-- Left: Logo + Site Title -->
-    <div class="site-branding me-3">
-      <figure class="eagle-logo mb-0">
-        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/brand-logo.jpg' ); ?>"
-             alt="<?php bloginfo( 'name' ); ?>">
-      </figure>
-      <span class="ms-2 fw-bold"><?php bloginfo( 'name' ); ?></span>
-    </div>
+  <nav class="navbar__links">
+    <?php
+      // Loop through your menu items (or output with wp_nav_menu and a custom walker)
+      foreach ( wp_get_nav_menu_items( 'primary' ) as $item ) : ?>
+        <a href="<?php echo esc_url( $item->url ); ?>">
+          <?php echo esc_html( $item->title ); ?>
+        </a>
+    <?php endforeach; ?>
+  </nav>
 
-    <!-- Center: Navbar -->
-    <nav class="navbar navbar-expand-lg flex-grow-1">
-      <button class="navbar-toggler" type="button"
-              data-bs-toggle="collapse" data-bs-target="#siteNav"
-              aria-controls="siteNav" aria-expanded="false"
-              aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap-child' ); ?>">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-center" id="siteNav">
-        <?php
-        wp_nav_menu( [
-          'theme_location' => 'primary',
-          'container'      => false,
-          // Add mx-auto to center the <ul> on desktop
-          'menu_class'     => 'navbar-nav mx-auto',
-          'fallback_cb'    => false,
-          'depth'          => 2,
-          'walker'         => class_exists( 'Understrap\Bootstrap_5_Navwalker' )
-                             ? new Understrap\Bootstrap_5_Navwalker()
-                             : new Walker_Nav_Menu(),
-        ] );
-        ?>
-      </div>
-    </nav>
-
-    <!-- Right: Action Buttons -->
-    <div class="d-none d-lg-flex align-items-center ms-3 gap-2">
-      <a href="/donate"   class="btn btn-primary btn-sm">Donate</a>
-      <button class="btn btn-outline-light btn-sm">Translate</button>
-    </div>
-
-  </div><!-- .container -->
+  <div class="navbar__actions">
+    <a href="/donate" class="btn btn-primary btn-sm">Donate</a>
+    <button class="btn btn-outline-light btn-sm">Translate</button>
+  </div>
 </header>
+
 
 
 <!-- NOTE: we do NOT close #page here — that lives in footer.php -->
