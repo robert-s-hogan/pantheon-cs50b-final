@@ -78,6 +78,11 @@ function understrap_child_editor_support() {
     add_theme_support( 'responsive-embeds' );
     add_theme_support( 'editor-styles' );
     add_editor_style( 'css/child-theme.css' );
+    // Remove the core layout classes on inner containers (Cover, Group, etc.)
+add_theme_support( 'disable-layout-styles' );
+remove_filter( 'render_block', 'wp_render_layout_support_flag', 10 );
+remove_filter( 'render_block', 'gutenberg_render_layout_support_flag', 10 );
+
 }
 
 /**
