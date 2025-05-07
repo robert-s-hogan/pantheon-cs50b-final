@@ -71,6 +71,23 @@ function understrap_child_enqueue_assets() {
     $css_rel  = '/build/assets/css/app.css'; // Path relative to theme root
     $css_full = get_stylesheet_directory() . $css_rel; // Full server path
 
+
+
+
+// --- TEMPORARY DEBUG ---
+// NOTE: These logs will go to wp-content/debug.log on Pantheon
+error_log("Debugging CSS Path Check:");
+error_log("Expected relative path: " . $css_rel);
+error_log("Resolved absolute path: " . $css_full);
+if (file_exists($css_full)) {
+    error_log("Result: CSS file FOUND!");
+} else {
+    error_log("Result: CSS file NOT FOUND at: " . $css_full);
+}
+error_log("--- End Debug ---");
+// --- END TEMPORARY DEBUG ---
+
+
     // Determine version based on file modified time for cache busting
     // Fallback to theme version if file doesn't exist (though it should!)
     $version  = file_exists( $css_full )
