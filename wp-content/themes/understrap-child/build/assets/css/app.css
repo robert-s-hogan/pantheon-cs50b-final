@@ -11967,6 +11967,30 @@ header.page-header-title {
   fill: #ffffff;
 }
 
+.wp-block-site-title a {
+  letter-spacing: 0.05em;
+}
+
+.wp-block-navigation__container a {
+  margin: 0 0.5rem; /* space between links */
+  letter-spacing: 0.02em;
+}
+
+.nav-cta {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #ffcb2a;
+  color: #1a2e69 !important;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.nav-cta:hover {
+  background-color: rgb(246, 185.9436619718, 0);
+  color: #ffffff !important;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
