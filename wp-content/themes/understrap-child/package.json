@@ -19,7 +19,8 @@
     "copy-assets": "node src/build/copy-assets.js",
     "dist": "npm-run-all --parallel css js",
     "dist-build": "node src/build/dist-build.js",
-    "dist-clean": "node src/build/dist-clean.js"
+    "dist-clean": "node src/build/dist-clean.js",
+    "audit": "bash scripts/understrap_audit.sh"
   },
   "engines": {
     "node": ">=14"
