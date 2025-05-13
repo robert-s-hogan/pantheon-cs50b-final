@@ -11,15 +11,6 @@
 defined( 'ABSPATH' ) || exit;
 
 
-/**
- * ----------------------------------------------------------------------------
- * 1) Block Patterns loader (your custom patterns)
- * ----------------------------------------------------------------------------
- */
-if ( file_exists( get_stylesheet_directory() . '/inc/block-patterns/init.php' ) ) {
-    require_once get_stylesheet_directory() . '/inc/block-patterns/init.php';
-}
-
 
 /**
  * ----------------------------------------------------------------------------
@@ -74,10 +65,6 @@ add_filter( 'block_type_metadata_settings', function( $settings, $metadata ) {
  */
 add_action( 'wp_enqueue_scripts', 'understrap_child_enqueue_assets', 20 );
 function understrap_child_enqueue_assets() {
-
-    // a) Remove the parent UnderStrap CSS entirely
-    wp_dequeue_style(  'understrap-styles' );
-    wp_deregister_style( 'understrap-styles' );
 
     // b) Google Fonts (optional)
     wp_enqueue_style(

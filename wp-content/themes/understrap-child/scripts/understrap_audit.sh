@@ -47,7 +47,7 @@ print_header >> "$OUT_FILE_LOCAL"
 write_section "SCSS" "*.scss" "src/sass"
 
 # 2. PHP - targeted files/folders
-write_section "Important PHP" "*.php" "(header|footer|functions|template-parts|inc)"
+write_section "INC Folder (PHP + JSON)" "*" "inc/"
 
 # 3. Project Root Config Files
 write_section "Config Files" "package.json" "."
