@@ -26,7 +26,8 @@ write_section() {
   local file_glob=$2
   local file_filter=$3
 
-  echo -e "\n🗂️  $section_name Files" >> "$OUT_FILE_LOCAL"
+  echo -e "
+🗂️  $section_name Files" >> "$OUT_FILE_LOCAL"
   echo "---------------------------------------------" >> "$OUT_FILE_LOCAL"
 
   find "$PROJECT_ROOT" -type f -name "$file_glob" \
@@ -34,9 +35,12 @@ write_section() {
     | grep -E "$file_filter" \
     | while read -r file; do
         REL_PATH="${file#$PROJECT_ROOT/}"
-        echo -e "\n🔹 $REL_PATH\n" >> "$OUT_FILE_LOCAL"
+        echo -e "
+🔹 $REL_PATH
+" >> "$OUT_FILE_LOCAL"
         cat "$file" >> "$OUT_FILE_LOCAL"
-        echo -e "\n---------------------------------------------" >> "$OUT_FILE_LOCAL"
+        echo -e "
+---------------------------------------------" >> "$OUT_FILE_LOCAL"
     done
 }
 
@@ -52,6 +56,10 @@ write_section "INC Folder (PHP + JSON)" "*" "inc/"
 # 3. Project Root Config Files
 write_section "Config Files" "package.json" "."
 write_section "Config Files" ".gitignore" "."
+
+# 4. UnderStrap & Child Theme Templates
+#    Dump header.php, page.php, footer.php from both themes
+write_section "UnderStrap & UnderStrap-Child Templates" "*.php" "wp-content/themes/(understrap|understrap-child)/(header|page|footer)\\.php$"
 
 # Copy to Desktop
 cp "$OUT_FILE_LOCAL" "$OUT_FILE_DESKTOP"
