@@ -11900,9 +11900,15 @@ h6.wp-block-heading {
 }
 
 header#wrapper-navbar,
-header.page-header-title,
-.entry-content p {
+header.page-header-title {
   display: none;
+}
+
+.entry-content p:first-of-type {
+  display: none;
+}
+.entry-content p:not(:first-of-type) {
+  display: block;
 }
 
 .alignfull.is-layout-flex > .wp-block-group.is-layout-flex {
