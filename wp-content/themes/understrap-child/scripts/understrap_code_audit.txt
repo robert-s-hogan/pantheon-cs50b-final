@@ -1,4 +1,4 @@
-Understrap Child Theme Code Audit - 2025-05-13 10:34:07
+Understrap Child Theme Code Audit - 2025-05-13 10:45:26
 Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-final/wp-content/themes/understrap-child
 ---------------------------------------------
 
@@ -47,24 +47,6 @@ h6.wp-block-heading {
   font-size: 1rem;
 }
 
----------------------------------------------
-
-🔹 src/sass/child-theme.scss
-
-@import "theme/child_theme_variables";                   // <------- Add your variables into this file. Also add variables to overwrite Bootstrap variables here
-@import "assets/bootstrap5/bootstrap";                             // <------- Loads Bootstrap4
-@import "assets/understrap/theme/understrap";  // <------- Loads the Understrap defaults. Just a few classes to incorporate BS in WP
-@import "assets/understrap/theme/woocommerce"; // <------- Loads WooCommerce style fixes. Comment out if you aren't using WooCommerce
-
-// Optional files - If you don´t use the corresponding scripts/fonts comment em out
-@import "assets/fontawesome/font-awesome";                           // <------- Font Awesome Icon font
-@import "assets/underscores";                            // <------- Underscores media styles
-
-// Any additional imported files //
-@import "theme/child_theme";                             // <------- Add your styles into this file
-@import "assets/understrap/theme/colors";           // <-------- This creates the necessary bootstrap color classes.
-@import "assets/understrap/theme/blocks";           // <-------- This adds Bootstrap styles to blocks.
-@import "assets/understrap/theme/contact-form7";    // <-------- Contact Form 7 - Bootstrap 4 support
 ---------------------------------------------
 
 🔹 src/sass/theme/mixins/_utils.scss
@@ -12867,7 +12849,7 @@ h6 {
   "main": "index.js",
   "scripts": {
     "bs": "browser-sync start --config src/build/browser-sync.config.js",
-    "css": "sass --load-path=./node_modules --load-path=src/sass --quiet-deps src/sass/app.scss build/assets/css/app.css --no-source-map && postcss build/assets/css/app.css --replace",
+    "css": "sass --quiet --load-path=./node_modules --load-path=src/sass src/sass/app.scss build/assets/css/app.css --no-source-map",
     "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css --quiet src/sass/child-theme.scss:css/child-theme.css src/sass/custom-editor-style.scss:css/custom-editor-style.css",
     "css-minify": "cleancss -O1 --format breakWith=lf --with-rebase --source-map --source-map-inline-sources --output css/ --batch --batch-suffix \".min\" \"css/*.css\" \"!css/*.min.css\" \"!css/*rtl*.css\"",
     "css-postcss": "postcss --config src/build/postcss.config.js --replace \"css/*.css\" \"!css/*.rtl*.css\" \"!css/*.min.css\"",
