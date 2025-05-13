@@ -11991,8 +11991,8 @@ header.page-header-title {
   color: #ffffff !important;
 }
 
-header#wrapper-navbar > .wp-block-navigation,
-header#wrapper-navbar nav.wp-block-navigation {
+.wp-block-navigation,
+.is-responsive.wp-block-navigation {
   display: none !important;
 }
 
