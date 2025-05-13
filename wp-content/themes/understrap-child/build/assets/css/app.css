@@ -11912,14 +11912,16 @@ header.page-header-title {
   display: none;
 }
 
-.alignfull.is-layout-flex > .wp-block-group.is-layout-flex {
+.wp-block-group.alignfull.is-layout-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--wp--preset--spacing--30);
+}
+.wp-block-group.alignfull.is-layout-flex > .wp-block-group.is-layout-flex {
   display: flex;
   align-items: center;
   gap: var(--wp--preset--spacing--20);
-}
-.alignfull.is-layout-flex > .wp-block-group.is-layout-flex > .wp-block-site-logo,
-.alignfull.is-layout-flex > .wp-block-group.is-layout-flex > .wp-block-group {
-  flex: 0 0 auto;
 }
 
 .wp-block-navigation.is-layout-flex {
