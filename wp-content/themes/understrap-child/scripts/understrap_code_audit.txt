@@ -1,4 +1,4 @@
-Understrap Child Theme Code Audit - 2025-05-13 10:58:35
+Understrap Child Theme Code Audit - 2025-05-13 12:44:52
 Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-final/wp-content/themes/understrap-child
 ---------------------------------------------
 
@@ -120,12 +120,135 @@ $container-max-widths: (
 
 ---------------------------------------------
 
+🔹 src/sass/theme/_overrides.scss
+
+// 0) Global resets
+.wrapper {
+  padding: 0;
+}
+
+// 1) Hide the extra headers
+header#wrapper-navbar,
+header.page-header-title {
+  display: none !important;
+}
+
+// 2) First spacers & first paragraph removal
+.entry-content {
+  > .wp-block-group.alignfull.is-content-justification-center.is-layout-constrained {
+    > .wp-block-spacer:first-of-type,
+    > .wp-block-group.alignwide.is-layout-flow
+      > .wp-block-spacer:first-of-type {
+      display: none;
+    }
+  }
+
+  p:first-of-type {
+    display: none;
+  }
+}
+
+// 3) Outer header container → flex row, vertical center, space between
+.wp-block-group.alignfull.is-layout-flex {
+  display: flex; // become a flex container
+  align-items: center; // vertical centering
+  justify-content: space-between; // push logo/title left, nav right
+  gap: var(--wp--preset--spacing--30);
+
+  a {
+    color: $navbar-light-color; // all header links white
+    &:hover {
+      color: $navbar-light-hover-color;
+    }
+  }
+
+  // 3a) Logo + title wrapper → inline flex with gap
+  > .wp-block-group.is-layout-flex {
+    display: flex;
+    align-items: center;
+    gap: var(--wp--preset--spacing--20);
+  }
+}
+
+// 4) Main nav: flex + gap + link styles
+.wp-block-navigation.is-layout-flex {
+  display: flex;
+  align-items: center;
+  gap: var(--wp--preset--spacing--30);
+
+  &__container-content {
+    .wp-block-pages-list,
+    .wp-block-navigation__container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--wp--preset--spacing--20);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .wp-block-pages-list__item {
+      margin: 0;
+    }
+
+    .wp-block-pages-list__item__link {
+      display: inline-block;
+      padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
+    }
+  }
+}
+
+// header background & text/link colors
+.wp-block-group.alignfull.is-layout-flex {
+  background-color: $primary;
+  color: $navbar-light-color !important;
+
+  a {
+    color: $navbar-light-color !important;
+
+    &:hover {
+      color: $navbar-light-hover-color;
+    }
+  }
+}
+
+// ensure the burger‑menu icon uses white on mobile
+.wp-block-navigation__responsive-container-open svg {
+  fill: $navbar-light-color;
+}
+
+.wp-block-site-title a {
+  letter-spacing: 0.05em;
+}
+
+.wp-block-navigation__container a {
+  margin: 0 0.5rem; /* space between links */
+  letter-spacing: 0.02em;
+}
+
+.nav-cta {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: $secondary;
+  color: $dark !important;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.nav-cta:hover {
+  background-color: darken($secondary, 10%);
+  color: $white !important;
+}
+
+---------------------------------------------
+
 🔹 src/sass/theme/_child_theme_variables.scss
 
 // src/sass/theme/_child_theme_variables.scss
-@forward "theme/mixins/fluid-type";
-@forward "theme/mixins/breakpoints";
-@forward "theme/mixins/container";
+@import "theme/mixins/fluid-type";
+@import "theme/mixins/breakpoints";
+@import "theme/mixins/container";
 
 // — Bootstrap overrides —
 /// Brand colors
@@ -169,6 +292,10 @@ $btn-padding-x: 1.25rem !default; // 20px
 $btn-border-radius: 0.25rem !default;
 $btn-focus-shadow: 0 0 0 3px rgba($secondary, 0.5) !default;
 
+/// Header / “light” text colors
+$navbar-light-color: $white !default;
+$navbar-light-hover-color: rgba($white, 0.8) !default;
+
 ---------------------------------------------
 
 🔹 src/sass/theme/_child_theme.scss
@@ -187,46 +314,6 @@ $btn-focus-shadow: 0 0 0 3px rgba($secondary, 0.5) !default;
 @import "assets/understrap/theme/colors"; // <-------- This creates the necessary bootstrap color classes.
 @import "assets/understrap/theme/blocks"; // <-------- This adds Bootstrap styles to blocks.
 @import "assets/understrap/theme/contact-form7"; // <-------- Contact Form 7 - Bootstrap 4 support
-
-// Page template tweaks
-.page-header-image {
-  margin-bottom: 1.5rem;
-
-  img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 0.25rem;
-  }
-}
-
-.page-header-title {
-  margin-bottom: 2rem;
-  text-align: center;
-
-  .entry-title {
-    font-family: "Russo One", sans-serif;
-    font-size: 2.5rem;
-    line-height: 1.2;
-    letter-spacing: 0.5px;
-    color: #222;
-  }
-}
-
-.entry-content {
-  // give your content some breathing room
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-
-  // sensible default for headings inside content
-  h2,
-  h3,
-  h4,
-  h5 {
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-  }
-}
 
 ---------------------------------------------
 
@@ -12833,28 +12920,21 @@ $gutters: $spacers !default;
 
 🔹 src/sass/app.scss
 
-// ──────────────────────────────────
-// 1) Load your overrides BEFORE Bootstrap
-@use "theme/child_theme_variables" as vars;
+// 1) Bring in your theme variables (mixins + globals)
+@import "theme/child_theme_variables";
 
-// 2) Bring in Bootstrap (using the same load‑path options you pass to sass)
-@use "bootstrap/scss/bootstrap" with (
-  $primary: vars.$primary,
-  $secondary: vars.$secondary
-);
+// 2) Load Bootstrap (it will pick up your $primary, $secondary, etc.)
+@import "bootstrap/scss/bootstrap";
 
-// Base styles
-// @use "base/reset";
-// @use "base/typography";
+// 3) Load your Gutenberg‑block styles
+@import "blocks/heading";
+// @import "blocks/paragraph";
+// @import "blocks/button";
 
-// Gutenberg core blocks
-@use "blocks/heading";
-// @use "blocks/paragraph";
-// @use "blocks/button";
+// —————— 4) Load your overrides (now able to see $primary, $secondary, etc.)
+@import "theme/overrides";
 
-// Layout
-// @use "layout/header";
-// @use "layout/footer";
+// —————— 5) Your “real” CSS
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
