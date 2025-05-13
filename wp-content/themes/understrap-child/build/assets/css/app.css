@@ -3865,8 +3865,8 @@ textarea.form-control-lg {
 .navbar {
   --bs-navbar-padding-x: 0;
   --bs-navbar-padding-y: 0.5rem;
-  --bs-navbar-color: rgba(var(--bs-emphasis-color-rgb), 0.65);
-  --bs-navbar-hover-color: rgba(var(--bs-emphasis-color-rgb), 0.8);
+  --bs-navbar-color: #ffffff;
+  --bs-navbar-hover-color: rgba(255, 255, 255, 0.8);
   --bs-navbar-disabled-color: rgba(var(--bs-emphasis-color-rgb), 0.3);
   --bs-navbar-active-color: rgba(var(--bs-emphasis-color-rgb), 1);
   --bs-navbar-brand-padding-y: 0.3125rem;
@@ -11918,6 +11918,12 @@ header.page-header-title {
   justify-content: space-between;
   gap: var(--wp--preset--spacing--30);
 }
+.wp-block-group.alignfull.is-layout-flex a {
+  color: #ffffff;
+}
+.wp-block-group.alignfull.is-layout-flex a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
 .wp-block-group.alignfull.is-layout-flex > .wp-block-group.is-layout-flex {
   display: flex;
   align-items: center;
@@ -11948,17 +11954,17 @@ header.page-header-title {
 
 .wp-block-group.alignfull.is-layout-flex {
   background-color: #3055c3;
-  color: rgba(var(--bs-emphasis-color-rgb), 0.65);
+  color: #ffffff !important;
 }
 .wp-block-group.alignfull.is-layout-flex a {
-  color: rgba(var(--bs-emphasis-color-rgb), 0.65);
+  color: #ffffff !important;
 }
 .wp-block-group.alignfull.is-layout-flex a:hover {
-  color: rgba(var(--bs-emphasis-color-rgb), 0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .wp-block-navigation__responsive-container-open svg {
-  fill: rgba(var(--bs-emphasis-color-rgb), 0.65);
+  fill: #ffffff;
 }
 
 body {

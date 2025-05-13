@@ -44,3 +44,7 @@ $btn-padding-y: 0.625rem !default; // 10px
 $btn-padding-x: 1.25rem !default; // 20px
 $btn-border-radius: 0.25rem !default;
 $btn-focus-shadow: 0 0 0 3px rgba($secondary, 0.5) !default;
+
+/// Header / “light” text colors
+$navbar-light-color: $white !default;
+$navbar-light-hover-color: rgba($white, 0.8) !default;
