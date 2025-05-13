@@ -11911,3 +11911,7 @@ h6 {
   letter-spacing: 0.5px;
   line-height: 1.1;
 }
+
+header#wrapper-navbar {
+  display: none;
+}
