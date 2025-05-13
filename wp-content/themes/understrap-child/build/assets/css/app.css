@@ -11991,14 +11991,6 @@ header.page-header-title {
   color: #ffffff !important;
 }
 
-/* Hide WP’s fallback “all pages” menu in the Bootstrap navbar */
-.wp-block-group alignfull is-layout-constrained wp-block-group-is-layout-constrained {
-  display: none !important;
-}
-.wp-block-group alignfull is-layout-constrained wp-block-group-is-layout-constrainedwp-block-group alignfull is-content-justification-space-between is-layout-flex wp-block-group-is-layout-flex {
-  display: none;
-}
-
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
