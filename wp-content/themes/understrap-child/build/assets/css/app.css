@@ -11901,56 +11901,47 @@ h6.wp-block-heading {
 
 header#wrapper-navbar,
 header.page-header-title {
-  display: none;
+  display: none !important;
 }
 
-.entry-content > .wp-block-group.alignfull.is-content-justification-center.is-layout-constrained > .wp-block-spacer:first-of-type {
-  display: none;
-}
+.entry-content > .wp-block-group.alignfull.is-content-justification-center.is-layout-constrained > .wp-block-spacer:first-of-type,
 .entry-content > .wp-block-group.alignfull.is-content-justification-center.is-layout-constrained > .wp-block-group.alignwide.is-layout-flow > .wp-block-spacer:first-of-type {
   display: none;
 }
 .entry-content p:first-of-type {
   display: none;
 }
-.entry-content p:not(:first-of-type) {
-  display: block;
-}
 
 .alignfull.is-layout-flex > .wp-block-group.is-layout-flex {
   display: flex;
-  flex-direction: row !important;
-  align-items: center !important;
+  align-items: center;
   gap: var(--wp--preset--spacing--20);
 }
-
 .alignfull.is-layout-flex > .wp-block-group.is-layout-flex > .wp-block-site-logo,
 .alignfull.is-layout-flex > .wp-block-group.is-layout-flex > .wp-block-group {
   flex: 0 0 auto;
 }
 
 .wp-block-navigation.is-layout-flex {
+  display: flex;
   align-items: center;
   gap: var(--wp--preset--spacing--30);
 }
-
-.wp-block-navigation__container-content .wp-block-pages-list,
-.wp-block-navigation__container-content .wp-block-navigation__container {
-  display: flex !important;
+.wp-block-navigation.is-layout-flex__container-content .wp-block-pages-list,
+.wp-block-navigation.is-layout-flex__container-content .wp-block-navigation__container {
+  display: flex;
   flex-wrap: wrap;
   gap: var(--wp--preset--spacing--20);
   list-style: none;
   margin: 0;
   padding: 0;
 }
-
-.wp-block-pages-list__item {
+.wp-block-navigation.is-layout-flex__container-content .wp-block-pages-list__item {
   margin: 0;
 }
-
-.wp-block-pages-list__item__link {
-  padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
+.wp-block-navigation.is-layout-flex__container-content .wp-block-pages-list__item__link {
   display: inline-block;
+  padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
 }
 
 body {
