@@ -11992,9 +11992,11 @@ header.page-header-title {
 }
 
 /* Hide WP’s fallback “all pages” menu in the Bootstrap navbar */
-header#wrapper-navbar .navbar-nav {
-  /* wp_page_menu() and the Navwalker fallback both render here */
+.wp-block-group alignfull is-layout-constrained wp-block-group-is-layout-constrained {
   display: none !important;
+}
+.wp-block-group alignfull is-layout-constrained wp-block-group-is-layout-constrainedwp-block-group alignfull is-content-justification-space-between is-layout-flex wp-block-group-is-layout-flex {
+  display: none;
 }
 
 body {
