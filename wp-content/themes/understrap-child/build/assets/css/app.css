@@ -11895,6 +11895,15 @@ h6.wp-block-heading {
   font-size: 1rem;
 }
 
+.wrapper {
+  padding: 0;
+}
+
+header#wrapper-navbar,
+header.page-header-title {
+  display: none;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
@@ -11910,9 +11919,4 @@ h6 {
   font-family: "Russo One", sans-serif;
   letter-spacing: 0.5px;
   line-height: 1.1;
-}
-
-header#wrapper-navbar,
-header.page-header-title {
-  display: none;
 }
