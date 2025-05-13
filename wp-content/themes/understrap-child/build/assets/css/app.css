@@ -11904,6 +11904,42 @@ header.page-header-title {
   display: none;
 }
 
+.alignfull.is-layout-flex > .wp-block-group.is-layout-flex {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  gap: var(--wp--preset--spacing--20);
+}
+
+.alignfull.is-layout-flex > .wp-block-group.is-layout-flex > .wp-block-site-logo,
+.alignfull.is-layout-flex > .wp-block-group.is-layout-flex > .wp-block-group {
+  flex: 0 0 auto;
+}
+
+.wp-block-navigation.is-layout-flex {
+  align-items: center;
+  gap: var(--wp--preset--spacing--30);
+}
+
+.wp-block-navigation__container-content .wp-block-pages-list,
+.wp-block-navigation__container-content .wp-block-navigation__container {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: var(--wp--preset--spacing--20);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wp-block-pages-list__item {
+  margin: 0;
+}
+
+.wp-block-pages-list__item__link {
+  padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
+  display: inline-block;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
