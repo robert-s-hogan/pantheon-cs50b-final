@@ -11904,6 +11904,12 @@ header.page-header-title {
   display: none;
 }
 
+.entry-content > .wp-block-group.alignfull.is-content-justification-center.is-layout-constrained > .wp-block-spacer:first-of-type {
+  display: none;
+}
+.entry-content > .wp-block-group.alignfull.is-content-justification-center.is-layout-constrained > .wp-block-group.alignwide.is-layout-flow > .wp-block-spacer:first-of-type {
+  display: none;
+}
 .entry-content p:first-of-type {
   display: none;
 }
