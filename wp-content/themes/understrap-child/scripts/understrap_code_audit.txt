@@ -1,4 +1,4 @@
-Understrap Child Theme Code Audit - 2025-05-13 10:45:26
+Understrap Child Theme Code Audit - 2025-05-13 10:58:35
 Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-final/wp-content/themes/understrap-child
 ---------------------------------------------
 
@@ -187,6 +187,46 @@ $btn-focus-shadow: 0 0 0 3px rgba($secondary, 0.5) !default;
 @import "assets/understrap/theme/colors"; // <-------- This creates the necessary bootstrap color classes.
 @import "assets/understrap/theme/blocks"; // <-------- This adds Bootstrap styles to blocks.
 @import "assets/understrap/theme/contact-form7"; // <-------- Contact Form 7 - Bootstrap 4 support
+
+// Page template tweaks
+.page-header-image {
+  margin-bottom: 1.5rem;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.25rem;
+  }
+}
+
+.page-header-title {
+  margin-bottom: 2rem;
+  text-align: center;
+
+  .entry-title {
+    font-family: "Russo One", sans-serif;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+    color: #222;
+  }
+}
+
+.entry-content {
+  // give your content some breathing room
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+
+  // sensible default for headings inside content
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
 
 ---------------------------------------------
 
