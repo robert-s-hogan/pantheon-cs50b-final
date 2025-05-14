@@ -12659,6 +12659,93 @@ header.page-header-title {
   display: none !important;
 }
 
+.entry-content > .wp-block-group.alignfull.is-content-justification-center.is-layout-constrained > .wp-block-spacer:first-of-type,
+.entry-content > .wp-block-group.alignfull.is-content-justification-center.is-layout-constrained > .wp-block-group.alignwide.is-layout-flow > .wp-block-spacer:first-of-type {
+  display: none;
+}
+.entry-content p:first-of-type {
+  display: none;
+}
+
+.wp-block-group.alignfull.is-layout-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--wp--preset--spacing--30);
+}
+.wp-block-group.alignfull.is-layout-flex a {
+  color: #ffffff;
+}
+.wp-block-group.alignfull.is-layout-flex a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+.wp-block-group.alignfull.is-layout-flex > .wp-block-group.is-layout-flex {
+  display: flex;
+  align-items: center;
+  gap: var(--wp--preset--spacing--20);
+}
+
+.wp-block-navigation.is-layout-flex {
+  display: flex;
+  align-items: center;
+  gap: var(--wp--preset--spacing--30);
+}
+.wp-block-navigation.is-layout-flex__container-content .wp-block-pages-list,
+.wp-block-navigation.is-layout-flex__container-content .wp-block-navigation__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--wp--preset--spacing--20);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.wp-block-navigation.is-layout-flex__container-content .wp-block-pages-list__item {
+  margin: 0;
+}
+.wp-block-navigation.is-layout-flex__container-content .wp-block-pages-list__item__link {
+  display: inline-block;
+  padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
+}
+
+.wp-block-group.alignfull.is-layout-flex {
+  background-color: #3055c3;
+  color: #ffffff !important;
+}
+.wp-block-group.alignfull.is-layout-flex a {
+  color: #ffffff !important;
+}
+.wp-block-group.alignfull.is-layout-flex a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.wp-block-navigation__responsive-container-open svg {
+  fill: #ffffff;
+}
+
+.wp-block-site-title a {
+  letter-spacing: 0.05em;
+}
+
+.wp-block-navigation__container a {
+  margin: 0 0.5rem; /* space between links */
+  letter-spacing: 0.02em;
+}
+
+.nav-cta {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #ffcb2a;
+  color: #1a2e69 !important;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.nav-cta:hover {
+  background-color: rgb(246, 185.9436619718, 0);
+  color: #ffffff !important;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
