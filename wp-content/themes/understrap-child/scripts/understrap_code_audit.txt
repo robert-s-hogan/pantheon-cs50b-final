@@ -1,50 +1,1125 @@
-Understrap Child Theme Code Audit - 2025-05-13 13:58:06
+Understrap Child Theme Code Audit - 2025-05-14 08:51:32
 Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-final/wp-content/themes/understrap-child
 ---------------------------------------------
 
 🗂️  SCSS Files
 ---------------------------------------------
 
+🔹 src/sass/blocks/_code.scss
+
+// _code.scss
+// — Core code block, using only brand colors
+
+.wp-block-code {
+  margin-bottom: $spacer;
+  padding: $spacer;
+  background: $gray-100; // subtle gray background
+  color: $dark; // monospace text in dark
+  font-family: monospace;
+  font-size: 0.875rem;
+  overflow-x: auto;
+
+  a {
+    color: $primary; // link normal
+    text-decoration: none;
+    &:hover {
+      color: $secondary; // link hover
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_post-author.scss
+
+// _post-author.scss
+.wp-block-post-author {
+  margin-bottom: ($spacer / 2);
+  font-size: 0.875rem;
+  color: $dark;
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_site-logo.scss
+
+// _site-logo.scss
+.wp-block-site-logo {
+  margin-bottom: $spacer;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    display: inline-block;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_read-more.scss
+
+// _read-more.scss
+.wp-block-read-more {
+  text-align: center;
+  margin: $spacer 0;
+
+  .wp-block-read-more__link {
+    display: inline-block;
+    padding: $btn-padding-y $btn-padding-x;
+    border-radius: $btn-border-radius;
+    background-color: $primary;
+    color: $white;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+
+    &:hover,
+    &:focus {
+      background-color: $secondary;
+      color: $white;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_columns.scss
+
+// _columns.scss
+// — Core columns block, using only brand colors
+
+.wp-block-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacer;
+  margin-bottom: $spacer;
+  color: $dark;
+
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_preformatted.scss
+
+// _preformatted.scss
+// — Core preformatted block, using only brand colors
+
+.wp-block-preformatted {
+  margin-bottom: $spacer;
+  padding: $spacer;
+  background: $gray-100; // subtle gray background
+  color: $dark; // monospace text in dark
+  font-family: monospace;
+  white-space: pre-wrap;
+  overflow-x: auto;
+
+  a {
+    color: $primary; // link normal
+    text-decoration: none;
+    &:hover {
+      color: $secondary; // link hover
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_group.scss
+
+// _group.scss
+// — Core group block, using only brand colors
+
+.wp-block-group {
+  margin-bottom: $spacer;
+  padding: $spacer;
+  color: $dark;
+
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_audio.scss
+
+// _audio.scss
+// — Core audio block, using only brand colors
+
+.wp-block-audio {
+  margin-bottom: $spacer;
+
+  audio {
+    width: 100%;
+  }
+
+  figcaption {
+    margin-top: ($spacer / 2);
+    font-size: 0.875rem;
+    color: $dark;
+
+    a {
+      color: $primary;
+      text-decoration: none;
+      &:hover {
+        color: $secondary;
+      }
+    }
+  }
+
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_query-title.scss
+
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_more.scss
+
+// _more.scss
+// — Core “More” block, using only brand colors
+
+.wp-block-more {
+  text-align: center;
+  margin: $spacer 0;
+
+  .wp-block-more__button {
+    display: inline-block;
+    padding: $btn-padding-y $btn-padding-x;
+    border: 1px solid $primary;
+    border-radius: $btn-border-radius;
+    background-color: transparent;
+    color: $primary;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover,
+    &:focus {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_site-title.scss
+
+// _site-title.scss
+.wp-block-site-title {
+  margin-bottom: ($spacer / 2);
+  @include fluid-type($fs-section-h1-min, $fs-section-h1-max);
+  color: $dark;
+
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_social-links.scss
+
+// _social-links.scss
+// — Core social-links block, using only brand colors
+
+.wp-block-social-links {
+  display: flex;
+  gap: $spacer / 2;
+  margin-bottom: $spacer;
+
+  .wp-block-social-link a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    color: $dark;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:focus {
+      color: $primary;
+    }
+
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      fill: currentColor;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_image.scss
+
+// _image.scss
+// — Core image block, using only brand colors
+
+.wp-block-image {
+  margin-bottom: $spacer;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  figcaption {
+    margin-top: ($spacer / 2);
+    font-size: 0.875rem;
+    color: $dark; // caption text in dark
+
+    a {
+      color: $primary; // link normal
+      text-decoration: none;
+      &:hover {
+        color: $secondary; // link hover
+      }
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_separator.scss
+
+// _spacer.scss
+// — Core spacer block, using only brand colors
+
+.wp-block-spacer {
+  height: $spacer;
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_cover.scss
+
+// _cover.scss
+// — Core cover block, using only brand colors
+
+.wp-block-cover {
+  position: relative;
+  margin-bottom: $spacer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: $hero-min-height;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: $hero-overlay;
+  }
+
+  .wp-block-cover__inner-container {
+    position: relative;
+    width: 100%;
+    max-width: map-get($container-max-widths, lg);
+    padding: $spacer;
+    text-align: center;
+    color: $white;
+
+    a {
+      color: $primary;
+      text-decoration: none;
+      &:hover {
+        color: $secondary;
+      }
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_quote.scss
+
+// _quote.scss
+// — Core quote block, using only brand colors
+
+.wp-block-quote {
+  margin: $spacer 0;
+  padding: $spacer;
+  background: $gray-100; // subtle gray background
+  border-left: 4px solid $primary; // primary accent
+
+  color: $dark; // main quote text
+  p {
+    margin: 0;
+    font-style: italic;
+  }
+
+  cite {
+    display: block;
+    margin-top: ($spacer / 2);
+    font-size: 0.875rem;
+    color: $primary; // citation in primary
+  }
+
+  a {
+    color: $primary; // link normal
+    text-decoration: none;
+    &:hover {
+      color: $secondary; // link hover
+    }
+  }
+}
+
+---------------------------------------------
+
 🔹 src/sass/blocks/_heading.scss
 
-// src/sass/blocks/_heading.scss
+// _heading.scss
+// — Core heading block, using only brand colors
 
-// Base styles for any heading block
 .wp-block-heading {
-  font-family: "Russo One", sans-serif;
-  letter-spacing: 0.5px;
-  line-height: 1.1;
-  color: #222;
-  margin-bottom: 1rem;
+  margin-bottom: $spacer;
+  // all headings default to dark text
+  color: $dark;
 
-  &.has-text-align-center {
-    text-align: center;
+  // fluid sizing between h2 min/max
+  @include fluid-type($fs-section-h2-min, $fs-section-h2-max);
+
+  // inherit color, but set family and spacing
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Russo One", sans-serif;
+    line-height: 1.1;
+    letter-spacing: 0.5px;
+    color: inherit;
   }
-  &.has-text-align-right {
-    text-align: right;
-  }
-  &.has-text-align-left {
-    text-align: left;
+
+  // links inside headings use your primary brand color
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
   }
 }
 
-h1.wp-block-heading {
-  font-size: 2.5rem;
+---------------------------------------------
+
+🔹 src/sass/blocks/_navigation-link.scss
+
+// _navigation.scss
+.wp-block-navigation {
+  margin-bottom: $spacer;
+
+  ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: $spacer;
+  }
+
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      color: $secondary;
+    }
+  }
 }
-h2.wp-block-heading {
-  font-size: 2rem;
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_verse.scss
+
+// _verse.scss
+// — Core verse block, using only brand colors
+
+.wp-block-verse {
+  margin: $spacer 0;
+  padding: 0;
+  color: $dark; // verse text in dark
+  font-style: italic;
+  white-space: pre-wrap;
+
+  a {
+    color: $primary; // link normal
+    text-decoration: none;
+    &:hover {
+      color: $secondary; // link hover
+    }
+  }
 }
-h3.wp-block-heading {
-  font-size: 1.75rem;
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_embed-youtube.scss
+
+// _embed-youtube.scss
+
+.wp-block-embed-youtube {
+  @extend .wp-block-embed;
 }
-h4.wp-block-heading {
-  font-size: 1.5rem;
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_file.scss
+
+// _file.scss
+// — Core file block, using only brand colors
+
+.wp-block-file {
+  margin-bottom: $spacer;
+
+  .wp-block-file__button {
+    @extend .btn-primary; // primary background + white text
+    text-decoration: none;
+    &:hover {
+      @extend .btn-secondary; // secondary background
+    }
+  }
+
+  // links elsewhere (if any)
+  a:not(.wp-block-file__button) {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
+  }
 }
-h5.wp-block-heading {
-  font-size: 1.25rem;
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_button.scss
+
+// _button.scss
+// — Core button block, using only brand colors
+
+.wp-block-button {
+  margin-bottom: $spacer;
+
+  .wp-block-button__link {
+    display: inline-block;
+    padding: $btn-padding-y $btn-padding-x;
+    border-radius: $btn-border-radius;
+    background-color: $primary;
+    color: $white;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+
+    &:hover,
+    &:focus {
+      background-color: $secondary;
+      color: $white;
+    }
+  }
 }
-h6.wp-block-heading {
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_post-content.scss
+
+// _post-content.scss
+.wp-block-post-content {
+  margin-bottom: $spacer;
+  color: $dark;
+
+  p {
+    margin-bottom: $spacer;
+  }
+
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_video.scss
+
+// _video.scss
+// — Core video block, using only brand colors
+
+.wp-block-video {
+  margin-bottom: $spacer;
+
+  video,
+  iframe,
+  embed {
+    width: 100%;
+    height: auto;
+  }
+
+  figcaption {
+    margin-top: ($spacer / 2);
+    font-size: 0.875rem;
+    color: $dark;
+
+    a {
+      color: $primary;
+      text-decoration: none;
+      &:hover {
+        color: $secondary;
+      }
+    }
+  }
+
+  // any links inside
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_table.scss
+
+// _table.scss
+// — Core table block, using only brand colors
+
+.wp-block-table {
+  margin-bottom: $spacer;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    color: $dark; // main text
+  }
+
+  th,
+  td {
+    border: 1px solid $gray-100; // light gray borders
+    padding: ($spacer / 2);
+  }
+
+  thead {
+    background: $gray-100; // header background
+    th {
+      color: $dark; // header text
+    }
+  }
+
+  // links in tables
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_media-text.scss
+
+// _media-text.scss
+// — Core media-text block, using only brand colors
+
+.wp-block-media-text {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $spacer;
+
+  &.is-stacked-on-mobile {
+    flex-direction: column;
+  }
+
+  .wp-block-media-text__media {
+    flex: 1 1 50%;
+    img,
+    video {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .wp-block-media-text__content {
+    flex: 1 1 50%;
+    padding: $spacer;
+    color: $dark;
+
+    a {
+      color: $primary;
+      text-decoration: none;
+      &:hover {
+        color: $secondary;
+      }
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_terms.scss
+
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_navigation.scss
+
+// _navigation.scss
+.wp-block-navigation {
+  margin-bottom: $spacer;
+
+  ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: $spacer;
+  }
+
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      color: $secondary;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_buttons.scss
+
+// _buttons.scss
+// — Core buttons container, using only brand colors
+
+.wp-block-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacer / 2;
+  margin-bottom: $spacer;
+
+  .wp-block-button {
+    margin: 0; // spacing handled by gap
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_post-featured-image.scss
+
+// _post-featured-image.scss
+.wp-block-post-featured-image {
+  margin-bottom: $spacer;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_post-terms.scss
+
+// _post-terms.scss
+.wp-block-post-terms {
+  margin-bottom: ($spacer / 2);
+  font-size: 0.875rem;
+  color: $dark;
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_list.scss
+
+// _list.scss
+// — Core list block, using only brand colors
+
+.wp-block-list {
+  margin-bottom: $spacer;
+  color: $dark; // list text
+
+  ul,
+  ol {
+    margin-left: $spacer;
+    li {
+      margin-bottom: ($spacer / 2);
+      color: inherit;
+
+      // bullet/number marker in primary color
+      &::marker {
+        color: $primary;
+      }
+    }
+  }
+
+  // links inside lists
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_post-title.scss
+
+// _post-title.scss
+.wp-block-post-title {
+  margin-bottom: ($spacer / 2);
+  @include fluid-type($fs-section-h2-min, $fs-section-h2-max);
+  color: $dark;
+
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_column.scss
+
+// _column.scss
+// — Core column block, using only brand colors
+
+.wp-block-column {
+  flex: 1;
+  min-width: 0;
+  color: inherit;
+
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_logo.scss
+
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_latest-comments.scss
+
+// _latest-comments.scss
+
+.wp-block-latest-comments {
+  margin-bottom: $spacer;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: ($spacer / 2);
+
+      a {
+        color: $primary;
+        text-decoration: none;
+        &:hover {
+          color: $secondary;
+        }
+      }
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_shortcode.scss
+
+// _shortcode.scss
+
+.wp-block-shortcode {
+  margin-bottom: $spacer;
+
+  code {
+    background: $gray-100;
+    padding: ($spacer / 2);
+    font-family: monospace;
+    color: $dark;
+  }
+
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_site-tagline.scss
+
+// _site-tagline.scss
+.wp-block-site-tagline {
+  margin-bottom: $spacer;
+  @include fluid-type($fs-subheading-min, $fs-subheading-max);
+  color: $dark;
+
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_post-date.scss
+
+// _post-date.scss
+.wp-block-post-date {
+  margin-bottom: ($spacer / 2);
+  font-size: 0.875rem;
+  color: $dark;
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_embed.scss
+
+// _embed.scss
+
+.wp-block-embed {
+  margin-bottom: $spacer;
+
+  .wp-block-embed__wrapper,
+  iframe,
+  embed,
+  video {
+    width: 100%;
+    height: auto;
+  }
+
+  figcaption {
+    margin-top: ($spacer / 2);
+    font-size: 0.875rem;
+    color: $dark;
+
+    a {
+      color: $primary;
+      text-decoration: none;
+      &:hover {
+        color: $secondary;
+      }
+    }
+  }
+
+  a:not(.wp-block-embed__wrapper) {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_query-loop.scss
+
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_spacer.scss
+
+// _spacer.scss
+.wp-block-spacer {
+  height: $spacer;
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_latest-posts.scss
+
+// _latest-posts.scss
+
+.wp-block-latest-posts {
+  margin-bottom: $spacer;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: ($spacer / 2);
+
+      a {
+        color: $primary;
+        text-decoration: none;
+        &:hover {
+          color: $secondary;
+        }
+      }
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_gallery.scss
+
+// _gallery.scss
+// — Core gallery block, using only brand colors
+
+.wp-block-gallery {
+  margin-bottom: $spacer;
+  display: grid;
+  gap: $spacer / 2;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+  figure {
+    margin: 0;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  figcaption {
+    margin-top: $spacer / 2;
+    font-size: 0.875rem;
+    color: $dark;
+
+    a {
+      color: $primary;
+      text-decoration: none;
+      &:hover {
+        color: $secondary;
+      }
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_embed-facebook.scss
+
+// _embed-facebook.scss
+
+.wp-block-embed-facebook {
+  margin-bottom: $spacer;
+
+  iframe,
+  .fb-post {
+    width: 100%;
+  }
+
+  figcaption {
+    margin-top: ($spacer / 2);
+    font-size: 0.875rem;
+    color: $dark;
+  }
+
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_paragraph.scss
+
+// _paragraph.scss
+// — Core paragraph block, using only brand colors
+
+.wp-block-paragraph {
+  margin-bottom: $spacer;
+  color: $dark; // main text
   font-size: 1rem;
+  line-height: 1.6;
+
+  a {
+    color: $primary; // link normal
+    text-decoration: none;
+    &:hover {
+      color: $secondary; // link hover
+    }
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/blocks/_embed-twitter.scss
+
+// _embed-twitter.scss
+
+.wp-block-embed-twitter {
+  margin-bottom: $spacer;
+
+  blockquote,
+  iframe {
+    width: 100%;
+  }
+
+  figcaption {
+    margin-top: ($spacer / 2);
+    font-size: 0.875rem;
+    color: $dark;
+  }
+
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
+  }
 }
 
 ---------------------------------------------
@@ -12925,21 +14000,82 @@ $gutters: $spacers !default;
 
 🔹 src/sass/app.scss
 
+// —————————————————————————————
 // 1) Bring in your theme variables (mixins + globals)
 @import "theme/child_theme_variables";
 
+// —————————————————————————————
 // 2) Load Bootstrap (it will pick up your $primary, $secondary, etc.)
 @import "bootstrap/scss/bootstrap";
 
+// —————————————————————————————
 // 3) Load your Gutenberg‑block styles
-@import "blocks/heading";
-// @import "blocks/paragraph";
-// @import "blocks/button";
 
-// —————— 4) Load your overrides (now able to see $primary, $secondary, etc.)
+// — Core content blocks
+@import "blocks/heading";
+@import "blocks/paragraph";
+@import "blocks/list";
+@import "blocks/quote";
+@import "blocks/code";
+@import "blocks/preformatted";
+@import "blocks/table";
+@import "blocks/verse";
+
+// — Media
+@import "blocks/image";
+@import "blocks/gallery";
+@import "blocks/cover";
+@import "blocks/media-text";
+@import "blocks/video";
+@import "blocks/audio";
+@import "blocks/file";
+
+// — Layout
+@import "blocks/columns";
+@import "blocks/column";
+@import "blocks/group";
+@import "blocks/separator";
+@import "blocks/spacer";
+
+// — Buttons & Links
+@import "blocks/button";
+@import "blocks/buttons";
+@import "blocks/social-links";
+@import "blocks/more";
+
+// — Widgets & Theme Blocks
+@import "blocks/site-title";
+@import "blocks/site-tagline";
+@import "blocks/site-logo";
+@import "blocks/post-title";
+@import "blocks/post-content";
+@import "blocks/post-date";
+@import "blocks/post-author";
+@import "blocks/post-terms";
+@import "blocks/post-featured-image";
+@import "blocks/read-more";
+@import "blocks/navigation";
+@import "blocks/navigation-link";
+
+// — Embeds (optional per content type)
+@import "blocks/embed";
+@import "blocks/embed-youtube";
+@import "blocks/embed-twitter";
+@import "blocks/embed-facebook";
+
+// — Query Loop / Dynamic content
+@import "blocks/query-loop";
+@import "blocks/query-title";
+@import "blocks/latest-posts";
+@import "blocks/latest-comments";
+@import "blocks/shortcode";
+
+// —————————————————————————————
+// 4) Load your overrides (now able to see $primary, $secondary, etc.)
 @import "theme/overrides";
 
-// —————— 5) Your “real” CSS
+// —————————————————————————————
+// 5) Your “real” CSS
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;

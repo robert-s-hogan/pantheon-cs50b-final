@@ -69,3 +69,8 @@ wp-content/plugins/*
 !wp-content/plugins/.gitkeep
 /wp-content/uploads/
 /wp-content/cache/
+
+
+
+[alias]
+  pushall = "!git push origin master && git push personal master"
