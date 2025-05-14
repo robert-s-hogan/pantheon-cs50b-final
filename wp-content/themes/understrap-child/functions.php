@@ -161,17 +161,3 @@ if ( file_exists( get_stylesheet_directory() . '/js/customizer-controls.js' ) ) 
     }
 }
 
-/**
- * Remove any rendered Navigation blocks so they don’t show up in the header.
- */
-add_filter(
-  'render_block',
-  function( $block_content, $block ) {
-    if ( isset( $block['blockName'] ) && $block['blockName'] === 'core/navigation' ) {
-      return ''; // drop it entirely
-    }
-    return $block_content;
-  },
-  20,
-  2
-);
