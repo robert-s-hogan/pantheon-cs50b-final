@@ -1,4 +1,4 @@
-Understrap Child Theme Code Audit - 2025-05-14 08:51:32
+Understrap Child Theme Code Audit - 2025-05-14 09:15:18
 Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-final/wp-content/themes/understrap-child
 ---------------------------------------------
 
@@ -196,6 +196,21 @@ Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-fin
 
 🔹 src/sass/blocks/_query-title.scss
 
+// _query-title.scss
+
+.wp-block-query-title {
+  margin-bottom: ($spacer / 2);
+  @include fluid-type($fs-section-h2-min, $fs-section-h2-max);
+  color: $dark;
+
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
 
 ---------------------------------------------
 
@@ -693,6 +708,21 @@ Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-fin
 
 🔹 src/sass/blocks/_terms.scss
 
+// _terms.scss
+
+.wp-block-post-terms {
+  margin-bottom: ($spacer / 2);
+  font-size: 0.875rem;
+  color: $dark;
+
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
 
 ---------------------------------------------
 
@@ -841,6 +871,23 @@ Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-fin
 
 🔹 src/sass/blocks/_logo.scss
 
+// _logo.scss
+
+.wp-block-site-logo {
+  margin-bottom: $spacer;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    display: inline-block;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
 
 ---------------------------------------------
 
@@ -14236,6 +14283,24 @@ dist/
 dist-product/
 **/img
 
+---------------------------------------------
+
+🗂️  Global Git Config (~/.gitconfig)
+---------------------------------------------
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[user]
+	name = robert.s.hogan@icloud.com
+	email = robert.s.hogan@icloud.com
+[receive]
+	denyCurrentBranch = updateInstead
+[http]
+	postBuffer = 524288000
+[alias]
+	pushall = !git push origin master && git push personal master
 ---------------------------------------------
 
 🗂️  UnderStrap & UnderStrap-Child Templates Files

@@ -44,6 +44,19 @@ write_section() {
     done
 }
 
+# Print global ~/.gitconfig
+print_global_gitconfig() {
+  echo -e "
+🗂️  Global Git Config (~/.gitconfig)" >> "$OUT_FILE_LOCAL"
+  echo "---------------------------------------------" >> "$OUT_FILE_LOCAL"
+  if [ -f "$HOME/.gitconfig" ]; then
+    cat "$HOME/.gitconfig" >> "$OUT_FILE_LOCAL"
+  else
+    echo "No ~/.gitconfig found" >> "$OUT_FILE_LOCAL"
+  fi
+  echo "---------------------------------------------" >> "$OUT_FILE_LOCAL"
+}
+
 # Run
 print_header >> "$OUT_FILE_LOCAL"
 
@@ -57,7 +70,10 @@ write_section "INC Folder (PHP + JSON)" "*" "inc/"
 write_section "Config Files" "package.json" "."
 write_section "Config Files" ".gitignore" "."
 
-# 4. UnderStrap & Child Theme Templates
+# 4. Global Git Config
+print_global_gitconfig
+
+# 5. UnderStrap & Child Theme Templates
 #    Dump header.php, page.php, footer.php from both themes
 write_section "UnderStrap & UnderStrap-Child Templates" "*.php" "wp-content/themes/(understrap|understrap-child)/(header|page|footer)\\.php$"
 
