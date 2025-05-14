@@ -72,5 +72,3 @@ wp-content/plugins/*
 
 
 
-[alias]
-  pushall = "!git push origin master && git push personal master"
