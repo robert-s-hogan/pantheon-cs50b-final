@@ -20,26 +20,50 @@ $container = get_theme_mod( 'understrap_container_type' );
   <div class="<?php echo esc_attr( $container ); ?>">
     <div class="row">
       <div class="col-md-12">
-        <footer class="site-footer" id="colophon">
-          
-          <?php 
-            // If you no longer need it, you can remove this call entirely:
-            // understrap_site_info(); 
-            // Or move it somewhere else, e.g. above your menu:
-          ?>
+<footer class="site-footer" id="colophon">
+  <div class="<?php echo esc_attr($container); ?> footer-flex-container">
 
-          <nav class="footer-navigation" aria-label="Footer Menu">
-            <?php
-              wp_nav_menu( [
-                'theme_location' => 'footer',
-                'container'      => false,
-                'menu_class'     => 'footer-menu-list',
-                'fallback_cb'    => false,
-              ] );
-            ?>
-          </nav>
+    <!-- LEFT SIDE: logo + address, then social icons -->
+    <div class="footer-left">
+      <div class="logo-address">
+        <a href="<?php echo home_url(); ?>">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/whited-logo.svg"
+               alt="Douglas Whited PTO logo" class="footer-logo">
+        </a>
+        <address class="footer-address">
+          Douglas Whited Elementary&nbsp;&nbsp;|&nbsp;&nbsp;
+          4995 Sonoma Hwy, Santa Rosa, CA 95409&nbsp;&nbsp;|&nbsp;&nbsp;
+          (707) XXX-XXXX
+        </address>
+      </div>
+      <div class="footer-social">
+        <!-- you can hard-code your links, or if you have a social menu: -->
+        <?php
+        wp_nav_menu([
+          'theme_location' => 'social',
+          'container'      => false,
+          'menu_class'     => 'social-menu',
+          'fallback_cb'    => false,
+        ]);
+        ?>
+      </div>
+    </div>
 
-        </footer>
+    <!-- RIGHT SIDE: footer menu links -->
+    <nav class="footer-right" aria-label="Footer Menu">
+      <?php
+      wp_nav_menu([
+        'theme_location' => 'footer',
+        'container'      => false,
+        'menu_class'     => 'footer-menu-list',
+        'fallback_cb'    => false,
+      ]);
+      ?>
+    </nav>
+
+  </div>
+</footer>
+
       </div>
     </div>
   </div>
