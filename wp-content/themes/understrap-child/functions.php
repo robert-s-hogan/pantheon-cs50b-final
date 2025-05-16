@@ -90,15 +90,7 @@ function understrap_child_enqueue_assets() {
         $version
     );
 
-    
-    // d) Enqueue header-inject script
-    wp_enqueue_script(
-        'understrap-child-headerjs',
-        get_stylesheet_directory_uri() . '/js/main.js',
-        [],
-        filemtime( get_stylesheet_directory() . '/js/main.js' ),
-        true
-    );
+    // d) (Optional) Enqueue your JS here, or leave parent scripts intact
 }
 
 
