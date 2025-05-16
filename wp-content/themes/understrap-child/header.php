@@ -33,15 +33,9 @@ $navbar_type       = get_theme_mod( 'understrap_navbar_type', 'collapse' );
 			<?php esc_html_e( 'Skip to content', 'understrap' ); ?>
 		</a>
 
-		<?php
-if ( has_nav_menu( 'primary' ) ) {
-  wp_nav_menu( array(
-    'theme_location'  => 'primary',
-    'container_class' => 'collapse navbar-collapse',
-    'container_id'    => 'navbarNavDropdown',
-    'menu_class'      => 'navbar-nav ms-auto',
-  ) );
-}
+<?php
+// in header.php, inside <header id="wrapper-navbar">
+get_template_part( 'global-templates/navbar', $navbar_type . '-' . $bootstrap_version );
 ?>
 
 	</header><!-- #wrapper-navbar -->

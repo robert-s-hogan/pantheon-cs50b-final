@@ -104,6 +104,12 @@ function understrap_child_load_textdomain() {
     load_child_theme_textdomain( 'understrap-child', get_stylesheet_directory() . '/languages' );
 }
 
+add_action( 'after_setup_theme', function() {
+  register_nav_menus( [
+    'primary' => __( 'Primary Menu', 'understrap-child' ),
+    'footer'  => __( 'Footer Menu',  'understrap-child' ),
+  ] );
+} );
 
 /**
  * ----------------------------------------------------------------------------
