@@ -66,13 +66,25 @@ add_filter( 'block_type_metadata_settings', function( $settings, $metadata ) {
 add_action( 'wp_enqueue_scripts', 'understrap_child_enqueue_assets', 20 );
 function understrap_child_enqueue_assets() {
 
-    // b) Google Fonts (optional)
+
+    // a) Google Fonts
     wp_enqueue_style(
         'google-font-russo',
         'https://fonts.googleapis.com/css2?family=Russo+One&family=Open+Sans:wght@400;600&display=swap',
         [],
         null
     );
+
+    // ──────────────────────────────────────────────────────────────────────────
+    // b) Font Awesome (your new code)
+    wp_enqueue_style(
+      'font-awesome',
+      'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+      [],
+      '6.4.0'
+    );
+    // ──────────────────────────────────────────────────────────────────────────
+
 
     // c) Your compiled child CSS
     $css_rel  = '/build/assets/css/app.css';
