@@ -44,6 +44,13 @@ $container = get_theme_mod( 'understrap_container_type' );
 <?php // Closing div#page from header.php. ?>
 </div><!-- #page -->
 
+
+</body>
+
+</html>
+
+
+
 <?php
 // in footer.php, wherever your footer nav belongs
 wp_nav_menu( [
@@ -54,9 +61,3 @@ wp_nav_menu( [
   'fallback_cb'     => false,      // no menu → show nothing
 ] );
 ?>
-
-
-</body>
-
-</html>
-

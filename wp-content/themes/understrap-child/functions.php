@@ -126,17 +126,6 @@ function understrap_child_editor_support() {
 }
 
 
-/**
- * ----------------------------------------------------------------------------
- * 8) Register Primary Menu location.
- * ----------------------------------------------------------------------------
- */
-add_action( 'after_setup_theme', function() {
-    register_nav_menus( [
-        'primary' => __( 'Primary Menu', 'understrap-child' ),
-    ] );
-} );
-
 
 /**
  * ----------------------------------------------------------------------------
