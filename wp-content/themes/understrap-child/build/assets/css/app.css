@@ -12651,6 +12651,38 @@ textarea.form-control-lg {
   color: #ffcb2a;
 }
 
+.site-footer {
+  background: #f8f9fa;
+  padding: 2rem 0;
+  text-align: center;
+}
+.site-footer .site-info {
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: #1a2e69;
+}
+
+.footer-navigation .footer-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer-navigation .footer-menu-list li {
+  margin: 0 1rem;
+}
+.footer-navigation .footer-menu-list li a {
+  color: #1a2e69;
+  text-decoration: none;
+  font-weight: 500;
+}
+.footer-navigation .footer-menu-list li a:hover {
+  color: #3055c3;
+  text-decoration: underline;
+}
+
 .wrapper {
   padding: 0;
 }

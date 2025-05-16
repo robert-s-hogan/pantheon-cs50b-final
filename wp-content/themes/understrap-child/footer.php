@@ -21,26 +21,29 @@ $container = get_theme_mod( 'understrap_container_type' );
     <div class="row">
       <div class="col-md-12">
         <footer class="site-footer" id="colophon">
-          <div class="site-info">
-            <?php understrap_site_info(); ?>
-          </div>
+          
+          <?php 
+            // If you no longer need it, you can remove this call entirely:
+            // understrap_site_info(); 
+            // Or move it somewhere else, e.g. above your menu:
+          ?>
+
+          <nav class="footer-navigation" aria-label="Footer Menu">
+            <?php
+              wp_nav_menu( [
+                'theme_location' => 'footer',
+                'container'      => false,
+                'menu_class'     => 'footer-menu-list',
+                'fallback_cb'    => false,
+              ] );
+            ?>
+          </nav>
+
         </footer>
       </div>
     </div>
   </div>
-</div><!-- #wrapper-footer -->
-
-<nav class="footer-navigation">
-  <?php
-    wp_nav_menu([
-      'theme_location'  => 'footer',
-      'container'       => false,
-      'menu_class'      => 'footer-menu-list',
-      'fallback_cb'     => false,
-    ]);
-  ?>
-</nav>
-
+</div>
 <?php wp_footer(); ?>
 </body>
 </html>
