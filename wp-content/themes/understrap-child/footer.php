@@ -21,35 +21,37 @@ $container = get_theme_mod( 'understrap_container_type' );
     <div class="row">
       <div class="col-md-12">
 <footer class="site-footer" id="colophon">
-  <div class="<?php echo esc_attr($container); ?> footer-flex-container">
+  <div class="<?php echo esc_attr( $container ); ?> footer-flex-container">
 
-    <!-- LEFT SIDE: logo + address, then social icons -->
+    <!-- LEFT COLUMN -->
     <div class="footer-left">
+
+      <?php if ( function_exists('the_custom_logo') && has_custom_logo() ) : ?>
+        <div class="site-logo">
+          <?php the_custom_logo(); ?>
+        </div>
+      <?php endif; ?>
+
       <div class="logo-address">
-        <a href="<?php echo home_url(); ?>">
-          <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/whited-logo.svg"
-               alt="Douglas Whited PTO logo" class="footer-logo">
-        </a>
         <address class="footer-address">
-          Douglas Whited Elementary&nbsp;&nbsp;|&nbsp;&nbsp;
-          4995 Sonoma Hwy, Santa Rosa, CA 95409&nbsp;&nbsp;|&nbsp;&nbsp;
-          (707) XXX-XXXX
+          Douglas Whited Elementary<br>
+          4995 Sonoma Hwy, Santa Rosa, CA 95409 | (707) XXX-XXXX
         </address>
       </div>
-      <div class="footer-social">
-        <!-- you can hard-code your links, or if you have a social menu: -->
-        <?php
-        wp_nav_menu([
-          'theme_location' => 'social',
-          'container'      => false,
-          'menu_class'     => 'social-menu',
-          'fallback_cb'    => false,
-        ]);
-        ?>
-      </div>
+
+      <?php
+      // Social menu: just add a menu in WP Admin → Menus → Manage Locations → Social Menu
+      wp_nav_menu([
+        'theme_location' => 'social',
+        'container'      => false,
+        'menu_class'     => 'social-menu',
+        'fallback_cb'    => false,
+      ]);
+      ?>
+
     </div>
 
-    <!-- RIGHT SIDE: footer menu links -->
+    <!-- RIGHT COLUMN (footer links) -->
     <nav class="footer-right" aria-label="Footer Menu">
       <?php
       wp_nav_menu([
@@ -63,6 +65,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
   </div>
 </footer>
+
 
       </div>
     </div>

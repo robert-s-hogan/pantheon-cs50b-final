@@ -105,9 +105,18 @@ function understrap_child_load_textdomain() {
 }
 
 add_action( 'after_setup_theme', function() {
+      // 1. Custom logo support
+  add_theme_support( 'custom-logo', [
+    'height'      => 50,
+    'width'       => 200,
+    'flex-height' => true,
+    'flex-width'  => true,
+  ] );
   register_nav_menus( [
     'primary' => __( 'Primary Menu', 'understrap-child' ),
     'footer'  => __( 'Footer Menu',  'understrap-child' ),
+        'social'  => __( 'Social Menu',  'understrap-child' ),
+
   ] );
 } );
 
