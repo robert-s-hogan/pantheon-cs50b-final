@@ -15378,6 +15378,10 @@ header.page-header-title {
   color: #ffffff !important;
 }
 
+.wp-block-buttons .wp-block-button .wp-block-button__link {
+  width: auto !important;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
