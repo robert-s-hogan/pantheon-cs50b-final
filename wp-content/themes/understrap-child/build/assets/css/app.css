@@ -15367,9 +15367,9 @@ header.page-header-title {
   width: auto !important;
 }
 
-.navbar-brand {
-  height: 100px;
-  width: 100px;
+.navbar-brand img {
+  height: 50px;
+  width: 50px;
 }
 
 @media (max-width: 992px) {

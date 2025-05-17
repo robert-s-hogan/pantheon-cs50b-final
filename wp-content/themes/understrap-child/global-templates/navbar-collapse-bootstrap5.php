@@ -15,10 +15,12 @@ $container = get_theme_mod( 'understrap_container_type' );
 <?php if ( has_nav_menu( 'primary' ) ) : ?>
 <nav class="navbar navbar-expand-lg bg-primary">
   <div class="container d-flex justify-content-between align-items-center">
-    <?php the_custom_logo(); ?>
-    <a class="navbar-brand text-white ms-2" href="<?php echo home_url(); ?>">
-      <?php bloginfo( 'name' ); ?>
-    </a>
+    <div class="d-flex align-items-center">
+      <?php the_custom_logo(); ?>
+      <a class="navbar-brand text-white mx-2" href="<?php echo home_url(); ?>">
+        <?php bloginfo( 'name' ); ?>
+      </a>
+    </div>
     <button class="navbar-toggler border-0" type="button"
             data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false"
