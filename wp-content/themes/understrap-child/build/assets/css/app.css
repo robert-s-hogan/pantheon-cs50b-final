@@ -15272,6 +15272,7 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
   transition: background-color 0.2s ease, color 0.2s ease;
   color: #1a2e69;
   background-color: #ffcb2a;
+  padding: 0.625rem 1.25rem;
   text-decoration: none;
   display: inline-block;
 }
@@ -15387,5 +15388,3 @@ h6,
   letter-spacing: 0.5px;
   line-height: 1.1;
 }
-
-/*# sourceMappingURL=app.css.map */
