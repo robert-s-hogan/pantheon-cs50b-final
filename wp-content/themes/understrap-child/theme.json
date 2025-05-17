@@ -77,6 +77,12 @@
           "background": "var(--wp--preset--color--mikado-yellow)"
         }
       },
+      "core/buttons": {
+        "layout": {
+          "type": "flex",
+          "justifyContent": "center"
+        }
+      },
       "core/cover": {
         "elements": {
           "link": {
