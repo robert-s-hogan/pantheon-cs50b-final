@@ -12832,7 +12832,7 @@ header.page-header-title {
 }
 
 .wp-block-navigation__container a {
-  margin: 0 0.5rem; /* space between links */
+  margin: 0 0.5rem;
   letter-spacing: 0.02em;
 }
 
