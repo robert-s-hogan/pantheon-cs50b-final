@@ -130,6 +130,16 @@ add_action( 'after_setup_theme', function() {
         'social'  => __( 'Social Menu',  'understrap-child' ),
 
   ] );
+  function rhogan_register_solid_gold_button() {
+  if ( function_exists( 'register_block_style' ) ) {
+    register_block_style( 'core/button', [
+      'name'  => 'solid-gold',
+      'label' => __( 'Solid Gold', 'understrap-child' ),
+    ] );
+  }
+}
+add_action( 'init', 'rhogan_register_solid_gold_button' );
+
 } );
 
 /**
