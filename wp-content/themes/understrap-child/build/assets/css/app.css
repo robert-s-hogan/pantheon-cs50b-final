@@ -12733,7 +12733,7 @@ textarea.form-control-lg {
   text-decoration: underline;
 }
 
-.nav-cta .nav-link {
+.nav-cta a.nav-link {
   --bs-btn-color: #ffffff;
   --bs-btn-bg: #1a2e69;
   --bs-btn-border-color: #ffcb2a;
@@ -12754,7 +12754,7 @@ textarea.form-control-lg {
   text-decoration: none;
 }
 @media (prefers-reduced-motion: reduce) {
-  .nav-cta .nav-link {
+  .nav-cta a.nav-link {
     transition: none;
   }
 }
