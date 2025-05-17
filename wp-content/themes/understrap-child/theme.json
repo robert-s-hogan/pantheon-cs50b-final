@@ -5,7 +5,6 @@
       "custom": true,
       "customGradient": false,
       "palette": [
-        // — Brand Colors
         { "slug": "cobalt-blue", "color": "#0047AB", "name": "Cobalt Blue" },
         {
           "slug": "mikado-yellow",
@@ -20,7 +19,6 @@
           "name": "Selective Yellow"
         },
 
-        // — Hover Variants
         {
           "slug": "dark-imperial-blue",
           "color": "#00337A",
@@ -31,7 +29,6 @@
         { "slug": "platinum", "color": "#333333", "name": "Platinum" },
         { "slug": "gamboge", "color": "#E5E7EB", "name": "Gamboge" },
 
-        // — Feedback States
         {
           "slug": "emerald-green",
           "color": "#22C55E",
