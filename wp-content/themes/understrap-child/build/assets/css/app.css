@@ -15362,21 +15362,6 @@ header.page-header-title {
   letter-spacing: 0.02em;
 }
 
-.nav-cta {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: #ffcb2a;
-  color: #1a2e69 !important;
-  border-radius: 0.25rem;
-  transition: background-color 0.2s ease;
-  text-decoration: none;
-}
-
-.nav-cta:hover {
-  background-color: rgb(246, 185.9436619718, 0);
-  color: #ffffff !important;
-}
-
 .wp-block-buttons .wp-block-button .wp-block-button__link {
   width: auto !important;
 }
@@ -15402,3 +15387,5 @@ h6,
   letter-spacing: 0.5px;
   line-height: 1.1;
 }
+
+/*# sourceMappingURL=app.css.map */
