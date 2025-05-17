@@ -12079,13 +12079,29 @@ textarea.form-control-lg {
   color: #ffcb2a;
 }
 
-.wp-block-cover__inner-container a:not(.wp-block-button__link) {
-  color: #3055c3;
+.wp-block-cover {
+  position: relative;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 75vh;
 }
-.wp-block-cover__inner-container a:not(.wp-block-button__link):hover {
-  color: #ffcb2a;
+.wp-block-cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
 }
-.wp-block-cover__inner-container .wp-block-button__link {
+.wp-block-cover .wp-block-cover__inner-container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  padding: 1rem;
+  text-align: center;
+  color: #ffffff;
+}
+.wp-block-cover .wp-block-cover__inner-container .wp-block-button__link {
   --bs-btn-color: #000;
   --bs-btn-bg: #ffffff;
   --bs-btn-border-color: #ffcb2a;
@@ -12104,11 +12120,11 @@ textarea.form-control-lg {
   transition: background-color 0.2s ease;
 }
 @media (prefers-reduced-motion: reduce) {
-  .wp-block-cover__inner-container .wp-block-button__link {
+  .wp-block-cover .wp-block-cover__inner-container .wp-block-button__link {
     transition: none;
   }
 }
-.wp-block-cover__inner-container .wp-block-button__link:hover, .wp-block-cover__inner-container .wp-block-button__link:focus {
+.wp-block-cover .wp-block-cover__inner-container .wp-block-button__link:hover, .wp-block-cover .wp-block-cover__inner-container .wp-block-button__link:focus {
   --bs-btn-color: #000;
   --bs-btn-bg: #ffffff;
   --bs-btn-border-color: rgb(246, 185.9436619718, 0);
