@@ -17,6 +17,7 @@ get_header();
       get_template_part( 'loop-templates/content', 'page' );
     endwhile;
     ?>
+  </div><!-- #content -->
 </div><!-- #page-wrapper -->
 
 <?php
