@@ -5,29 +5,62 @@
       "custom": true,
       "customGradient": false,
       "palette": [
-        { "slug": "primary", "color": "#3055c3", "name": "Primary" },
-        { "slug": "secondary", "color": "#ffcb2a", "name": "Secondary" },
-        { "slug": "dark", "color": "#1a2e69", "name": "Dark" }
+        // — Brand Colors
+        { "slug": "cobalt-blue", "color": "#0047AB", "name": "Cobalt Blue" },
+        {
+          "slug": "mikado-yellow",
+          "color": "#F5B800",
+          "name": "Mikado Yellow"
+        },
+        { "slug": "eerie-black", "color": "#1A1A1A", "name": "Eerie Black" },
+        { "slug": "cultured", "color": "#F9FAFB", "name": "Cultured" },
+        {
+          "slug": "selective-yellow",
+          "color": "#FDB813",
+          "name": "Selective Yellow"
+        },
+
+        // — Hover Variants
+        {
+          "slug": "dark-imperial-blue",
+          "color": "#00337A",
+          "name": "Dark Imperial Blue"
+        },
+        { "slug": "goldenrod", "color": "#D6A700", "name": "Goldenrod" },
+        { "slug": "jet", "color": "#E5A011", "name": "Jet" },
+        { "slug": "platinum", "color": "#333333", "name": "Platinum" },
+        { "slug": "gamboge", "color": "#E5E7EB", "name": "Gamboge" },
+
+        // — Feedback States
+        {
+          "slug": "emerald-green",
+          "color": "#22C55E",
+          "name": "Emerald Green"
+        },
+        { "slug": "forest-green", "color": "#15803D", "name": "Forest Green" },
+        { "slug": "dandelion", "color": "#FACC15", "name": "Dandelion" },
+        { "slug": "crimson-red", "color": "#DC2626", "name": "Crimson Red" },
+        { "slug": "fire-brick", "color": "#B91C1C", "name": "Fire Brick" }
       ]
     },
     "typography": {
       "fontFamilies": [
         {
-          "fontFamily": "Open Sans, sans-serif",
           "slug": "open-sans",
-          "name": "Open Sans"
+          "name": "Open Sans",
+          "fontFamily": "Open Sans, sans-serif"
         },
         {
-          "fontFamily": "Russo One, sans-serif",
           "slug": "russo-one",
-          "name": "Russo One"
+          "name": "Russo One",
+          "fontFamily": "Russo One, sans-serif"
         }
       ],
       "fontSizes": [
-        { "name": "Small", "slug": "small", "size": "0.875rem" },
-        { "name": "Normal", "slug": "normal", "size": "1rem" },
-        { "name": "Large", "slug": "large", "size": "1.5rem" },
-        { "name": "Huge", "slug": "huge", "size": "2.5rem" }
+        { "slug": "small", "name": "Small", "size": "0.875rem" },
+        { "slug": "normal", "name": "Normal", "size": "1rem" },
+        { "slug": "large", "name": "Large", "size": "1.5rem" },
+        { "slug": "huge", "name": "Huge", "size": "2.5rem" }
       ]
     },
     "layout": {
@@ -43,14 +76,14 @@
     "blocks": {
       "core/button": {
         "color": {
-          "text": "var(--wp--preset--color--dark)",
-          "background": "var(--wp--preset--color--secondary)"
+          "text": "var(--wp--preset--color--eerie-black)",
+          "background": "var(--wp--preset--color--mikado-yellow)"
         }
       },
       "core/cover": {
         "elements": {
           "link": {
-            "color": "var(--wp--preset--color--secondary)"
+            "color": "var(--wp--preset--color--mikado-yellow)"
           }
         }
       },
