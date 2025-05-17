@@ -12079,34 +12079,50 @@ textarea.form-control-lg {
   color: #ffcb2a;
 }
 
-.wp-block-cover {
-  position: relative;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 75vh;
-}
-.wp-block-cover::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-.wp-block-cover .wp-block-cover__inner-container {
-  position: relative;
-  width: 100%;
-  max-width: 960px;
-  padding: 1rem;
-  text-align: center;
-  color: #ffffff;
-}
-.wp-block-cover .wp-block-cover__inner-container a {
+.wp-block-cover__inner-container a:not(.wp-block-button__link) {
   color: #3055c3;
-  text-decoration: none;
 }
-.wp-block-cover .wp-block-cover__inner-container a:hover {
+.wp-block-cover__inner-container a:not(.wp-block-button__link):hover {
   color: #ffcb2a;
+}
+.wp-block-cover__inner-container .wp-block-button__link {
+  --bs-btn-color: #000;
+  --bs-btn-bg: #ffffff;
+  --bs-btn-border-color: #ffcb2a;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: white;
+  --bs-btn-hover-border-color: rgb(255, 208.2, 63.3);
+  --bs-btn-focus-shadow-rgb: 217, 173, 36;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: white;
+  --bs-btn-active-border-color: rgb(255, 208.2, 63.3);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #000;
+  --bs-btn-disabled-bg: #ffffff;
+  --bs-btn-disabled-border-color: #ffcb2a;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wp-block-cover__inner-container .wp-block-button__link {
+    transition: none;
+  }
+}
+.wp-block-cover__inner-container .wp-block-button__link:hover, .wp-block-cover__inner-container .wp-block-button__link:focus {
+  --bs-btn-color: #000;
+  --bs-btn-bg: #ffffff;
+  --bs-btn-border-color: rgb(246, 185.9436619718, 0);
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: white;
+  --bs-btn-hover-border-color: rgb(246.9, 192.8492957746, 25.5);
+  --bs-btn-focus-shadow-rgb: 209, 158, 0;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: white;
+  --bs-btn-active-border-color: rgb(246.9, 192.8492957746, 25.5);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #000;
+  --bs-btn-disabled-bg: #ffffff;
+  --bs-btn-disabled-border-color: rgb(246, 185.9436619718, 0);
 }
 
 .wp-block-media-text {
