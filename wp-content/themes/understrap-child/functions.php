@@ -177,7 +177,7 @@ if ( file_exists( get_stylesheet_directory() . '/js/customizer-controls.js' ) ) 
     }
 }
 
-
+// Add custom block style for the button block
   function rhogan_register_solid_gold_button() {
   if ( function_exists( 'register_block_style' ) ) {
     register_block_style( 'core/button', [
