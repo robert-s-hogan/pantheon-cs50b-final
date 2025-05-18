@@ -1,4 +1,4 @@
-Understrap Child Theme Code Audit - 2025-05-18 09:00:43
+Understrap Child Theme Code Audit - 2025-05-18 09:18:34
 Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-final/wp-content/themes/understrap-child
 ---------------------------------------------
 
@@ -13092,6 +13092,114 @@ h6 {
 ---------------------------------------------
 
 🗂️  INC Folder (PHP + JSON) Files
+---------------------------------------------
+
+🗂️  Block Patterns Files
+---------------------------------------------
+
+🔹 patterns/featured-events.php
+
+/**
+ * Title: Featured Events (Cards)
+ * Slug: understrap/featured-events
+ * Categories: featured, query
+ */
+?>
+<!-- wp:group {"align":"full","className":"events-section py-5"} -->
+<div class="wp-block-group alignfull events-section py-5">
+	<!-- wp:heading {"level":3,"className":"text-center mb-4"} -->
+	<h3 class="text-center mb-4">Featured Events</h3><!-- /wp:heading -->
+
+	<!-- wp:query {"queryId":0,"query":{"perPage":2,"postType":"event"}} -->
+	<div class="wp-block-query">
+		<!-- wp:post-template {"layout":{"type":"default","columnCount":2}} -->
+			<!-- wp:group {"className":"event-card p-3 border rounded mb-3"} -->
+			<div class="wp-block-group event-card p-3 border rounded mb-3">
+				<!-- wp:post-title {"level":4,"isLink":true} /-->
+				<!-- wp:post-date {"format":"F j, g A"} /-->
+				<!-- wp:post-excerpt {"moreText":"Read More →"} /-->
+			</div>
+			<!-- /wp:group -->
+		<!-- /wp:post-template -->
+	</div>
+	<!-- /wp:query -->
+</div>
+<!-- /wp:group -->
+
+---------------------------------------------
+
+🔹 patterns/why-get-involved.php
+
+/**
+ * Title: Why Get Involved (List Card)
+ * Slug: understrap/why-involved
+ * Categories: callout
+ */
+?>
+<!-- wp:group {"align":"full","className":"why-section py-5"} -->
+<div class="wp-block-group alignfull why-section py-5">
+	<!-- wp:group {"layout":{"type":"constrained","contentSize":"680px","justifyContent":"center"}} -->
+	<div class="wp-block-group">
+		<!-- wp:heading {"level":3,"textAlign":"center"} --><h3 class="text-center">Why Get Involved?</h3><!-- /wp:heading -->
+
+		<!-- wp:list {"className":"list-unstyled mb-0"} -->
+		<ul class="list-unstyled mb-0">
+			<li>Every hour volunteered and every dollar donated directly benefits our students.</li>
+			<li>We host fun family events to bring the community together.</li>
+			<li>We’re building a stronger connection between home and school.</li>
+		</ul>
+		<!-- /wp:list -->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+---------------------------------------------
+
+🔹 patterns/hero-split.php
+
+<?php
+/**
+ * Title: Hero – split image / text
+ * Slug:  understrap-child/hero-split
+ * Categories: banner
+ * Keywords: hero
+ */
+?>
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","justifyContent":"space-between","verticalAlignment":"center"}} -->
+<div class="wp-block-group alignfull" style="padding-top:0;padding-bottom:0">
+	<!-- wp:image {"id":123,"sizeSlug":"large"} /-->
+	<!-- wp:heading {"level":2} -->Big clear headline<!-- /wp:heading -->
+	<!-- wp:paragraph -->Lead paragraph…<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+---------------------------------------------
+
+🔹 patterns/mission-statement.php
+
+/**
+ * Title: Mission Statement (Centered)
+ * Slug: understrap/mission-statement
+ * Categories: text, featured
+ */
+?>
+<!-- wp:group {"align":"full","className":"mission-section py-5"} -->
+<div class="wp-block-group alignfull mission-section py-5">
+	<!-- wp:group {"layout":{"type":"constrained","contentSize":"960px"}} -->
+	<div class="wp-block-group">
+		<!-- wp:heading {"level":2,"textAlign":"center"} -->
+		<h2 class="text-center fw-bold">At Whited Elementary PTO, our mission is simple:</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"align":"center"} -->
+		<p class="lead text-center">We strive to enhance the educational experience of every student by fostering a supportive community of parents, teachers, and staff.</p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
 ---------------------------------------------
 
 🗂️  Config Files Files

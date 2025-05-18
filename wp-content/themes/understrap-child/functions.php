@@ -1,33 +1,26 @@
 <?php
 /**
- * UnderStrap Child Theme – functions.php (condensed)
+ * Understrap Child – functions.php
+ * Load order: setup  ► assets  ► extras
  */
 defined( 'ABSPATH' ) || exit;
 
-/**
- * ----------------------------------------------------------------------------
- *  Child-theme setup (runs once on after_setup_theme)
- * ----------------------------------------------------------------------------
- */
-add_action( 'after_setup_theme', 'understrap_child_setup', 11 );
-function understrap_child_setup() {
+/* ─────────────────────────────────────────────────────────────
+   1. Theme setup  (after parent theme; priority 10 is fine)
+   ─────────────────────────────────────────────────────────── */
+add_action( 'after_setup_theme', function () {
 
-	// 1. Core block patterns & editor preview styles
-	add_theme_support( 'core-block-patterns' );
-	add_theme_support( 'editor-styles' );
+	/* Block-editor & patterns
+	   -------------------------------------------------------- */
+	add_theme_support( 'wp-block-styles' );        // Core block CSS
+	add_theme_support( 'core-block-patterns' );    // Enables /patterns auto-scan
+	add_theme_support( 'align-wide' );             // “Wide” & “Full” options
+	add_theme_support( 'editor-styles' );          // Load custom CSS in editor
 	add_editor_style( 'build/assets/css/app.css' );
 
-	// 2. Translation files
-	load_child_theme_textdomain(
-		'understrap-child',
-		get_stylesheet_directory() . '/languages'
-	);
-
-	// 3. Theme supports
-	add_theme_support( 'align-wide' );
-	add_theme_support( 'wp-block-styles' );
+	/* Misc supports you actually use
+	   -------------------------------------------------------- */
 	add_theme_support( 'responsive-embeds' );
-	add_theme_support( 'disable-layout-styles' ); // experimental
 	add_theme_support( 'custom-logo', [
 		'height'      => 50,
 		'width'       => 200,
@@ -35,108 +28,80 @@ function understrap_child_setup() {
 		'flex-width'  => true,
 	] );
 
-	// 4. Menus
+	/* ✂︎  Disable layout styles  — only keep if you really need it
+	----------------------------------------------------------------
+	 add_theme_support( 'disable-layout-styles' );
+	*/
+
+	/* Menus
+	   -------------------------------------------------------- */
 	register_nav_menus( [
 		'primary' => __( 'Primary Menu', 'understrap-child' ),
 		'footer'  => __( 'Footer Menu',  'understrap-child' ),
 		'social'  => __( 'Social Menu',  'understrap-child' ),
 	] );
-}
+}, 10 );
 
-/**
- * ----------------------------------------------------------------------------
- *  Enqueue front-end & editor assets
- * ----------------------------------------------------------------------------
- */
-add_action( 'wp_enqueue_scripts', 'understrap_child_enqueue_assets', 20 );
-function understrap_child_enqueue_assets() {
+/* ─────────────────────────────────────────────────────────────
+   2. Front-end & editor assets
+   ─────────────────────────────────────────────────────────── */
+add_action( 'wp_enqueue_scripts', function () {
 
-	// Google Fonts
+	$theme_dir = get_stylesheet_directory();
+	$theme_uri = get_stylesheet_directory_uri();
+
+	/* Google / local fonts first (keeps CLS low) */
 	wp_enqueue_style(
-		'google-font-russo',
+		'understrap-fonts',
 		'https://fonts.googleapis.com/css2?family=Russo+One&family=Open+Sans:wght@400;600&display=swap',
 		[],
 		null
 	);
 
+	/* Compiled child-theme CSS (version = filemtime for cache-bust) */
+	$css_rel = '/build/assets/css/app.css';
+	$css_abs = $theme_dir . $css_rel;
 
-	// (A) If using CDN —---
-	wp_enqueue_style(
-		'font-awesome',
-		'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
-		[],
-		'6.4.0'
-	);
-
-
-	// ─────────────────────────────────────────────────────────────────────────
-
-	// Child theme bundle (cache-busted)
-	$css_rel  = '/build/assets/css/app.css';
-	$css_path = get_stylesheet_directory() . $css_rel;
-	$version  = file_exists( $css_path )
-		? filemtime( $css_path )
-		: wp_get_theme()->get( 'Version' );
-
-	wp_enqueue_style(
-		'understrap-child-css',
-		get_stylesheet_directory_uri() . $css_rel,
-		[ 'google-font-russo' ],
-		$version
-	);
-}
-
-/**
- * ----------------------------------------------------------------------------
- *  Filters & helpers (unchanged)
- * ----------------------------------------------------------------------------
- */
-add_filter( 'render_block', 'understrap_child_strip_cover_layout_flags', 20, 2 );
-function understrap_child_strip_cover_layout_flags( $markup, $block ) {
-	if ( ( $block['blockName'] ?? '' ) === 'core/cover' ) {
-		$markup = preg_replace(
-			'/(wp-block-cover__inner-container)(?:\s+is-layout-\w+|\s+wp-block-cover-is-layout-\w+)/',
-			'$1',
-			$markup
+	if ( file_exists( $css_abs ) ) {
+		wp_enqueue_style(
+			'understrap-child',
+			$theme_uri . $css_rel,
+			[ 'understrap-fonts' ],
+			filemtime( $css_abs )
 		);
 	}
-	return $markup;
-}
 
-add_filter( 'block_type_metadata_settings', 'understrap_child_disable_cover_layout_control', 10, 2 );
-function understrap_child_disable_cover_layout_control( $settings, $metadata ) {
-	if ( ( $metadata['name'] ?? '' ) === 'core/cover' ) {
-		$settings['supports']['layout'] = false;
+	/* ✂︎  JS bundle — uncomment when you actually build one
+	----------------------------------------------------------
+	$js_rel = '/build/assets/js/app.js';
+	$js_abs = $theme_dir . $js_rel;
+
+	if ( file_exists( $js_abs ) ) {
+		wp_enqueue_script(
+			'understrap-child',
+			$theme_uri . $js_rel,
+			[ 'jquery' ],                       // deps
+			filemtime( $js_abs ),
+			true                                // in footer
+		);
 	}
-	return $settings;
-}
+	*/
+}, 20 );
 
-add_filter(
-	'theme_mod_understrap_bootstrap_version',
-	fn() => 'bootstrap5',
-	20
-);
+/* ─────────────────────────────────────────────────────────────
+   3. Extras: pattern-categories & custom block styles
+   ─────────────────────────────────────────────────────────── */
 
-/**
- *  Button block style (kept as-is)
- */
+/* (A) Pattern categories – register *before* core loads patterns */
 add_action( 'init', function () {
-	if ( function_exists( 'register_block_style' ) ) {
-		register_block_style( 'core/button', [
-			'name'  => 'solid-gold',
-			'label' => __( 'Solid Gold', 'understrap-child' ),
-		] );
-	}
-} );
+	register_block_pattern_category( 'callout', [ 'label' => __( 'Callouts', 'understrap-child' ) ] );
+	register_block_pattern_category( 'banner',  [ 'label' => __( 'Banners',  'understrap-child' ) ] );
+}, 9); // priority < 10
 
-add_action( 'init', 'rhogan_register_pattern_categories', 0 ); // ← priority 0
-function rhogan_register_pattern_categories() {
-	register_block_pattern_category(
-		'callout',
-		[ 'label' => __( 'Callouts', 'understrap-child' ) ]
-	);
-	register_block_pattern_category(
-		'query',
-		[ 'label' => __( 'Query', 'understrap-child' ) ]
-	);
-}
+/* (B) Optional custom block style */
+add_action( 'init', function () {
+	register_block_style( 'core/button', [
+		'name'  => 'solid-gold',
+		'label' => __( 'Solid Gold', 'understrap-child' ),
+	] );
+} );

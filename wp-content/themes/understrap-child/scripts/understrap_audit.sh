@@ -65,6 +65,7 @@ write_section "SCSS" "*.scss" "src/sass"
 
 # 2. PHP - targeted files/folders
 write_section "INC Folder (PHP + JSON)" "*" "inc/"
+write_section "Block Patterns" "*.php" "patterns/"
 
 # 3. Project Root Config Files
 write_section "Config Files" "package.json" "."
