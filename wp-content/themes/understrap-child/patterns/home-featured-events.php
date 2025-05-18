@@ -8,6 +8,7 @@
 ?>
 
 <!-- wp:group {"align":"full","className":"featured-events-section"} -->
+  <!-- wp:group {"className":"section-inner"} -->
     <!-- wp:heading {"level":3} -->
     <h3>Featured Events</h3>
     <!-- /wp:heading -->
@@ -39,4 +40,5 @@
         <p class="event-card__desc">Support literacy! Stop by to purchase books for your child and donate to the classroom library.</p>
         <!-- /wp:paragraph -->
     <!-- /wp:group -->
+  <!-- /wp:group -->
 <!-- /wp:group -->

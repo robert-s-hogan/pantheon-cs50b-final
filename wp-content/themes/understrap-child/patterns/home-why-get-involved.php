@@ -8,6 +8,8 @@
 ?>
 
 <!-- wp:group {"align":"full","className":"why-section"} -->
+    <!-- wp:group {"className":"section-inner"} -->
+
     <!-- wp:heading {"level":3,"align":"center"} -->
     <h3 class="has-text-align-center">Why Get Involved?</h3>
     <!-- /wp:heading -->
@@ -21,4 +23,5 @@
         </ul>
         <!-- /wp:list -->
     <!-- /wp:group -->
+  <!-- /wp:group -->
 <!-- /wp:group -->
