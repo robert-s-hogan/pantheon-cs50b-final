@@ -59,20 +59,15 @@ function understrap_child_enqueue_assets() {
 		null
 	);
 
-	// ─── Font Awesome  ───────────────────────────────────────────────────────
-	// ‣ Keep *one* of the next two blocks – see table above.
 
 	// (A) If using CDN —---
-	/*
 	wp_enqueue_style(
 		'font-awesome',
 		'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
 		[],
 		'6.4.0'
 	);
-	*/
 
-	// (B) If compiling in SCSS, *remove* the block above.
 
 	// ─────────────────────────────────────────────────────────────────────────
 
@@ -132,4 +127,9 @@ add_action( 'init', function () {
 			'label' => __( 'Solid Gold', 'understrap-child' ),
 		] );
 	}
+} );
+
+add_action( 'init', function() {
+    register_block_pattern_category( 'callout', [ 'label' => __( 'Callouts', 'understrap-child' ) ] );
+    register_block_pattern_category( 'query',   [ 'label' => __( 'Query',   'understrap-child' ) ] );
 } );
