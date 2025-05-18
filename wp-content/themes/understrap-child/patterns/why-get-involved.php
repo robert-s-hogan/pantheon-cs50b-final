@@ -1,9 +1,3 @@
-/**
- * Title: Why Get Involved (List Card)
- * Slug: understrap/why-involved
- * Categories: callout
- */
-?>
 <!-- wp:group {"align":"full","className":"why-section py-5"} -->
 <div class="wp-block-group alignfull why-section py-5">
 	<!-- wp:group {"layout":{"type":"constrained","contentSize":"680px","justifyContent":"center"}} -->

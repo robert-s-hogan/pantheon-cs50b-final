@@ -1,9 +1,3 @@
-/**
- * Title: Featured Events (Cards)
- * Slug: understrap/featured-events
- * Categories: featured, query
- */
-?>
 <!-- wp:group {"align":"full","className":"events-section py-5"} -->
 <div class="wp-block-group alignfull events-section py-5">
 	<!-- wp:heading {"level":3,"className":"text-center mb-4"} -->

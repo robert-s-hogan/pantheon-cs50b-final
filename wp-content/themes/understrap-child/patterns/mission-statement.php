@@ -1,9 +1,3 @@
-/**
- * Title: Mission Statement (Centered)
- * Slug: understrap/mission-statement
- * Categories: text, featured
- */
-?>
 <!-- wp:group {"align":"full","className":"mission-section py-5"} -->
 <div class="wp-block-group alignfull mission-section py-5">
 	<!-- wp:group {"layout":{"type":"constrained","contentSize":"960px"}} -->
