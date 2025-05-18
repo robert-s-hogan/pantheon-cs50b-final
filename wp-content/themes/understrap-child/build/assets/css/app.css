@@ -15272,7 +15272,7 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
   transition: background-color 0.2s ease, color 0.2s ease;
   display: inline-block;
   padding: 0.625rem 1.25rem;
-  color: #1a2e69;
+  color: #ffffff;
   background-color: #ffcb2a;
   text-decoration: none;
 }
@@ -15381,7 +15381,6 @@ header.page-header-title {
     background-color: #1a2e69;
     padding: 1rem;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-    color: #ffffff;
   }
   .navbar-collapse .navbar-nav li {
     padding: 0.75rem 0;
