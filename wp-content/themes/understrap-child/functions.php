@@ -92,17 +92,27 @@ add_action( 'wp_enqueue_scripts', function () {
    3. Extras: pattern-categories & custom block styles
    ─────────────────────────────────────────────────────────── */
 
-/* Pattern categories – must be present *before* patterns load */
-add_action( 'init', function () {
-	register_block_pattern_category( 'banner',   [ 'label' => __( 'Banners',  'understrap-child' ) ] );
-	register_block_pattern_category( 'callout',  [ 'label' => __( 'Callouts', 'understrap-child' ) ] );
-	register_block_pattern_category( 'forms',    [ 'label' => __( 'Forms',    'understrap-child' ) ] );
-	register_block_pattern_category( 'cards',    [ 'label' => __( 'Cards',    'understrap-child' ) ] );
-	register_block_pattern_category( 'grid',     [ 'label' => __( 'Grids',    'understrap-child' ) ] );
-	register_block_pattern_category( 'text',     [ 'label' => __( 'Text',     'understrap-child' ) ] );
-	register_block_pattern_category( 'people',   [ 'label' => __( 'People',   'understrap-child' ) ] );
-	register_block_pattern_category( 'calendar', [ 'label' => __( 'Calendar', 'understrap-child' ) ] );
-}, 9);   // priority < 10
+add_action( 'init', 'rhogan_register_pattern_categories', 1 ); // 1 ≪ 9
+function rhogan_register_pattern_categories() {
+
+	$cats = [
+		'banner'   => __( 'Banners',  'understrap-child' ),
+		'callout'  => __( 'Callouts', 'understrap-child' ),
+		'hero'     => __( 'Hero',    'understrap-child' ),
+		'forms'    => __( 'Forms',   'understrap-child' ),
+		'events'   => __( 'Events',  'understrap-child' ),
+		'cards'    => __( 'Cards & Grids', 'understrap-child' ),
+		'grid'     => __( 'Grids',   'understrap-child' ),
+		'people'   => __( 'People',  'understrap-child' ),
+		'calendar' => __( 'Calendars','understrap-child' ),
+		'text'     => __( 'Text',    'understrap-child' ),
+		'members'  => __( 'Members', 'understrap-child' ),
+	];
+
+	foreach ( $cats as $slug => $label ) {
+		register_block_pattern_category( $slug, [ 'label' => $label ] );
+	}
+}
 
 
 /* (B) Optional custom block style */
@@ -111,4 +121,8 @@ add_action( 'init', function () {
 		'name'  => 'solid-gold',
 		'label' => __( 'Solid Gold', 'understrap-child' ),
 	] );
+} );
+
+add_action( 'after_setup_theme', function () {
+	remove_theme_support( 'core-block-patterns' ); // keeps yours, hides WP’s defaults
 } );
