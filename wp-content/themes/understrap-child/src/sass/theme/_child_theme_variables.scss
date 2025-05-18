@@ -1,11 +1,8 @@
 // src/sass/theme/_child_theme_variables.scss
-@import "theme/mixins/flex";
-@import "theme/mixins/fluid-type";
-@import "theme/mixins/breakpoints";
-@import "theme/mixins/container";
-@import "theme/mixins/section-spacing";
+$spacer: 1rem !default;
+$spacer-xl: $spacer * 3 !default;
+$spacer-2: $spacer * 2 !default;
 
-// — Bootstrap overrides —
 /// Brand colors
 $primary: #3055c3 !default; // Douglas‑Whited blue
 $secondary: #ffcb2a !default; // Golden yellow
@@ -18,26 +15,24 @@ $dark: #1a2e69 !default; // navy for text/outlines
 $info: $primary !default;
 $warning: $secondary !default;
 
-// — Custom theme variables — (your existing hero settings, etc.)
+// — Custom theme variables
 $hero-min-height: 75vh !default;
 $hero-overlay: rgba(0, 0, 0, 0.4) !default;
 $hero-bg-position: center !default;
 $hero-bg-size: cover !default;
-$fs-hero-subtitle: 1.75rem !default; // whatever static size you want
+$fs-hero-subtitle: 1.75rem !default;
 $fs-hero-lead: 1.125rem !default;
 
 $hero-title-color: $white !default;
 $hero-lead-color: rgba(255, 255, 255, 0.85) !default;
 
-// Example min/max pairs you might want
+// Responsive font sizes
 $fs-section-h1-min: 2.5rem !default;
 $fs-section-h1-max: 3.25rem !default;
 $fs-section-h2-min: 2rem !default;
 $fs-section-h2-max: 2.5rem !default;
 $fs-subheading-min: 1rem !default;
 $fs-subheading-max: 1.25rem !default;
-
-$spacer-xl: 3rem !default;
 
 // BUTTONS
 $btn-padding-y: 0.625rem !default; // 10px
@@ -48,3 +43,9 @@ $btn-focus-shadow: 0 0 0 3px rgba($secondary, 0.5) !default;
 /// Header / “light” text colors
 $navbar-light-color: $white !default;
 $navbar-light-hover-color: rgba($white, 0.8) !default;
+
+@import "theme/mixins/flex";
+@import "theme/mixins/fluid-type";
+@import "theme/mixins/breakpoints";
+@import "theme/mixins/container";
+@import "theme/mixins/section-spacing";
