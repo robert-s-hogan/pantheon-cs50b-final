@@ -15401,62 +15401,6 @@ header.page-header-title {
   width: auto !important;
 }
 
-.mission-section {
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: #f6f6f6;
-}
-.mission-section h2, .mission-section .h2 {
-  font-size: 2rem;
-}
-@media (min-width: 320px) {
-  .mission-section h2, .mission-section .h2 {
-    font-size: calc(2rem + 0.5rem * (100vw - 320px) / (1200px - 320px));
-  }
-}
-@media (min-width: 1200px) {
-  .mission-section h2, .mission-section .h2 {
-    font-size: 2.5rem;
-  }
-}
-.mission-section .lead {
-  max-width: 52ch;
-  margin-inline: auto;
-}
-
-.why-section {
-  background-color: #ffffff;
-  border: 1px solid rgba(26, 46, 105, 0.1);
-}
-.why-section ul li {
-  padding-left: 1.25rem;
-  position: relative;
-}
-.why-section ul li::before {
-  content: "–";
-  position: absolute;
-  left: 0;
-}
-
-.event-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  gap: 0.5rem;
-  background-color: #ffffff;
-  transition: box-shadow 0.2s;
-}
-.event-card:hover {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-}
-.event-card h4, .event-card .h4 {
-  margin-bottom: 0.25rem;
-}
-
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
@@ -15478,3 +15422,5 @@ h6,
   letter-spacing: 0.5px;
   line-height: 1.1;
 }
+
+/*# sourceMappingURL=app.css.map */
