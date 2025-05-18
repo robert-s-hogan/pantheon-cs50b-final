@@ -1,4 +1,4 @@
-Understrap Child Theme Code Audit - 2025-05-18 10:17:01
+Understrap Child Theme Code Audit - 2025-05-18 11:15:25
 Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-final/wp-content/themes/understrap-child
 ---------------------------------------------
 
@@ -13066,11 +13066,20 @@ $gutters: $spacers !default;
 @import "theme/overrides";
 
 // 6) Block-pattern partials
-@import "layout/mission";
-@import "layout/why";
-@import "layout/events";
+@import "layout/hero-cta";
+@import "layout/section-lead-paragraph";
+@import "layout/callout-bullet-box";
+@import "layout/card-list-events";
+@import "layout/cta-bar-button";
+@import "layout/faq-accordion";
+@import "layout/form-contact-signup";
+@import "layout/form-volunteer-signup";
+@import "layout/grid-icon-cards-3";
+@import "layout/hero-centered-heading-cta";
+@import "layout/profile-list-stack";
+@import "layout/section-centered-heading";
+@import "layout/section-lead-paragraph";
 
-// ————————————————————————
 // 7) Custom global tweaks
 body {
   font-family: "Open Sans", sans-serif;
