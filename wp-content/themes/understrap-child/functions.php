@@ -129,7 +129,14 @@ add_action( 'init', function () {
 	}
 } );
 
-add_action( 'init', function() {
-    register_block_pattern_category( 'callout', [ 'label' => __( 'Callouts', 'understrap-child' ) ] );
-    register_block_pattern_category( 'query',   [ 'label' => __( 'Query',   'understrap-child' ) ] );
-} );
+add_action( 'init', 'rhogan_register_pattern_categories', 0 ); // ← priority 0
+function rhogan_register_pattern_categories() {
+	register_block_pattern_category(
+		'callout',
+		[ 'label' => __( 'Callouts', 'understrap-child' ) ]
+	);
+	register_block_pattern_category(
+		'query',
+		[ 'label' => __( 'Query', 'understrap-child' ) ]
+	);
+}
