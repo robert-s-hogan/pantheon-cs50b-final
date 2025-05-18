@@ -15274,6 +15274,7 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
   padding: 0.625rem 1.25rem;
   background-color: #ffcb2a;
   text-decoration: none;
+  color: #1a2e69 !important;
 }
 @media (prefers-reduced-motion: reduce) {
   .nav-cta > a {
@@ -15424,5 +15425,3 @@ h6,
   letter-spacing: 0.5px;
   line-height: 1.1;
 }
-
-/*# sourceMappingURL=app.css.map */
