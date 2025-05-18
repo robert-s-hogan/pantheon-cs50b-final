@@ -123,6 +123,6 @@ add_action( 'init', function () {
 	] );
 } );
 
-add_action( 'after_setup_theme', function () {
-	remove_theme_support( 'core-block-patterns' ); // keeps yours, hides WP’s defaults
-} );
+add_action( 'init', function () {
+	remove_theme_support( 'core-block-patterns' );   // kicks out WP’s bundle
+}, 20 ); // > 10 so it fires after Core’s loaders
