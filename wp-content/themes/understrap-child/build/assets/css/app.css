@@ -15378,9 +15378,10 @@ header.page-header-title {
 
 @media (max-width: 992px) {
   .navbar-collapse {
-    background-color: #ffffff;
+    background-color: #1a2e69;
     padding: 1rem;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    color: #ffffff;
   }
   .navbar-collapse .navbar-nav li {
     padding: 0.75rem 0;
