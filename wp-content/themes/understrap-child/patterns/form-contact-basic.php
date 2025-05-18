@@ -1,3 +1,11 @@
+<?php
+/**
+ * Title: Form – basic contact
+ * Slug:  understrap-child/form-contact-basic
+ * Categories: forms
+ * Keywords: contact, form
+ */
+?>
 <!-- wp:group {"layout":{"type":"constrained","contentSize":"600px"}} -->
 <div class="wp-block-group">
 	<!-- wp:html -->

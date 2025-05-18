@@ -1,3 +1,11 @@
+<?php
+/**
+ * Title: Card list – events
+ * Slug:  understrap-child/card-list-events
+ * Categories: cards, query
+ * Keywords: event, card
+ */
+?>
 <!-- wp:query {"queryId":1,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","orderby":"date","order":"asc","taxQuery":[],"metaQuery":[]}} -->
 <div class="wp-block-query">
 	<!-- wp:post-template -->

@@ -1,3 +1,11 @@
+<?php
+/**
+ * Title: Hero – centered heading & CTA
+ * Slug:  understrap-child/hero-centered-heading-cta
+ * Categories: banner, hero
+ * Keywords: hero, headline, call to action
+ */
+?>
 <!-- wp:cover {"overlayColor":"primary","minHeight":420,"isDark":false,"style":{"spacing":{"padding":{"top":"80px","bottom":"80px"}}}} -->
 <div class="wp-block-cover is-light" style="padding-top:80px;padding-bottom:80px;min-height:420px">
 	<span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-80"></span>

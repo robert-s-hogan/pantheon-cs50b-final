@@ -1,4 +1,11 @@
-
+<?php
+/**
+ * Title: CTA bar – single button
+ * Slug:  understrap-child/cta-bar-button
+ * Categories: callout, banner
+ * Keywords: cta, bar
+ */
+?>
 <!-- wp:cover {"overlayColor":"primary","minHeight":120,"isDark":false,"style":{"spacing":{"padding":{"top":"32px","bottom":"32px"}}}} -->
 <div class="wp-block-cover is-light" style="padding-top:32px;padding-bottom:32px;min-height:120px">
 	<span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-80"></span>

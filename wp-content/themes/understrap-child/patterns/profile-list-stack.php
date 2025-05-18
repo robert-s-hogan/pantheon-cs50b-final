@@ -1,3 +1,11 @@
+<?php
+/**
+ * Title: Profile list – stacked
+ * Slug:  understrap-child/profile-list-stack
+ * Categories: people, list
+ * Keywords: profile, staff, board
+ */
+?>
 <!-- wp:group {"layout":{"type":"constrained","contentSize":"800px"}} -->
 <div class="wp-block-group">
 	<!-- wp:media-text {"mediaType":"image","mediaPosition":"left","verticalAlignment":"center"} -->

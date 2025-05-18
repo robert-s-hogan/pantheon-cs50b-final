@@ -1,3 +1,11 @@
+<?php
+/**
+ * Title: Grid – three icon cards
+ * Slug:  understrap-child/grid-icon-cards-3
+ * Categories: cards, grid
+ * Keywords: grid, icon, highlights
+ */
+?>
 <!-- wp:columns {"columns":3,"isStackedOnMobile":false,"style":{"spacing":{"blockGap":"24px"}}} -->
 <div class="wp-block-columns">
 	<!-- wp:column -->

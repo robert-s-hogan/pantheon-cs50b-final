@@ -1,3 +1,11 @@
+<?php
+/**
+ * Title: FAQ accordion
+ * Slug:  understrap-child/faq-accordion
+ * Categories: query, text
+ * Keywords: faq, accordion
+ */
+?>
 <!-- wp:details -->
 <details>
 	<summary>How do I contact the PTO?</summary>

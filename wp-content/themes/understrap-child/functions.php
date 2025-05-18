@@ -96,6 +96,11 @@ add_action( 'wp_enqueue_scripts', function () {
 add_action( 'init', function () {
 	register_block_pattern_category( 'callout', [ 'label' => __( 'Callouts', 'understrap-child' ) ] );
 	register_block_pattern_category( 'banner',  [ 'label' => __( 'Banners',  'understrap-child' ) ] );
+    register_block_pattern_category( 'forms',   [ 'label' => __( 'Forms',    'understrap-child' ) ] );
+    register_block_pattern_category( 'events',  [ 'label' => __( 'Events',   'understrap-child' ) ] );
+    register_block_pattern_category( 'members', [ 'label' => __( 'Members',  'understrap-child' ) ] );
+    register_block_pattern_category( 'calendar', [ 'label' => __( 'Calendar',  'understrap-child' ) ] );
+    
 }, 9); // priority < 10
 
 /* (B) Optional custom block style */

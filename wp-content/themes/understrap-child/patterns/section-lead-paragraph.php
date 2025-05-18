@@ -1,3 +1,11 @@
+<?php
+/**
+ * Title: Section – lead paragraph
+ * Slug:  understrap-child/section-lead-paragraph
+ * Categories: text
+ * Keywords: intro, lead, paragraph
+ */
+?>
 <!-- wp:group {"layout":{"type":"constrained","contentSize":"720px"}} -->
 <div class="wp-block-group">
 	<!-- wp:paragraph {"align":"center","fontSize":"large"} -->

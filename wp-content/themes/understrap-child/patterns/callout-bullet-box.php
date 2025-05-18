@@ -1,3 +1,11 @@
+<?php
+/**
+ * Title: Callout – bordered bullet list
+ * Slug:  understrap-child/callout-bullet-box
+ * Categories: callout
+ * Keywords: bullet, list, callout
+ */
+?>
 <!-- wp:group {"style":{"border":{"width":"2px","style":"solid","color":"var:preset|color|primary"},"spacing":{"padding":{"top":"24px","bottom":"24px","left":"24px","right":"24px"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group has-border-color" style="border-color:var(--wp--preset--color--primary);border-width:2px;padding:24px">
 	<!-- wp:list {"style":{"typography":{"lineHeight":"1.6"}}} -->
