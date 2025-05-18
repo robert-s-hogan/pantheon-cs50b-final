@@ -118,3 +118,5 @@ add_action( 'init', function () {
 	}
 }, 1 );           // before core scan (init 9)
 
+
+add_filter( 'should_load_remote_block_patterns', '__return_false' );
