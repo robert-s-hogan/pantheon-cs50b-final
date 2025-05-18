@@ -1,23 +1,110 @@
-Understrap Child Theme Code Audit - 2025-05-18 11:15:25
+Understrap Child Theme Code Audit - 2025-05-18 11:40:18
 Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-final/wp-content/themes/understrap-child
 ---------------------------------------------
 
 🗂️  SCSS Files
 ---------------------------------------------
 
-🔹 src/sass/layout/_why.scss
+🔹 src/sass/layout/_home-sections.scss
+
+// -----------------------------------------------------------------------------
+// layout/_home-sections.scss   (Mission, Why, Featured Events)
+// -----------------------------------------------------------------------------
+.mission-section {
+  @extend %section-spacing;
+  background-color: $gray-100;
+  text-align: center;
+
+  .mission-inner {
+    max-width: 60ch;
+    margin-inline: auto;
+    font-size: 1.125rem;
+    line-height: 1.55;
+  }
+}
 
 .why-section {
+  @extend %section-spacing;
   background-color: $white;
-  border: 1px solid rgba($dark, 0.1);
-  ul li {
-    padding-left: 1.25rem;
+
+  h2 {
+    text-align: center;
+    margin-bottom: $spacer;
+  }
+  .why-box {
+    border: 1px solid rgba($dark, 0.15);
+    border-radius: $border-radius;
+    padding: $spacer;
+    max-width: 52ch;
+    margin-inline: auto;
+  }
+  .why-box li {
+    list-style: none;
     position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.5rem;
     &::before {
       content: "–";
       position: absolute;
       left: 0;
+      color: $primary;
     }
+  }
+}
+
+.featured-events-section {
+  @extend %section-spacing;
+  background-color: $white;
+
+  h2 {
+    margin-bottom: $spacer-2;
+  } // now uses the helper you just set
+  .event-card {
+    border: 1px solid rgba($dark, 0.1);
+    border-radius: $border-radius;
+    padding: $spacer;
+    margin-bottom: $spacer;
+  }
+  .event-card__title {
+    font-weight: 600;
+  }
+  .event-card__date {
+    font-style: italic;
+    font-size: 0.875rem;
+  }
+  .event-card__desc {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+  }
+}
+
+// 4) HERO  ────────────────────────────────────────────────────────────────
+
+.hero-section {
+  // double the normal rhythm
+  @extend %section-spacing;
+  padding-block: $section-space * 2;
+
+  // subtle tint behind the hero
+  background-color: $gray-100;
+
+  text-align: center;
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
+    line-height: 1.1;
+    margin-bottom: $spacer;
+  }
+
+  .hero-tagline {
+    font-size: 1.25rem;
+    max-width: 48ch;
+    margin: 0 auto $spacer;
+  }
+
+  .wp-block-button__link {
+    padding: 0.75rem 2.25rem;
+    font-weight: 600;
   }
 }
 
@@ -91,39 +178,6 @@ Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-fin
         }
       }
     }
-  }
-}
-
----------------------------------------------
-
-🔹 src/sass/layout/_events.scss
-
-.event-card {
-  @include flex-container($dir: column);
-  gap: 0.5rem;
-  background-color: $white;
-  transition: box-shadow 0.2s;
-  &:hover {
-    box-shadow: 0 0.5rem 1rem rgba($black, 0.1);
-  }
-  h4 {
-    margin-bottom: 0.25rem;
-  }
-}
-
----------------------------------------------
-
-🔹 src/sass/layout/_mission.scss
-
-.mission-section {
-  @include centered-container(); // keeps inner content at lg max-width
-  background-color: $gray-100;
-  h2 {
-    @include fluid-type($fs-section-h2-min, $fs-section-h2-max);
-  }
-  .lead {
-    max-width: 52ch;
-    margin-inline: auto;
   }
 }
 
@@ -207,6 +261,23 @@ $container-max-widths: (
   flex-direction: $dir;
   justify-content: $justify;
   align-items: $align;
+}
+
+---------------------------------------------
+
+🔹 src/sass/theme/mixins/_section-spacing.scss
+
+// --- theme/mixins/_section-spacing.scss ---
+$section-space: $spacer-xl !default;
+
+// quick mixin for one–offs
+@mixin section-spacing($space: $section-space) {
+  padding-block: $space;
+}
+
+// placeholder for “extend”
+%section-spacing {
+  @include section-spacing();
 }
 
 ---------------------------------------------
@@ -316,17 +387,19 @@ header.page-header-title {
   width: auto !important;
 }
 
+.pattern-section > .wp-block-spacer {
+  display: none !important;
+}
+
 ---------------------------------------------
 
 🔹 src/sass/theme/_child_theme_variables.scss
 
 // src/sass/theme/_child_theme_variables.scss
-@import "theme/mixins/flex";
-@import "theme/mixins/fluid-type";
-@import "theme/mixins/breakpoints";
-@import "theme/mixins/container";
+$spacer: 1rem !default;
+$spacer-xl: $spacer * 3 !default;
+$spacer-2: $spacer * 2 !default;
 
-// — Bootstrap overrides —
 /// Brand colors
 $primary: #3055c3 !default; // Douglas‑Whited blue
 $secondary: #ffcb2a !default; // Golden yellow
@@ -339,26 +412,24 @@ $dark: #1a2e69 !default; // navy for text/outlines
 $info: $primary !default;
 $warning: $secondary !default;
 
-// — Custom theme variables — (your existing hero settings, etc.)
+// — Custom theme variables
 $hero-min-height: 75vh !default;
 $hero-overlay: rgba(0, 0, 0, 0.4) !default;
 $hero-bg-position: center !default;
 $hero-bg-size: cover !default;
-$fs-hero-subtitle: 1.75rem !default; // whatever static size you want
+$fs-hero-subtitle: 1.75rem !default;
 $fs-hero-lead: 1.125rem !default;
 
 $hero-title-color: $white !default;
 $hero-lead-color: rgba(255, 255, 255, 0.85) !default;
 
-// Example min/max pairs you might want
+// Responsive font sizes
 $fs-section-h1-min: 2.5rem !default;
 $fs-section-h1-max: 3.25rem !default;
 $fs-section-h2-min: 2rem !default;
 $fs-section-h2-max: 2.5rem !default;
 $fs-subheading-min: 1rem !default;
 $fs-subheading-max: 1.25rem !default;
-
-$spacer-xl: 3rem !default;
 
 // BUTTONS
 $btn-padding-y: 0.625rem !default; // 10px
@@ -369,6 +440,12 @@ $btn-focus-shadow: 0 0 0 3px rgba($secondary, 0.5) !default;
 /// Header / “light” text colors
 $navbar-light-color: $white !default;
 $navbar-light-hover-color: rgba($white, 0.8) !default;
+
+@import "theme/mixins/flex";
+@import "theme/mixins/fluid-type";
+@import "theme/mixins/breakpoints";
+@import "theme/mixins/container";
+@import "theme/mixins/section-spacing";
 
 ---------------------------------------------
 
@@ -13045,42 +13122,20 @@ $gutters: $spacers !default;
 
 🔹 src/sass/app.scss
 
-// 1) Variables
-@import "theme/child_theme_variables"; // include $font-family-base etc.
+/* ───────────────────────── 0) Core variables & mixins ───────────────────── */
+@import "theme/_child_theme_variables"; // $spacer, colors, etc.
+@import "theme/mixins/section-spacing"; // depends on $spacer-xl
 
-// 2) Bootstrap & UnderStrap core
+/* ───────────────────────── 1) Bootstrap & UnderStrap ────────────────────── */
 @import "assets/bootstrap5/bootstrap";
 @import "assets/understrap/theme/understrap";
 
-// 3) Utilities / Fonts
+/* ───────────────────────── 2) Utilities / fonts ─────────────────────────── */
 @import "assets/underscores";
 
-// 4) UnderStrap helpers & block styles
-@import "assets/understrap/theme/colors";
-@import "assets/understrap/theme/blocks";
-@import "assets/understrap/theme/contact-form7";
+/* ───────────────────────── 3) Layout partials ───────────────────────────── */
+@import "layout/home-sections";
 
-// 5) Theme-specific partials
-@import "layout/footer";
-@import "theme/nav-custom";
-@import "theme/overrides";
-
-// 6) Block-pattern partials
-@import "layout/hero-cta";
-@import "layout/section-lead-paragraph";
-@import "layout/callout-bullet-box";
-@import "layout/card-list-events";
-@import "layout/cta-bar-button";
-@import "layout/faq-accordion";
-@import "layout/form-contact-signup";
-@import "layout/form-volunteer-signup";
-@import "layout/grid-icon-cards-3";
-@import "layout/hero-centered-heading-cta";
-@import "layout/profile-list-stack";
-@import "layout/section-centered-heading";
-@import "layout/section-lead-paragraph";
-
-// 7) Custom global tweaks
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
@@ -13106,342 +13161,133 @@ h6 {
 🗂️  Block Patterns Files
 ---------------------------------------------
 
-🔹 patterns/section-centered-heading.php
+🔹 patterns/home-mission-section.php
 
 <?php
 /**
- * Title: Section – centered heading
- * Slug:  understrap-child/section-centered-heading
- * Categories: text
- * Keywords: heading, centered
+ * Title: Mission – Home
+ * Slug: whited/home-mission
+ * Categories: home-page
+ * Inserter: yes
  */
 ?>
-<!-- wp:heading {"textAlign":"center","level":2} -->
-<h2 class="wp-block-heading has-text-align-center">We’d Love to Hear From You!</h2>
-<!-- /wp:heading -->
 
----------------------------------------------
+<!-- wp:group {"align":"full","className":"mission-section"} -->
+    <!-- wp:paragraph {"align":"center","placeholderText":"Add intro copy here…","style":{"typography":{"fontStyle":"normal","fontWeight":"700"}}} -->
+    <p class="has-text-align-center"><strong>At Whited Elementary PTO, our mission is simple:</strong></p>
+    <!-- /wp:paragraph -->
 
-🔹 patterns/profile-list-stack.php
-
-<?php
-/**
- * Title: Profile list – stacked
- * Slug:  understrap-child/profile-list-stack
- * Categories: people, list
- * Keywords: profile, staff, board
- */
-?>
-<!-- wp:group {"layout":{"type":"constrained","contentSize":"800px"}} -->
-<div class="wp-block-group">
-	<!-- wp:media-text {"mediaType":"image","mediaPosition":"left","verticalAlignment":"center"} -->
-	<div class="wp-block-media-text alignwide is-stacked-on-mobile is-vertically-aligned-center">
-		<figure class="wp-block-media-text__media"><img src="https://via.placeholder.com/96" alt=""/></figure>
-		<div class="wp-block-media-text__content">
-			<!-- wp:paragraph {"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}}} -->
-			<p><strong>President&nbsp;· Jane&nbsp;Smith</strong></p>
-			<!-- /wp:paragraph -->
-			<!-- wp:paragraph -->
-			<p>Leads overall direction, grants funding approvals and keeps everyone smiling.</p>
-			<!-- /wp:paragraph -->
-		</div>
-	</div>
-	<!-- /wp:media-text -->
-
-	<!-- wp:separator {"opacity":"20"} -->
-	<hr class="wp-block-separator has-alpha-channel-opacity"/>
-	<!-- /wp:separator -->
-
-	<!-- (duplicate the media-text block for each member) -->
-</div>
+    <!-- wp:paragraph {"align":"center","placeholderText":"Add body copy here…"} -->
+    <p class="mission-inner has-text-align-center">We strive to enhance the educational experience of every student by fostering a supportive community of parents, teachers, and staff. Through volunteer efforts, fundraising events, and open communication, we work together to create a positive environment where every family can thrive.</p>
+    <!-- /wp:paragraph -->
 <!-- /wp:group -->
 
 ---------------------------------------------
 
-🔹 patterns/cta-bar-button.php
+🔹 patterns/home-why-get-involved.php
 
 <?php
 /**
- * Title: CTA bar – single button
- * Slug:  understrap-child/cta-bar-button
- * Categories: callout, banner
- * Keywords: cta, bar
+ * Title: Why Get Involved? – Home
+ * Slug: whited/home-why
+ * Categories: home-page
+ * Inserter: yes
  */
 ?>
-<!-- wp:cover {"overlayColor":"primary","minHeight":120,"isDark":false,"style":{"spacing":{"padding":{"top":"32px","bottom":"32px"}}}} -->
-<div class="wp-block-cover is-light" style="padding-top:32px;padding-bottom:32px;min-height:120px">
-	<span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-80"></span>
-	<div class="wp-block-cover__inner-container">
-		<!-- wp:paragraph {"align":"center","fontSize":"large","textColor":"background"} -->
-		<p class="has-text-align-center has-background-color has-large-font-size">Ready to make a difference?</p>
-		<!-- /wp:paragraph -->
 
-		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
-		<div class="wp-block-buttons">
-			<!-- wp:button {"backgroundColor":"background","textColor":"primary"} -->
-			<div class="wp-block-button"><a class="wp-block-button__link has-primary-color has-background-background-color has-text-color has-background">Join&nbsp;Us</a></div>
-			<!-- /wp:button -->
-		</div>
-		<!-- /wp:buttons -->
-	</div>
-</div>
-<!-- /wp:cover -->
+<!-- wp:group {"align":"full","className":"why-section"} -->
+    <!-- wp:heading {"level":3,"align":"center"} -->
+    <h3 class="has-text-align-center">Why Get Involved?</h3>
+    <!-- /wp:heading -->
 
----------------------------------------------
-
-🔹 patterns/form-contact-basic.php
-
-<?php
-/**
- * Title: Form – basic contact
- * Slug:  understrap-child/form-contact-basic
- * Categories: forms
- * Keywords: contact, form
- */
-?>
-<!-- wp:group {"layout":{"type":"constrained","contentSize":"600px"}} -->
-<div class="wp-block-group">
-	<!-- wp:html -->
-	<form class="wp-block-contact-form" action="#" method="post">
-		<p><label>Full name<br><input type="text" name="name" required></label></p>
-		<p><label>Email<br><input type="email" name="email" required></label></p>
-		<p><label>Phone (optional)<br><input type="text" name="phone"></label></p>
-		<p><label>Message<br><textarea name="message" rows="4" required></textarea></label></p>
-		<p><button type="submit" class="wp-element-button">Send Message</button></p>
-	</form>
-	<!-- /wp:html -->
-</div>
+    <!-- wp:group {"className":"why-box","layout":{"type":"constrained"}} -->
+        <!-- wp:list -->
+        <ul>
+            <li>Every hour volunteered and every dollar donated directly benefits our students.</li>
+            <li>We host fun family events to bring the community together.</li>
+            <li>We’re building a stronger connection between home and school.</li>
+        </ul>
+        <!-- /wp:list -->
+    <!-- /wp:group -->
 <!-- /wp:group -->
 
 ---------------------------------------------
 
-🔹 patterns/grid-icon-cards-3.php
+🔹 patterns/home-hero-section.php
 
 <?php
 /**
- * Title: Grid – three icon cards
- * Slug:  understrap-child/grid-icon-cards-3
- * Categories: cards, grid
- * Keywords: grid, icon, highlights
+ * Title: Hero – Home
+ * Slug: whited/home-hero
+ * Categories: home-page
+ * Inserter: yes
  */
 ?>
-<!-- wp:columns {"columns":3,"isStackedOnMobile":false,"style":{"spacing":{"blockGap":"24px"}}} -->
-<div class="wp-block-columns">
-	<!-- wp:column -->
-	<div class="wp-block-column">
-		<!-- wp:group {"style":{"border":{"width":"1px","style":"solid","color":"contrast"},"spacing":{"padding":{"top":"24px","bottom":"24px","left":"16px","right":"16px"}}}} -->
-		<div class="wp-block-group has-border-color" style="border-color:var(--wp--preset--color--contrast);border-width:1px;padding:24px 16px">
-			<!-- wp:image {"id":123,"sizeSlug":"thumbnail","style":{"border":{"radius":"50%"}}} /-->
-			<!-- wp:heading {"level":4} -->
-			<h4 class="wp-block-heading">Back-to-School Bash</h4>
-			<!-- /wp:heading -->
-			<!-- wp:paragraph {"fontSize":"small"} -->
-			<p class="has-small-font-size">Kick off the year with games, a pumpkin patch and tasty treats.</p>
-			<!-- /wp:paragraph -->
-		</div>
-		<!-- /wp:group -->
-	</div>
-	<!-- /wp:column -->
 
-	<!-- (duplicate column two more times) -->
-</div>
-<!-- /wp:columns -->
+<!-- wp:group {"align":"full","className":"hero-section"} -->
+    <!-- wp:heading {"level":1,"align":"center"} -->
+    <h1 class="has-text-align-center">Welcome to Whited PTO</h1>
+    <!-- /wp:heading -->
 
----------------------------------------------
+    <!-- wp:paragraph {"align":"center"} -->
+    <p class="hero-tagline has-text-align-center">Supporting Our Students, Empowering Our Community</p>
+    <!-- /wp:paragraph -->
 
-🔹 patterns/callout-bullet-box.php
-
-<?php
-/**
- * Title: Callout – bordered bullet list
- * Slug:  understrap-child/callout-bullet-box
- * Categories: callout
- * Keywords: bullet, list, callout
- */
-?>
-<!-- wp:group {"style":{"border":{"width":"2px","style":"solid","color":"var:preset|color|primary"},"spacing":{"padding":{"top":"24px","bottom":"24px","left":"24px","right":"24px"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group has-border-color" style="border-color:var(--wp--preset--color--primary);border-width:2px;padding:24px">
-	<!-- wp:list {"style":{"typography":{"lineHeight":"1.6"}}} -->
-	<ul style="line-height:1.6">
-		<li>Fundraising events that directly benefit students</li>
-		<li>Community-building activities for families &amp; staff</li>
-		<li>Volunteer coordination and classroom support</li>
-	</ul>
-	<!-- /wp:list -->
-</div>
+    <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+        <div class="wp-block-buttons">
+            <!-- wp:button {"className":"is-style-primary"} -->
+                <a class="wp-block-button__link wp-element-button">Get Involved</a>
+            <!-- /wp:button -->
+        </div>
+    <!-- /wp:buttons -->
 <!-- /wp:group -->
 
 ---------------------------------------------
 
-🔹 patterns/calendar-month-embed.php
+🔹 patterns/home-featured-events.php
 
 <?php
 /**
- * Title: Calendar – month embed
- * Slug:  understrap-child/calendar-month-embed
- * Categories: media, calendar
- * Keywords: calendar, embed
+ * Title: Featured Events – Home
+ * Slug: whited/home-featured-events
+ * Categories: home-page
+ * Inserter: yes
  */
 ?>
-<!-- wp:html -->
-<div class="wp-block-calendar-embed" style="overflow:hidden">
-	<iframe src="https://calendar.google.com/calendar/embed?src=your_calendar_id&amp;mode=MONTH" style="border:0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
-</div>
-<!-- /wp:html -->
 
----------------------------------------------
+<!-- wp:group {"align":"full","className":"featured-events-section"} -->
+    <!-- wp:heading {"level":3} -->
+    <h3>Featured Events</h3>
+    <!-- /wp:heading -->
 
-🔹 patterns/card-list-events.php
+    <!-- wp:paragraph {"placeholderText":"Optional sub-heading"} -->
+    <p>Upcoming Events Highlight</p>
+    <!-- /wp:paragraph -->
 
-<?php
-/**
- * Title: Card list – events
- * Slug:  understrap-child/card-list-events
- * Categories: cards, query
- * Keywords: event, card
- */
-?>
-<!-- wp:query {"queryId":1,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","orderby":"date","order":"asc","taxQuery":[],"metaQuery":[]}} -->
-<div class="wp-block-query">
-	<!-- wp:post-template -->
-		<!-- wp:group {"style":{"spacing":{"margin":{"bottom":"24px"}}},"layout":{"type":"flex","orientation":"horizontal","flexWrap":"nowrap","verticalAlignment":"top"}} -->
-		<div class="wp-block-group" style="margin-bottom:24px">
-			<!-- wp:post-featured-image {"sizeSlug":"thumbnail"} /-->
+    <!-- wp:group {"className":"event-card"} -->
+        <!-- wp:paragraph {"className":"event-card__title"} -->
+        <p class="event-card__title">Fall Harvest Festival</p>
+        <!-- /wp:paragraph -->
+        <!-- wp:paragraph {"className":"event-card__date"} -->
+        <p class="event-card__date">October 15, 4-7 PM</p>
+        <!-- /wp:paragraph -->
+        <!-- wp:paragraph {"className":"event-card__desc"} -->
+        <p class="event-card__desc">Celebrate autumn with games, a pumpkin patch, and tasty treats. Volunteers needed!</p>
+        <!-- /wp:paragraph -->
+    <!-- /wp:group -->
 
-			<!-- wp:group {"style":{"spacing":{"padding":{"left":"16px"}}},"layout":{"type":"constrained"}} -->
-			<div class="wp-block-group" style="padding-left:16px">
-				<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
-				<!-- wp:post-date {"format":"F j · g:i a"} /-->
-				<!-- wp:post-excerpt {"excerptLength":15} /-->
-				<!-- wp:buttons -->
-				<div class="wp-block-buttons">
-					<!-- wp:button {"fontSize":"small"} -->
-					<div class="wp-block-button has-small-font-size"><a class="wp-block-button__link wp-element-button">Sign up&nbsp;to&nbsp;help</a></div>
-					<!-- /wp:button -->
-				</div>
-				<!-- /wp:buttons -->
-			</div>
-			<!-- /wp:group -->
-		</div>
-		<!-- /wp:group -->
-	<!-- /wp:post-template -->
-</div>
-<!-- /wp:query -->
-
----------------------------------------------
-
-🔹 patterns/faq-accordion.php
-
-<?php
-/**
- * Title: FAQ accordion
- * Slug:  understrap-child/faq-accordion
- * Categories: query, text
- * Keywords: faq, accordion
- */
-?>
-<!-- wp:details -->
-<details>
-	<summary>How do I contact the PTO?</summary>
-	<p>Email <a href="mailto:pto@whited.org">pto@whited.org</a> or see us at the next meeting.</p>
-</details>
-<!-- /wp:details -->
-
-<!-- duplicate <details> … </details> blocks for each Q&A -->
-
----------------------------------------------
-
-🔹 patterns/section-lead-paragraph.php
-
-<?php
-/**
- * Title: Section – lead paragraph
- * Slug:  understrap-child/section-lead-paragraph
- * Categories: text
- * Keywords: intro, lead, paragraph
- */
-?>
-<!-- wp:group {"layout":{"type":"constrained","contentSize":"720px"}} -->
-<div class="wp-block-group">
-	<!-- wp:paragraph {"align":"center","fontSize":"large"} -->
-	<p class="has-text-align-center has-large-font-size">Our mission is to create a positive learning environment through collaboration, fundraising and community-building events.</p>
-	<!-- /wp:paragraph -->
-</div>
+    <!-- wp:group {"className":"event-card"} -->
+        <!-- wp:paragraph {"className":"event-card__title"} -->
+        <p class="event-card__title">Winter Book Fair</p>
+        <!-- /wp:paragraph -->
+        <!-- wp:paragraph {"className":"event-card__date"} -->
+        <p class="event-card__date">December 5-9 (during school hours)</p>
+        <!-- /wp:paragraph -->
+        <!-- wp:paragraph {"className":"event-card__desc"} -->
+        <p class="event-card__desc">Support literacy! Stop by to purchase books for your child and donate to the classroom library.</p>
+        <!-- /wp:paragraph -->
+    <!-- /wp:group -->
 <!-- /wp:group -->
-
----------------------------------------------
-
-🔹 patterns/form-volunteer-signup.php
-
-<?php
-/**
- * Title: Form – volunteer signup
- * Slug:  understrap-child/form-volunteer-signup
- * Categories: forms
- * Keywords: volunteer, signup, form
- */
-?>
-<!-- wp:group {"layout":{"type":"constrained","contentSize":"700px"}} -->
-<div class="wp-block-group">
-	<!-- wp:html -->
-	<form class="wp-block-volunteer-form" action="#" method="post">
-		<div style="display:flex;gap:24px;flex-wrap:wrap">
-			<div style="flex:1 1 260px">
-				<p><label>Full name<br><input type="text" name="name" required></label></p>
-				<p><label>Email<br><input type="email" name="email" required></label></p>
-				<p><label>Phone<br><input type="text" name="phone"></label></p>
-			</div>
-			<div style="flex:1 1 260px">
-				<p><label>Volunteer Preference<br>
-					<select name="pref">
-						<option value="">Choose…</option>
-						<option>Events &amp; Festivals</option>
-						<option>Classroom Support</option>
-						<option>Fundraising</option>
-					</select></label></p>
-				<p><label>Comments<br><textarea name="comments" rows="4"></textarea></label></p>
-			</div>
-		</div>
-		<p style="text-align:center"><button type="submit" class="wp-element-button">Sign Me Up!</button></p>
-	</form>
-	<!-- /wp:html -->
-</div>
-<!-- /wp:group -->
-
----------------------------------------------
-
-🔹 patterns/hero-centered-heading-cta.php
-
-<?php
-/**
- * Title: Hero – centered heading & CTA
- * Slug:  understrap-child/hero-centered-heading-cta
- * Categories: banner, hero
- * Keywords: hero, headline, call to action
- */
-?>
-<!-- wp:cover {"overlayColor":"primary","minHeight":420,"isDark":false,"style":{"spacing":{"padding":{"top":"80px","bottom":"80px"}}}} -->
-<div class="wp-block-cover is-light" style="padding-top:80px;padding-bottom:80px;min-height:420px">
-	<span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-80"></span>
-	<div class="wp-block-cover__inner-container">
-		<!-- wp:heading {"textAlign":"center","level":1,"fontSize":"xx-large"} -->
-		<h1 class="wp-block-heading has-text-align-center has-xx-large-font-size">Welcome to Our Community</h1>
-		<!-- /wp:heading -->
-
-		<!-- wp:paragraph {"align":"center","fontSize":"large"} -->
-		<p class="has-text-align-center has-large-font-size">Supporting Students – Empowering Families</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
-		<div class="wp-block-buttons">
-			<!-- wp:button -->
-			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Get&nbsp;Involved</a></div>
-			<!-- /wp:button -->
-		</div>
-		<!-- /wp:buttons -->
-	</div>
-</div>
-<!-- /wp:cover -->
 
 ---------------------------------------------
 
