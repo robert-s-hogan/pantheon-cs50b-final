@@ -15382,7 +15382,7 @@ header.page-header-title {
   display: inline-block;
   text-decoration: none;
   padding: 1rem;
-  color: #1a2e69 !important;
+  color: #ffffff !important;
   transition: background-color 0.2s ease, color 0.2s ease;
   border-radius: 0.25rem;
 }
@@ -15424,3 +15424,5 @@ h6,
   letter-spacing: 0.5px;
   line-height: 1.1;
 }
+
+/*# sourceMappingURL=app.css.map */
