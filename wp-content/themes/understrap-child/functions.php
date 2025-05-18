@@ -92,37 +92,31 @@ add_action( 'wp_enqueue_scripts', function () {
    3. Extras: pattern-categories & custom block styles
    ─────────────────────────────────────────────────────────── */
 
-add_action( 'init', 'rhogan_register_pattern_categories', 1 ); // 1 ≪ 9
-function rhogan_register_pattern_categories() {
+/* 0. RE-enable support late – guarantees it’s on */
+add_action( 'after_setup_theme', function () {
+	add_theme_support( 'core-block-patterns' );
+}, 99 );          // 99 > any parent theme call
 
-	$cats = [
-		'banner'   => __( 'Banners',  'understrap-child' ),
-		'callout'  => __( 'Callouts', 'understrap-child' ),
-		'hero'     => __( 'Hero',    'understrap-child' ),
-		'forms'    => __( 'Forms',   'understrap-child' ),
-		'events'   => __( 'Events',  'understrap-child' ),
-		'cards'    => __( 'Cards & Grids', 'understrap-child' ),
-		'grid'     => __( 'Grids',   'understrap-child' ),
-		'people'   => __( 'People',  'understrap-child' ),
-		'calendar' => __( 'Calendars','understrap-child' ),
-		'text'     => __( 'Text',    'understrap-child' ),
-		'members'  => __( 'Members', 'understrap-child' ),
-	];
-
-	foreach ( $cats as $slug => $label ) {
-		register_block_pattern_category( $slug, [ 'label' => $label ] );
+/* 1. Register EVERY slug you use – add the missing ones */
+add_action( 'init', function () {
+	foreach ( [
+		'banner'   => 'Banners',
+		'callout'  => 'Callouts',
+		'hero'     => 'Hero',
+		'forms'    => 'Forms',
+		'events'   => 'Events',
+		'cards'    => 'Cards',
+		'grid'     => 'Grids',
+		'people'   => 'People',
+		'calendar' => 'Calendars',
+		'text'     => 'Text',
+		'members'  => 'Members',
+		'media'    => 'Media',         // ← NEW
+		'cta'      => 'Call to action' // ← if any header says “cta”
+	] as $slug => $label ) {
+		register_block_pattern_category( $slug, [ 'label' => __( $label, 'understrap-child' ) ] );
 	}
-}
+}, 1 );           // before core scan (init 9)
 
-
-/* (B) Optional custom block style */
-add_action( 'init', function () {
-	register_block_style( 'core/button', [
-		'name'  => 'solid-gold',
-		'label' => __( 'Solid Gold', 'understrap-child' ),
-	] );
-} );
-
-add_action( 'init', function () {
-	remove_theme_support( 'core-block-patterns' );   // kicks out WP’s bundle
-}, 20 ); // > 10 so it fires after Core’s loaders
+/* 2. OPTIONAL – hide WP’s default bundle, keep yours */
+add_action( 'init', fn() => remove_theme_support( 'core-block-patterns' ), 20 );
