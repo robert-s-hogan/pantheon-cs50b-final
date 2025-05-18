@@ -120,3 +120,9 @@ add_action( 'init', function () {
 
 
 add_filter( 'should_load_remote_block_patterns', '__return_false' );
+
+
+add_filter( 'block_editor_settings_all', function ( $settings ) {
+    $settings['hasCustomBlockPatterns'] = false;  // hides “My patterns” tab
+    return $settings;
+} );
