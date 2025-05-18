@@ -15367,6 +15367,10 @@ header.page-header-title {
   width: auto !important;
 }
 
+.navbar-brand {
+  font-family: "Open Sans", sans-serif;
+}
+
 .navbar-brand img {
   height: 50px;
   width: 50px;
