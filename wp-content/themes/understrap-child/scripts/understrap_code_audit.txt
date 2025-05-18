@@ -1,8 +1,26 @@
-Understrap Child Theme Code Audit - 2025-05-18 07:52:36
+Understrap Child Theme Code Audit - 2025-05-18 09:00:43
 Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-final/wp-content/themes/understrap-child
 ---------------------------------------------
 
 🗂️  SCSS Files
+---------------------------------------------
+
+🔹 src/sass/layout/_why.scss
+
+.why-section {
+  background-color: $white;
+  border: 1px solid rgba($dark, 0.1);
+  ul li {
+    padding-left: 1.25rem;
+    position: relative;
+    &::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
 ---------------------------------------------
 
 🔹 src/sass/layout/_footer.scss
@@ -78,6 +96,39 @@ Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-fin
 
 ---------------------------------------------
 
+🔹 src/sass/layout/_events.scss
+
+.event-card {
+  @include flex-container($dir: column);
+  gap: 0.5rem;
+  background-color: $white;
+  transition: box-shadow 0.2s;
+  &:hover {
+    box-shadow: 0 0.5rem 1rem rgba($black, 0.1);
+  }
+  h4 {
+    margin-bottom: 0.25rem;
+  }
+}
+
+---------------------------------------------
+
+🔹 src/sass/layout/_mission.scss
+
+.mission-section {
+  @include centered-container(); // keeps inner content at lg max-width
+  background-color: $gray-100;
+  h2 {
+    @include fluid-type($fs-section-h2-min, $fs-section-h2-max);
+  }
+  .lead {
+    max-width: 52ch;
+    margin-inline: auto;
+  }
+}
+
+---------------------------------------------
+
 🔹 src/sass/theme/mixins/_utils.scss
 
 // _utils.scss
@@ -146,6 +197,17 @@ $container-max-widths: (
   xl: 1140px,
   xxl: 1320px,
 ) !default;
+
+---------------------------------------------
+
+🔹 src/sass/theme/mixins/_flex.scss
+
+@mixin flex-container($dir: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $justify;
+  align-items: $align;
+}
 
 ---------------------------------------------
 
@@ -259,6 +321,7 @@ header.page-header-title {
 🔹 src/sass/theme/_child_theme_variables.scss
 
 // src/sass/theme/_child_theme_variables.scss
+@import "theme/mixins/flex";
 @import "theme/mixins/fluid-type";
 @import "theme/mixins/breakpoints";
 @import "theme/mixins/container";
@@ -12982,15 +13045,14 @@ $gutters: $spacers !default;
 
 🔹 src/sass/app.scss
 
-// 1) Your variables
-@import "theme/child_theme_variables";
+// 1) Variables
+@import "theme/child_theme_variables"; // include $font-family-base etc.
 
 // 2) Bootstrap & UnderStrap core
 @import "assets/bootstrap5/bootstrap";
 @import "assets/understrap/theme/understrap";
 
 // 3) Utilities / Fonts
-@import "assets/fontawesome/font-awesome";
 @import "assets/underscores";
 
 // 4) UnderStrap helpers & block styles
@@ -12998,13 +13060,18 @@ $gutters: $spacers !default;
 @import "assets/understrap/theme/blocks";
 @import "assets/understrap/theme/contact-form7";
 
-// 5) Your theme overrides/layout
+// 5) Theme-specific partials
 @import "layout/footer";
 @import "theme/nav-custom";
 @import "theme/overrides";
 
+// 6) Block-pattern partials
+@import "layout/mission";
+@import "layout/why";
+@import "layout/events";
+
 // ————————————————————————
-// 5) custom styles
+// 7) Custom global tweaks
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
