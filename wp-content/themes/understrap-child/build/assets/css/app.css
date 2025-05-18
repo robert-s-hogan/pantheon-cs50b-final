@@ -15272,7 +15272,6 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
   transition: background-color 0.2s ease, color 0.2s ease;
   display: inline-block;
   padding: 0.625rem 1.25rem;
-  color: #ffffff;
   background-color: #ffcb2a;
   text-decoration: none;
 }
@@ -15387,6 +15386,9 @@ header.page-header-title {
   }
   .navbar-collapse .navbar-nav li a {
     text-decoration: none;
+  }
+  .navbar-collapse .navbar-nav span.nav-link-text {
+    color: #ffffff !important;
   }
   .navbar-collapse .navbar-nav .nav-link {
     color: #1a2e69 !important;
