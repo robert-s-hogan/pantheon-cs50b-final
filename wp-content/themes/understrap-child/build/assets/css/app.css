@@ -15267,21 +15267,21 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
   text-decoration: underline;
 }
 
-.nav-cta a.nav-link {
+.nav-cta > a {
   border-radius: 0.25rem;
   transition: background-color 0.2s ease, color 0.2s ease;
+  display: inline-block;
+  padding: 0.625rem 1.25rem;
   color: #1a2e69;
   background-color: #ffcb2a;
-  padding: 0.625rem 1.25rem;
   text-decoration: none;
-  display: inline-block;
 }
 @media (prefers-reduced-motion: reduce) {
-  .nav-cta a.nav-link {
+  .nav-cta > a {
     transition: none;
   }
 }
-.nav-cta a.nav-link:hover, .nav-cta a.nav-link:focus {
+.nav-cta > a:hover, .nav-cta > a:focus {
   background-color: rgb(195, 147.3943661972, 0);
   color: #ffffff;
 }

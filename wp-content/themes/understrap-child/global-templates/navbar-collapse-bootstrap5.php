@@ -36,6 +36,7 @@ $container = get_theme_mod( 'understrap_container_type' );
           'depth'          => 2,
           'link_before'    => '<span class="nav-link-text">',
           'link_after'     => '</span>',
+          'link_class'    => 'nav-link',
         ] );
       ?>
     </div>
