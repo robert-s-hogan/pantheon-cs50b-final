@@ -118,5 +118,3 @@ add_action( 'init', function () {
 	}
 }, 1 );           // before core scan (init 9)
 
-/* 2. OPTIONAL – hide WP’s default bundle, keep yours */
-add_action( 'init', fn() => remove_theme_support( 'core-block-patterns' ), 20 );
