@@ -92,16 +92,18 @@ add_action( 'wp_enqueue_scripts', function () {
    3. Extras: pattern-categories & custom block styles
    ─────────────────────────────────────────────────────────── */
 
-/* (A) Pattern categories – register *before* core loads patterns */
+/* Pattern categories – must be present *before* patterns load */
 add_action( 'init', function () {
-	register_block_pattern_category( 'callout', [ 'label' => __( 'Callouts', 'understrap-child' ) ] );
-	register_block_pattern_category( 'banner',  [ 'label' => __( 'Banners',  'understrap-child' ) ] );
-    register_block_pattern_category( 'forms',   [ 'label' => __( 'Forms',    'understrap-child' ) ] );
-    register_block_pattern_category( 'events',  [ 'label' => __( 'Events',   'understrap-child' ) ] );
-    register_block_pattern_category( 'members', [ 'label' => __( 'Members',  'understrap-child' ) ] );
-    register_block_pattern_category( 'calendar', [ 'label' => __( 'Calendar',  'understrap-child' ) ] );
-    
-}, 9); // priority < 10
+	register_block_pattern_category( 'banner',   [ 'label' => __( 'Banners',  'understrap-child' ) ] );
+	register_block_pattern_category( 'callout',  [ 'label' => __( 'Callouts', 'understrap-child' ) ] );
+	register_block_pattern_category( 'forms',    [ 'label' => __( 'Forms',    'understrap-child' ) ] );
+	register_block_pattern_category( 'cards',    [ 'label' => __( 'Cards',    'understrap-child' ) ] );
+	register_block_pattern_category( 'grid',     [ 'label' => __( 'Grids',    'understrap-child' ) ] );
+	register_block_pattern_category( 'text',     [ 'label' => __( 'Text',     'understrap-child' ) ] );
+	register_block_pattern_category( 'people',   [ 'label' => __( 'People',   'understrap-child' ) ] );
+	register_block_pattern_category( 'calendar', [ 'label' => __( 'Calendar', 'understrap-child' ) ] );
+}, 9);   // priority < 10
+
 
 /* (B) Optional custom block style */
 add_action( 'init', function () {
