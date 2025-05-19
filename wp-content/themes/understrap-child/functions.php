@@ -58,6 +58,13 @@ add_action( 'wp_enqueue_scripts', function () {
 		null
 	);
 
+	wp_enqueue_style(
+  'font-awesome-cdn',
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+  [],
+  '6.4.0'
+);
+
 	/* Compiled child-theme CSS (version = filemtime for cache-bust) */
 	$css_rel = '/build/assets/css/app.css';
 	$css_abs = $theme_dir . $css_rel;
@@ -172,46 +179,30 @@ add_action( 'init', function() {
   <div class="container section-inner">
     <h3 class="text-center mb-5">Why Get Involved?</h3>
     <div class="row text-center">
-
-      <!-- Column 1 -->
       <div class="col-lg-4 mb-4">
         <div class="px-3">
           <i class="fas fa-hands-helping fa-3x mb-3 text-primary"></i>
           <h4 class="mb-2">Support Our Students</h4>
-          <p class="text-muted">
-            Volunteer in the classroom or at events—every hour you spend makes a real difference in a child’s day. From reading buddies to STEM helpers, there’s something for everyone.
-          </p>
+          <p class="text-muted">Volunteer in the classroom or at events—every hour you spend makes a real difference in a child’s day. From reading buddies to STEM helpers, there’s something for everyone.</p>
         </div>
       </div>
-
-      <!-- Column 2 -->
       <div class="col-lg-4 mb-4">
         <div class="px-3">
           <i class="fas fa-users fa-3x mb-3 text-primary"></i>
           <h4 class="mb-2">Build Community</h4>
-          <p class="text-muted">
-            Join family-friendly gatherings like our Fall Festival and Spring Carnival. Bring your energy, meet other parents, and help us create memories for the whole school.
-          </p>
+          <p class="text-muted">Join family-friendly gatherings like our Fall Festival and Spring Carnival. Bring your energy, meet other parents, and help us create memories for the whole school.</p>
         </div>
       </div>
-
-      <!-- Column 3 -->
       <div class="col-lg-4 mb-4">
         <div class="px-3">
           <i class="fas fa-school fa-3x mb-3 text-primary"></i>
-          <h4 class="mb-2">Bridge Home & School</h4>
-          <p class="text-muted">
-            Serve as a liaison between parents and teachers—help translate needs, ideas, and feedback so we can all work together toward a stronger learning environment.
-          </p>
+          <h4 class="mb-2">Bridge Home &amp; School</h4>
+          <p class="text-muted">Serve as a liaison between parents and teachers—help translate needs, ideas, and feedback so we can all work together toward a stronger learning environment.</p>
         </div>
       </div>
-
     </div>
-
     <div class="text-center mt-4">
-      <a href="/get-involved" class="btn btn-primary btn-lg">
-        Get Involved
-      </a>
+      <a href="/get-involved" class="btn btn-primary btn-lg">Get Involved</a>
     </div>
   </div>
 </section>
@@ -219,3 +210,4 @@ HTML
         ]
     );
 }, 11 );
+
