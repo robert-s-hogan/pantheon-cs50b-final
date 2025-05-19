@@ -242,7 +242,7 @@ add_action( 'init', function() {
     Holiday crafts, homebaked goods, jewelry, candles, tamales, and more!
   </p>
   <div class="d-flex align-items-center">
-    <a href="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/Screenshot-2025-05-18-at-7.51.15%20PM.png" class="btn btn-outline-primary btn-sm" target="_blank">View Flyer</a>
+    <a href="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/Screenshot-2025-05-18-at-7.51.15 PM.png" class="btn btn-outline-primary btn-sm" target="_blank">View Flyer</a>
     <a href="https://www.bing.com/maps?q=douglas+whited+locatoin+santa+rosa&cvid=d881f765609d4204be6077724425f316&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOdIBCDc0MjRqMGoxqAIAsAIA&FORM=ANNTA1&PC=U531" class="btn btn-primary btn-sm ms-3" target="_blank">Get Directions</a>
   </div>
 </div>
