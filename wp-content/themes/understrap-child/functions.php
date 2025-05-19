@@ -128,6 +128,8 @@ add_filter( 'block_editor_settings_all', function ( $settings ) {
 } );
 
 
+
+/* ========================== HOME PAGE ========================== */
 /**
  * Register our “Our Mission – Home” block pattern so
  * we know exactly what HTML Gutenberg will insert.
@@ -149,6 +151,70 @@ add_action( 'init', function() {
     </p>
   </div>
 </div>
+HTML
+        ]
+    );
+}, 11 );
+
+/**
+ * Register the “Why Get Involved? – Home” block pattern (3-column version)
+ */
+add_action( 'init', function() {
+    register_block_pattern(
+        'whited/home-why-columns',
+        [
+            'title'       => __( 'Why Get Involved? – 3-Columns', 'understrap-child' ),
+            'description' => __( 'Three columns with icons and details, plus a CTA', 'understrap-child' ),
+            'categories'  => [ 'home-page' ],
+            'inserter'    => true,
+            'content'     => <<<'HTML'
+<section class="wp-block-group alignfull why-section bg-light py-5">
+  <div class="container section-inner">
+    <h3 class="text-center mb-5">Why Get Involved?</h3>
+    <div class="row text-center">
+
+      <!-- Column 1 -->
+      <div class="col-lg-4 mb-4">
+        <div class="px-3">
+          <i class="fas fa-hands-helping fa-3x mb-3 text-primary"></i>
+          <h4 class="mb-2">Support Our Students</h4>
+          <p class="text-muted">
+            Volunteer in the classroom or at events—every hour you spend makes a real difference in a child’s day. From reading buddies to STEM helpers, there’s something for everyone.
+          </p>
+        </div>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="col-lg-4 mb-4">
+        <div class="px-3">
+          <i class="fas fa-users fa-3x mb-3 text-primary"></i>
+          <h4 class="mb-2">Build Community</h4>
+          <p class="text-muted">
+            Join family-friendly gatherings like our Fall Festival and Spring Carnival. Bring your energy, meet other parents, and help us create memories for the whole school.
+          </p>
+        </div>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="col-lg-4 mb-4">
+        <div class="px-3">
+          <i class="fas fa-school fa-3x mb-3 text-primary"></i>
+          <h4 class="mb-2">Bridge Home & School</h4>
+          <p class="text-muted">
+            Serve as a liaison between parents and teachers—help translate needs, ideas, and feedback so we can all work together toward a stronger learning environment.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="/get-involved" class="btn btn-primary btn-lg">
+        Get Involved
+      </a>
+    </div>
+  </div>
+</section>
 HTML
         ]
     );
