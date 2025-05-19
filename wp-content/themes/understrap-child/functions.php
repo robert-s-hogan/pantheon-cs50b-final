@@ -226,8 +226,8 @@ add_action( 'init', function() {
             'content'     => <<<'HTML'
 <section class="wp-block-group alignfull events-section bg-light py-5">
   <div class="container section-inner">
-    <h2 class="text-uppercase fw-bold mb-5">Upcoming Events</h2>
-	<p class="text-center mb-4">Join us for our upcoming events! Click the buttons below to view flyers and get directions.</p>
+    <h2 class="text-uppercase fw-bold">Upcoming Events</h2>
+	<p class="mb-4">Join us for our upcoming events! Click the buttons below to view flyers and get directions.</p>
 
     <!-- Event 1 -->
     <div class="card border-0 shadow-sm mb-4 p-4">
