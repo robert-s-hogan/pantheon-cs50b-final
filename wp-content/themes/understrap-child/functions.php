@@ -126,3 +126,30 @@ add_filter( 'block_editor_settings_all', function ( $settings ) {
     $settings['hasCustomBlockPatterns'] = false;  // hides “My patterns” tab
     return $settings;
 } );
+
+
+/**
+ * Register our “Our Mission – Home” block pattern so
+ * we know exactly what HTML Gutenberg will insert.
+ */
+add_action( 'init', function() {
+    register_block_pattern(
+        'whited/home-our-mission',
+        [
+            'title'       => __( 'Our Mission – Home', 'understrap-child' ),
+            'description' => __( 'Full-width mission section with an inner constrained container', 'understrap-child' ),
+            'categories'  => [ 'home-page' ],
+            'inserter'    => true,
+            'content'     => <<<'HTML'
+<div class="wp-block-group alignfull mission-section">
+  <div class="wp-block-group section-inner">
+    <p class="has-text-align-center"><strong>At Whited Elementary PTO, our mission is simple:</strong></p>
+    <p class="has-text-align-center mission-inner">
+      We strive to enhance the educational experience of every student by fostering a supportive community of parents, teachers, and staff. Through volunteer efforts, fundraising events, and open communication, we work together to create a positive environment where every family can thrive.
+    </p>
+  </div>
+</div>
+HTML
+        ]
+    );
+}, 11 );

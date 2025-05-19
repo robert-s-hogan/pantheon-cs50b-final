@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Our Mission – Home
- * Slug: whited/home-our-mission
+ * Title: Mission – Home
+ * Slug: whited/home-mission
  * Categories: home-page
  * Inserter: yes
  */
