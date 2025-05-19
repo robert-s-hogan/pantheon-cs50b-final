@@ -44,7 +44,6 @@ $btn-focus-shadow: 0 0 0 3px rgba($secondary, 0.5) !default;
 $navbar-light-color: $white !default;
 $navbar-light-hover-color: rgba($white, 0.8) !default;
 
-@import "theme/mixins/flex";
 @import "theme/mixins/fluid-type";
 @import "theme/mixins/breakpoints";
 @import "theme/mixins/container";

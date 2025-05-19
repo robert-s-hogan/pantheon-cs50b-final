@@ -11079,6 +11079,168 @@ a.skip-link:not(:focus):not(:focus-within) {
   font-size: 1rem;
 }
 
+.about-what-we-do-section {
+  padding-block: 3rem;
+}
+@media (min-width: 768px) {
+  .about-what-we-do-section .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.about-what-we-do-section h2, .about-what-we-do-section .h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+@media (min-width: 320px) {
+  .about-what-we-do-section h2, .about-what-we-do-section .h2 {
+    font-size: calc(2rem + 0.5rem * (100vw - 320px) / (1200px - 320px));
+  }
+}
+@media (min-width: 1200px) {
+  .about-what-we-do-section h2, .about-what-we-do-section .h2 {
+    font-size: 2.5rem;
+  }
+}
+.about-what-we-do-section h4, .about-what-we-do-section .h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #3055c3;
+}
+@media (min-width: 320px) {
+  .about-what-we-do-section h4, .about-what-we-do-section .h4 {
+    font-size: calc(1rem + 0.25rem * (100vw - 320px) / (1200px - 320px));
+  }
+}
+@media (min-width: 1200px) {
+  .about-what-we-do-section h4, .about-what-we-do-section .h4 {
+    font-size: 1.25rem;
+  }
+}
+.about-what-we-do-section p {
+  color: #212529;
+  line-height: 1.6;
+}
+
+.about-board-section {
+  padding-block: 3rem;
+}
+.about-board-section h2, .about-board-section .h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+@media (min-width: 320px) {
+  .about-board-section h2, .about-board-section .h2 {
+    font-size: calc(2rem + 0.5rem * (100vw - 320px) / (1200px - 320px));
+  }
+}
+@media (min-width: 1200px) {
+  .about-board-section h2, .about-board-section .h2 {
+    font-size: 2.5rem;
+  }
+}
+.about-board-section .card-avatar img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.about-board-section .card h4, .about-board-section .card .h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+@media (min-width: 320px) {
+  .about-board-section .card h4, .about-board-section .card .h4 {
+    font-size: calc(1rem + 0.25rem * (100vw - 320px) / (1200px - 320px));
+  }
+}
+@media (min-width: 1200px) {
+  .about-board-section .card h4, .about-board-section .card .h4 {
+    font-size: 1.25rem;
+  }
+}
+.about-board-section .card p {
+  color: #1a2e69;
+}
+
+.about-history-section {
+  padding-block: 3rem;
+  background: #f6f6f6;
+}
+.about-history-section h2, .about-history-section .h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+@media (min-width: 320px) {
+  .about-history-section h2, .about-history-section .h2 {
+    font-size: calc(2rem + 0.5rem * (100vw - 320px) / (1200px - 320px));
+  }
+}
+@media (min-width: 1200px) {
+  .about-history-section h2, .about-history-section .h2 {
+    font-size: 2.5rem;
+  }
+}
+.about-history-section figure img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+.about-history-section figcaption {
+  font-style: italic;
+  margin-top: 0.5rem;
+  color: #1a2e69;
+}
+.about-history-section p {
+  margin-top: 1rem;
+}
+
+.about-highlights-section {
+  padding-block: 3rem;
+}
+.about-highlights-section h2, .about-highlights-section .h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+@media (min-width: 320px) {
+  .about-highlights-section h2, .about-highlights-section .h2 {
+    font-size: calc(2rem + 0.5rem * (100vw - 320px) / (1200px - 320px));
+  }
+}
+@media (min-width: 1200px) {
+  .about-highlights-section h2, .about-highlights-section .h2 {
+    font-size: 2.5rem;
+  }
+}
+.about-highlights-section .card img {
+  width: 100%;
+  height: auto;
+}
+.about-highlights-section .card .card-body {
+  padding: 1rem;
+}
+.about-highlights-section .card .card-title {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 320px) {
+  .about-highlights-section .card .card-title {
+    font-size: calc(1rem + 0.25rem * (100vw - 320px) / (1200px - 320px));
+  }
+}
+@media (min-width: 1200px) {
+  .about-highlights-section .card .card-title {
+    font-size: 1.25rem;
+  }
+}
+.about-highlights-section .card p {
+  color: #1a2e69;
+  font-size: 0.9rem;
+}
+
 .navbar-brand {
   font-family: "Russo One", sans-serif;
 }

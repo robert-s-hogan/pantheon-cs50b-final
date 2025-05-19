@@ -292,3 +292,162 @@ HTML
     );
 }, 11 );
 
+
+
+/* ============================= ABOUT PAGE ============================ */
+
+add_action( 'init', function() {
+    register_block_pattern(
+        'whited/about-what-we-do',
+        [
+            'title'       => __( 'What We Do – About', 'understrap-child' ),
+            'description' => __( 'Three columns outlining our core activities', 'understrap-child' ),
+            'categories'  => [ 'about-page' ],
+            'inserter'    => true,
+            'content'     => <<<'HTML'
+<section class="wp-block-group alignfull about-what-we-do-section py-5">
+  <div class="container section-inner">
+    <h2 class="text-center mb-4">What We Do</h2>
+    <div class="row text-center">
+      <div class="col-md-4 mb-4">
+        <h4>Fundraising</h4>
+        <p>We organize events such as fun runs, book fairs, and spirit nights to raise funds for classroom supplies, field trips, and educational resources.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h4>Community Building</h4>
+        <p>We host family activities and school-wide celebrations to bring parents, students, and teachers together outside the classroom.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h4>Volunteer Coordination</h4>
+        <p>We connect parents with a range of opportunities—from helping in classrooms to coordinating large-scale events.</p>
+      </div>
+    </div>
+  </div>
+</section>
+HTML
+        ]
+    );
+}, 11 );
+
+
+add_action( 'init', function() {
+    register_block_pattern(
+        'whited/about-board',
+        [
+            'title'       => __( 'Meet the PTO Board', 'understrap-child' ),
+            'description' => __( 'Cards listing board members with avatar, role, and bio', 'understrap-child' ),
+            'categories'  => [ 'about-page' ],
+            'inserter'    => true,
+            'content'     => <<<'HTML'
+<section class="wp-block-group alignfull about-board-section py-5">
+  <div class="container section-inner">
+    <h2 class="text-center mb-4">Meet the PTO Board</h2>
+    <div class="row">
+      <!-- Board Member 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card border-0 text-center">
+          <div class="card-avatar mb-3">
+            <!-- use a placeholder or WP avatar block -->
+            <img src="#" alt="President Avatar" class="rounded-circle">
+          </div>
+          <h4 class="mb-1">Jane Smith</h4>
+          <p class="text-uppercase text-muted small">President</p>
+          <p class="text-muted">Jane is a dedicated parent of two Whited Elementary students. She enjoys organizing family-friendly fundraisers and community events.</p>
+        </div>
+      </div>
+      <!-- Board Member 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card border-0 text-center">
+          <div class="card-avatar mb-3">
+            <img src="#" alt="Vice President Avatar" class="rounded-circle">
+          </div>
+          <h4 class="mb-1">Mark Johnson</h4>
+          <p class="text-uppercase text-muted small">Vice President</p>
+          <p class="text-muted">Mark focuses on volunteer outreach coordination. He’s passionate about ensuring every parent has a chance to get involved.</p>
+        </div>
+      </div>
+      <!-- Fallback / “All Others” -->
+      <div class="col-md-4 mb-4">
+        <div class="card border-0 text-center">
+          <div class="card-avatar mb-3">
+            <img src="#" alt="Contributors Avatar" class="rounded-circle">
+          </div>
+          <h4 class="mb-1">All Other Contributors</h4>
+          <p class="text-muted">Parents and staff who make PTO possible.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+HTML
+        ]
+    );
+}, 11 );
+
+
+add_action( 'init', function() {
+    register_block_pattern(
+        'whited/about-history',
+        [
+            'title'       => __( 'History of the PTO', 'understrap-child' ),
+            'description' => __( 'Our origin story with image and caption', 'understrap-child' ),
+            'categories'  => [ 'about-page' ],
+            'inserter'    => true,
+            'content'     => <<<'HTML'
+<section class="wp-block-group alignfull about-history-section py-5 bg-light">
+  <div class="container section-inner">
+    <h2 class="text-center mb-4">History of the PTO</h2>
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <!-- Gutenberg Image block goes here -->
+        <figure class="wp-block-image size-large">
+          <img src="#" alt="PTO founding photo"/>
+          <figcaption class="mt-2 text-center text-muted small">Founded in 2000 with just a handful of parents.</figcaption>
+        </figure>
+      </div>
+      <div class="col-lg-6">
+        <p>“A brief background on where and why the PTO was formed, major milestones, and achievements over the years.”</p>
+      </div>
+    </div>
+  </div>
+</section>
+HTML
+        ]
+    );
+}, 11 );
+
+
+add_action( 'init', function() {
+    register_block_pattern(
+        'whited/about-highlights',
+        [
+            'title'       => __( 'Highlights – About', 'understrap-child' ),
+            'description' => __( 'Grid of our key successes and events', 'understrap-child' ),
+            'categories'  => [ 'about-page' ],
+            'inserter'    => true,
+            'content'     => <<<'HTML'
+<section class="wp-block-group alignfull about-highlights-section py-5">
+  <div class="container section-inner">
+    <h2 class="text-center mb-4">Highlights</h2>
+    <div class="row g-4">
+      <!-- Repeat these cols for each highlight -->
+      <div class="col-sm-6 col-md-4">
+        <div class="card border-0 shadow-sm">
+          <!-- Gutenberg Image block -->
+          <div class="card-img-top">
+            <img src="#" alt="Back-to-School Bash">
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title mb-1">Back-to-School Bash</h5>
+            <p class="text-muted small">Family carnival games, food trucks, and meet-the-teacher fun.</p>
+          </div>
+        </div>
+      </div>
+      <!-- …other highlight cards… -->
+    </div>
+  </div>
+</section>
+HTML
+        ]
+    );
+}, 11 );
