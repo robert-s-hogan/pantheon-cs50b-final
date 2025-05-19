@@ -11079,6 +11079,9 @@ a.skip-link:not(:focus):not(:focus-within) {
   font-size: 1rem;
 }
 
+.about-hero-section {
+  background: #f6f6f6;
+}
 .about-hero-section .wp-block-cover__inner-container {
   padding-block: 3rem;
   text-align: center;
