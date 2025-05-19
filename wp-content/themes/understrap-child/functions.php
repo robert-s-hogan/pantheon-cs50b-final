@@ -219,80 +219,76 @@ add_action( 'init', function() {
     register_block_pattern(
         'whited/home-upcoming-events',
         [
-            'title'       => __( 'Upcoming Events – Home', 'understrap-child' ),
-            'description' => __( 'Section with static list of upcoming events, flyers & directions', 'understrap-child' ),
+            'title'       => __( 'Upcoming Events – Home (Stacked)', 'understrap-child' ),
+            'description' => __( 'Stacked list of upcoming events, flyers & directions', 'understrap-child' ),
             'categories'  => [ 'home-page' ],
             'inserter'    => true,
             'content'     => <<<'HTML'
 <section class="wp-block-group alignfull events-section bg-light py-5">
   <div class="container section-inner">
     <h2 class="text-center text-uppercase fw-bold mb-5">Upcoming Events</h2>
-    <div class="row g-4">
 
-      <div class="col-lg-4">
-        <div class="card h-100 border-0 shadow-sm p-4">
-          <h3 class="h5">Whited Elementary Holiday Vendor & Craft Faire</h3>
-          <p class="mb-1">
-            <i class="far fa-calendar-alt me-2"></i>December 7, 2024 
-            <i class="far fa-clock ms-3 me-2"></i>10 AM – 2 PM
-          </p>
-          <p class="mb-3">
-            <i class="fas fa-map-marker-alt me-2"></i>Douglas Whited MPR
-          </p>
-          <p class="text-muted mb-4">
-            Holiday crafts, homebaked goods, jewelry, candles, tamales, and more!
-          </p>
-          <div class="mt-auto">
-            <a href="/flyers/holiday-vendor-craft-faire.pdf" class="btn btn-outline-primary btn-sm" target="_blank">View Flyer</a>
-            <a href="https://maps.google.com/?q=4995+Sonoma+Hwy+Santa+Rosa+CA+95409" class="btn btn-primary btn-sm ms-2" target="_blank">Get Directions</a>
-          </div>
-        </div>
+    <!-- Event 1 -->
+    <div class="card border-0 shadow-sm mb-4 p-4">
+      <h3 class="h5">Whited Elementary Holiday Vendor & Craft Faire</h3>
+      <p class="mb-1">
+        <i class="far fa-calendar-alt me-2"></i>December 7, 2024 
+        <i class="far fa-clock ms-3 me-2"></i>10 AM – 2 PM
+      </p>
+      <p class="mb-3">
+        <i class="fas fa-map-marker-alt me-2"></i>Douglas Whited MPR
+      </p>
+      <p class="text-muted mb-4">
+        Holiday crafts, homebaked goods, jewelry, candles, tamales, and more!
+      </p>
+      <div class="d-flex align-items-center">
+        <a href="/flyers/holiday-vendor-craft-faire.pdf" class="btn btn-outline-primary btn-sm" target="_blank">View Flyer</a>
+        <a href="https://maps.google.com/?q=4995+Sonoma+Hwy+Santa+Rosa+CA+95409" class="btn btn-primary btn-sm ms-3" target="_blank">Get Directions</a>
       </div>
-
-      <div class="col-lg-4">
-        <div class="card h-100 border-0 shadow-sm p-4">
-          <h3 class="h5">PTO Meeting</h3>
-          <p class="mb-1">
-            <i class="far fa-calendar-alt me-2"></i>November 14, 2024 
-            <i class="far fa-clock ms-3 me-2"></i>8:20 AM
-          </p>
-          <p class="mb-3">
-            <i class="fas fa-map-marker-alt me-2"></i>Whited Elementary Library
-          </p>
-          <p class="text-muted mb-4">
-            Monthly PTO gathering to discuss upcoming events, budgets, and volunteer opportunities.
-          </p>
-          <div class="mt-auto">
-            <a href="/flyers/pto-meeting-nov-14.pdf" class="btn btn-outline-primary btn-sm" target="_blank">View Flyer</a>
-            <a href="https://maps.google.com/?q=Whited+Elementary+Library+Santa+Rosa" class="btn btn-primary btn-sm ms-2" target="_blank">Get Directions</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4">
-        <div class="card h-100 border-0 shadow-sm p-4">
-          <h3 class="h5">It’s a Pizza Party!</h3>
-          <p class="mb-1">
-            <i class="far fa-calendar-alt me-2"></i>November 19, 2024 
-            <i class="far fa-clock ms-3 me-2"></i>12 PM – 10 PM
-          </p>
-          <p class="mb-3">
-            <i class="fas fa-map-marker-alt me-2"></i>Santa Rosa Pizzeria
-          </p>
-          <p class="text-muted mb-4">
-            20% of your purchase will be donated to our PTO—just mention “Whited” at the counter!
-          </p>
-          <div class="mt-auto">
-            <a href="/flyers/pizza-party-nov-19.pdf" class="btn btn-outline-primary btn-sm" target="_blank">View Flyer</a>
-            <a href="https://maps.google.com/?q=500+Mission+Blvd+Unit+B+Santa+Rosa+CA" class="btn btn-primary btn-sm ms-2" target="_blank">Get Directions</a>
-          </div>
-        </div>
-      </div>
-
     </div>
+
+    <!-- Event 2 -->
+    <div class="card border-0 shadow-sm mb-4 p-4">
+      <h3 class="h5">PTO Meeting</h3>
+      <p class="mb-1">
+        <i class="far fa-calendar-alt me-2"></i>November 14, 2024 
+        <i class="far fa-clock ms-3 me-2"></i>8:20 AM
+      </p>
+      <p class="mb-3">
+        <i class="fas fa-map-marker-alt me-2"></i>Whited Elementary Library
+      </p>
+      <p class="text-muted mb-4">
+        Monthly PTO gathering to discuss upcoming events, budgets, and volunteer opportunities.
+      </p>
+      <div class="d-flex align-items-center">
+        <a href="/flyers/pto-meeting-nov-14.pdf" class="btn btn-outline-primary btn-sm" target="_blank">View Flyer</a>
+        <a href="https://maps.google.com/?q=Whited+Elementary+Library+Santa+Rosa" class="btn btn-primary btn-sm ms-3" target="_blank">Get Directions</a>
+      </div>
+    </div>
+
+    <!-- Event 3 -->
+    <div class="card border-0 shadow-sm mb-4 p-4">
+      <h3 class="h5">It’s a Pizza Party!</h3>
+      <p class="mb-1">
+        <i class="far fa-calendar-alt me-2"></i>November 19, 2024 
+        <i class="far fa-clock ms-3 me-2"></i>12 PM – 10 PM
+      </p>
+      <p class="mb-3">
+        <i class="fas fa-map-marker-alt me-2"></i>Santa Rosa Pizzeria
+      </p>
+      <p class="text-muted mb-4">
+        20% of your purchase will be donated to our PTO—just mention “Whited” at the counter!
+      </p>
+      <div class="d-flex align-items-center">
+        <a href="/flyers/pizza-party-nov-19.pdf" class="btn btn-outline-primary btn-sm" target="_blank">View Flyer</a>
+        <a href="https://maps.google.com/?q=500+Mission+Blvd+Unit+B+Santa+Rosa+CA" class="btn btn-primary btn-sm ms-3" target="_blank">Get Directions</a>
+      </div>
+    </div>
+
   </div>
 </section>
 HTML
         ]
     );
 }, 11 );
+
