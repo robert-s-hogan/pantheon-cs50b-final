@@ -1,10 +1,10 @@
 @charset "UTF-8";
 /* ───────────────────────── 0) Core variables & mixins ───────────────────── */
-.hero-section, .featured-events-section, .why-section, .mission-section {
+.hero-section, .featured-events-section, .why-section {
   padding-block: 3rem;
 }
 
-.hero-section, .featured-events-section, .why-section, .mission-section {
+.hero-section, .featured-events-section, .why-section {
   padding-block: 3rem;
 }
 
@@ -10986,17 +10986,6 @@ a.skip-link:not(:focus):not(:focus-within) {
 }
 
 /* ───────────────────────── 3) Layout partials ───────────────────────────── */
-.mission-section {
-  background-color: #f6f6f6;
-  text-align: center;
-}
-.mission-section .mission-inner {
-  max-width: 60ch;
-  margin-inline: auto;
-  font-size: 1.125rem;
-  line-height: 1.55;
-}
-
 .why-section {
   background-color: #ffffff;
 }
@@ -11066,6 +11055,28 @@ a.skip-link:not(:focus):not(:focus-within) {
 .hero-section .wp-block-button__link {
   padding: 0.75rem 2.25rem;
   font-weight: 600;
+}
+
+.mission-section {
+  background-color: #f6f6f6;
+  padding-block: 3rem;
+}
+.mission-section .section-inner {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+}
+.mission-section .mission-inner {
+  margin-top: 1rem;
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  color: #1a2e69;
+  font-size: 1rem;
 }
 
 .navbar-brand {
