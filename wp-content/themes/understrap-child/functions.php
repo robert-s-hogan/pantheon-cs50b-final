@@ -298,6 +298,27 @@ HTML
 
 add_action( 'init', function() {
     register_block_pattern(
+        'whited/about-hero',
+        [
+            'title'       => __( 'About Hero Section', 'understrap-child' ),
+            'description' => __( 'Full-width cover with background image, title, and subtitle', 'understrap-child' ),
+            'categories'  => [ 'about-page' ],
+            'inserter'    => true,
+            'content'     => <<<'HTML'
+<figure class="wp-block-cover alignfull about-hero-section" style="background-image:url('#');min-height:50vh">
+  <div class="wp-block-cover__inner-container section-inner">
+    <h1 class="has-text-align-center">About Douglas Whited PTO</h1>
+    <p class="has-text-align-center">Our mission is to enhance the educational experience of every student by fostering a supportive community of parents, teachers, and staff.</p>
+  </div>
+</figure>
+HTML
+        ]
+    );
+}, 11 );
+
+
+add_action( 'init', function() {
+    register_block_pattern(
         'whited/about-what-we-do',
         [
             'title'       => __( 'What We Do – About', 'understrap-child' ),
@@ -329,52 +350,40 @@ HTML
     );
 }, 11 );
 
-
 add_action( 'init', function() {
     register_block_pattern(
         'whited/about-board',
         [
             'title'       => __( 'Meet the PTO Board', 'understrap-child' ),
-            'description' => __( 'Cards listing board members with avatar, role, and bio', 'understrap-child' ),
+            'description' => __( 'Board photo on one side and member bios on the other', 'understrap-child' ),
             'categories'  => [ 'about-page' ],
             'inserter'    => true,
             'content'     => <<<'HTML'
-<section class="wp-block-group alignfull about-board-section py-5">
+<section class="wp-block-group alignfull about-board-section py-5 bg-light">
   <div class="container section-inner">
-    <h2 class="text-center mb-4">Meet the PTO Board</h2>
-    <div class="row">
-      <!-- Board Member 1 -->
-      <div class="col-md-4 mb-4">
-        <div class="card border-0 text-center">
-          <div class="card-avatar mb-3">
-            <!-- use a placeholder or WP avatar block -->
-            <img src="#" alt="President Avatar" class="rounded-circle">
-          </div>
-          <h4 class="mb-1">Jane Smith</h4>
-          <p class="text-uppercase text-muted small">President</p>
-          <p class="text-muted">Jane is a dedicated parent of two Whited Elementary students. She enjoys organizing family-friendly fundraisers and community events.</p>
-        </div>
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <!-- Gutenberg Image block: replace src -->
+        <figure class="wp-block-image size-large">
+          <img src="#" alt="PTO Board Group Photo"/>
+        </figure>
       </div>
-      <!-- Board Member 2 -->
-      <div class="col-md-4 mb-4">
-        <div class="card border-0 text-center">
-          <div class="card-avatar mb-3">
-            <img src="#" alt="Vice President Avatar" class="rounded-circle">
-          </div>
-          <h4 class="mb-1">Mark Johnson</h4>
-          <p class="text-uppercase text-muted small">Vice President</p>
-          <p class="text-muted">Mark focuses on volunteer outreach coordination. He’s passionate about ensuring every parent has a chance to get involved.</p>
-        </div>
-      </div>
-      <!-- Fallback / “All Others” -->
-      <div class="col-md-4 mb-4">
-        <div class="card border-0 text-center">
-          <div class="card-avatar mb-3">
-            <img src="#" alt="Contributors Avatar" class="rounded-circle">
-          </div>
-          <h4 class="mb-1">All Other Contributors</h4>
-          <p class="text-muted">Parents and staff who make PTO possible.</p>
-        </div>
+      <div class="col-md-6">
+        <h2>Meet the PTO Board</h2>
+        <ul class="list-unstyled">
+          <li class="mb-4">
+            <h4>Jane Smith <small class="text-uppercase text-muted">President</small></h4>
+            <p>Jane is a dedicated parent of two Whited Elementary students. She enjoys organizing family-friendly fundraisers and community events.</p>
+          </li>
+          <li class="mb-4">
+            <h4>Mark Johnson <small class="text-uppercase text-muted">Vice President</small></h4>
+            <p>Mark focuses on volunteer outreach coordination. He’s passionate about ensuring every parent has a chance to get involved.</p>
+          </li>
+          <li>
+            <h4>All Other Contributors</h4>
+            <p>Parents and staff who make PTO possible.</p>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -383,6 +392,7 @@ HTML
         ]
     );
 }, 11 );
+
 
 
 add_action( 'init', function() {
@@ -422,28 +432,74 @@ add_action( 'init', function() {
         'whited/about-highlights',
         [
             'title'       => __( 'Highlights – About', 'understrap-child' ),
-            'description' => __( 'Grid of our key successes and events', 'understrap-child' ),
+            'description' => __( 'Grid of six key successes and events', 'understrap-child' ),
             'categories'  => [ 'about-page' ],
             'inserter'    => true,
             'content'     => <<<'HTML'
 <section class="wp-block-group alignfull about-highlights-section py-5">
   <div class="container section-inner">
-    <h2 class="text-center mb-4">Highlights</h2>
-    <div class="row g-4">
-      <!-- Repeat these cols for each highlight -->
-      <div class="col-sm-6 col-md-4">
+    <h2 class="has-text-align-center mb-4">Highlights</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+      <!-- 1 -->
+      <div class="col">
         <div class="card border-0 shadow-sm">
-          <!-- Gutenberg Image block -->
-          <div class="card-img-top">
-            <img src="#" alt="Back-to-School Bash">
-          </div>
+          <figure class="wp-block-image"><img src="#" alt="Back-to-School Bash"/></figure>
           <div class="card-body text-center">
             <h5 class="card-title mb-1">Back-to-School Bash</h5>
-            <p class="text-muted small">Family carnival games, food trucks, and meet-the-teacher fun.</p>
+            <p class="small">Family carnival games, food trucks, and meet-the-teacher fun.</p>
           </div>
         </div>
       </div>
-      <!-- …other highlight cards… -->
+      <!-- 2 -->
+      <div class="col">
+        <div class="card border-0 shadow-sm">
+          <figure class="wp-block-image"><img src="#" alt="Fall Festival"/></figure>
+          <div class="card-body text-center">
+            <h5 class="card-title mb-1">Fall Festival</h5>
+            <p class="small">Pumpkins, hayrides, and crafts to celebrate autumn.</p>
+          </div>
+        </div>
+      </div>
+      <!-- 3 -->
+      <div class="col">
+        <div class="card border-0 shadow-sm">
+          <figure class="wp-block-image"><img src="#" alt="Spring Carnival"/></figure>
+          <div class="card-body text-center">
+            <h5 class="card-title mb-1">Spring Carnival</h5>
+            <p class="small">Games, rides, and food to welcome the warmer weather.</p>
+          </div>
+        </div>
+      </div>
+      <!-- 4 -->
+      <div class="col">
+        <div class="card border-0 shadow-sm">
+          <figure class="wp-block-image"><img src="#" alt="Family Fun Night"/></figure>
+          <div class="card-body text-center">
+            <h5 class="card-title mb-1">Family Fun Night</h5>
+            <p class="small">Board games, snacks, and prizes for the whole family.</p>
+          </div>
+        </div>
+      </div>
+      <!-- 5 -->
+      <div class="col">
+        <div class="card border-0 shadow-sm">
+          <figure class="wp-block-image"><img src="#" alt="Teacher Appreciation Day"/></figure>
+          <div class="card-body text-center">
+            <h5 class="card-title mb-1">Teacher Appreciation Day</h5>
+            <p class="small">Celebrating our educators with treats and thank-you notes.</p>
+          </div>
+        </div>
+      </div>
+      <!-- 6 -->
+      <div class="col">
+        <div class="card border-0 shadow-sm">
+          <figure class="wp-block-image"><img src="#" alt="Reading Rodeo"/></figure>
+          <div class="card-body text-center">
+            <h5 class="card-title mb-1">Reading Rodeo</h5>
+            <p class="small">Students earn “ticket” prizes for every book they finish.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -451,3 +507,4 @@ HTML
         ]
     );
 }, 11 );
+

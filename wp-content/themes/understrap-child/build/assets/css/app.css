@@ -11079,52 +11079,49 @@ a.skip-link:not(:focus):not(:focus-within) {
   font-size: 1rem;
 }
 
-.about-what-we-do-section {
+.about-hero-section .wp-block-cover__inner-container {
   padding-block: 3rem;
-}
-@media (min-width: 768px) {
-  .about-what-we-do-section .row {
-    display: flex;
-    flex-wrap: wrap;
-  }
-}
-.about-what-we-do-section h2, .about-what-we-do-section .h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
   text-align: center;
 }
+.about-hero-section .wp-block-cover__inner-container h1, .about-hero-section .wp-block-cover__inner-container .h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
 @media (min-width: 320px) {
-  .about-what-we-do-section h2, .about-what-we-do-section .h2 {
-    font-size: calc(2rem + 0.5rem * (100vw - 320px) / (1200px - 320px));
+  .about-hero-section .wp-block-cover__inner-container h1, .about-hero-section .wp-block-cover__inner-container .h1 {
+    font-size: calc(2.5rem + 0.75rem * (100vw - 320px) / (1200px - 320px));
   }
 }
 @media (min-width: 1200px) {
-  .about-what-we-do-section h2, .about-what-we-do-section .h2 {
-    font-size: 2.5rem;
+  .about-hero-section .wp-block-cover__inner-container h1, .about-hero-section .wp-block-cover__inner-container .h1 {
+    font-size: 3.25rem;
   }
 }
-.about-what-we-do-section h4, .about-what-we-do-section .h4 {
+.about-hero-section .wp-block-cover__inner-container p {
   font-size: 1rem;
-  margin-bottom: 0.5rem;
-  color: #3055c3;
+  color: rgba(255, 255, 255, 0.85);
 }
 @media (min-width: 320px) {
-  .about-what-we-do-section h4, .about-what-we-do-section .h4 {
+  .about-hero-section .wp-block-cover__inner-container p {
     font-size: calc(1rem + 0.25rem * (100vw - 320px) / (1200px - 320px));
   }
 }
 @media (min-width: 1200px) {
-  .about-what-we-do-section h4, .about-what-we-do-section .h4 {
+  .about-hero-section .wp-block-cover__inner-container p {
     font-size: 1.25rem;
   }
-}
-.about-what-we-do-section p {
-  color: #212529;
-  line-height: 1.6;
 }
 
 .about-board-section {
   padding-block: 3rem;
+  background: #f6f6f6;
+}
+@media (min-width: 768px) {
+  .about-board-section .row {
+    display: flex;
+    align-items: center;
+  }
 }
 .about-board-section h2, .about-board-section .h2 {
   font-size: 2rem;
@@ -11141,60 +11138,23 @@ a.skip-link:not(:focus):not(:focus-within) {
     font-size: 2.5rem;
   }
 }
-.about-board-section .card-avatar img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-}
-.about-board-section .card h4, .about-board-section .card .h4 {
+.about-board-section .col-md-6:last-child ul li h4, .about-board-section .col-md-6:last-child ul li .h4 {
   font-size: 1rem;
   margin-bottom: 0.25rem;
+  color: #3055c3;
 }
 @media (min-width: 320px) {
-  .about-board-section .card h4, .about-board-section .card .h4 {
+  .about-board-section .col-md-6:last-child ul li h4, .about-board-section .col-md-6:last-child ul li .h4 {
     font-size: calc(1rem + 0.25rem * (100vw - 320px) / (1200px - 320px));
   }
 }
 @media (min-width: 1200px) {
-  .about-board-section .card h4, .about-board-section .card .h4 {
+  .about-board-section .col-md-6:last-child ul li h4, .about-board-section .col-md-6:last-child ul li .h4 {
     font-size: 1.25rem;
   }
 }
-.about-board-section .card p {
-  color: #1a2e69;
-}
-
-.about-history-section {
-  padding-block: 3rem;
-  background: #f6f6f6;
-}
-.about-history-section h2, .about-history-section .h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-@media (min-width: 320px) {
-  .about-history-section h2, .about-history-section .h2 {
-    font-size: calc(2rem + 0.5rem * (100vw - 320px) / (1200px - 320px));
-  }
-}
-@media (min-width: 1200px) {
-  .about-history-section h2, .about-history-section .h2 {
-    font-size: 2.5rem;
-  }
-}
-.about-history-section figure img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-}
-.about-history-section figcaption {
-  font-style: italic;
-  margin-top: 0.5rem;
-  color: #1a2e69;
-}
-.about-history-section p {
-  margin-top: 1rem;
+.about-board-section .col-md-6:last-child ul p {
+  line-height: 1.5;
 }
 
 .about-highlights-section {
@@ -11202,8 +11162,8 @@ a.skip-link:not(:focus):not(:focus-within) {
 }
 .about-highlights-section h2, .about-highlights-section .h2 {
   font-size: 2rem;
-  margin-bottom: 2rem;
   text-align: center;
+  margin-bottom: 2rem;
 }
 @media (min-width: 320px) {
   .about-highlights-section h2, .about-highlights-section .h2 {
@@ -11215,9 +11175,13 @@ a.skip-link:not(:focus):not(:focus-within) {
     font-size: 2.5rem;
   }
 }
-.about-highlights-section .card img {
-  width: 100%;
-  height: auto;
+.about-highlights-section .card {
+  border: none;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transition: transform 0.2s;
+}
+.about-highlights-section .card:hover {
+  transform: translateY(-4px);
 }
 .about-highlights-section .card .card-body {
   padding: 1rem;
@@ -11225,6 +11189,7 @@ a.skip-link:not(:focus):not(:focus-within) {
 .about-highlights-section .card .card-title {
   font-size: 1rem;
   margin-bottom: 0.5rem;
+  color: #3055c3;
 }
 @media (min-width: 320px) {
   .about-highlights-section .card .card-title {
@@ -11237,8 +11202,8 @@ a.skip-link:not(:focus):not(:focus-within) {
   }
 }
 .about-highlights-section .card p {
-  color: #1a2e69;
   font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 .navbar-brand {
