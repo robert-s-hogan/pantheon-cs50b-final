@@ -1,4 +1,4 @@
-Understrap Child Theme Code Audit - 2025-05-18 15:46:50
+Understrap Child Theme Code Audit - 2025-05-19 06:23:51
 Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-final/wp-content/themes/understrap-child
 ---------------------------------------------
 
@@ -10,18 +10,6 @@ Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-fin
 // -----------------------------------------------------------------------------
 // layout/_home-sections.scss   (Mission, Why, Featured Events)
 // -----------------------------------------------------------------------------
-.mission-section {
-  @extend %section-spacing;
-  background-color: $gray-100;
-  text-align: center;
-
-  .mission-inner {
-    max-width: 60ch;
-    margin-inline: auto;
-    font-size: 1.125rem;
-    line-height: 1.55;
-  }
-}
 
 .why-section {
   @extend %section-spacing;
@@ -105,6 +93,33 @@ Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-fin
   .wp-block-button__link {
     padding: 0.75rem 2.25rem;
     font-weight: 600;
+  }
+}
+//──────────────────────────────────────────────────────────────────────────────
+// Mission section (below the fold on Home)
+//──────────────────────────────────────────────────────────────────────────────
+.mission-section {
+  background-color: $gray-100;
+  @include section-spacing();
+
+  .section-inner {
+    @include centered-container(xxl);
+    text-align: center;
+  }
+
+  .mission-inner {
+    margin-top: $spacer; // 1rem
+    max-width: clamp(45ch, 50%, 75ch);
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    color: $black; // navy text
+
+    // **static** font-size from your theme vars:
+    font-size: $fs-subheading-min; // 1rem
+
+    // — OR, if you want basic fluid type, you can swap the line above for:
+    // @include fluid-type($fs-subheading-min, $fs-subheading-max);
   }
 }
 
@@ -13124,6 +13139,7 @@ $gutters: $spacers !default;
 
 /* ───────────────────────── 0) Core variables & mixins ───────────────────── */
 @import "theme/_child_theme_variables"; // $spacer, colors, etc.
+@import "theme/mixins/utils"; // $spacer, colors, etc.
 @import "theme/mixins/section-spacing"; // depends on $spacer-xl
 
 /* ───────────────────────── 1) Bootstrap & UnderStrap ────────────────────── */
@@ -13136,6 +13152,7 @@ $gutters: $spacers !default;
 /* ───────────────────────── 3) Layout partials ───────────────────────────── */
 @import "layout/home-sections";
 @import "theme/nav-custom";
+@import "layout/footer";
 
 /* ───────────────────────── 4) Overrides ───────────────────────────── */
 @import "theme/overrides";
@@ -13163,136 +13180,6 @@ h6 {
 ---------------------------------------------
 
 🗂️  Block Patterns Files
----------------------------------------------
-
-🔹 patterns/home-mission-section.php
-
-<?php
-/**
- * Title: Mission – Home
- * Slug: whited/home-mission
- * Categories: home-page
- * Inserter: yes
- */
-?>
-
-<!-- wp:group {"align":"full","className":"mission-section"} -->
-    <!-- wp:paragraph {"align":"center","placeholderText":"Add intro copy here…","style":{"typography":{"fontStyle":"normal","fontWeight":"700"}}} -->
-    <p class="has-text-align-center"><strong>At Whited Elementary PTO, our mission is simple:</strong></p>
-    <!-- /wp:paragraph -->
-
-    <!-- wp:paragraph {"align":"center","placeholderText":"Add body copy here…"} -->
-    <p class="mission-inner has-text-align-center">We strive to enhance the educational experience of every student by fostering a supportive community of parents, teachers, and staff. Through volunteer efforts, fundraising events, and open communication, we work together to create a positive environment where every family can thrive.</p>
-    <!-- /wp:paragraph -->
-<!-- /wp:group -->
-
----------------------------------------------
-
-🔹 patterns/home-why-get-involved.php
-
-<?php
-/**
- * Title: Why Get Involved? – Home
- * Slug: whited/home-why
- * Categories: home-page
- * Inserter: yes
- */
-?>
-
-<!-- wp:group {"align":"full","className":"why-section"} -->
-    <!-- wp:heading {"level":3,"align":"center"} -->
-    <h3 class="has-text-align-center">Why Get Involved?</h3>
-    <!-- /wp:heading -->
-
-    <!-- wp:group {"className":"why-box","layout":{"type":"constrained"}} -->
-        <!-- wp:list -->
-        <ul>
-            <li>Every hour volunteered and every dollar donated directly benefits our students.</li>
-            <li>We host fun family events to bring the community together.</li>
-            <li>We’re building a stronger connection between home and school.</li>
-        </ul>
-        <!-- /wp:list -->
-    <!-- /wp:group -->
-<!-- /wp:group -->
-
----------------------------------------------
-
-🔹 patterns/home-hero-section.php
-
-<?php
-/**
- * Title: Hero – Home
- * Slug: whited/home-hero
- * Categories: home-page
- * Inserter: yes
- */
-?>
-
-<!-- wp:group {"align":"full","className":"hero-section"} -->
-    <!-- wp:heading {"level":1,"align":"center"} -->
-    <h1 class="has-text-align-center">Welcome to Whited PTO</h1>
-    <!-- /wp:heading -->
-
-    <!-- wp:paragraph {"align":"center"} -->
-    <p class="hero-tagline has-text-align-center">Supporting Our Students, Empowering Our Community</p>
-    <!-- /wp:paragraph -->
-
-    <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
-        <div class="wp-block-buttons">
-            <!-- wp:button {"className":"is-style-primary"} -->
-                <a class="wp-block-button__link wp-element-button">Get Involved</a>
-            <!-- /wp:button -->
-        </div>
-    <!-- /wp:buttons -->
-<!-- /wp:group -->
-
----------------------------------------------
-
-🔹 patterns/home-featured-events.php
-
-<?php
-/**
- * Title: Featured Events – Home
- * Slug: whited/home-featured-events
- * Categories: home-page
- * Inserter: yes
- */
-?>
-
-<!-- wp:group {"align":"full","className":"featured-events-section"} -->
-    <!-- wp:heading {"level":3} -->
-    <h3>Featured Events</h3>
-    <!-- /wp:heading -->
-
-    <!-- wp:paragraph {"placeholderText":"Optional sub-heading"} -->
-    <p>Upcoming Events Highlight</p>
-    <!-- /wp:paragraph -->
-
-    <!-- wp:group {"className":"event-card"} -->
-        <!-- wp:paragraph {"className":"event-card__title"} -->
-        <p class="event-card__title">Fall Harvest Festival</p>
-        <!-- /wp:paragraph -->
-        <!-- wp:paragraph {"className":"event-card__date"} -->
-        <p class="event-card__date">October 15, 4-7 PM</p>
-        <!-- /wp:paragraph -->
-        <!-- wp:paragraph {"className":"event-card__desc"} -->
-        <p class="event-card__desc">Celebrate autumn with games, a pumpkin patch, and tasty treats. Volunteers needed!</p>
-        <!-- /wp:paragraph -->
-    <!-- /wp:group -->
-
-    <!-- wp:group {"className":"event-card"} -->
-        <!-- wp:paragraph {"className":"event-card__title"} -->
-        <p class="event-card__title">Winter Book Fair</p>
-        <!-- /wp:paragraph -->
-        <!-- wp:paragraph {"className":"event-card__date"} -->
-        <p class="event-card__date">December 5-9 (during school hours)</p>
-        <!-- /wp:paragraph -->
-        <!-- wp:paragraph {"className":"event-card__desc"} -->
-        <p class="event-card__desc">Support literacy! Stop by to purchase books for your child and donate to the classroom library.</p>
-        <!-- /wp:paragraph -->
-    <!-- /wp:group -->
-<!-- /wp:group -->
-
 ---------------------------------------------
 
 🗂️  Config Files Files

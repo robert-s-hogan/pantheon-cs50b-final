@@ -242,8 +242,8 @@ add_action( 'init', function() {
     Holiday crafts, homebaked goods, jewelry, candles, tamales, and more!
   </p>
   <div class="d-flex align-items-center">
-    <a href="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/Screenshot-2025-05-18-at-7.51.15 PM.png" class="btn btn-outline-primary btn-sm" target="_blank">View Flyer</a>
-    <a href="https://www.bing.com/maps?q=douglas+whited+locatoin+santa+rosa&cvid=d881f765609d4204be6077724425f316&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOdIBCDc0MjRqMGoxqAIAsAIA&FORM=ANNTA1&PC=U531" class="btn btn-primary btn-sm ms-3" target="_blank">Get Directions</a>
+    <a href="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/holiday_craft_faire_flyer.png" class="btn btn-outline-primary btn-sm" target="_blank">View Flyer</a>
+    <a href="https://www.google.com/maps/place/Douglas+Whited+Elementary+School/@38.4653209,-122.6631306,16z/data=!4m15!1m8!3m7!1s0x808446304010473f:0x589d54b02ec95452!2s4995+Sonoma+Hwy,+Santa+Rosa,+CA+95409!3b1!8m2!3d38.4653209!4d-122.6631306!16s%2Fg%2F11cplgq9_g!3m5!1s0x80844630039342af:0x4bc912ea932eb1f0!8m2!3d38.4652488!4d-122.6624056!16s%2Fm%2F07682f9?entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoASAFQAw%3D%3D" class="btn btn-primary btn-sm ms-3" target="_blank">Get Directions</a>
   </div>
 </div>
 
@@ -261,8 +261,8 @@ add_action( 'init', function() {
     Monthly PTO gathering to discuss upcoming events, budgets, and volunteer opportunities.
   </p>
   <div class="d-flex align-items-center">
-    <a href="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/Screenshot-2025-05-18-at-7.51.35%20PM.png" class="btn btn-outline-primary btn-sm" target="_blank">View Flyer</a>
-    <a href="https://www.bing.com/maps?q=douglas+whited+locatoin+santa+rosa&cvid=d881f765609d4204be6077724425f316&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOdIBCDc0MjRqMGoxqAIAsAIA&FORM=ANNTA1&PC=U531" class="btn btn-primary btn-sm ms-3" target="_blank">Get Directions</a>
+    <a href="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/pto_flyer.png" class="btn btn-outline-primary btn-sm" target="_blank">View Flyer</a>
+    <a href="https://www.google.com/maps/place/Douglas+Whited+Elementary+School/@38.4653209,-122.6631306,16z/data=!4m15!1m8!3m7!1s0x808446304010473f:0x589d54b02ec95452!2s4995+Sonoma+Hwy,+Santa+Rosa,+CA+95409!3b1!8m2!3d38.4653209!4d-122.6631306!16s%2Fg%2F11cplgq9_g!3m5!1s0x80844630039342af:0x4bc912ea932eb1f0!8m2!3d38.4652488!4d-122.6624056!16s%2Fm%2F07682f9?entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoASAFQAw%3D%3D" class="btn btn-primary btn-sm ms-3" target="_blank">Get Directions</a>
   </div>
 </div>
 
@@ -280,8 +280,8 @@ add_action( 'init', function() {
     20% of your purchase will be donated to our PTO—just mention “Whited” at the counter!
   </p>
   <div class="d-flex align-items-center">
-    <a href="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/Screenshot-2025-05-18-at-7.51.27%20PM.png" class="btn btn-outline-primary btn-sm" target="_blank">View Flyer</a>
-    <a href="https://maps.google.com/?q=500+Mission+Blvd+Santa+Rosa+CA+95409" class="btn btn-primary btn-sm ms-3" target="_blank">Get Directions</a>
+    <a href="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/santa_rosa_pizzeria_flyer.png" class="btn btn-outline-primary btn-sm" target="_blank">View Flyer</a>
+    <a href="https://www.google.com/maps/place/Santa+Rosa+Pizzeria/@38.4598755,-122.6774198,17z/data=!3m1!4b1!4m6!3m5!1s0x808447ef2b9baf37:0xa9d9d0fe15ef9e2b!8m2!3d38.4598755!4d-122.6748449!16s%2Fg%2F11ks3fwydt?entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoASAFQAw%3D%3D" class="btn btn-primary btn-sm ms-3" target="_blank">Get Directions</a>
   </div>
 </div>
 
