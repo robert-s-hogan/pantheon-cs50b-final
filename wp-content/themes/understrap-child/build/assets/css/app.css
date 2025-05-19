@@ -11071,7 +11071,7 @@ a.skip-link:not(:focus):not(:focus-within) {
 }
 .mission-section .mission-inner {
   margin-top: 1rem;
-  max-width: 60ch;
+  max-width: clamp(45ch, 50%, 75ch);
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
