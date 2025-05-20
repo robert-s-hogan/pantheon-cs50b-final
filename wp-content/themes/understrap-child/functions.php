@@ -522,9 +522,7 @@ add_action( 'init', function() {
   <div class="container section-inner text-center">
     <h2>How to Join</h2>
     <p class="lead mb-4">
-      We know life with little ones can be busy—being a PTO member doesn’t mean you’re “stuck” in one role.
-      Whether you can help once a year or at every event, you decide how involved you want to be.
-      Come as you are and make a difference, one smile at a time.
+      At Whited PTO, every helping hand makes a difference—from planning our Fall Festival or leading a classroom book club to manning a lemonade stand or proofreading our monthly newsletter. You choose your own level of involvement: volunteer once a year or every week, chair a big event or drop in for just an hour. No role is too large or too small—whether you’re corralling volunteers, baking cookies, or simply sharing your ideas, you’re an essential part of our community. Come as you are, pick the spot that fits your schedule, and let’s build unforgettable experiences together—one smile at a time.
     </p>
     <a href="/get-involved" class="btn btn-primary btn-lg">Get Involved</a>
   </div>
