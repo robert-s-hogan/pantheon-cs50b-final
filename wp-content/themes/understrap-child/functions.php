@@ -408,19 +408,39 @@ add_action( 'init', function() {
   <div class="container section-inner">
     <h2 class="text-center mb-4">History of the PTO</h2>
     <div class="row align-items-center">
-      <div class="col-lg-6 mb-4 mb-lg-0">
-        <!-- Gutenberg Image block goes here -->
+      <!-- Image side -->
+      <div class="col-md-6 mb-4 mb-md-0">
         <figure class="wp-block-image size-large">
-          <img src="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/hero-default-scaled.jpeg" alt="PTO founding photo"/>
-          <figcaption class="mt-2 text-center text-muted small">Founded in 2000 with just a handful of parents.</figcaption>
+          <img src="…your-history-photo.png" alt="PTO founding photo"/>
+          <figcaption class="mt-2 text-center text-muted small">
+            Founded in 2000 with just a handful of parents.
+          </figcaption>
         </figure>
       </div>
-      <div class="col-lg-6">
-        <p>“A brief background on where and why the PTO was formed, major milestones, and achievements over the years.”</p>
+      <!-- Timeline side -->
+      <div class="col-md-6">
+        <ul class="history-timeline list-unstyled">
+          <li>
+            <span class="year">2000</span> ─ PTO founded by six dedicated parents.
+          </li>
+          <li>
+            <span class="year">2005</span> ─ First Fall Festival raised $2,500 for playground equipment.
+          </li>
+          <li>
+            <span class="year">2010</span> ─ Renovated outdoor reading garden for every class.
+          </li>
+          <li>
+            <span class="year">2020</span> ─ Pivoted to virtual events, keeping community spirit alive.
+          </li>
+          <li>
+            <span class="year">2023</span> ─ Awarded technology grant to equip every classroom.
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
+
 HTML
         ]
     );
@@ -521,12 +541,27 @@ add_action( 'init', function() {
 <section class="wp-block-group alignfull how-to-join-section py-5 bg-light">
   <div class="container section-inner text-center">
     <h2>How to Join</h2>
-    <p class="lead mb-4">
-      At Whited PTO, every helping hand makes a difference—from planning our Fall Festival or leading a classroom book club to manning a lemonade stand or proofreading our monthly newsletter. You choose your own level of involvement: volunteer once a year or every week, chair a big event or drop in for just an hour. No role is too large or too small—whether you’re corralling volunteers, baking cookies, or simply sharing your ideas, you’re an essential part of our community. Come as you are, pick the spot that fits your schedule, and let’s build unforgettable experiences together—one smile at a time.
-    </p>
+    <div class="row text-center mb-4">
+      <div class="col-md-4">
+        <i class="fas fa-calendar fa-2x mb-2 text-primary"></i>
+        <h5>Set Your Pace</h5>
+        <p>Volunteer once a year or every month—it's up to you.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="fas fa-hand-holding-heart fa-2x mb-2 text-primary"></i>
+        <h5>Pick Your Role</h5>
+        <p>Chair a big event or help with small tasks like baking treats.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="fas fa-clock fa-2x mb-2 text-primary"></i>
+        <h5>Choose Your Time</h5>
+        <p>Give an hour, an afternoon, or every week—whatever fits your schedule.</p>
+      </div>
+    </div>
     <a href="/get-involved" class="btn btn-primary btn-lg">Get Involved</a>
   </div>
 </section>
+
 HTML
         ]
     );
