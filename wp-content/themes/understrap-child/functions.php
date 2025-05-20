@@ -411,7 +411,7 @@ add_action( 'init', function() {
       <!-- Image side -->
       <div class="col-md-6 mb-4 mb-md-0">
         <figure class="wp-block-image size-large">
-          <img src="…your-history-photo.png" alt="PTO founding photo"/>
+          <img src="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/hero-default-scaled.jpeg" alt="PTO founding photo"/>
           <figcaption class="mt-2 text-center text-muted small">
             Founded in 2000 with just a handful of parents.
           </figcaption>
