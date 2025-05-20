@@ -408,8 +408,18 @@ add_action( 'init', function() {
   <div class="container section-inner">
     <h2 class="text-center mb-4">History of the PTO</h2>
     <div class="row align-items-center">
+ <!-- Timeline side -->
+      <div class="col-md-6 order-md-1">
+        <ul class="history-timeline list-unstyled">
+          <li><span class="year">2000</span> ─ PTO founded by six dedicated parents.</li>
+          <li><span class="year">2005</span> ─ First Fall Festival raised $2,500…</li>
+          <li><span class="year">2010</span> ─ Renovated outdoor reading garden…</li>
+          <li><span class="year">2020</span> ─ Pivoted to virtual events…</li>
+          <li><span class="year">2023</span> ─ Awarded tech grant for every classroom.</li>
+        </ul>
+      </div>
       <!-- Image side -->
-      <div class="col-md-6 mb-4 mb-md-0">
+      <div class="col-md-6 order-md-2 mb-4 mb-md-0">
         <figure class="wp-block-image size-large">
           <img src="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/hero-default-scaled.jpeg" alt="PTO founding photo"/>
           <figcaption class="mt-2 text-center text-muted small">
@@ -417,29 +427,10 @@ add_action( 'init', function() {
           </figcaption>
         </figure>
       </div>
-      <!-- Timeline side -->
-      <div class="col-md-6">
-        <ul class="history-timeline list-unstyled">
-          <li>
-            <span class="year">2000</span> ─ PTO founded by six dedicated parents.
-          </li>
-          <li>
-            <span class="year">2005</span> ─ First Fall Festival raised $2,500 for playground equipment.
-          </li>
-          <li>
-            <span class="year">2010</span> ─ Renovated outdoor reading garden for every class.
-          </li>
-          <li>
-            <span class="year">2020</span> ─ Pivoted to virtual events, keeping community spirit alive.
-          </li>
-          <li>
-            <span class="year">2023</span> ─ Awarded technology grant to equip every classroom.
-          </li>
-        </ul>
-      </div>
     </div>
   </div>
 </section>
+
 
 HTML
         ]
