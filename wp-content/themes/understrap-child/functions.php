@@ -443,7 +443,7 @@ add_action( 'init', function() {
       <!-- 1 -->
       <div class="col">
         <div class="card border-0 shadow-sm">
-          <figure class="wp-block-image"><img src="#" alt="Back-to-School Bash"/></figure>
+          <figure class="wp-block-image"><img src="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/about_highlights_back_to_school_bash.png" alt="Back-to-School Bash"/></figure>
           <div class="card-body text-center">
             <h5 class="card-title mb-1">Back-to-School Bash</h5>
             <p class="small">Family carnival games, food trucks, and meet-the-teacher fun.</p>
@@ -453,7 +453,7 @@ add_action( 'init', function() {
       <!-- 2 -->
       <div class="col">
         <div class="card border-0 shadow-sm">
-          <figure class="wp-block-image"><img src="#" alt="Fall Festival"/></figure>
+          <figure class="wp-block-image"><img src="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/about_hightlightsfall_festival.png" alt="Fall Festival"/></figure>
           <div class="card-body text-center">
             <h5 class="card-title mb-1">Fall Festival</h5>
             <p class="small">Pumpkins, hayrides, and crafts to celebrate autumn.</p>
@@ -463,7 +463,7 @@ add_action( 'init', function() {
       <!-- 3 -->
       <div class="col">
         <div class="card border-0 shadow-sm">
-          <figure class="wp-block-image"><img src="#" alt="Spring Carnival"/></figure>
+          <figure class="wp-block-image"><img src="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/about_highlights_spring_carnival.png" alt="Spring Carnival"/></figure>
           <div class="card-body text-center">
             <h5 class="card-title mb-1">Spring Carnival</h5>
             <p class="small">Games, rides, and food to welcome the warmer weather.</p>
@@ -473,7 +473,7 @@ add_action( 'init', function() {
       <!-- 4 -->
       <div class="col">
         <div class="card border-0 shadow-sm">
-          <figure class="wp-block-image"><img src="#" alt="Family Fun Night"/></figure>
+          <figure class="wp-block-image"><img src="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/about_highlights_family_fun_night.png" alt="Family Fun Night"/></figure>
           <div class="card-body text-center">
             <h5 class="card-title mb-1">Family Fun Night</h5>
             <p class="small">Board games, snacks, and prizes for the whole family.</p>
@@ -483,7 +483,7 @@ add_action( 'init', function() {
       <!-- 5 -->
       <div class="col">
         <div class="card border-0 shadow-sm">
-          <figure class="wp-block-image"><img src="#" alt="Teacher Appreciation Day"/></figure>
+          <figure class="wp-block-image"><img src="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/about_highlights_teacher_appreciation_day.png" alt="Teacher Appreciation Day"/></figure>
           <div class="card-body text-center">
             <h5 class="card-title mb-1">Teacher Appreciation Day</h5>
             <p class="small">Celebrating our educators with treats and thank-you notes.</p>
@@ -493,7 +493,7 @@ add_action( 'init', function() {
       <!-- 6 -->
       <div class="col">
         <div class="card border-0 shadow-sm">
-          <figure class="wp-block-image"><img src="#" alt="Reading Rodeo"/></figure>
+          <figure class="wp-block-image"><img src="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/about_highlights_reading_rodeo.png" alt="Reading Rodeo"/></figure>
           <div class="card-body text-center">
             <h5 class="card-title mb-1">Reading Rodeo</h5>
             <p class="small">Students earn “ticket” prizes for every book they finish.</p>
