@@ -365,7 +365,7 @@ add_action( 'init', function() {
       <div class="col-md-6 mb-4 mb-md-0">
         <!-- Gutenberg Image block: replace src -->
         <figure class="wp-block-image size-large">
-          <img src="#" alt="PTO Board Group Photo"/>
+          <img src="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/meet_the_board.png" alt="PTO Board Group Photo"/>
         </figure>
       </div>
       <div class="col-md-6">
@@ -411,7 +411,7 @@ add_action( 'init', function() {
       <div class="col-lg-6 mb-4 mb-lg-0">
         <!-- Gutenberg Image block goes here -->
         <figure class="wp-block-image size-large">
-          <img src="#" alt="PTO founding photo"/>
+          <img src="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/hero-default-scaled.jpeg" alt="PTO founding photo"/>
           <figcaption class="mt-2 text-center text-muted small">Founded in 2000 with just a handful of parents.</figcaption>
         </figure>
       </div>
@@ -508,3 +508,28 @@ HTML
     );
 }, 11 );
 
+
+add_action( 'init', function() {
+    register_block_pattern(
+        'whited/about-cta-join',
+        [
+            'title'       => __( 'How to Join PTO', 'understrap-child' ),
+            'description' => __( 'Warm, inviting call-to-action to join PTO with flexible involvement', 'understrap-child' ),
+            'categories'  => [ 'about-page', 'cta' ],
+            'inserter'    => true,
+            'content'     => <<<'HTML'
+<section class="wp-block-group alignfull how-to-join-section py-5 bg-light">
+  <div class="container section-inner text-center">
+    <h2>How to Join</h2>
+    <p class="lead mb-4">
+      We know life with little ones can be busy—being a PTO member doesn’t mean you’re “stuck” in one role.
+      Whether you can help once a year or at every event, you decide how involved you want to be.
+      Come as you are and make a difference, one smile at a time.
+    </p>
+    <a href="/get-involved" class="btn btn-primary btn-lg">Get Involved</a>
+  </div>
+</section>
+HTML
+        ]
+    );
+}, 11 );

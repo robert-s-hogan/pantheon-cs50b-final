@@ -11209,6 +11209,49 @@ a.skip-link:not(:focus):not(:focus-within) {
   line-height: 1.4;
 }
 
+.how-to-join-section {
+  padding-block: 3rem;
+  background: #f6f6f6;
+}
+.how-to-join-section h2, .how-to-join-section .h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1a2e69;
+}
+@media (min-width: 320px) {
+  .how-to-join-section h2, .how-to-join-section .h2 {
+    font-size: calc(2rem + 0.5rem * (100vw - 320px) / (1200px - 320px));
+  }
+}
+@media (min-width: 1200px) {
+  .how-to-join-section h2, .how-to-join-section .h2 {
+    font-size: 2.5rem;
+  }
+}
+.how-to-join-section .lead {
+  font-size: 1rem;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: #1a2e69;
+  line-height: 1.5;
+}
+@media (min-width: 320px) {
+  .how-to-join-section .lead {
+    font-size: calc(1rem + 0.25rem * (100vw - 320px) / (1200px - 320px));
+  }
+}
+@media (min-width: 1200px) {
+  .how-to-join-section .lead {
+    font-size: 1.25rem;
+  }
+}
+.how-to-join-section .btn {
+  margin-top: 1rem;
+  padding: 0.625rem 1.25rem;
+  font-size: 1rem;
+}
+
 .navbar-brand {
   font-family: "Russo One", sans-serif;
 }
