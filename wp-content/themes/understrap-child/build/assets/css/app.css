@@ -11081,7 +11081,6 @@ a.skip-link:not(:focus):not(:focus-within) {
 
 .about-hero-section {
   background: #f6f6f6;
-  color: #000;
 }
 .about-hero-section .wp-block-cover__inner-container {
   padding-block: 3rem;
@@ -11089,7 +11088,7 @@ a.skip-link:not(:focus):not(:focus-within) {
 }
 .about-hero-section .wp-block-cover__inner-container h1, .about-hero-section .wp-block-cover__inner-container .h1 {
   font-size: 2.5rem;
-  color: #ffffff;
+  color: #000;
   margin-bottom: 1rem;
 }
 @media (min-width: 320px) {
@@ -11104,7 +11103,7 @@ a.skip-link:not(:focus):not(:focus-within) {
 }
 .about-hero-section .wp-block-cover__inner-container p {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: #000;
 }
 @media (min-width: 320px) {
   .about-hero-section .wp-block-cover__inner-container p {
