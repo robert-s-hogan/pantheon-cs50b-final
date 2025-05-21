@@ -11278,22 +11278,35 @@ a.skip-link:not(:focus):not(:focus-within) {
    ========================================================================== */
 .events-hero-section {
   padding-block: clamp(4rem, 10vw, 7rem);
-  background: #fff;
+  background: #ffffff;
+}
+.events-hero-section h1, .events-hero-section .h1 {
+  letter-spacing: 0.5px;
 }
 .events-hero-section .btn {
   padding-inline: 2rem;
 }
 
-/* Pull brand colours into icons & subtle backgrounds */
-.events-upcoming-section i {
-  color: #3055c3;
+.events-upcoming-section {
+  background: #f6f6f6;
+}
+.events-upcoming-section .event-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .events-upcoming-section .event-card:hover {
-  box-shadow: 0 0.5rem 1rem rgba(26, 46, 105, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 0.75rem 1.5rem rgba(26, 46, 105, 0.08);
+}
+.events-upcoming-section .event-thumb {
+  background: #f6f6f6;
+}
+.events-upcoming-section .event-thumb i {
+  color: #3055c3;
+  opacity: 0.6;
 }
 
-.events-calendar-section {
-  background: #f6f6f6;
+.events-calendar-section .ratio {
+  min-height: 600px;
 }
 
 .events-hero-section {

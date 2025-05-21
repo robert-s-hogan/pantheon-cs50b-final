@@ -567,37 +567,27 @@ HTML
 add_action( 'init', function () {
 
 	/* 1. Category */
-	register_block_pattern_category(
-		'events-page',
-		[ 'label' => __( 'Events Page', 'understrap-child' ) ]
-	);
-
-	/* 2. HERO pattern */
 	register_block_pattern(
-		'whited/events-hero',
-		[
-			'title'       => __( 'Events – Hero', 'understrap-child' ),
-			'description' => __( 'Full-width headline with subscribe CTA', 'understrap-child' ),
-			'categories'  => [ 'events-page' ],
-			'inserter'    => true,
-			'content'     => <<<'HTML'
+	'whited/events-hero',
+	[
+		'title'       => __( 'Events – Hero', 'understrap-child' ),
+		'categories'  => [ 'events-page' ],
+		'content'     => <<<'HTML'
 <section class="wp-block-group alignfull events-hero-section d-flex flex-column justify-content-center text-center py-7">
 	<div class="container section-inner">
 		<h1 class="display-5 fw-bold mb-2">
 			<span class="d-block">Join the Fun – Stay Connected</span>
 			<span class="d-block">with Whited PTO Events</span>
 		</h1>
-		<p class="lead mb-4"><?= esc_html__( 'Mark Your Calendar and Get Involved!', 'understrap-child' ); ?></p>
-		<a class="btn btn-outline-primary btn-lg" href="#"
-		   target="_blank" rel="noopener">
-			<i class="far fa-calendar-plus me-2"></i>
-			<?= esc_html__( 'Subscribe with Google Calendar', 'understrap-child' ); ?>
+		<p class="lead mb-4">Mark Your Calendar and Get Involved!</p>
+		<a class="btn btn-outline-primary btn-lg" href="#" target="_blank" rel="noopener">
+			<i class="far fa-calendar-plus me-2"></i>Subscribe with Google Calendar
 		</a>
 	</div>
 </section>
 HTML
-		]
-	);
+	]
+);
 
 	/* 3. UPCOMING EVENTS pattern  (card list) */
 	register_block_pattern(
