@@ -363,7 +363,6 @@ add_action( 'init', function() {
   <div class="container section-inner">
     <div class="row align-items-center">
       <div class="col-md-6 mb-4 mb-md-0">
-        <!-- Gutenberg Image block: replace src -->
         <figure class="wp-block-image size-large">
           <img src="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/meet_the_board.png" alt="PTO Board Group Photo"/>
         </figure>
@@ -614,7 +613,9 @@ HTML
       <div class="row g-md-4 align-items-start flex-md-row flex-column">
         <div class="col-md-3 mb-3 mb-md-0">
           <figure class="event-thumb ratio ratio-1x1 bg-body-tertiary d-flex align-items-center justify-content-center rounded">
-            <i class="fas fa-image fa-2x text-muted"></i>
+                    <!-- <figure class="wp-block-image size-large"> -->
+          <img src="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/holiday_craft_faire_flyer.png" alt="PTO Board Group Photo"/>
+        <!-- </figure> -->
           </figure>
         </div>
         <div class="col-md-9">
@@ -624,7 +625,7 @@ HTML
           <p class="text-muted mb-3">Holiday crafts, homebaked goods, jewelry, candles, tamales, and more!</p>
           <div class="d-flex">
             <a class="btn btn-outline-primary btn-sm" href="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/holiday_craft_faire_flyer.png" target="_blank">View Flyer</a>
-            <a class="btn btn-primary btn-sm ms-2" href="https://www.google.com/maps/place/Douglas+Whited+Elementary+School/@38.4653209,-122.6631306,16z/data=!4m15..." target="_blank">Get Directions</a>
+            <a class="btn btn-primary btn-sm ms-2" href="https://maps.app.goo.gl/M1s96NAkRd7vwLS77" target="_blank">Get Directions</a>
           </div>
         </div>
       </div>
@@ -635,7 +636,7 @@ HTML
       <div class="row g-md-4 align-items-start flex-md-row flex-column">
         <div class="col-md-3 mb-3 mb-md-0">
           <figure class="event-thumb ratio ratio-1x1 bg-body-tertiary d-flex align-items-center justify-content-center rounded">
-            <i class="fas fa-image fa-2x text-muted"></i>
+          <img src="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/pto_flyer.png" alt="PTO Board Group Photo"/>
           </figure>
         </div>
         <div class="col-md-9">
@@ -645,7 +646,7 @@ HTML
           <p class="text-muted mb-3">Monthly PTO gathering to discuss upcoming events, budgets, and volunteer opportunities.</p>
           <div class="d-flex">
             <a class="btn btn-outline-primary btn-sm" href="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/pto_flyer.png" target="_blank">View Flyer</a>
-            <a class="btn btn-primary btn-sm ms-2" href="https://www.google.com/maps/place/Douglas+Whited+Elementary+School/@38.4653209,-122.6631306,16z/data=!4m15..." target="_blank">Get Directions</a>
+            <a class="btn btn-primary btn-sm ms-2" href="https://maps.app.goo.gl/M1s96NAkRd7vwLS77" target="_blank">Get Directions</a>
           </div>
         </div>
       </div>
@@ -656,7 +657,7 @@ HTML
       <div class="row g-md-4 align-items-start flex-md-row flex-column">
         <div class="col-md-3 mb-3 mb-md-0">
           <figure class="event-thumb ratio ratio-1x1 bg-body-tertiary d-flex align-items-center justify-content-center rounded">
-            <i class="fas fa-image fa-2x text-muted"></i>
+          <img src="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/santa_rosa_pizzeria_flyer.png" alt="PTO Board Group Photo"/>
           </figure>
         </div>
         <div class="col-md-9">
@@ -666,7 +667,7 @@ HTML
           <p class="text-muted mb-3">20% of your purchase will be donated to our PTO—just mention “Whited” at the counter!</p>
           <div class="d-flex">
             <a class="btn btn-outline-primary btn-sm" href="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/santa_rosa_pizzeria_flyer.png" target="_blank">View Flyer</a>
-            <a class="btn btn-primary btn-sm ms-2" href="https://www.google.com/maps/place/Santa+Rosa+Pizzeria/@38.4598755,-122.6774198,17z/data=!3m1..." target="_blank">Get Directions</a>
+            <a class="btn btn-primary btn-sm ms-2" href="https://maps.app.goo.gl/ALZJHYvJLe5EaUwq8" target="_blank">Get Directions</a>
           </div>
         </div>
       </div>
