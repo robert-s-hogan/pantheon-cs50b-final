@@ -583,7 +583,7 @@ register_block_pattern(
 
 		<a class="btn btn-outline-primary btn-lg d-inline-flex align-items-center gap-2"
 		   href="#" target="_blank" rel="noopener">
-			<i class="far fa-calendar-plus"></i>
+			<i class="far fa-calendar-plus fa-lg flex-shrink-0"></i>
 			Subscribe with Google Calendar
 		</a>
 	</div>
@@ -602,7 +602,7 @@ HTML
 			'categories'  => [ 'events-page' ],
 			'inserter'    => true,
 			'content'     => <<<'HTML'
-<section class="wp-block-group alignfull events-upcoming-section bg-light py-6">
+<section class="wp-block-group alignfull events-upcoming-section bg-white py-5">
   <div class="container section-inner">
 
     <h2 class="text-uppercase fw-bold mb-3">Upcoming Events</h2>
@@ -688,7 +688,7 @@ HTML
 			'categories'  => [ 'events-page' ],
 			'inserter'    => true,
 			'content'     => <<<'HTML'
-<section class="wp-block-group alignfull events-calendar-section py-6">
+<section class="wp-block-group alignfull events-calendar-section bg-light py-5">
 	<div class="container section-inner">
  <h2 class="fw-bold mb-2">Full Event Calendar</h2>
        <p class="lead mb-4">Sync our PTO events directly to your own calendar with one click.</p>
