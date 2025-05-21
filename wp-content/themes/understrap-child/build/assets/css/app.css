@@ -11273,6 +11273,51 @@ a.skip-link:not(:focus):not(:focus-within) {
   color: #1a2e69;
 }
 
+/* ==========================================================================
+   EVENTS PAGE SECTIONS
+   ========================================================================== */
+.events-hero-section {
+  padding-block: clamp(4rem, 10vw, 7rem);
+  background: #fff;
+}
+.events-hero-section .btn {
+  padding-inline: 2rem;
+}
+
+/* Pull brand colours into icons & subtle backgrounds */
+.events-upcoming-section i {
+  color: #3055c3;
+}
+.events-upcoming-section .event-card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(26, 46, 105, 0.05);
+}
+
+.events-calendar-section {
+  background: #f6f6f6;
+}
+
+.events-hero-section {
+  background: #ffffff;
+}
+.events-hero-section .btn-outline-primary:hover {
+  background: #3055c3;
+  color: #ffffff;
+}
+
+.events-calendar-section .ratio {
+  min-height: 600px;
+}
+
+/*  TYPOGRAPHY overrides shared with Home/About  */
+.events-hero-section h1, .events-hero-section .h1,
+.events-upcoming-section h2,
+.events-upcoming-section .h2,
+.events-calendar-section h2,
+.events-calendar-section .h2 {
+  font-family: "Russo One", sans-serif;
+  letter-spacing: 0.5px;
+}
+
 .navbar-brand {
   font-family: "Russo One", sans-serif;
 }

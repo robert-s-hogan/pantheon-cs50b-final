@@ -557,3 +557,121 @@ HTML
         ]
     );
 }, 11 );
+
+
+
+/* ───────────────────────────────
+ * EVENTS PAGE — block patterns
+ * ───────────────────────────────
+ */
+add_action( 'init', function () {
+
+	/* 1. Category */
+	register_block_pattern_category(
+		'events-page',
+		[ 'label' => __( 'Events Page', 'understrap-child' ) ]
+	);
+
+	/* 2. HERO pattern */
+	register_block_pattern(
+		'whited/events-hero',
+		[
+			'title'       => __( 'Events – Hero', 'understrap-child' ),
+			'description' => __( 'Full-width headline with subscribe CTA', 'understrap-child' ),
+			'categories'  => [ 'events-page' ],
+			'inserter'    => true,
+			'content'     => <<<'HTML'
+<section class="wp-block-group alignfull events-hero-section d-flex flex-column justify-content-center text-center py-7">
+	<div class="container section-inner">
+		<h1 class="display-5 fw-bold mb-2">
+			<span class="d-block">Join the Fun – Stay Connected</span>
+			<span class="d-block">with Whited PTO Events</span>
+		</h1>
+		<p class="lead mb-4"><?= esc_html__( 'Mark Your Calendar and Get Involved!', 'understrap-child' ); ?></p>
+		<a class="btn btn-outline-primary btn-lg" href="#"
+		   target="_blank" rel="noopener">
+			<i class="far fa-calendar-plus me-2"></i>
+			<?= esc_html__( 'Subscribe with Google Calendar', 'understrap-child' ); ?>
+		</a>
+	</div>
+</section>
+HTML
+		]
+	);
+
+	/* 3. UPCOMING EVENTS pattern  (card list) */
+	register_block_pattern(
+		'whited/events-upcoming-cards',
+		[
+			'title'       => __( 'Events – Upcoming (Cards)', 'understrap-child' ),
+			'description' => __( 'Stacked list of events with flyer & map links', 'understrap-child' ),
+			'categories'  => [ 'events-page' ],
+			'inserter'    => true,
+			'content'     => <<<'HTML'
+<section class="wp-block-group alignfull events-upcoming-section bg-light py-6">
+	<div class="container section-inner">
+
+		<h2 class="text-uppercase fw-bold mb-3"><?= esc_html__( 'Upcoming Events', 'understrap-child' ); ?></h2>
+		<p class="mb-4"><?= esc_html__( 'Stay connected with our latest events! Join us for school fundraisers, community gatherings, and fun activities for families.', 'understrap-child' ); ?></p>
+
+		<!-- ⤵ Duplicate this “event-card” group as needed -->
+		<div class="card event-card border-0 shadow-sm mb-4 p-md-4 p-3">
+			<div class="row g-md-4 align-items-start flex-md-row flex-column">
+				<!-- Thumb / placeholder -->
+				<div class="col-md-3 mb-3 mb-md-0">
+					<figure class="event-thumb ratio ratio-1x1 bg-body-tertiary d-flex align-items-center justify-content-center rounded">
+						<i class="fas fa-image fa-2x text-muted"></i>
+					</figure>
+				</div>
+
+				<!-- Details -->
+				<div class="col-md-9">
+					<h3 class="h5 mb-1"><?= esc_html__( 'Fall Harvest Festival', 'understrap-child' ); ?></h3>
+					<p class="small mb-1">
+						<i class="far fa-calendar-alt me-1"></i>Oct 18, 2024  ·  <i class="far fa-clock me-1"></i>5-8 PM
+					</p>
+					<p class="small mb-2"><i class="fas fa-map-marker-alt me-1"></i>Whited Elementary Turf Field</p>
+					<p class="text-muted mb-3"><?= esc_html__( 'Carnival games, costume parade, and pumpkin-decorating contest.', 'understrap-child' ); ?></p>
+
+					<div class="d-flex">
+						<a class="btn btn-outline-primary btn-sm" href="#" target="_blank"
+						   rel="noopener"><?= esc_html__( 'View Flyer', 'understrap-child' ); ?></a>
+						<a class="btn btn-primary btn-sm ms-2" href="#" target="_blank"
+						   rel="noopener"><?= esc_html__( 'Get Directions', 'understrap-child' ); ?></a>
+					</div>
+				</div>
+			</div>
+		</div><!-- /.event-card -->
+
+	</div>
+</section>
+HTML
+		]
+	);
+
+	/* 4. GOOGLE CALENDAR pattern */
+	register_block_pattern(
+		'whited/events-calendar',
+		[
+			'title'       => __( 'Events – Full Calendar', 'understrap-child' ),
+			'description' => __( 'Embedded Google Calendar with heading', 'understrap-child' ),
+			'categories'  => [ 'events-page' ],
+			'inserter'    => true,
+			'content'     => <<<'HTML'
+<section class="wp-block-group alignfull events-calendar-section py-6">
+	<div class="container section-inner">
+		<h2 class="fw-bold"><?= esc_html__( 'Full Event Calendar', 'understrap-child' ); ?></h2>
+		<p class="mb-4"><?= esc_html__( 'Want to stay up-to-date? Sync our PTO events directly to your Google Calendar with one click!', 'understrap-child' ); ?></p>
+
+		<!-- Embed -->
+		<div class="ratio ratio-16x9 shadow-sm rounded overflow-hidden">
+			<iframe src="https://calendar.google.com/calendar/embed?src=YOUR_CAL_ID&ctz=America/Los_Angeles"
+			        style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
+	</div>
+</section>
+HTML
+		]
+	);
+
+}, 11 ); // end add_action

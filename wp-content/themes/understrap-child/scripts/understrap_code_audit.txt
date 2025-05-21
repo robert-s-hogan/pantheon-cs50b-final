@@ -1,4 +1,4 @@
-Understrap Child Theme Code Audit - 2025-05-19 06:28:24
+Understrap Child Theme Code Audit - 2025-05-20 20:25:27
 Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-final/wp-content/themes/understrap-child
 ---------------------------------------------
 
@@ -125,6 +125,146 @@ Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-fin
 
 ---------------------------------------------
 
+🔹 src/sass/layout/_about-sections.scss
+
+// _about-sections.scss
+
+// Hero
+.about-hero-section {
+  background: $gray-100;
+
+  .wp-block-cover__inner-container {
+    @include section-spacing;
+    text-align: center;
+
+    h1 {
+      @include fluid-type($fs-section-h1-min, $fs-section-h1-max);
+      color: $black;
+      margin-bottom: $spacer;
+    }
+    p {
+      @include fluid-type($fs-subheading-min, $fs-subheading-max);
+      color: $black;
+    }
+  }
+}
+
+// What We Do (no change needed)
+
+// Meet the Board
+.about-board-section {
+  @include section-spacing;
+  background: $gray-100;
+  .row {
+    @include media-breakpoint-up(md) {
+      display: flex;
+      align-items: center;
+    }
+  }
+  h2 {
+    @include fluid-type($fs-section-h2-min, $fs-section-h2-max);
+    margin-bottom: $spacer * 2;
+    text-align: center;
+  }
+  .col-md-6:last-child {
+    ul {
+      li h4 {
+        @include fluid-type($fs-subheading-min, $fs-subheading-max);
+        margin-bottom: $spacer / 4;
+        color: $primary;
+      }
+      p {
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+// History (no change needed)
+
+// Highlights
+.about-highlights-section {
+  @include section-spacing;
+  h2 {
+    @include fluid-type($fs-section-h2-min, $fs-section-h2-max);
+    text-align: center;
+    margin-bottom: $spacer * 2;
+  }
+  .card {
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba($black, 0.075);
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    .card-body {
+      padding: $spacer;
+    }
+    .card-title {
+      @include fluid-type($fs-subheading-min, $fs-subheading-max);
+      margin-bottom: $spacer / 2;
+      color: $primary;
+    }
+    p {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+  }
+}
+
+// How to Join CTA
+.how-to-join-section {
+  @include section-spacing;
+  background: $gray-100;
+
+  h2 {
+    @include fluid-type($fs-section-h2-min, $fs-section-h2-max);
+    margin-bottom: $spacer;
+    color: $dark;
+  }
+  .lead {
+    @include fluid-type($fs-subheading-min, $fs-subheading-max);
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+    color: $dark;
+    line-height: 1.5;
+  }
+  .btn {
+    margin-top: $spacer;
+    padding: $btn-padding-y $btn-padding-x;
+    font-size: $fs-subheading-min;
+  }
+}
+
+.history-timeline {
+  li {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: $spacer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 1.25rem;
+      top: 0.25rem;
+      width: 0.5rem;
+      height: 0.5rem;
+      background: $primary;
+      border-radius: 50%;
+    }
+    .year {
+      font-weight: 700;
+      margin-right: $spacer / 2;
+      color: $dark;
+    }
+  }
+}
+
+---------------------------------------------
+
 🔹 src/sass/layout/_footer.scss
 
 // _footer.scss
@@ -201,23 +341,40 @@ Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-fin
 🔹 src/sass/theme/mixins/_utils.scss
 
 // _utils.scss
+// ─────────────────────────────────────────────────────────────
+// Utility mixins & placeholders for flex layouts
+// ─────────────────────────────────────────────────────────────
 
-// simple “flex container” mixin
-@mixin flex-container($justify: flex-start, $align: stretch, $dir: row) {
+// Primary flex‐container mixin
+// Usage: @include flex‐container(<dir>, <justify-content>, <align-items>);
+@mixin flex‐container($dir: row, $justify: flex‐start, $align: stretch) {
   display: flex;
-  flex-direction: $dir;
-  justify-content: $justify;
-  align-items: $align;
+  flex‐direction: $dir;
+  justify‐content: $justify;
+  align‐items: $align;
 }
 
-// a placeholder for “centered flex”
-%flex-center {
-  @include flex-container(center, center);
+// Shorthand mixins (preferred) for common layouts
+// Center items both axes: @include flex‐center();
+// Optionally pass a different direction: @include flex‐center(column);
+@mixin flex‐center($dir: row) {
+  @include flex‐container($dir, center, center);
 }
 
-// a placeholder for “space‑between flex”
-%flex-between {
-  @include flex-container(space-between, center);
+// Space between items on main axis, center on cross‐axis:
+// @include flex‐between();
+// Or @include flex‐between(column);
+@mixin flex‐between($dir: row) {
+  @include flex‐container($dir, space‐between, center);
+}
+
+// Placeholders for @extend usage (if you have legacy code relying on %flex-center / %flex-between):
+%flex‐center {
+  @include flex‐center();
+}
+
+%flex‐between {
+  @include flex‐between();
 }
 
 ---------------------------------------------
@@ -266,17 +423,6 @@ $container-max-widths: (
   xl: 1140px,
   xxl: 1320px,
 ) !default;
-
----------------------------------------------
-
-🔹 src/sass/theme/mixins/_flex.scss
-
-@mixin flex-container($dir: row, $justify: flex-start, $align: stretch) {
-  display: flex;
-  flex-direction: $dir;
-  justify-content: $justify;
-  align-items: $align;
-}
 
 ---------------------------------------------
 
@@ -456,7 +602,6 @@ $btn-focus-shadow: 0 0 0 3px rgba($secondary, 0.5) !default;
 $navbar-light-color: $white !default;
 $navbar-light-hover-color: rgba($white, 0.8) !default;
 
-@import "theme/mixins/flex";
 @import "theme/mixins/fluid-type";
 @import "theme/mixins/breakpoints";
 @import "theme/mixins/container";
@@ -13151,6 +13296,7 @@ $gutters: $spacers !default;
 
 /* ───────────────────────── 3) Layout partials ───────────────────────────── */
 @import "layout/home-sections";
+@import "layout/about-sections";
 @import "theme/nav-custom";
 @import "layout/footer";
 
