@@ -567,27 +567,32 @@ HTML
 add_action( 'init', function () {
 
 	/* 1. Category */
-	register_block_pattern(
+register_block_pattern(
 	'whited/events-hero',
 	[
 		'title'       => __( 'Events – Hero', 'understrap-child' ),
 		'categories'  => [ 'events-page' ],
 		'content'     => <<<'HTML'
-<section class="wp-block-group alignfull events-hero-section d-flex flex-column justify-content-center text-center py-7">
+<section class="wp-block-group alignfull events-hero-section bg-light text-center d-flex flex-column justify-content-center">
 	<div class="container section-inner">
-		<h1 class="display-5 fw-bold mb-2">
-			<span class="d-block">Join the Fun – Stay Connected</span>
+		<h1 class="hero-headline fw-bold mb-3">
+			Join the Fun – Stay Connected<br/>
 			<span class="d-block">with Whited PTO Events</span>
 		</h1>
-		<p class="lead mb-4">Mark Your Calendar and Get Involved!</p>
-		<a class="btn btn-outline-primary btn-lg" href="#" target="_blank" rel="noopener">
-			<i class="far fa-calendar-plus me-2"></i>Subscribe with Google Calendar
+
+		<p class="lead mb-3">Mark Your Calendar and Get Involved!</p>
+
+		<a class="btn btn-outline-primary btn-lg d-inline-flex align-items-center gap-2"
+		   href="#" target="_blank" rel="noopener">
+			<i class="far fa-calendar-plus"></i>
+			Subscribe with Google Calendar
 		</a>
 	</div>
 </section>
 HTML
 	]
 );
+
 
 	/* 3. UPCOMING EVENTS pattern  (card list) */
 	register_block_pattern(
@@ -599,41 +604,75 @@ HTML
 			'inserter'    => true,
 			'content'     => <<<'HTML'
 <section class="wp-block-group alignfull events-upcoming-section bg-light py-6">
-	<div class="container section-inner">
+  <div class="container section-inner">
 
-		<h2 class="text-uppercase fw-bold mb-3"><?= esc_html__( 'Upcoming Events', 'understrap-child' ); ?></h2>
-		<p class="mb-4"><?= esc_html__( 'Stay connected with our latest events! Join us for school fundraisers, community gatherings, and fun activities for families.', 'understrap-child' ); ?></p>
+    <h2 class="text-uppercase fw-bold mb-3">Upcoming Events</h2>
+    <p class="mb-4">Stay connected with our latest events! Join us for school fundraisers, community gatherings, and fun activities for families.</p>
 
-		<!-- ⤵ Duplicate this “event-card” group as needed -->
-		<div class="card event-card border-0 shadow-sm mb-4 p-md-4 p-3">
-			<div class="row g-md-4 align-items-start flex-md-row flex-column">
-				<!-- Thumb / placeholder -->
-				<div class="col-md-3 mb-3 mb-md-0">
-					<figure class="event-thumb ratio ratio-1x1 bg-body-tertiary d-flex align-items-center justify-content-center rounded">
-						<i class="fas fa-image fa-2x text-muted"></i>
-					</figure>
-				</div>
+    <!-- Event Card 1 -->
+    <div class="card event-card border-0 shadow-sm mb-4 p-md-4 p-3">
+      <div class="row g-md-4 align-items-start flex-md-row flex-column">
+        <div class="col-md-3 mb-3 mb-md-0">
+          <figure class="event-thumb ratio ratio-1x1 bg-body-tertiary d-flex align-items-center justify-content-center rounded">
+            <i class="fas fa-image fa-2x text-muted"></i>
+          </figure>
+        </div>
+        <div class="col-md-9">
+          <h3 class="h5 mb-1">Whited Elementary Holiday Vendor & Craft Faire</h3>
+          <p class="small mb-1"><i class="far fa-calendar-alt me-1"></i>December 7, 2024 · <i class="far fa-clock me-1"></i>10 AM – 2 PM</p>
+          <p class="small mb-2"><i class="fas fa-map-marker-alt me-1"></i>Douglas Whited MPR</p>
+          <p class="text-muted mb-3">Holiday crafts, homebaked goods, jewelry, candles, tamales, and more!</p>
+          <div class="d-flex">
+            <a class="btn btn-outline-primary btn-sm" href="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/holiday_craft_faire_flyer.png" target="_blank">View Flyer</a>
+            <a class="btn btn-primary btn-sm ms-2" href="https://www.google.com/maps/place/Douglas+Whited+Elementary+School/@38.4653209,-122.6631306,16z/data=!4m15..." target="_blank">Get Directions</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-				<!-- Details -->
-				<div class="col-md-9">
-					<h3 class="h5 mb-1"><?= esc_html__( 'Fall Harvest Festival', 'understrap-child' ); ?></h3>
-					<p class="small mb-1">
-						<i class="far fa-calendar-alt me-1"></i>Oct 18, 2024  ·  <i class="far fa-clock me-1"></i>5-8 PM
-					</p>
-					<p class="small mb-2"><i class="fas fa-map-marker-alt me-1"></i>Whited Elementary Turf Field</p>
-					<p class="text-muted mb-3"><?= esc_html__( 'Carnival games, costume parade, and pumpkin-decorating contest.', 'understrap-child' ); ?></p>
+    <!-- Event Card 2 -->
+    <div class="card event-card border-0 shadow-sm mb-4 p-md-4 p-3">
+      <div class="row g-md-4 align-items-start flex-md-row flex-column">
+        <div class="col-md-3 mb-3 mb-md-0">
+          <figure class="event-thumb ratio ratio-1x1 bg-body-tertiary d-flex align-items-center justify-content-center rounded">
+            <i class="fas fa-image fa-2x text-muted"></i>
+          </figure>
+        </div>
+        <div class="col-md-9">
+          <h3 class="h5 mb-1">PTO Meeting</h3>
+          <p class="small mb-1"><i class="far fa-calendar-alt me-1"></i>November 14, 2024 · <i class="far fa-clock me-1"></i>8:20 AM</p>
+          <p class="small mb-2"><i class="fas fa-map-marker-alt me-1"></i>Whited Elementary Library</p>
+          <p class="text-muted mb-3">Monthly PTO gathering to discuss upcoming events, budgets, and volunteer opportunities.</p>
+          <div class="d-flex">
+            <a class="btn btn-outline-primary btn-sm" href="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/pto_flyer.png" target="_blank">View Flyer</a>
+            <a class="btn btn-primary btn-sm ms-2" href="https://www.google.com/maps/place/Douglas+Whited+Elementary+School/@38.4653209,-122.6631306,16z/data=!4m15..." target="_blank">Get Directions</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-					<div class="d-flex">
-						<a class="btn btn-outline-primary btn-sm" href="#" target="_blank"
-						   rel="noopener"><?= esc_html__( 'View Flyer', 'understrap-child' ); ?></a>
-						<a class="btn btn-primary btn-sm ms-2" href="#" target="_blank"
-						   rel="noopener"><?= esc_html__( 'Get Directions', 'understrap-child' ); ?></a>
-					</div>
-				</div>
-			</div>
-		</div><!-- /.event-card -->
+    <!-- Event Card 3 -->
+    <div class="card event-card border-0 shadow-sm mb-4 p-md-4 p-3">
+      <div class="row g-md-4 align-items-start flex-md-row flex-column">
+        <div class="col-md-3 mb-3 mb-md-0">
+          <figure class="event-thumb ratio ratio-1x1 bg-body-tertiary d-flex align-items-center justify-content-center rounded">
+            <i class="fas fa-image fa-2x text-muted"></i>
+          </figure>
+        </div>
+        <div class="col-md-9">
+          <h3 class="h5 mb-1">It’s a Pizza Party!</h3>
+          <p class="small mb-1"><i class="far fa-calendar-alt me-1"></i>November 19, 2024 · <i class="far fa-clock me-1"></i>12 PM – 10 PM</p>
+          <p class="small mb-2"><i class="fas fa-map-marker-alt me-1"></i>Santa Rosa Pizzeria</p>
+          <p class="text-muted mb-3">20% of your purchase will be donated to our PTO—just mention “Whited” at the counter!</p>
+          <div class="d-flex">
+            <a class="btn btn-outline-primary btn-sm" href="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/santa_rosa_pizzeria_flyer.png" target="_blank">View Flyer</a>
+            <a class="btn btn-primary btn-sm ms-2" href="https://www.google.com/maps/place/Santa+Rosa+Pizzeria/@38.4598755,-122.6774198,17z/data=!3m1..." target="_blank">Get Directions</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-	</div>
+  </div>
 </section>
 HTML
 		]
@@ -655,8 +694,7 @@ HTML
 
 		<!-- Embed -->
 		<div class="ratio ratio-16x9 shadow-sm rounded overflow-hidden">
-			<iframe src="https://calendar.google.com/calendar/embed?src=YOUR_CAL_ID&ctz=America/Los_Angeles"
-			        style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		<iframe src="https://calendar.google.com/calendar/embed?src=be9c1435fae1ea24f4971bddfe5cf4c45b08200ec7fb72c2ca894eb7f9a2f77e%40group.calendar.google.com&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 		</div>
 	</div>
 </section>

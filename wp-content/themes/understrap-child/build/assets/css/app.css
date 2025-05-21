@@ -11310,11 +11310,16 @@ a.skip-link:not(:focus):not(:focus-within) {
 }
 
 .events-hero-section {
-  background: #ffffff;
+  padding-block: clamp(3rem, 8vw, 5rem);
+  background: #f6f6f6;
 }
-.events-hero-section .btn-outline-primary:hover {
-  background: #3055c3;
-  color: #ffffff;
+.events-hero-section .hero-headline {
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.events-hero-section .btn {
+  padding-block: 0.625rem;
+  padding-inline: 2.25rem;
 }
 
 .events-calendar-section .ratio {
