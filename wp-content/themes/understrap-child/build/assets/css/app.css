@@ -11295,9 +11295,6 @@ a.skip-link:not(:focus):not(:focus-within) {
   object-fit: cover;
 }
 
-.events-upcoming-section {
-  background: #f6f6f6;
-}
 .events-upcoming-section .event-card {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }

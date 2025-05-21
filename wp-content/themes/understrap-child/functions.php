@@ -224,7 +224,7 @@ add_action( 'init', function() {
             'categories'  => [ 'home-page' ],
             'inserter'    => true,
             'content'     => <<<'HTML'
-<section class="wp-block-group alignfull events-section bg-light py-5">
+<section class="wp-block-group alignfull events-section py-5">
   <div class="container section-inner">
     <h2 class="text-uppercase fw-bold">Upcoming Events</h2>
 	<p class="mb-4">Join us for our upcoming events! Click the buttons below to view flyers and get directions.</p>
