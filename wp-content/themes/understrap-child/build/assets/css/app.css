@@ -11277,14 +11277,17 @@ a.skip-link:not(:focus):not(:focus-within) {
    EVENTS PAGE SECTIONS
    ========================================================================== */
 .events-hero-section {
-  padding-block: clamp(4rem, 10vw, 7rem);
-  background: #ffffff;
+  padding-block: clamp(3rem, 8vw, 5rem);
+  background: #f6f6f6;
 }
-.events-hero-section h1, .events-hero-section .h1 {
-  letter-spacing: 0.5px;
+.events-hero-section .hero-headline {
+  line-height: 1.15;
+  margin-bottom: 1rem;
 }
 .events-hero-section .btn {
+  padding-block: 0.625rem;
   padding-inline: 2rem;
+  font-size: 1rem;
 }
 
 .events-upcoming-section {
@@ -11305,6 +11308,17 @@ a.skip-link:not(:focus):not(:focus-within) {
   opacity: 0.6;
 }
 
+.events-calendar-section {
+  padding-block: 3rem;
+}
+.events-calendar-section .fw-bold {
+  text-align: center;
+}
+.events-calendar-section p.lead {
+  text-align: center;
+  max-width: 42rem;
+  margin-inline: auto;
+}
 .events-calendar-section .ratio {
   min-height: 600px;
 }

@@ -689,8 +689,8 @@ HTML
 			'content'     => <<<'HTML'
 <section class="wp-block-group alignfull events-calendar-section py-6">
 	<div class="container section-inner">
-		<h2 class="fw-bold"><?= esc_html__( 'Full Event Calendar', 'understrap-child' ); ?></h2>
-		<p class="mb-4"><?= esc_html__( 'Want to stay up-to-date? Sync our PTO events directly to your Google Calendar with one click!', 'understrap-child' ); ?></p>
+ <h2 class="fw-bold mb-2">Full Event Calendar</h2>
+       <p class="lead mb-4">Sync our PTO events directly to your own calendar with one click.</p>
 
 		<!-- Embed -->
 		<div class="ratio ratio-16x9 shadow-sm rounded overflow-hidden">
