@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* ───────────────────────── 0) Core variables & mixins ───────────────────── */
+/* 0) Core variables & mixins */
 .hero-section, .featured-events-section, .why-section {
   padding-block: 3rem;
 }
@@ -8,7 +8,7 @@
   padding-block: 3rem;
 }
 
-/* ───────────────────────── 1) Bootstrap & UnderStrap ────────────────────── */
+/* 1) Bootstrap & UnderStrap */
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
@@ -10945,7 +10945,7 @@ a.skip-link:not(:focus):not(:focus-within) {
   margin-left: 0;
 }
 
-/* ───────────────────────── 2) Utilities / fonts ─────────────────────────── */
+/* 2) Utilities / fonts */
 .gallery {
   margin-bottom: 1.5em;
 }
@@ -10985,7 +10985,7 @@ a.skip-link:not(:focus):not(:focus-within) {
   display: block;
 }
 
-/* ───────────────────────── 3) Layout partials ───────────────────────────── */
+/* 3) Layout partials */
 .why-section {
   background-color: #ffffff;
 }
@@ -11425,59 +11425,6 @@ a.skip-link:not(:focus):not(:focus-within) {
   margin-top: 1rem;
 }
 
-.navbar-brand {
-  font-family: "Russo One", sans-serif;
-}
-.navbar-brand img {
-  height: 50px;
-  width: 50px;
-}
-
-.navbar-nav li {
-  padding: 0.75rem 0;
-}
-.navbar-nav li > a {
-  display: inline-block;
-  text-decoration: none;
-  padding: 1rem;
-  color: #ffffff !important;
-  transition: background-color 0.2s ease, color 0.2s ease;
-  border-radius: 0.25rem;
-}
-@media (prefers-reduced-motion: reduce) {
-  .navbar-nav li > a {
-    transition: none;
-  }
-}
-.navbar-nav li > a:hover, .navbar-nav li > a:focus {
-  background-color: #ffcb2a;
-  color: #ffffff !important;
-}
-.navbar-nav li.nav-cta > a {
-  display: inline-block;
-  padding: 0.625rem 1.25rem;
-  background-color: #ffcb2a;
-  color: #1a2e69 !important;
-  border-radius: 0.25rem;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-@media (prefers-reduced-motion: reduce) {
-  .navbar-nav li.nav-cta > a {
-    transition: none;
-  }
-}
-.navbar-nav li.nav-cta > a:hover, .navbar-nav li.nav-cta > a:focus {
-  background-color: rgb(195, 147.3943661972, 0);
-  color: #ffffff !important;
-}
-
-@media (max-width: 992px) {
-  .navbar-collapse {
-    background-color: #ffffff;
-    padding: 1rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  }
-}
 .site-footer {
   padding: 2rem 0;
   background: #fff;
@@ -11531,7 +11478,60 @@ a.skip-link:not(:focus):not(:focus-within) {
   text-decoration: underline;
 }
 
-/* ───────────────────────── 4) Overrides ───────────────────────────── */
+/* 4) Theme‐level customizations */
+.navbar-brand {
+  font-family: "Russo One", sans-serif;
+}
+.navbar-brand img {
+  height: 50px;
+  width: 50px;
+}
+
+.navbar-nav li {
+  padding: 0.75rem 0;
+}
+.navbar-nav li > a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 1rem;
+  color: #ffffff !important;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border-radius: 0.25rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .navbar-nav li > a {
+    transition: none;
+  }
+}
+.navbar-nav li > a:hover, .navbar-nav li > a:focus {
+  background-color: #ffcb2a;
+  color: #ffffff !important;
+}
+.navbar-nav li.nav-cta > a {
+  display: inline-block;
+  padding: 0.625rem 1.25rem;
+  background-color: #ffcb2a;
+  color: #1a2e69 !important;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .navbar-nav li.nav-cta > a {
+    transition: none;
+  }
+}
+.navbar-nav li.nav-cta > a:hover, .navbar-nav li.nav-cta > a:focus {
+  background-color: rgb(195, 147.3943661972, 0);
+  color: #ffffff !important;
+}
+
+@media (max-width: 992px) {
+  .navbar-collapse {
+    background-color: #ffffff;
+    padding: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }
+}
 .wrapper {
   padding: 0;
 }
@@ -11617,6 +11617,7 @@ header.page-header-title {
   display: none !important;
 }
 
+/* Base typography */
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
