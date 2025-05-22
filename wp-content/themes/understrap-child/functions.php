@@ -728,7 +728,6 @@ add_action( 'init', function() {
             'categories'  => [ 'get-involved-page' ],
             'inserter'    => true,
             'content'     => <<<'HTML'
-<!-- full-width section wrapper -->
 <section class="section section--gray get-involved__hero alignfull">
   <div class="section__inner text-center">
     <h1 class="section__heading">
