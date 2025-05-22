@@ -746,7 +746,7 @@ HTML
 }, 11 );
 
 /**
- * 2. Ways to Get Involved (Card Grid, full-width)
+ * 2. Ways to Get Involved (Card Grid → CSS Grid)
  */
 add_action( 'init', function() {
     register_block_pattern(
@@ -760,60 +760,54 @@ add_action( 'init', function() {
 <section class="section section--white get-involved__card-list alignfull">
   <div class="section__inner">
     <h2 class="section__heading">Ways to Get Involved</h2>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+    <div class="section__cards">
       <!-- card 1 -->
-      <div class="col">
-        <div class="card h-100 border-0 shadow-sm p-4 d-flex flex-column">
-          <i class="fas fa-hands-helping fa-2x mb-3 text-primary"></i>
-          <h5 class="card-title">Volunteer at an Event</h5>
-          <p class="card-text text-muted">Help us run school events like Fall Harvest Festival or Family Fun Night.</p>
-          <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Sign Up</a>
-        </div>
+      <div class="card h-100 border-0 shadow-sm p-4 d-flex flex-column">
+        <i class="fas fa-hands-helping fa-2x mb-3 text-primary"></i>
+        <h5 class="card-title">Volunteer at an Event</h5>
+        <p class="card-text text-muted">Help us run school events like Fall Harvest Festival or Family Fun Night.</p>
+        <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Sign Up</a>
       </div>
+
       <!-- card 2 -->
-      <div class="col">
-        <div class="card h-100 border-0 shadow-sm p-4 d-flex flex-column">
-          <i class="fas fa-users fa-2x mb-3 text-primary"></i>
-          <h5 class="card-title">Join the PTO</h5>
-          <p class="card-text text-muted">Support planning, fundraising, and school needs by becoming a member.</p>
-          <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Learn More</a>
-        </div>
+      <div class="card h-100 border-0 shadow-sm p-4 d-flex flex-column">
+        <i class="fas fa-users fa-2x mb-3 text-primary"></i>
+        <h5 class="card-title">Join the PTO</h5>
+        <p class="card-text text-muted">Support planning, fundraising, and school needs by becoming a member.</p>
+        <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Learn More</a>
       </div>
+
       <!-- card 3 -->
-      <div class="col">
-        <div class="card h-100 border-0 shadow-sm p-4 d-flex flex-column">
-          <i class="fas fa-hand-holding-dollar fa-2x mb-3 text-primary"></i>
-          <h5 class="card-title">Donate to Support Our School</h5>
-          <p class="card-text text-muted">Your gifts directly fund classroom supplies, field trips, and special programs.</p>
-          <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Make a Donation</a>
-        </div>
+      <div class="card h-100 border-0 shadow-sm p-4 d-flex flex-column">
+        <i class="fas fa-hand-holding-dollar fa-2x mb-3 text-primary"></i>
+        <h5 class="card-title">Donate to Support Our School</h5>
+        <p class="card-text text-muted">Your gifts directly fund classroom supplies, field trips, and special programs.</p>
+        <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Make a Donation</a>
       </div>
+
       <!-- card 4 -->
-      <div class="col">
-        <div class="card h-100 border-0 shadow-sm p-4 d-flex flex-column">
-          <i class="fas fa-school fa-2x mb-3 text-primary"></i>
-          <h5 class="card-title">Classroom &amp; Teacher Support</h5>
-          <p class="card-text text-muted">Provide resources or time in the classroom to enhance learning experiences.</p>
-          <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Offer Support</a>
-        </div>
+      <div class="card h-100 border-0 shadow-sm p-4 d-flex flex-column">
+        <i class="fas fa-school fa-2x mb-3 text-primary"></i>
+        <h5 class="card-title">Classroom &amp; Teacher Support</h5>
+        <p class="card-text text-muted">Provide resources or time in the classroom to enhance learning experiences.</p>
+        <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Offer Support</a>
       </div>
+
       <!-- card 5 -->
-      <div class="col">
-        <div class="card h-100 border-0 shadow-sm p-4 d-flex flex-column">
-          <i class="fas fa-bullhorn fa-2x mb-3 text-primary"></i>
-          <h5 class="card-title">Spread the Word</h5>
-          <p class="card-text text-muted">Follow us on social media, share events, and help us reach more families.</p>
-          <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Stay Updated</a>
-        </div>
+      <div class="card h-100 border-0 shadow-sm p-4 d-flex flex-column">
+        <i class="fas fa-bullhorn fa-2x mb-3 text-primary"></i>
+        <h5 class="card-title">Spread the Word</h5>
+        <p class="card-text text-muted">Follow us on social media, share events, and help us reach more families.</p>
+        <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Stay Updated</a>
       </div>
+
       <!-- card 6 -->
-      <div class="col">
-        <div class="card h-100 border-0 shadow-sm p-4 d-flex flex-column">
-          <i class="fas fa-star fa-2x mb-3 text-primary"></i>
-          <h5 class="card-title">Every Effort Counts!</h5>
-          <p class="card-text text-muted">Whether big or small, your involvement helps build a stronger school community.</p>
-          <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Email Us</a>
-        </div>
+      <div class="card h-100 border-0 shadow-sm p-4 d-flex flex-column">
+        <i class="fas fa-star fa-2x mb-3 text-primary"></i>
+        <h5 class="card-title">Every Effort Counts!</h5>
+        <p class="card-text text-muted">Whether big or small, your involvement helps build a stronger school community.</p>
+        <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Email Us</a>
       </div>
     </div>
   </div>
@@ -822,6 +816,7 @@ HTML
         ]
     );
 }, 11 );
+
 
 /**
  * 3. Volunteer Sign-Up Form (two columns on desktop, full-width)
