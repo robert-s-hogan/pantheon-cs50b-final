@@ -2811,7 +2811,7 @@ textarea.form-control-lg {
   opacity: var(--bs-btn-disabled-opacity);
 }
 
-.btn-primary {
+.btn-primary, .get-involved__form .btn {
   --bs-btn-color: #ffffff;
   --bs-btn-bg: #3055c3;
   --bs-btn-border-color: #3055c3;
@@ -11350,6 +11350,78 @@ a.skip-link:not(:focus):not(:focus-within) {
 .events-calendar-section .h2 {
   font-family: "Russo One", sans-serif;
   letter-spacing: 0.5px;
+}
+
+.get-involved__hero {
+  padding-block: 3rem;
+  background-color: #f6f6f6;
+}
+.get-involved__hero .btn-primary, .get-involved__hero .get-involved__form .btn, .get-involved__form .get-involved__hero .btn {
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.25rem;
+}
+.get-involved__hero h1, .get-involved__hero .h1,
+.get-involved__hero h2,
+.get-involved__hero .h2 {
+  font-size: 2.5rem;
+  color: #1a2e69;
+}
+@media (min-width: 320px) {
+  .get-involved__hero h1, .get-involved__hero .h1,
+  .get-involved__hero h2,
+  .get-involved__hero .h2 {
+    font-size: calc(2.5rem + 0.75rem * (100vw - 320px) / (1200px - 320px));
+  }
+}
+@media (min-width: 1200px) {
+  .get-involved__hero h1, .get-involved__hero .h1,
+  .get-involved__hero h2,
+  .get-involved__hero .h2 {
+    font-size: 3.25rem;
+  }
+}
+.get-involved__hero p {
+  color: #1a2e69;
+  font-size: 1.125rem;
+}
+@media (min-width: 320px) {
+  .get-involved__hero p {
+    font-size: calc(1.125rem + 0rem * (100vw - 320px) / (1200px - 320px));
+  }
+}
+@media (min-width: 1200px) {
+  .get-involved__hero p {
+    font-size: 1.125rem;
+  }
+}
+
+.get-involved__card-list {
+  padding-block: 3rem;
+}
+.get-involved__card-list .card {
+  border: 1px solid #f6f6f6;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  padding: 2rem;
+  border-radius: 0.25rem;
+  background-color: #ffffff;
+}
+.get-involved__card-list .card-title {
+  font-weight: 600;
+}
+.get-involved__card-list .btn {
+  margin-top: 1rem;
+}
+
+.get-involved__form {
+  padding-block: 3rem;
+  background-color: #f6f6f6;
+}
+.get-involved__form .form-control {
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+}
+.get-involved__form .btn {
+  margin-top: 1rem;
 }
 
 .navbar-brand {
