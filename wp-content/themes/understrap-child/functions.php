@@ -711,7 +711,6 @@ HTML
 
 
 
-
 /**
  * ─────────────────────────────────────────────────
  * Get Involved Page — Block Patterns
@@ -726,7 +725,7 @@ add_action( 'init', function() {
         'whited/get-involved-hero',
         [
             'title'       => __( 'Get Involved – Hero', 'understrap-child' ),
-            'description' => __( 'Full-width hero section with headline and CTA for the Get Involved page', 'understrap-child' ),
+            'description' => __( 'Full-width hero section with headline and CTA', 'understrap-child' ),
             'categories'  => [ 'get-involved-page' ],
             'inserter'    => true,
             'content'     => <<<'HTML'
@@ -747,16 +746,15 @@ HTML
     );
 }, 11 );
 
-
 /**
- * 2. Ways to Get Involved (Card Grid)
+ * 2. Ways to Get Involved (Card Grid) with FA icons
  */
 add_action( 'init', function() {
     register_block_pattern(
         'whited/get-involved-ways',
         [
             'title'       => __( 'Get Involved – Ways to Participate', 'understrap-child' ),
-            'description' => __( 'Grid of cards showing different ways to get involved, each with an emoji icon and CTA', 'understrap-child' ),
+            'description' => __( 'Grid of cards showing different ways to get involved, each with a Font Awesome icon and CTA', 'understrap-child' ),
             'categories'  => [ 'get-involved-page' ],
             'inserter'    => true,
             'content'     => <<<'HTML'
@@ -766,7 +764,7 @@ add_action( 'init', function() {
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
       <div class="col">
         <div class="card h-100 border-0 shadow-sm p-4 d-flex flex-column">
-          <div class="fs-2 mb-3">🙋‍♂️</div>
+          <i class="fas fa-hands-helping fa-2x mb-3 text-primary"></i>
           <h5 class="card-title">Volunteer at an Event</h5>
           <p class="card-text text-muted">
             Help us run school events like Fall Harvest Festival or Family Fun Night.
@@ -774,7 +772,56 @@ add_action( 'init', function() {
           <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Sign Up</a>
         </div>
       </div>
-      <!-- Repeat for each card… -->
+      <div class="col">
+        <div class="card h-100 border-0 shadow-sm p-4 d-flex flex-column">
+          <i class="fas fa-users fa-2x mb-3 text-primary"></i>
+          <h5 class="card-title">Join the PTO</h5>
+          <p class="card-text text-muted">
+            Support planning, fundraising, and school needs by becoming a member.
+          </p>
+          <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Learn More</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 border-0 shadow-sm p-4 d-flex flex-column">
+          <i class="fas fa-hand-holding-dollar fa-2x mb-3 text-primary"></i>
+          <h5 class="card-title">Donate to Support Our School</h5>
+          <p class="card-text text-muted">
+            Your gifts directly fund classroom supplies, field trips, and special programs.
+          </p>
+          <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Make a Donation</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 border-0 shadow-sm p-4 d-flex flex-column">
+          <i class="fas fa-school fa-2x mb-3 text-primary"></i>
+          <h5 class="card-title">Classroom &amp; Teacher Support</h5>
+          <p class="card-text text-muted">
+            Provide resources or time in the classroom to enhance learning experiences.
+          </p>
+          <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Offer Support</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 border-0 shadow-sm p-4 d-flex flex-column">
+          <i class="fas fa-bullhorn fa-2x mb-3 text-primary"></i>
+          <h5 class="card-title">Spread the Word</h5>
+          <p class="card-text text-muted">
+            Follow us on social media, share events, and help us reach more families.
+          </p>
+          <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Stay Updated</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 border-0 shadow-sm p-4 d-flex flex-column">
+          <i class="fas fa-star fa-2x mb-3 text-primary"></i>
+          <h5 class="card-title">Every Effort Counts!</h5>
+          <p class="card-text text-muted">
+            Whether big or small, your involvement helps build a stronger school community.
+          </p>
+          <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Email Us</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -792,7 +839,7 @@ add_action( 'init', function() {
         'whited/get-involved-form',
         [
             'title'       => __( 'Get Involved – Volunteer Form', 'understrap-child' ),
-            'description' => __( 'Two-column sign-up form: Personal info + volunteer preferences', 'understrap-child' ),
+            'description' => __( 'Two-column sign-up form: personal info + preferences', 'understrap-child' ),
             'categories'  => [ 'get-involved-page' ],
             'inserter'    => true,
             'content'     => <<<'HTML'
@@ -800,21 +847,60 @@ add_action( 'init', function() {
   <div class="section__inner">
     <h2 class="section__heading text-center">Sign Up to Volunteer</h2>
     <form class="row g-4">
-      <!-- Personal Info -->
+      <!-- Personal Info Column -->
       <div class="col-md-6">
         <label for="first-name" class="form-label">First Name</label>
         <input type="text" id="first-name" class="form-control" placeholder="Enter first name">
-        <!-- …other fields… -->
+
+        <label for="last-name" class="form-label mt-3">Last Name</label>
+        <input type="text" id="last-name" class="form-control" placeholder="Enter last name">
+
+        <label for="email-address" class="form-label mt-3">Email Address</label>
+        <input type="email" id="email-address" class="form-control" placeholder="you@example.com">
+
+        <fieldset class="mt-3">
+          <legend class="col-form-label">Preferred Contact Method</legend>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="contact-email">
+            <label class="form-check-label" for="contact-email">Email</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="contact-phone">
+            <label class="form-check-label" for="contact-phone">Phone</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="contact-text">
+            <label class="form-check-label" for="contact-text">Text</label>
+          </div>
+        </fieldset>
       </div>
-      <!-- Volunteer Preferences -->
+
+      <!-- Volunteer Preferences Column -->
       <div class="col-md-6 section__form">
         <label for="interest" class="form-label">Select Volunteer Options</label>
         <select id="interest" class="form-select">
-          <option>Volunteer at an Event</option>
-          <!-- …etc… -->
+          <option value="Volunteer at an Event">Volunteer at an Event</option>
+          <option value="Join the PTO">Join the PTO</option>
+          <option value="Donate to Support Our School">Donate to Support Our School</option>
+          <option value="Classroom & Teacher Support">Classroom & Teacher Support</option>
+          <option value="Spread the Word">Spread the Word</option>
+          <option value="Every Effort Counts">Every Effort Counts</option>
         </select>
-        <!-- …other selects & textarea… -->
+
+        <label for="frequency" class="form-label mt-3">Preferred Commitment Frequency</label>
+        <select id="frequency" class="form-select">
+          <option>Once</option>
+          <option>Monthly</option>
+          <option>Weekly</option>
+        </select>
+
+        <label for="questions" class="form-label mt-3">
+          Any Questions/Concerns? <small class="text-muted">(Optional)</small>
+        </label>
+        <textarea id="questions" class="form-control" rows="3"></textarea>
       </div>
+
+      <!-- Submit Button -->
       <div class="col-12 text-center">
         <button type="submit" class="btn btn-primary btn-lg">Sign Me Up!</button>
       </div>
