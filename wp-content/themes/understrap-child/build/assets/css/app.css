@@ -1,11 +1,11 @@
 @charset "UTF-8";
 /* 0) Core variables & mixins */
 .hero-section, .featured-events-section, .why-section, .section {
-  padding-block: 5rem;
+  padding-block: 6rem;
 }
 
 .hero-section, .featured-events-section, .why-section, .section {
-  padding-block: 5rem;
+  padding-block: 6rem;
 }
 
 .section {
@@ -11109,7 +11109,7 @@ a.skip-link:not(:focus):not(:focus-within) {
 }
 
 .hero-section {
-  padding-block: 10rem;
+  padding-block: 12rem;
   background-color: #f6f6f6;
   text-align: center;
 }
@@ -11130,7 +11130,7 @@ a.skip-link:not(:focus):not(:focus-within) {
 
 .mission-section {
   background-color: #f6f6f6;
-  padding-block: 5rem;
+  padding-block: 6rem;
 }
 .mission-section .section-inner {
   max-width: 1320px;
@@ -11154,7 +11154,7 @@ a.skip-link:not(:focus):not(:focus-within) {
   background: #f6f6f6;
 }
 .about-hero-section .wp-block-cover__inner-container {
-  padding-block: 5rem;
+  padding-block: 6rem;
   text-align: center;
 }
 .about-hero-section .wp-block-cover__inner-container h1, .about-hero-section .wp-block-cover__inner-container .h1 {
@@ -11188,7 +11188,7 @@ a.skip-link:not(:focus):not(:focus-within) {
 }
 
 .about-board-section {
-  padding-block: 5rem;
+  padding-block: 6rem;
   background: #f6f6f6;
 }
 @media (min-width: 768px) {
@@ -11232,7 +11232,7 @@ a.skip-link:not(:focus):not(:focus-within) {
 }
 
 .about-highlights-section {
-  padding-block: 5rem;
+  padding-block: 6rem;
 }
 .about-highlights-section h2, .about-highlights-section .h2 {
   font-size: 2rem;
@@ -11281,7 +11281,7 @@ a.skip-link:not(:focus):not(:focus-within) {
 }
 
 .how-to-join-section {
-  padding-block: 5rem;
+  padding-block: 6rem;
   background: #f6f6f6;
 }
 .how-to-join-section h2, .how-to-join-section .h2 {
@@ -11382,7 +11382,7 @@ a.skip-link:not(:focus):not(:focus-within) {
 }
 
 .events-calendar-section {
-  padding-block: 5rem;
+  padding-block: 6rem;
 }
 .events-calendar-section .fw-bold {
   text-align: center;
@@ -11427,7 +11427,7 @@ a.skip-link:not(:focus):not(:focus-within) {
   background: #f6f6f6;
 }
 .get-involved__hero .container.section-inner {
-  padding-block: 5rem;
+  padding-block: 6rem;
   text-align: center;
 }
 .get-involved__hero .container.section-inner h1, .get-involved__hero .container.section-inner .h1 {
@@ -11464,7 +11464,7 @@ a.skip-link:not(:focus):not(:focus-within) {
 }
 
 .get-involved__card-list {
-  padding-block: 5rem;
+  padding-block: 6rem;
 }
 .get-involved__card-list .card {
   border: 1px solid #f6f6f6;
@@ -11481,7 +11481,7 @@ a.skip-link:not(:focus):not(:focus-within) {
 }
 
 .get-involved__form {
-  padding-block: 5rem;
+  padding-block: 6rem;
   background-color: #f6f6f6;
 }
 .get-involved__form .form-control,
