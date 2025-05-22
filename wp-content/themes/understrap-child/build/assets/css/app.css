@@ -79,6 +79,12 @@
   margin-top: 1rem;
 }
 
+.section__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 2rem;
+}
+
 /* 1) Bootstrap & UnderStrap */
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
