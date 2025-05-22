@@ -730,24 +730,23 @@ add_action( 'init', function() {
             'categories'  => [ 'get-involved-page' ],
             'inserter'    => true,
             'content'     => <<<'HTML'
-<section class="wp-block-group alignfull get-involved__hero py-5 bg-light">
+<section class="wp-block-group alignfull get-involved__hero">
   <div class="container section-inner text-center">
     <h1 class="fw-bold mb-3">
-      Be a Part of Something Bigger –<br/>
+      Be a Part of Something Bigger –<br>
       Get Involved with Whited PTO!
     </h1>
     <p class="lead mb-4">
       Your time, skills, and support make a difference for our students. Join us today!
     </p>
-    <a href="#volunteer-form" class="btn btn-primary btn-lg">
-      Sign Up to Volunteer
-    </a>
+    <a href="#volunteer-form" class="btn btn-primary btn-lg">Sign Up to Volunteer</a>
   </div>
 </section>
 HTML
         ]
     );
 }, 11 );
+
 
 /**
  * 2. Ways to Get Involved (Card Grid)
@@ -772,7 +771,7 @@ add_action( 'init', function() {
           <p class="card-text text-muted">
             Help us run school events like Fall Harvest Festival or Family Fun Night.
           </p>
-          <a href="#" class="btn btn-outline-primary mt-auto">Sign Up</a>
+          <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Sign Up</a>
         </div>
       </div>
       <div class="col">
@@ -782,7 +781,7 @@ add_action( 'init', function() {
           <p class="card-text text-muted">
             Support planning, fundraising, and school needs by becoming a member.
           </p>
-          <a href="#" class="btn btn-outline-primary mt-auto">Learn More</a>
+          <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Learn More</a>
         </div>
       </div>
       <div class="col">
@@ -792,7 +791,7 @@ add_action( 'init', function() {
           <p class="card-text text-muted">
             Your gifts directly fund classroom supplies, field trips, and special programs.
           </p>
-          <a href="#" class="btn btn-outline-primary mt-auto">Make a Donation</a>
+          <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Make a Donation</a>
         </div>
       </div>
       <div class="col">
@@ -802,7 +801,7 @@ add_action( 'init', function() {
           <p class="card-text text-muted">
             Provide resources or time in the classroom to enhance learning experiences.
           </p>
-          <a href="#" class="btn btn-outline-primary mt-auto">Offer Support</a>
+          <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Offer Support</a>
         </div>
       </div>
       <div class="col">
@@ -812,7 +811,7 @@ add_action( 'init', function() {
           <p class="card-text text-muted">
             Follow us on social media, share events, and help us reach more families.
           </p>
-          <a href="#" class="btn btn-outline-primary mt-auto">Stay Updated</a>
+          <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Stay Updated</a>
         </div>
       </div>
       <div class="col">
@@ -822,7 +821,7 @@ add_action( 'init', function() {
           <p class="card-text text-muted">
             Whether big or small, your involvement helps build a stronger school community.
           </p>
-          <a href="#" class="btn btn-outline-primary mt-auto">Email Us</a>
+          <a href="#volunteer-form" class="btn btn-outline-primary mt-auto">Email Us</a>
         </div>
       </div>
     </div>
@@ -832,6 +831,7 @@ HTML
         ]
     );
 }, 11 );
+
 
 /**
  * 3. Volunteer Sign-Up Form

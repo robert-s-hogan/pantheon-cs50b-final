@@ -2811,7 +2811,7 @@ textarea.form-control-lg {
   opacity: var(--bs-btn-disabled-opacity);
 }
 
-.btn-primary, .get-involved__form .btn {
+.btn-primary {
   --bs-btn-color: #ffffff;
   --bs-btn-bg: #3055c3;
   --bs-btn-border-color: #3055c3;
@@ -11356,43 +11356,37 @@ a.skip-link:not(:focus):not(:focus-within) {
   padding-block: 3rem;
   background-color: #f6f6f6;
 }
-.get-involved__hero .btn-primary, .get-involved__hero .get-involved__form .btn, .get-involved__form .get-involved__hero .btn {
-  padding: 0.625rem 1.25rem;
-  border-radius: 0.25rem;
-}
-.get-involved__hero h1, .get-involved__hero .h1,
-.get-involved__hero h2,
-.get-involved__hero .h2 {
+.get-involved__hero h1, .get-involved__hero .h1 {
   font-size: 2.5rem;
   color: #1a2e69;
 }
 @media (min-width: 320px) {
-  .get-involved__hero h1, .get-involved__hero .h1,
-  .get-involved__hero h2,
-  .get-involved__hero .h2 {
+  .get-involved__hero h1, .get-involved__hero .h1 {
     font-size: calc(2.5rem + 0.75rem * (100vw - 320px) / (1200px - 320px));
   }
 }
 @media (min-width: 1200px) {
-  .get-involved__hero h1, .get-involved__hero .h1,
-  .get-involved__hero h2,
-  .get-involved__hero .h2 {
+  .get-involved__hero h1, .get-involved__hero .h1 {
     font-size: 3.25rem;
   }
 }
-.get-involved__hero p {
-  color: #1a2e69;
+.get-involved__hero p.lead {
   font-size: 1.125rem;
+  color: #1a2e69;
 }
 @media (min-width: 320px) {
-  .get-involved__hero p {
+  .get-involved__hero p.lead {
     font-size: calc(1.125rem + 0rem * (100vw - 320px) / (1200px - 320px));
   }
 }
 @media (min-width: 1200px) {
-  .get-involved__hero p {
+  .get-involved__hero p.lead {
     font-size: 1.125rem;
   }
+}
+.get-involved__hero .btn-primary {
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.25rem;
 }
 
 .get-involved__card-list {
@@ -11416,11 +11410,15 @@ a.skip-link:not(:focus):not(:focus-within) {
   padding-block: 3rem;
   background-color: #f6f6f6;
 }
-.get-involved__form .form-control {
+.get-involved__form .form-control,
+.get-involved__form .form-select {
   border-radius: 0.25rem;
   padding: 0.5rem 0.75rem;
 }
-.get-involved__form .btn {
+.get-involved__form .form-label {
+  font-weight: 500;
+}
+.get-involved__form button {
   margin-top: 1rem;
 }
 
