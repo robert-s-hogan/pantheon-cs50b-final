@@ -1,4 +1,4 @@
-Understrap Child Theme Code Audit - 2025-05-22 04:44:42
+Understrap Child Theme Code Audit - 2025-05-22 19:12:58
 Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-final/wp-content/themes/understrap-child
 ---------------------------------------------
 
@@ -359,6 +359,76 @@ Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-fin
 
 ---------------------------------------------
 
+🔹 src/sass/layout/_get-involved-sections.scss
+
+// Hero CTA
+.get-involved__hero {
+  background: $gray-100;
+
+  .container.section-inner {
+    @include section-spacing;
+    text-align: center;
+
+    h1 {
+      @include fluid-type($fs-section-h1-min, $fs-section-h1-max);
+      color: $black;
+      margin-bottom: $spacer;
+    }
+
+    p {
+      @include fluid-type($fs-subheading-min, $fs-subheading-max);
+      color: $black;
+    }
+
+    .btn {
+      margin-top: $spacer;
+    }
+  }
+}
+
+// Card section
+.get-involved__card-list {
+  @include section-spacing;
+
+  .card {
+    border: 1px solid $gray-100;
+    box-shadow: 0 0.125rem 0.25rem rgba($black, 0.075);
+    padding: $spacer-2;
+    border-radius: $btn-border-radius;
+    background-color: $white;
+  }
+
+  .card-title {
+    font-weight: 600;
+  }
+
+  .btn {
+    margin-top: $spacer;
+  }
+}
+
+// Form
+.get-involved__form {
+  @include section-spacing;
+  background-color: $gray-100;
+
+  .form-control,
+  .form-select {
+    border-radius: $btn-border-radius;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .form-label {
+    font-weight: 500;
+  }
+
+  button {
+    margin-top: $spacer;
+  }
+}
+
+---------------------------------------------
+
 🔹 src/sass/layout/_footer.scss
 
 // _footer.scss
@@ -428,6 +498,89 @@ Root: /Users/roberthogan/Github/personal/_private/_school/cs50b/rhogan-cs50b-fin
       }
     }
   }
+}
+
+---------------------------------------------
+
+🔹 src/sass/sections.scss
+
+// src/sass/sections.scss
+
+//-----------------------------------------------------------------------------
+// Base Section Wrapper
+//-----------------------------------------------------------------------------
+.section {
+  @extend %section-spacing;
+  width: 100%;
+  position: relative;
+}
+
+//-----------------------------------------------------------------------------
+// Background Modifiers
+//-----------------------------------------------------------------------------
+// Light gray background
+.section--gray {
+  background-color: $gray-100;
+}
+
+// White background (override if needed)
+.section--white {
+  background-color: $white;
+}
+
+//-----------------------------------------------------------------------------
+// Inner Container
+//-----------------------------------------------------------------------------
+// Centers content and applies max-width
+.section__inner {
+  @include centered-container();
+}
+
+//-----------------------------------------------------------------------------
+// Section Headings & Subtitles
+//-----------------------------------------------------------------------------
+.section__heading {
+  @include fluid-type($fs-section-h2-min, $fs-section-h2-max);
+  margin-bottom: $spacer * 2;
+  text-align: center;
+}
+
+.section__subtitle {
+  @include fluid-type($fs-subheading-min, $fs-subheading-max);
+  margin-bottom: $spacer * 1.5;
+  text-align: center;
+}
+
+//-----------------------------------------------------------------------------
+// Responsive Card Grid (optional utility)
+//-----------------------------------------------------------------------------
+.section__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: $spacer * 2;
+}
+
+//-----------------------------------------------------------------------------
+// Form Wrapper (optional utility)
+//-----------------------------------------------------------------------------
+.section__form {
+  .form-control,
+  .form-select {
+    border-radius: $btn-border-radius;
+    padding: 0.5rem 0.75rem;
+  }
+  .form-label {
+    font-weight: 500;
+  }
+  button {
+    margin-top: $spacer;
+  }
+}
+
+.section__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: $spacer * 2; // uses your global spacing variable
 }
 
 ---------------------------------------------
@@ -654,6 +807,7 @@ header.page-header-title {
 $spacer: 1rem !default;
 $spacer-xl: $spacer * 3 !default;
 $spacer-2: $spacer * 2 !default;
+$section-space: $spacer * 9 !default;
 
 /// Brand colors
 $primary: #3055c3 !default; // Douglas‑Whited blue
@@ -13376,34 +13530,37 @@ $gutters: $spacers !default;
 
 🔹 src/sass/app.scss
 
-/* ───────────────────────── 0) Core variables & mixins ───────────────────── */
-@import "theme/_child_theme_variables"; // $spacer, colors, etc.
-@import "theme/mixins/utils"; // $spacer, colors, etc.
-@import "theme/mixins/section-spacing"; // depends on $spacer-xl
+/* 0) Core variables & mixins */
+@import "theme/_child_theme_variables";
+@import "theme/mixins/utils";
+@import "theme/mixins/section-spacing";
+@import "theme/mixins/container";
+@import "sections";
 
-/* ───────────────────────── 1) Bootstrap & UnderStrap ────────────────────── */
+/* 1) Bootstrap & UnderStrap */
 @import "assets/bootstrap5/bootstrap";
 @import "assets/understrap/theme/understrap";
 
-/* ───────────────────────── 2) Utilities / fonts ─────────────────────────── */
+/* 2) Utilities / fonts */
 @import "assets/underscores";
 
-/* ───────────────────────── 3) Layout partials ───────────────────────────── */
+/* 3) Layout partials */
 @import "layout/home-sections";
 @import "layout/about-sections";
 @import "layout/events-sections";
-@import "theme/nav-custom";
+@import "layout/get-involved-sections";
 @import "layout/footer";
 
-/* ───────────────────────── 4) Overrides ───────────────────────────── */
+/* 4) Theme‐level customizations */
+@import "theme/nav-custom";
 @import "theme/overrides";
 
+/* Base typography */
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
 }
-
 h1,
 h2,
 h3,

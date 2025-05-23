@@ -880,3 +880,512 @@ HTML
         ]
     );
 }, 11 );
+
+
+/** 
+ *   LAST 5 PAGES DONT EDIT ABOVE
+ */
+
+add_action( 'init', function() {
+    // 1. Hero
+    register_block_pattern(
+        'whited/hero',
+        [
+            'title'       => __( 'Hero Section', 'understrap-child' ),
+            'description' => __( 'Full-width hero with headline, subhead, and CTA', 'understrap-child' ),
+            'categories'  => [ 'layout' ],
+            'inserter'    => true,
+            'content'     => <<<'HTML'
+<section class="hero alignfull">
+  <div class="section__inner">
+    <h1>Welcome to Our Community</h1>
+    <p class="fs-5">Supporting Students – Empowering Families</p>
+    <a href="#get-involved" class="btn btn-primary btn-lg">Get Involved</a>
+  </div>
+</section>
+HTML
+        ]
+    );
+
+    // 2. Mission Section
+    register_block_pattern(
+        'whited/mission',
+        [
+            'title'       => __( 'Mission Section', 'understrap-child' ),
+            'description' => __( 'Centered mission statement on gray background', 'understrap-child' ),
+            'categories'  => [ 'layout' ],
+            'inserter'    => true,
+            'content'     => <<<'HTML'
+<section class="mission-section section section--gray alignfull">
+  <div class="section__inner container">
+    <h2>At Whited Elementary PTO, our mission is simple:</h2>
+    <p>
+      We strive to enhance the educational experience…  
+      Through volunteer efforts, fundraising events, and open communication,  
+      we work together to create a positive environment where every family can thrive.
+    </p>
+  </div>
+</section>
+HTML
+        ]
+    );
+
+    // 3. Feature Grid
+    register_block_pattern(
+        'whited/feature-grid',
+        [
+            'title'       => __( 'Feature Grid: Why Get Involved', 'understrap-child' ),
+            'description' => __( 'Three-column grid with icons, titles, copy, and primary CTA', 'understrap-child' ),
+            'categories'  => [ 'get-involved-page' ],
+            'inserter'    => true,
+            'content'     => <<<'HTML'
+<section class="feature-grid section alignfull">
+  <div class="container">
+    <h2 class="text-center mb-5">Why Get Involved?</h2>
+    <div class="row">
+      <div class="col-4 text-center feature-grid__item">
+        <i class="fas fa-handshake fa-3x mb-3"></i>
+        <h3>Support Our Students</h3>
+        <p>Volunteering in the classroom or at events …</p>
+      </div>
+      <div class="col-4 text-center feature-grid__item">
+        <i class="fas fa-users fa-3x mb-3"></i>
+        <h3>Build Community</h3>
+        <p>Join family-friendly gatherings like our Fall Festival …</p>
+      </div>
+      <div class="col-4 text-center feature-grid__item">
+        <i class="fas fa-school fa-3x mb-3"></i>
+        <h3>Bridge Home &amp; School</h3>
+        <p>Serve as a liaison between parents and teachers …</p>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="#get-involved" class="btn btn-primary btn-lg">Get Involved</a>
+    </div>
+  </div>
+</section>
+HTML
+        ]
+    );
+
+    // 4. Subscribe & Calendar CTA
+    register_block_pattern(
+        'whited/subscribe-calendar',
+        [
+            'title'       => __( 'Subscribe & Calendar CTA', 'understrap-child' ),
+            'description' => __( 'Buttons to download ICS and link to Google Calendar', 'understrap-child' ),
+            'categories'  => [ 'events-page' ],
+            'inserter'    => true,
+            'content'     => <<<'HTML'
+<section class="subscribe-calendar section alignfull">
+  <div class="section__inner text-center">
+    <a href="/path/to/whited-pto-events.ics" class="btn btn-secondary me-2" download>
+      <i class="fas fa-calendar-alt"></i> Subscribe to Calendar
+    </a>
+    <a href="https://calendar.google.com/calendar/r?cid=YOUR_ICAL_URL" class="btn btn-outline-primary" target="_blank" rel="noopener">
+      <i class="fab fa-google"></i> Google Calendar
+    </a>
+  </div>
+</section>
+HTML
+        ]
+    );
+
+    // 5. Upcoming Events List
+    register_block_pattern(
+        'whited/events-list',
+        [
+            'title'       => __( 'Upcoming Events List', 'understrap-child' ),
+            'description' => __( 'Repeatable event cards with image, meta, description, and actions', 'understrap-child' ),
+            'categories'  => [ 'events-page' ],
+            'inserter'    => true,
+            'content'     => <<<'HTML'
+<section class="events-list section alignfull">
+  <div class="section__inner container">
+    <h2 class="section-heading">Upcoming Events</h2>
+    <p class="section-subheading">Join us for our upcoming events! Click the buttons below to view flyers and get directions.</p>
+
+    <div class="event-card">
+      <div class="event-card__media">
+        <a href="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/holiday_craft_faire_flyer.png" target="_blank" rel="noopener noreferrer">
+          <img src="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/holiday_craft_faire_flyer.png" alt="Holiday Vendor & Craft Faire Flyer" />
+        </a>
+      </div>
+      <div class="event-card__content">
+        <h3>Whited Elementary Holiday Vendor &amp; Craft Faire</h3>
+        <div class="event-meta">
+          <div><i class="fas fa-calendar"></i> December 7, 2024</div>
+          <div><i class="fas fa-clock"></i> 10 AM – 2 PM</div>
+          <div><i class="fas fa-map-marker-alt"></i> Douglas Whited MPR</div>
+        </div>
+        <p class="event-description">Holiday crafts, homebaked goods, jewelry, candles, tamales, and more!</p>
+        <div class="event-actions">
+          <a href="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/holiday_craft_faire_flyer.png" download class="btn btn-outline-primary">
+            <i class="fas fa-download"></i> Download Flyer
+          </a>
+          <a href="#" class="btn btn-primary">Get Directions</a>
+          <a href="/path/to/holiday_craft_faire.ics" class="btn btn-secondary ms-2" download>
+            <i class="fas fa-calendar-plus"></i> Add to Calendar
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Repeat .event-card for each event -->
+  </div>
+</section>
+HTML
+        ]
+    );
+
+} );
+
+
+// 6. Media Highlight – History / Spotlight
+register_block_pattern(
+    'whited/media-highlight',
+    [
+        'title'       => __( 'Media Highlight', 'understrap-child' ),
+        'description' => __( 'Two-column highlight: years list + image', 'understrap-child' ),
+        'categories'  => [ 'about-page' ],
+        'inserter'    => true,
+        'content'     => <<<'HTML'
+<section class="media-highlight section alignfull media-highlight--v-center media-highlight--h-center">
+  <div class="section__inner container">
+    <h2 class="section-heading">History of the PTO</h2>
+    <div class="media-highlight__wrap">
+      <!-- Text Column -->
+      <div class="media-highlight__text">
+        <ul class="highlight-list">
+          <li><span class="highlight-list__year">2000</span> PTO founded by six dedicated parents.</li>
+          <li><span class="highlight-list__year">2005</span> First Fall Festival raised $2,500…</li>
+          <li><span class="highlight-list__year">2010</span> Renovated outdoor reading garden…</li>
+          <li><span class="highlight-list__year">2020</span> Pivoted to virtual events…</li>
+          <li><span class="highlight-list__year">2023</span> Awarded tech grant for every classroom.</li>
+        </ul>
+      </div>
+      <!-- Image Column -->
+      <figure class="media-highlight__media">
+        <img src="https://dev-rhogan-cs50b-final.pantheonsite.io/wp-content/uploads/2025/05/hero-default-1024x683.jpeg"
+             alt="Douglas Whited Elementary school front" />
+        <figcaption class="media-highlight__caption">Founded in 2000 with just a handful of parents.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+HTML
+    ]
+);
+
+// 7. Volunteer Sign-Up Form
+register_block_pattern(
+    'whited/volunteer-form',
+    [
+        'title'       => __( 'Volunteer Sign-Up Form', 'understrap-child' ),
+        'description' => __( 'Two-column sign-up form: personal info + preferences', 'understrap-child' ),
+        'categories'  => [ 'get-involved-page' ],
+        'inserter'    => true,
+        'content'     => <<<'HTML'
+<section id="volunteer-form" class="volunteer-form section section--gray alignfull">
+  <div class="section__inner container">
+    <h2 class="section-heading text-center mb-5">Sign Up to Volunteer</h2>
+    <form class="row g-4">
+      <!-- Col 1: Personal Info -->
+      <div class="col-12 col-md-6">
+        <h3 class="form-subheading">Personal Information</h3>
+        <label class="form-label"><i class="fas fa-user"></i> Volunteer Name</label>
+        <input type="text" class="form-control" placeholder="First & Last Name">
+        <label class="form-label mt-3"><i class="fas fa-envelope"></i> Email Address</label>
+        <input type="email" class="form-control" placeholder="you@example.com">
+        <label class="form-label mt-3"><i class="fas fa-phone"></i> Phone Number</label>
+        <input type="tel" class="form-control" placeholder="707-555-1234">
+        <fieldset class="mt-3">
+          <legend class="col-form-label"><i class="fas fa-comments"></i> Preferred Contact Method</legend>
+          <div class="form-check"><input class="form-check-input" type="checkbox"><label class="form-check-label">Email</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox"><label class="form-check-label">Phone</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox"><label class="form-check-label">Text</label></div>
+        </fieldset>
+      </div>
+      <!-- Col 2: Preferences -->
+      <div class="col-12 col-md-6">
+        <h3 class="form-subheading">Volunteer Preferences</h3>
+        <label class="form-label"><i class="fas fa-hands-helping"></i> Interests</label>
+        <select class="form-select mb-3">
+          <option>Volunteer at an Event</option>
+          <option>Join the PTO Board</option>
+          <option>Donate to Support Our School</option>
+        </select>
+        <label class="form-label"><i class="fas fa-clock"></i> Preferred Times</label>
+        <select class="form-select mb-3">
+          <option>Morning</option>
+          <option>Afternoon</option>
+          <option>Evening</option>
+        </select>
+        <label class="form-label"><i class="fas fa-question-circle"></i> Questions/Requests <small>(Optional)</small></label>
+        <textarea class="form-control" rows="4" placeholder="Enter any questions or concerns"></textarea>
+      </div>
+      <!-- Submit -->
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary btn-lg">
+          <i class="fas fa-paper-plane"></i> Sign Me Up!
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+HTML
+    ]
+);
+
+// 8. FAQ Section
+register_block_pattern(
+    'whited/faq-section',
+    [
+        'title'       => __( 'FAQ Section', 'understrap-child' ),
+        'description' => __( 'Accordion with common questions & answers', 'understrap-child' ),
+        'categories'  => [ 'layout' ],
+        'inserter'    => true,
+        'content'     => <<<'HTML'
+<section class="faq-section section alignfull">
+  <div class="section__inner container">
+    <h2 class="section-heading text-center mb-4">Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+      <!-- Q1 -->
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="faqHeading1">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faqCollapse1"
+                  aria-expanded="false"
+                  aria-controls="faqCollapse1">
+            <i class="fas fa-question-circle text-primary me-2"></i>
+            How can I donate to the PTO?
+          </button>
+        </h3>
+        <div id="faqCollapse1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            You can donate online via our <a href="#">Donations Page</a> or send a check to Douglas Whited Elementary.
+          </div>
+        </div>
+      </div>
+      <!-- Q2 -->
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="faqHeading2">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faqCollapse2"
+                  aria-expanded="false"
+                  aria-controls="faqCollapse2">
+            <i class="fas fa-question-circle text-primary me-2"></i>
+            When and where are meetings held?
+          </button>
+        </h3>
+        <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Meetings occur the second Tuesday monthly at 6pm in the school library.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+HTML
+    ]
+);
+
+// 9. Spotlight Stats
+register_block_pattern(
+    'whited/stats',
+    [
+        'title'       => __( 'Spotlight Stats', 'understrap-child' ),
+        'description' => __( 'Four key numbers in a row', 'understrap-child' ),
+        'categories'  => [ 'layout' ],
+        'inserter'    => true,
+        'content'     => <<<'HTML'
+<section class="stats-section section alignfull">
+  <div class="section__inner container">
+    <h2 class="section-heading text-center mb-4">By the Numbers</h2>
+    <div class="row stats-grid">
+      <div class="col-sm-6 col-md-3 stat">
+        <div class="stat-value">336</div><div class="stat-label">Students Enrolled</div>
+      </div>
+      <div class="col-sm-6 col-md-3 stat">
+        <div class="stat-value">10</div><div class="stat-label">Pages on Site</div>
+      </div>
+      <div class="col-sm-6 col-md-3 stat">
+        <div class="stat-value">23</div><div class="stat-label">Events Hosted</div>
+      </div>
+      <div class="col-sm-6 col-md-3 stat">
+        <div class="stat-value">1500</div><div class="stat-label">Volunteer Hours</div>
+      </div>
+    </div>
+  </div>
+</section>
+HTML
+    ]
+);
+
+// 10. How It Works Steps
+register_block_pattern(
+    'whited/steps',
+    [
+        'title'       => __( 'How It Works Steps', 'understrap-child' ),
+        'description' => __( 'Three-step icon-driven process', 'understrap-child' ),
+        'categories'  => [ 'get-involved-page' ],
+        'inserter'    => true,
+        'content'     => <<<'HTML'
+<section class="steps-section section alignfull">
+  <div class="section__inner container text-center">
+    <h2 class="section-heading mb-4">How It Works</h2>
+    <div class="row g-4">
+      <div class="col-md-4 step">
+        <i class="fas fa-user-plus fa-2x mb-2"></i><h3>Sign Up</h3><p>Create your volunteer profile in minutes.</p>
+      </div>
+      <div class="col-md-4 step">
+        <i class="fas fa-calendar-check fa-2x mb-2"></i><h3>Choose an Event</h3><p>Browse upcoming activities and grab a spot.</p>
+      </div>
+      <div class="col-md-4 step">
+        <i class="fas fa-hands-helping fa-2x mb-2"></i><h3>Show Up &amp; Help</h3><p>Join us on the big day and make a difference.</p>
+      </div>
+    </div>
+  </div>
+</section>
+HTML
+    ]
+);
+
+// 11. Quick Links
+register_block_pattern(
+    'whited/quick-links',
+    [
+        'title'       => __( 'Quick Links', 'understrap-child' ),
+        'description' => __( 'Inline list of key site links', 'understrap-child' ),
+        'categories'  => [ 'layout' ],
+        'inserter'    => true,
+        'content'     => <<<'HTML'
+<section class="quick-links section alignfull">
+  <div class="section__inner container text-center">
+    <h2 class="section-heading mb-4">Quick Links</h2>
+    <ul class="links-list list-inline">
+      <li class="list-inline-item"><a href="#mission">Mission &amp; Purpose</a></li>
+      <li class="list-inline-item"><a href="#get-involved">Get Involved</a></li>
+      <li class="list-inline-item"><a href="#events">Upcoming Events</a></li>
+      <li class="list-inline-item"><a href="#donate">Donate</a></li>
+    </ul>
+  </div>
+</section>
+HTML
+    ]
+);
+
+// 12. News Archive List
+register_block_pattern(
+    'whited/archive-list',
+    [
+        'title'       => __( 'News Archive List', 'understrap-child' ),
+        'description' => __( 'Filterable list of archived posts', 'understrap-child' ),
+        'categories'  => [ 'news-page' ],
+        'inserter'    => true,
+        'content'     => <<<'HTML'
+<section class="archive-section section alignfull">
+  <div class="section__inner container">
+    <h2 class="section-heading mb-4">News Archive</h2>
+    <div class="d-flex mb-3">
+      <select class="form-select w-auto me-3">
+        <option>All Categories</option>
+        <option>Announcements</option>
+        <option>Fundraisers</option>
+      </select>
+      <select class="form-select w-auto">
+        <option>All Dates</option>
+        <option>2025</option>
+        <option>2024</option>
+      </select>
+    </div>
+    <ul class="archive-list">
+      <li><a href="#">Fall Harvest Festival Recap <small>(Oct 15, 2024)</small></a></li>
+      <li><a href="#">Spring Carnival Photos <small>(Apr 20, 2024)</small></a></li>
+      <!-- more items -->
+    </ul>
+  </div>
+</section>
+HTML
+    ]
+);
+
+// 13. FAQ Teaser
+register_block_pattern(
+    'whited/faq-teaser',
+    [
+        'title'       => __( 'FAQ Teaser', 'understrap-child' ),
+        'description' => __( 'Call-out with link to full FAQ page', 'understrap-child' ),
+        'categories'  => [ 'layout' ],
+        'inserter'    => true,
+        'content'     => <<<'HTML'
+<section class="faq-teaser section alignfull text-center">
+  <div class="section__inner container">
+    <p>Can’t find what you’re looking for? <a href="/faq" class="text-primary fw-bold">Visit our FAQ <i class="fas fa-chevron-right"></i></a></p>
+  </div>
+</section>
+HTML
+    ]
+);
+
+// 14. Testimonials Carousel
+register_block_pattern(
+    'whited/testimonials',
+    [
+        'title'       => __( 'Testimonials Carousel', 'understrap-child' ),
+        'description' => __( 'Rotating quotes from parents', 'understrap-child' ),
+        'categories'  => [ 'layout' ],
+        'inserter'    => true,
+        'content'     => <<<'HTML'
+<section class="testimonials-section section alignfull">
+  <div class="section__inner container text-center">
+    <h2 class="section-heading mb-4">What Parents Say</h2>
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <blockquote>“Joining the PTO has been the best decision for my family. We’ve made lifelong friends!”</blockquote>
+          <footer>— Jane Doe, Parent</footer>
+        </div>
+        <div class="carousel-item">
+          <blockquote>“Our kids love the events. The PTO really brings the community together.”</blockquote>
+          <footer>— Mark Smith, Parent</footer>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <i class="fas fa-chevron-left fa-lg"></i>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <i class="fas fa-chevron-right fa-lg"></i>
+      </button>
+    </div>
+  </div>
+</section>
+HTML
+    ]
+);
+
+// 15. Map Embed
+register_block_pattern(
+    'whited/map-embed',
+    [
+        'title'       => __( 'Google Map Embed', 'understrap-child' ),
+        'description' => __( 'Full-width embedded Google Map', 'understrap-child' ),
+        'categories'  => [ 'contact-page' ],
+        'inserter'    => true,
+        'content'     => <<<'HTML'
+<section class="map-section section alignfull">
+  <div class="section__inner container">
+    <h2 class="section-heading text-center mb-4">Our Location</h2>
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?...YOUR_MAP_URL..." width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+HTML
+    ]
+);

@@ -5,6 +5,11 @@ $spacer-2: $spacer * 2 !default;
 $section-space: $spacer * 9 !default;
 
 /// Brand colors
+$brand-blue: #3055c3 !default;
+$brand-gold: #ffcb2a !default;
+$color-primary: $brand-gold; // use for main CTAs
+$color-secondary: $brand-blue; // use for secondary buttons, links
+
 $primary: #3055c3 !default; // Douglas‑Whited blue
 $secondary: #ffcb2a !default; // Golden yellow
 $black: #000 !default;
@@ -34,6 +39,12 @@ $fs-section-h2-min: 2rem !default;
 $fs-section-h2-max: 2.5rem !default;
 $fs-subheading-min: 1rem !default;
 $fs-subheading-max: 1.25rem !default;
+$fs-h1-min: 2.5rem !default;
+$fs-h1-max: 3.25rem !default;
+$fs-h2-min: 2rem !default;
+$fs-h2-max: 2.5rem !default;
+$fs-body-min: 1rem !default;
+$fs-body-max: 1.125rem !default;
 
 // BUTTONS
 $btn-padding-y: 0.625rem !default; // 10px
