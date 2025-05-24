@@ -834,7 +834,6 @@ add_action( 'init', function() {
   <div class="section__inner">
     <h2 class="section__heading text-center">Sign Up to Volunteer</h2>
     <form class="row g-4">
-      <!-- Column 1: Personal Info -->
       <div class="col-12 col-md-6">
         <label for="first-name" class="form-label">First Name</label>
         <input type="text" id="first-name" class="form-control" placeholder="Enter first name">
@@ -849,7 +848,6 @@ add_action( 'init', function() {
           <div class="form-check"><input class="form-check-input" type="checkbox" id="contact-text"><label class="form-check-label" for="contact-text">Text</label></div>
         </fieldset>
       </div>
-      <!-- Column 2: Preferences -->
       <div class="col-12 col-md-6">
         <label for="interest" class="form-label">Select Volunteer Options</label>
         <select id="interest" class="form-select mb-3">
@@ -869,7 +867,6 @@ add_action( 'init', function() {
         <label for="questions" class="form-label">Any Questions/Concerns? <small class="text-muted">(Optional)</small></label>
         <textarea id="questions" class="form-control mb-3" rows="3"></textarea>
       </div>
-      <!-- Submit -->
       <div class="col-12 text-center">
         <button type="submit" class="btn btn-primary btn-lg">Sign Me Up!</button>
       </div>
