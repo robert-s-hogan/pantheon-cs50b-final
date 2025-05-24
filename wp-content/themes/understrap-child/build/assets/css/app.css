@@ -12664,7 +12664,7 @@ header.page-header-title {
     transition: none;
   }
 }
-.navbar-nav li.nav-cta > a:hover, .navbar-nav li.nav-cta > a:focus {
+.navbar-nav li.nav-cta > a:focus {
   background-color: rgb(195, 147.3943661972, 0);
   color: #ffffff !important;
 }
