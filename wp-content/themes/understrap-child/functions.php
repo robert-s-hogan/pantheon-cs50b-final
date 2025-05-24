@@ -1383,3 +1383,30 @@ register_block_pattern(
 HTML
     ]
 );
+
+
+register_block_pattern(
+    'whited/subscribe-section',
+    [
+        'title'       => __( 'Subscribe Section', 'understrap-child' ),
+        'description' => __( 'Email signup call-out: heading, text, and input+button', 'understrap-child' ),
+        'categories'  => [ 'layout' ],
+        'inserter'    => true,
+        'content'     => <<<'HTML'
+<section class="subscribe-section section alignfull">
+  <div class="section__inner container d-flex flex-column flex-md-row align-items-center justify-content-between">
+    <div class="subscribe-text w-100">
+      <h3>Stay in the Loop</h3>
+      <p>Get PTO updates delivered to your inbox.</p>
+    </div>
+    <form class="subscribe-form d-flex w-100 w-md-auto">
+      <input type="email" class="form-control me-2" placeholder="you@example.com" />
+      <button type="submit" class="btn btn-primary">
+        <i class="fas fa-envelope"></i> Subscribe
+      </button>
+    </form>
+  </div>
+</section>
+HTML
+    ]
+);
