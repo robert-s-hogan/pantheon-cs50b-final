@@ -1459,3 +1459,44 @@ HTML
         ]
     );
 }, 11 );
+
+
+add_action( 'init', function() {
+    register_block_pattern(
+        'whited/contact-form',
+        [
+            'title'       => __( 'Contact Form', 'understrap-child' ),
+            'description' => __( 'Simple two-column contact form: name/email + subject/message', 'understrap-child' ),
+            'categories'  => [ 'layout', 'forms' ],
+            'inserter'    => true,
+            'content'     => <<<'HTML'
+<section class="contact-form section section--gray alignfull">
+  <div class="section__inner container">
+    <h2 class="section-heading text-center mb-5">Get in Touch</h2>
+    <div class="form-card">
+      <form class="row g-4">
+        <div class="col-12 col-md-6">
+          <label for="contact-name" class="form-label"><i class="fas fa-user"></i> Your Name</label>
+          <input type="text" id="contact-name" class="form-control" placeholder="First & Last Name">
+          <label for="contact-email" class="form-label mt-3"><i class="fas fa-envelope"></i> Email Address</label>
+          <input type="email" id="contact-email" class="form-control" placeholder="you@example.com">
+        </div>
+        <div class="col-12 col-md-6">
+          <label for="contact-subject" class="form-label"><i class="fas fa-tag"></i> Subject</label>
+          <input type="text" id="contact-subject" class="form-control" placeholder="Subject">
+          <label for="contact-message" class="form-label mt-3"><i class="fas fa-comment-dots"></i> Message</label>
+          <textarea id="contact-message" class="form-control" rows="5" placeholder="Your message…"></textarea>
+        </div>
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-primary btn-lg">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+HTML
+        ]
+    );
+}, 11 );
