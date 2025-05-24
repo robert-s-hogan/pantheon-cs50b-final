@@ -1090,7 +1090,6 @@ register_block_pattern(
   <div class="section__inner container">
     <h2 class="section-heading text-center mb-5">Sign Up to Volunteer</h2>
     <form class="row g-4">
-      <!-- Col 1: Personal Info -->
       <div class="col-12 col-md-6">
         <h3 class="form-subheading">Personal Information</h3>
         <label class="form-label"><i class="fas fa-user"></i> Volunteer Name</label>
@@ -1106,7 +1105,6 @@ register_block_pattern(
           <div class="form-check"><input class="form-check-input" type="checkbox"><label class="form-check-label">Text</label></div>
         </fieldset>
       </div>
-      <!-- Col 2: Preferences -->
       <div class="col-12 col-md-6">
         <h3 class="form-subheading">Volunteer Preferences</h3>
         <label class="form-label"><i class="fas fa-hands-helping"></i> Interests</label>
@@ -1124,7 +1122,6 @@ register_block_pattern(
         <label class="form-label"><i class="fas fa-question-circle"></i> Questions/Requests <small>(Optional)</small></label>
         <textarea class="form-control" rows="4" placeholder="Enter any questions or concerns"></textarea>
       </div>
-      <!-- Submit -->
       <div class="col-12 text-center">
         <button type="submit" class="btn btn-primary btn-lg">
           <i class="fas fa-paper-plane"></i> Sign Me Up!
