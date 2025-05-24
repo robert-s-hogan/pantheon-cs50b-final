@@ -12593,6 +12593,36 @@ header.page-header-title {
   }
 }
 
+.contact-form {
+  background-color: #f6f6f6;
+  padding-block: 9rem;
+}
+.contact-form .section__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.contact-form .form-card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+.contact-form .form-label {
+  font-weight: 500;
+  color: #1a2e69;
+}
+.contact-form .form-label i {
+  margin-right: 0.5rem;
+  color: #3055c3;
+}
+.contact-form .form-control,
+.contact-form textarea {
+  border-radius: 0.25rem;
+}
+.contact-form button.btn-primary i {
+  margin-right: 0.5rem;
+}
+
 /* 5) Theme‐level customizations */
 .navbar-brand {
   font-family: "Russo One", sans-serif;
@@ -12618,7 +12648,7 @@ header.page-header-title {
     transition: none;
   }
 }
-.navbar-nav li > a:hover, .navbar-nav li > a:focus {
+.navbar-nav li > a:focus {
   background-color: #ffcb2a;
   color: #ffffff !important;
 }
