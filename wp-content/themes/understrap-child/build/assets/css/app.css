@@ -12654,7 +12654,6 @@ header.page-header-title {
 }
 .navbar-nav li.nav-cta > a {
   display: inline-block;
-  padding: 0.625rem 1.25rem;
   background-color: #ffcb2a;
   color: #1a2e69 !important;
   border-radius: 0.25rem;
