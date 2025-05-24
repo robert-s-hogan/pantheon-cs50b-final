@@ -1410,3 +1410,52 @@ register_block_pattern(
 HTML
     ]
 );
+
+add_action( 'init', function() {
+    register_block_pattern(
+        'whited/privacy-policy',
+        [
+            'title'       => __( 'Privacy Policy', 'understrap-child' ),
+            'description' => __( 'Standard site Privacy Policy layout', 'understrap-child' ),
+            'categories'  => [ 'layout' ],
+            'inserter'    => true,
+            'content'     => <<<'HTML'
+<section class="privacy-policy-section section alignwide">
+  <div class="section__inner container">
+    <h1>Privacy Policy</h1>
+    <p>Your privacy is important to Whited Elementary PTO. This policy explains what information we collect, how we use it, and your choices.</p>
+
+    <h2>1. Information We Collect</h2>
+    <p>We collect only the personal data you voluntarily provide—like name, email address, or phone number—when you sign up for newsletters, fill out forms, or register for events.</p>
+
+    <h2>2. How We Use Your Information</h2>
+    <p>We use your details to:</p>
+    <ul>
+      <li>Send you PTO updates, event invitations, and important announcements;</li>
+      <li>Manage volunteer sign-ups and coordinate activities;</li>
+      <li>Improve our website and services based on your feedback.</li>
+    </ul>
+
+    <h2>3. Cookies & Tracking</h2>
+    <p>Our site uses cookies and standard web analytics (e.g., Google Analytics) to understand usage patterns and enhance your experience. You can disable cookies in your browser settings if you prefer.</p>
+
+    <h2>4. Third-Party Sharing</h2>
+    <p>We never sell or rent your personal data. We may share information with trusted service providers (e.g., email platforms, event-management tools) solely to run PTO operations.</p>
+
+    <h2>5. Data Security</h2>
+    <p>We implement reasonable technical and organizational measures to protect your information from unauthorized access or disclosure.</p>
+
+    <h2>6. Children’s Privacy</h2>
+    <p>We do not knowingly collect personal information from children under 13. If you believe we have inadvertently done so, please contact us to have it removed.</p>
+
+    <h2>7. Changes to This Policy</h2>
+    <p>We may update this policy occasionally. Any changes will be posted here with a revised “Effective Date.”</p>
+
+    <h2>8. Contact Us</h2>
+    <p>If you have questions or concerns about our Privacy Policy, please email us at <a href="mailto:info@whitedpto.org">info@whitedpto.org</a>.</p>
+  </div>
+</section>
+HTML
+        ]
+    );
+}, 11 );
